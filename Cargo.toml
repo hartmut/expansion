@@ -1,0 +1,7 @@
+[package]
+name = "expansion"
+version = "0.0.1"
+authors = ["freeze"]
+
+[dependencies]
+piston_window = "0.15.0"
