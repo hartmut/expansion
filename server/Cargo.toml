@@ -1,10 +1,11 @@
 [package]
-name = "expansion"
+name = "expansion common module"
 version = "0.0.1"
 authors = ["freeze"]
 
-[[bin]]
-name = "expansion-client"
+[lib]
+name = "expansion-common"
+path = "src/mod.rs"
 
 [dependencies]
 piston_window = "*"
