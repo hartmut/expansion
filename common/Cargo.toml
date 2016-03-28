@@ -1,19 +1,12 @@
 [package]
-name = "expansion"
+name = "expansion common lib"
 version = "0.0.1"
 authors = ["freeze"]
 
-[[bin]]
-name = "expansion-client"
+[[lib]]
+name = "expansion-common-lib"
 
 [dependencies]
-piston_window = "*"
-piston = "*"
-piston2d-graphics = "*"
-pistoncore-glutin_window = "*"
-piston2d-opengl_graphics = "*"
-find_folder = "*"
-kafka = "*"
 log = "*"
 num = "*"
 time = "*"

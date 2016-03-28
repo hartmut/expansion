@@ -1,2 +1,5 @@
 target
 *.log
+*.toc
+*.backup
+*.aux
