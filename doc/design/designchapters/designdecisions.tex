@@ -6,15 +6,24 @@ How to structure the client and server part:
  \item piston 
  \item webclient
 \end{itemize}
-Exchange of status informations by json or similar protocols. #todo We need a definition of the protocol.
+Exchange of status informations by json or similar protocols.
+
+It should be possible to develop the client independent of the server, just connected
+by the structures which are send to the client. This will enable, in a later stage
+the distribution of servers (No ideas yet how to prevent cheating).
 
 \subsection{Protocol}
 
+The protocol needs to transport full and delta status informations for every relevant object. 
+Performance could get an issue.
+
+For graphicinformations we need a standard protocol for which there exists standard client
+and server libraries.
+
 \subsection{Expansion of World}
 
-\section{Physic Simulation}
-
-\section{Station / Ships}
+\section{Basic structures}
+We need decision trees, which will also be helpfull for for production and reseach trees.
 
 \section{Research}
 
@@ -26,5 +35,6 @@ Exchange of status informations by json or similar protocols. #todo We need a de
 
 \section{Trade}
 
+\section{Physic Simulation}
 
-
+\section{Station / Ships}

@@ -5,6 +5,6 @@ authors = ["freeze"]
 
 [bin]
 name = "expansion-server"
-path = "src/mod.rs"
+path = "src/main.rs"
 
 [dependencies]
