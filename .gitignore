@@ -3,3 +3,4 @@ target
 *.toc
 *.backup
 *.aux
+*.out
