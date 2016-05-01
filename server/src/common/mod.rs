@@ -2,6 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// everything regarding physics
+// all central tools
 
-pub mod spaceobj;
+pub mod hydration;
+pub mod ticker;

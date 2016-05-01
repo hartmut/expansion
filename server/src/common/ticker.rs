@@ -2,6 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// everything regarding physics
-
-pub mod spaceobj;
+// central worker, using for ticks in the "universe"
