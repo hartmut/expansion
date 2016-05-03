@@ -4,10 +4,11 @@
 
 extern crate time;
 mod physic;
+use physic::location::Spaceobj;
 
 fn main() {
 
     // will be filled
-    physic::spaceobj::spaceobj_new()
+    let x = Spaceobj::new(1.0, 2.0, 3.0, 4);
 
 }
