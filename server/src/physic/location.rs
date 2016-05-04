@@ -7,10 +7,12 @@
 extern crate time;
 
 // pos based on Ecliptic_coordinate_system (wikipedia)
+// TODO known objects like Jupiter should be determined by a standard library, use astro-rust?
 pub struct Spaceobj {
-    position: (f64, f64, f64),   // longtitude (l), latitude (b), distance from sun (r) in AU
-    mass: u64,                          // in kg, needed for accelerations
-    lastupdate: time::PreciseTime,      // time for this position in the world
+    position: (f64, f64, f64),         // longtitude (l), latitude (b), distance from sun (r) in AU
+    mass: u64,                         // in kg, needed for accelerations
+    realtime: time::PreciseTime,       // time for this position in the world
+    worldtime: time::PreciseTime,      // time in the world
 }
 
 impl Spaceobj {
@@ -18,7 +20,8 @@ impl Spaceobj {
         Spaceobj {
             position: (longtitude, latitude, distance),
             mass: mass,
-            lastupdate: time::PreciseTime::now(),
+            realtime: time::PreciseTime::now(),
+            worldtime: time::PreciseTime::now(),
         }
     }
 }
