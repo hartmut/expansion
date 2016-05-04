@@ -18,7 +18,7 @@ fn main() {
     let x = Spaceobj::new(1.0, 2.0, 3.0, 4);
 
     // ticker input by webservice/json
-    // start webserver to get informations from clients
+    // start webserver as an own thread to get informations from clients
 
     // define start time from configuration
     // let start = PreciseTime::now();
