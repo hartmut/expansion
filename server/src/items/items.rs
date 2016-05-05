@@ -3,9 +3,10 @@
 // See doc/LICENSE for licensing information
 //
 // contains informations about components needed to build stations, other components, etc.
+// but also found materials which can be refined or used in processes
 
-struct component {
-    Id: u64,        // id of the component
-    name: &string,  // Name of the component
+struct items {
+    UUId:   u64,        // global id of the item
+    name: String,       // Name of the item
 
 }

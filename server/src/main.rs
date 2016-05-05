@@ -7,27 +7,35 @@ extern crate time;
 mod physic;
 
 use physic::location::Spaceobj;
-use time::{Duration, PreciseTime};
 use std::time::Duration;
+use std::thread;
 
 fn main() {
 
+    // define statics
+    static TICK: u64 = 1; // one tick is this much seconds long
+
     // read configuration
 
-    // initalize
-    let x = Spaceobj::new(1.0, 2.0, 3.0, 4);
+    // initalize timer and counter
+    let tick_dur = Duration::from_secs(TICK);
+    let mut tick_counter: u64 = 0;
+
+    let x = Spaceobj::new(1.0, 2.0, 3.0, 4, tick_counter);
 
     // ticker input by webservice/json
-    // start webserver as an own thread to get informations from clients
+    // TODO start webserver as an own thread to get informations from clients
 
     // define start time from configuration
-    // let start = PreciseTime::now();
+    // TODO let start = PreciseTime::now();
 
     // wait, then update all objects,
     // wait for 5 Minutes in real time, this is analog to 2h in world time
     loop {
-        sleep (from_secs(300))
-        //call the different update methods for the next tick
+        println!("Hello world, this is tick {}", tick_counter);
+        thread::sleep (tick_dur);
+        tick_counter += 1;
+        //TODO call the different update methods for this tick
     }
 
 
