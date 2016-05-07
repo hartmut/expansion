@@ -4,3 +4,11 @@
 //
 // contains information about basic elements and raw materials
 // or should we model the basic elements into components?
+
+// includes all the elements. And later when needed the isotops, like HE3 and Uxxx
+
+struct rawmaterial {
+    UUId:   u64,      // global id of the rawm aterial
+    name: String,     // Name of the raw material
+
+}
