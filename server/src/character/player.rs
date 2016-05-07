@@ -7,8 +7,9 @@
 sruct player {
     UUId:   u64,        // uuid of the player
     name: String,       // Name of the player
-    FactionID: u64,     // take part in faction x
-    money: u64,         // creidts in purse
+    FactionID: u64,     // take part in faction x, at first 0, later to modell
+    credits: u64,       // credits in purse
     // TODO list of stations and ships
-    
+
+
 }

@@ -5,7 +5,7 @@
 // contains informations about components needed to build stations, other components, etc.
 
 struct component {
-    Id: u64,        // id of the component
-    name: &string,  // Name of the component
+    Id:   u64,        // id of the component
+    name: String,     // Name of the component
 
 }

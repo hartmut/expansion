@@ -7,7 +7,7 @@
 
 // includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
-struct rawmaterial {
+struct rawmaterial { //TODO integrate in components?
     UUId:   u64,      // global id of the rawm aterial
     name: String,     // Name of the raw material
 

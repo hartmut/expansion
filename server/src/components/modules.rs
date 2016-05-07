@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// useable modules for stations
+// modules of stations
