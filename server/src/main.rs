@@ -3,17 +3,23 @@
 // See doc/LICENSE for licensing information
 
 extern crate time;
+extern crate uuid;
+extern crate rustc_serialize;
 
+// define mods to use
 mod physic;
+mod structure;
+mod common;
 
-use physic::location::Spaceobj;
+// define uses
+use structure::station::AStation;
 use std::time::Duration;
 use std::thread;
 
-fn main() {
+// define constants
+static TICK: u64 = 2; // one Tick is this much seconds long
 
-    // define statics
-    static TICK: u64 = 2; // one tick is this much seconds long
+fn main() {
 
     // read configuration
 
@@ -21,12 +27,13 @@ fn main() {
     let tick_dur = Duration::from_secs(TICK);
     let mut tick_counter: u64 = 0;
 
-    let x = Spaceobj::new(1.0, 12.0 ,3.0 ,4 ,tick_counter);
+    //tests
+    let my_station =  AStation::new("Firefly".to_string());
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
 
-    // define start time from configuration
+    // determine current world time from configuration
     // TODO let start = PreciseTime::now();
 
     // wait, then update all objects,

@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// tools for permeating and restoring informations
+// tools for persisting and restoring informations

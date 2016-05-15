@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// could propably modeled with "inverse procuction rules"
+// take a product and desmantel it with efficency x%. The output goes back to the storage.

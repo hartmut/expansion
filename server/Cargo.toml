@@ -4,4 +4,6 @@ version = "0.0.1"
 authors = ["freeze"]
 
 [dependencies]
-time = "0.1"
+time = "0.1"             # https://crates.io/crates/time
+rustc-serialize = "0.3"  # https://crates.io/crates/rustc-serialize
+uuid = { version = "0.2", features = ["serde", "v4"] } # https://crates.io/crates/uuid

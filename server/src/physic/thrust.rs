@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// thrus, propably migrate to location.rs
+// thrust, propably migrate to location.rs

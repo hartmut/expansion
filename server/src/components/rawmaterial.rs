@@ -2,13 +2,18 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// contains information about basic elements and raw materials
-// or should we model the basic elements into components?
+//! contains information about basic elements and raw materials
+//! or should we model the basic elements into components?
 
-// includes all the elements. And later when needed the isotops, like HE3 and Uxxx
+//! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
+
+// uses
+use uuid::Uuid;
+
+//! all the atomar material you can't build
 
 struct rawmaterial { //TODO integrate in components?
-    UUId:   u64,      // global id of the rawm aterial
+    uuid: Uuid,      // global id of the raw material
     name: String,     // Name of the raw material
 
 }
