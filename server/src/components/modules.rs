@@ -11,17 +11,17 @@ use rustc-serialize::json::{self, ToJson, Json};
 
 struct module {
 //general informations
-    UUId:   u64,      // global id of the module
+    uuid: Uuid,      // global id of the module
     name: String,     // name/description of the module
     energyprod: u64, // energy production per tick -> energy module?
     energyuse: u64,  // energy use per tick -> energy module?
 
 //production and storage
-    current_receipe: u64, // uuid of receipe currently producing anything from food to other modules
+    CurProdReceipe: Uuid, // uuid of receipe currently producing anything from food to other modules
 
 
 // seldom use
-    prod_by_receipe: u64, //uuid of receipe with which it had been produced, usefull for dismantling of module
+    ProdByReceipe: Uuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
 
 
 }

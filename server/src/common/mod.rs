@@ -6,3 +6,4 @@
 
 pub mod world;
 pub mod uuid;
+pub mod storage;
