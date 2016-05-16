@@ -5,5 +5,6 @@
 // all central tools
 
 pub mod world;
-pub mod uuid;
+pub mod myuuid;
 pub mod storage;
+pub mod traits;

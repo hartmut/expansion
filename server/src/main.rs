@@ -6,15 +6,15 @@ extern crate time;
 extern crate uuid;
 extern crate rustc_serialize;
 
-// define mods to use
+// define external mods to use
+use std::time::Duration;
+use structure::station::AStation;
+use std::thread;
+
+// define internal mods to use
 mod physic;
 mod structure;
 mod common;
-
-// define uses
-use structure::station::AStation;
-use std::time::Duration;
-use std::thread;
 
 // define constants
 static TICK: u64 = 2; // one Tick is this much seconds long
