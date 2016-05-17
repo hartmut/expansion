@@ -5,11 +5,8 @@
 // all the traits
 
 // trait for Updates by Tick
-pub trait TickUpdate {
+pub trait WorldObject {
     fn update (&mut self);
-}
-
-pub trait Storage {
     fn save (&self);
     fn load (&mut self);
 }

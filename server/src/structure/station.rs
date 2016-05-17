@@ -9,9 +9,10 @@
 use uuid::Uuid;
 use rustc_serialize::json::{self, ToJson, Json};
 use common::myuuid;
-use common::traits::TickUpdate;
+use common::traits::WorldObject;
 use physic::location::SpaceObj;
 
+//#[derive(Deserialize, Serialize)]
 pub struct AStation {
     uuid: Uuid,       // global uniqe id, describes this station
     name: String,    // name of this station
@@ -43,8 +44,11 @@ impl AStation {
     }
 }
 
-impl TickUpdate for AStation {
+impl WorldObject for AStation {
     fn update(&mut self) {
         self.cost += 1;
     }
+
+    fn save (&self) {}
+    fn load (&mut self) {}
 }

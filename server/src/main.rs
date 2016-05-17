@@ -17,7 +17,7 @@ mod structure;
 mod common;
 
 // define constants
-static TICK: u64 = 2; // one Tick is this much seconds long
+static TICK: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
 
 fn main() {
 
