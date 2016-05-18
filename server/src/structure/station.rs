@@ -50,5 +50,4 @@ impl WorldObject for AStation {
     }
 
     fn save (&self) {}
-    fn load (&mut self) {}
-}
+    fn load (&mut self) {}}
