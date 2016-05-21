@@ -6,15 +6,14 @@
 //! can have thrust
 
 // uses
-use uuid::Uuid;
-use rustc_serialize::json::{self, ToJson, Json};
+//use uuid::Uuid;
 use common::myuuid;
 use common::traits::WorldObject;
 use physic::location::SpaceObj;
 
-//#[derive(Deserialize, Serialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
-    uuid: Uuid,       // global uniqe id, describes this station
+    uuid: myuuid::ExpUuid,       // global uniqe id, describes this station
     name: String,    // name of this station
     cost: u64,       // cost per tick to keep it running, or is it just energy? who pays the people? -> people module?
     energyprod: u64, // energy production per tick -> energy module?
@@ -50,4 +49,6 @@ impl WorldObject for AStation {
     }
 
     fn save (&self) {}
-    fn load (&mut self) {}}
+    fn load (&mut self) {}
+
+}

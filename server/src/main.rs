@@ -2,16 +2,22 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
+// macros and plugins
+#![feature(custom_derive, plugin)]
+#![plugin(serde_macros)]
+
+// extern
 extern crate time;
 extern crate uuid;
-extern crate rustc_serialize;
+//extern crate rustc_serialize;
+extern crate serde_json;
 
-// define external mods to use
+// describe external mods to use
 use std::time::Duration;
 use structure::station::AStation;
 use std::thread;
 
-// define internal mods to use
+// describe internal mods to use
 mod physic;
 mod structure;
 mod common;

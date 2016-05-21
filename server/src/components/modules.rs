@@ -6,22 +6,22 @@
 //! TODO how to implement improvements etc.? copy module an work with this in runtime?
 
 // uses
-use uuid::Uuid;
+use common::myuuid;
 use rustc-serialize::json::{self, ToJson, Json};
 
 struct module {
 //general informations
-    uuid: Uuid,      // global id of the module
+    uuid: ExpUuid,      // global id of the module
     name: String,     // name/description of the module
     energyprod: u64, // energy production per tick -> energy module?
     energyuse: u64,  // energy use per tick -> energy module?
 
 //production and storage
-    CurProdReceipe: Uuid, // uuid of receipe currently producing anything from food to other modules
+    CurProdReceipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules
 
 
 // seldom use
-    ProdByReceipe: Uuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
+    ProdByReceipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
 
 
 }

@@ -7,6 +7,6 @@
 // trait for Updates by Tick
 pub trait WorldObject {
     fn update (&mut self);
-    fn save (&self);
     fn load (&mut self);
+    fn save (&self);
 }

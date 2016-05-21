@@ -8,12 +8,12 @@
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
 // uses
-use uuid::Uuid;
+use common::myuuid;
 
 //! all the atomar material you can't build
 
 struct rawmaterial { //TODO integrate in components?
-    uuid: Uuid,      // global id of the raw material
+    uuid: ExpUuid,      // global id of the raw material
     name: String,     // Name of the raw material
 
 }

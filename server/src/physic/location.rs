@@ -7,6 +7,7 @@
 // pos based on Ecliptic_coordinate_system (wikipedia)
 // TODO known objects like Jupiter should be determined by a standard library, use astro-rust?
 
+#[derive(Serialize,Deserialize,Debug)]
 pub struct SpaceObj {
     long: f64, // longtitude (l) in relation to sun
     lat:  f64, // latitude (b) in relation to sun

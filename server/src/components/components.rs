@@ -5,11 +5,11 @@
 //! contains informations about components needed to build stations, other components, etc.
 
 // uses
-use uuid::Uuid;
+use common::myuuid;
 
 // structure
 struct component {
-    uuid: Uuid,      // id of the component
+    uuid: ExpUuid,      // id of the component
     name: String,     // Name of the component
-    receipe_uuid: Uuid, // UUId of receip with which this had been produced, usefull for dismantling
+    receipe_uuid: ExpUuid, // UUId of receip with which this had been produced, usefull for dismantling
 }

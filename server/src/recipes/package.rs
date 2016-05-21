@@ -12,6 +12,6 @@ use uuid::Uuid;
 //! material and quantity
 
 struct Package {
-    material: Uuid,  //what
+    material: ExpUuid,  //what
     quantity: u64,   // how much
 }

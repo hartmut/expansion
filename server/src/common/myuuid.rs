@@ -7,6 +7,8 @@
 
 use uuid::Uuid;
 
-pub fn get_new_uuid() -> Uuid {
-    Uuid::new_v4()
+pub type ExpUuid = Uuid;
+
+pub fn get_new_uuid() -> ExpUuid {
+    ExpUuid::new_v4()
 }
