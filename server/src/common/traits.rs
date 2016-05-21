@@ -4,9 +4,9 @@
 //
 // all the traits
 
-// trait for Updates by Tick
-pub trait WorldObject {
+// trait for Objects in this world
+pub trait StdTrait<T> {
     fn update (&mut self);
-    fn load (&mut self);
-    fn save (&self);
+    fn serialize (&self) -> String;
+    fn deserialize (&self, input: &String) -> T;
 }

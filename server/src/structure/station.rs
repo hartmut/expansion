@@ -6,10 +6,10 @@
 //! can have thrust
 
 // uses
-//use uuid::Uuid;
 use common::myuuid;
-use common::traits::WorldObject;
+use common::traits::StdTrait;
 use physic::location::SpaceObj;
+use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
@@ -43,12 +43,19 @@ impl AStation {
     }
 }
 
-impl WorldObject for AStation {
+impl StdTrait<AStation> for AStation {
     fn update(&mut self) {
         self.cost += 1;
     }
 
-    fn save (&self) {}
-    fn load (&mut self) {}
+    fn serialize (&self) -> String
+    {
+        serde_json::to_string(&self).unwrap()
+    }
+
+    fn deserialize (&self, input: &String) -> AStation
+    {
+        serde_json::from_str(&input).unwrap()
+    }
 
 }

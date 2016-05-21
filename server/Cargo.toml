@@ -1,14 +1,13 @@
 [package]
 name = "expansion_server"
 version = "0.0.1"
-authors = ["freeze"]
+authors = ["Hartmut "]
 
 [build-dependencies]
 quasi_macros = "0.10.0"
 
 [dependencies]
 time = "0.1"             # https://crates.io/crates/time
-# rustc-serialize = "0.3"  # https://crates.io/crates/rustc-serialize
 uuid = { version = "0.2", features = ["serde", "v4"] } # https://crates.io/crates/uuid
 serde = "0.7" # https://crates.io/crates/serde
 serde_json = "*" # https://crates.io/crates/serde_json
