@@ -15,6 +15,7 @@ use serde_json;
 pub struct AStation {
     uuid: myuuid::ExpUuid,       // global uniqe id, describes this station
     name: String,    // name of this station
+    owner: myuuid::ExpUuid,  // player who owns this station
     cost: u64,       // cost per tick to keep it running, or is it just energy? who pays the people? -> people module?
     energyprod: u64, // energy production per tick -> energy module?
     energyuse: u64,  // energy use per tick -> energy module?
@@ -33,6 +34,7 @@ impl AStation {
         AStation {
             uuid: myuuid::get_new_uuid(),
             name: name,
+            owner: myuuid::get_new_uuid(),
             cost: 0,
             energyprod: 0,
             energyuse: 0,

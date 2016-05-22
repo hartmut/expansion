@@ -23,7 +23,8 @@ use std::thread;
 use common::traits::StdTrait;
 
 // define constants
-static TICK: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
+const TICK: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
+static mut tick_counter: u64 = 0;
 
 fn main() {
 
@@ -31,7 +32,6 @@ fn main() {
 
     // initalize timer and counter
     let tick_dur = Duration::from_secs(TICK);
-    let mut tick_counter: u64 = 0;
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
@@ -52,10 +52,12 @@ fn main() {
     // wait for 5 Minutes in real time, this is analog to 2h in world time
     loop {
         thread::sleep (tick_dur);
-        tick_counter += 1;
+        unsafe {
+            tick_counter += 1;
 
-        println!("Hello world, this is tick {}", tick_counter);
-        println!("time elapsed since start: {} sec \n", tick_counter*TICK);
+            println!("Hello world, this is tick {}", tick_counter);
+            println!("time elapsed since start: {} sec \n", tick_counter*TICK);
+        }
 
         //TODO call the update methods of all relevant strutures for this tick
         my_station.update();

@@ -2,7 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// station relevant informaitons
-
-pub mod station;
-pub mod manage;
+//! managing the stations, updates, etc.
