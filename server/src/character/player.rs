@@ -5,17 +5,46 @@
 //! player code, independent whether it is a NPC or a PC
 
 // uses
-use uuid::Uuid;
-use rustc-serialize::json::{self, ToJson, Json};
-use common;
+use common::myuuid;
+use common::traits::StdTrait;
+use serde_json;
 
-//! player
+// players data
 
-struct player {
-    uuid: Uuid,          // uuid of the player
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Player {
+    uuid: myuuid::ExpUuid,          // uuid of the player
     name: String,       // Name of the player
-    FactionID: Uuid,     // take part in faction x, at first 0, later to modell
     credits: u64,       // credits in purse
+
     // TODO list of stations and ships uuids, send messages to update states?
+
+}
+
+impl Player {
+    pub fn new ( name: String ) -> Player {
+        Player {
+            uuid: myuuid::get_new_uuid(),
+            name: name,
+            credits: 0,
+        }
+    }
+}
+
+
+impl StdTrait<Player> for Player {
+    fn update(&mut self) {
+        self.credits += 1;
+    }
+
+    fn serialize (&self) -> String
+    {
+        serde_json::to_string(&self).unwrap()
+    }
+
+    fn deserialize (&self, input: &String) -> Player
+    {
+        serde_json::from_str(&input).unwrap()
+    }
 
 }
