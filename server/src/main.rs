@@ -10,6 +10,7 @@
 extern crate time;
 extern crate uuid;
 extern crate serde_json;
+extern crate toml;
 
 // describe internal mods to use
 mod physic;
@@ -27,16 +28,22 @@ use common::traits::StdTrait;
 // testincludes
 //use tests::playertest;
 
+// configuration
+struct configuration {
+    tick: u64,
+}
+
 // define constants
-const TICK: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
 static mut tick_counter: u64 = 0;
 
 fn main() {
 
     // read configuration and data
+    load_config();
+    let tick: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
 
     // initalize timer and counter
-    let tick_dur = Duration::from_secs(TICK);
+    let tick_dur = Duration::from_secs(tick);
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
@@ -55,12 +62,18 @@ fn main() {
             tick_counter += 1;
 
             println!("Hello world, this is tick {}", tick_counter);
-            println!("time elapsed since start: {} sec \n", tick_counter*TICK);
+            println!("time elapsed since start: {} sec \n", tick_counter*tick);
         }
 
         //TODO call the update methods of all relevant strutures for this tick
         my_station.update();
-        println!("{:?} \n", my_station);
+        let serialized = my_station.serialize();
+        println!("{} \n", serialized);
+        //println!("{:?} \n", my_station);
 
     }
+}
+
+fn load_config() {
+    println!("hello world")
 }

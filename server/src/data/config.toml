@@ -1,0 +1,18 @@
+# Experimental Simulator of a cooperative solar system economy.
+# Copyright (C) 2016  Hartmut Prochaska
+# See doc/LICENSE for licensing information
+
+# duration of tick in seconds
+tick = 2
+
+[playerdata]
+storageMethod = file
+datafile = player.json
+
+[stationdata]
+storageMethod = file
+datafile = station.json
+
+[moduledata]
+storageMethod = file
+datafile = module.json
