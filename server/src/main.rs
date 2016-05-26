@@ -29,7 +29,7 @@ use common::traits::StdTrait;
 //use tests::playertest;
 
 // configuration
-struct configuration {
+struct Configuration {
     tick: u64,
 }
 

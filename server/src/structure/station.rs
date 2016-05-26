@@ -55,7 +55,7 @@ impl StdTrait<AStation> for AStation {
         serde_json::to_string(&self).unwrap()
     }
 
-    fn deserialize (&self, input: &String) -> AStation
+    fn new_from_deserialized (input: &String) -> AStation
     {
         serde_json::from_str(&input).unwrap()
     }
@@ -69,13 +69,17 @@ mod tests {
     use common::traits::StdTrait;
 
     #[test]
-    fn serialize_deserialize() {
+    fn serialize_test() {
         let mut my_station = AStation::new("Firefly".to_string());
         let serialized = my_station.serialize();
-        //println!("{} \n", serialized);
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); // whats easier - this
-        let mut tempstation: AStation = AStation::new("a further Firefly".to_string()); // or this?
-        tempstation = AStation::deserialize(&tempstation, &serialized);
-        //println!("{:?} \n", tempstation);
+    }
+
+    #[test]
+    fn test_new_from_deserialize ()
+    {
+        let mut my_station = AStation::new("Firefly".to_string());
+        let serialized = my_station.serialize();
+        let teststation: AStation = AStation::new_from_deserialized(&serialized);
     }
 }

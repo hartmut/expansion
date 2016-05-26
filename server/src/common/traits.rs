@@ -8,5 +8,5 @@
 pub trait StdTrait<T> {
     fn update (&mut self);
     fn serialize (&self) -> String;
-    fn deserialize (&self, input: &String) -> T;
+    fn new_from_deserialized (input: &String) -> T;
 }

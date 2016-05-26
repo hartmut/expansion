@@ -42,7 +42,7 @@ impl StdTrait<Player> for Player {
         serde_json::to_string(&self).unwrap()
     }
 
-    fn deserialize (&self, input: &String) -> Player
+    fn new_from_deserialized (input: &String) -> Player
     {
         serde_json::from_str(&input).unwrap()
     }
