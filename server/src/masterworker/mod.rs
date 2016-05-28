@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// station relevant informaitons
+/// worker module which manages the ticks and data exchange between the different
+/// subworkers
 
-pub mod station;
 pub mod worker;

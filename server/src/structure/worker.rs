@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-//! managing the stations, updates, etc.
+//! managing the stations updates

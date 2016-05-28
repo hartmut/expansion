@@ -24,26 +24,19 @@ use std::time::Duration;
 use structure::station::AStation;
 use std::thread;
 use common::traits::StdTrait;
+use common::configuration;
 
 // testincludes
-//use tests::playertest;
-
-// configuration
-struct Configuration {
-    tick: u64,
-}
-
-// define constants
-static mut tick_counter: u64 = 0;
+// use tests::playertest;
 
 fn main() {
 
     // read configuration and data
-    load_config();
-    let tick: u64 = 2; // one Tick is this much seconds long and 2h worth in the world
+    let mut tick_counter: u64 = 0;
+    let myconfig = configuration::Configuration::load_config();
 
     // initalize timer and counter
-    let tick_dur = Duration::from_secs(tick);
+    let tick_dur = Duration::from_secs(myconfig.get_tick());
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
@@ -51,29 +44,20 @@ fn main() {
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
 
-    // determine current world time from configuration
-    // TODO let start = PreciseTime::now();
-
     // wait, then update all objects,
     // wait for TICK Seconds in real time, this is analog to 2h in world time
     loop {
         thread::sleep (tick_dur);
-        unsafe {
-            tick_counter += 1;
+        tick_counter += 1;
 
-            println!("Hello world, this is tick {}", tick_counter);
-            println!("time elapsed since start: {} sec \n", tick_counter*tick);
-        }
+        println!("Hello world, this is tick {}", tick_counter);
+        println!("time elapsed since start: {} sec \n", tick_counter*myconfig.get_tick());
 
-        //TODO call the update methods of all relevant strutures for this tick
+        //call the update methods of all relevant strutures for this tick
         my_station.update();
         let serialized = my_station.serialize();
         println!("{} \n", serialized);
         //println!("{:?} \n", my_station);
 
     }
-}
-
-fn load_config() {
-    println!("hello world")
 }

@@ -14,7 +14,6 @@ pub struct SpaceObj {
     dist: f64, // distance from sun (r) in AU
     mass: u64, // in kg, needed for accelerations
     // center of world is sun, jupiter, earth ? default should be sun
-    // worldtime: time::PreciseTime,      // time in the world TODO should be calculated from tick
 }
 
 impl SpaceObj {
@@ -24,7 +23,6 @@ impl SpaceObj {
             lat: latitude,
             dist: distance,
             mass: mass,
-            // worldtime - determine by using tick necessary?
         }
     }
 }

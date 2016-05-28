@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// defines the world
+/// defines the world
 
 // prepare
 // processes or vecs to iterate over in this module?
