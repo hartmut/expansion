@@ -50,17 +50,18 @@ impl Configuration {
         let mut parser = toml::Parser::new(&input);
 
         let toml = match parser.parse() {
+            None       =>
+                {
+                    for err in &parser.errors {
+                        let (loline, locol) = parser.to_linecol(err.lo);
+                        let (hiline, hicol) = parser.to_linecol(err.hi);
+                        println!("{}:{}:{}-{}:{} error: {}",
+                                 display, loline, locol, hiline, hicol, err.desc)
+                     }
+                     //TODO doesn't compile
+                     return
+                },
             Some(toml) => toml,
-            None => {
-                for err in &parser.errors{
-                    let (loline, locol) = parser.to_linecol(err.lo);
-                    let (hiline, hicol) = parser.to_linecol(err.hi);
-                    println!("{}:{}:{}-{}:{} error: {}",
-                             display, loline, locol, hiline, hicol, err.desc);
-                 }
-                 //TODO doesn't compile
-                 return
-            },
         };
 
 //        let json = convert(Value::Table(toml));
