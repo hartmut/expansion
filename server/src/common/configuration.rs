@@ -24,10 +24,10 @@ pub struct Configuration {
 
 impl Configuration {
 
-    pub fn load_config() -> Configuration {
+    pub fn load_config(args: Vec<String>) -> Configuration {
 
-        // Create a path to the desired file
-        let path = Path::new("server/src/data/config.toml");
+        // configuration is here server/src/data/config.toml
+        let path = Path::new(&args[1]);
         let display = path.display();
         let mut input = String::new();
 
@@ -58,14 +58,12 @@ impl Configuration {
                         println!("{}:{}:{}-{}:{} error: {}",
                                  display, loline, locol, hiline, hicol, err.desc)
                      }
-                     //TODO doesn't compile
-                     return
+                     panic!("configuration error");
                 },
             Some(toml) => toml,
         };
 
-//        let json = convert(Value::Table(toml));
-//        println!("{}", json.pretty());
+        //just for debugging purposes
         println!("{:?}", toml);
 
         let out = Configuration {tick: 2,
@@ -80,17 +78,3 @@ impl Configuration {
         self.tick
     }
 }
-
-// fn convert(toml: Value) -> Json {
-//     match toml {
-//         Value::String(s) => Json::String(s),
-//         Value::Integer(i) => Json::I64(i),
-//         Value::Float(f) => Json::F64(f),
-//         Value::Boolean(b) => Json::Boolean(b),
-//         Value::Array(arr) => Json::Array(arr.into_iter().map(convert).collect()),
-//         Value::Table(table) => Json::Object(table.into_iter().map(|(k, v)| {
-//             (k, convert(v))
-//         }).collect()),
-//         Value::Datetime(dt) => Json::String(dt),
-//     }
-// }

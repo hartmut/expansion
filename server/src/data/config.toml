@@ -6,13 +6,13 @@
 tick = 2
 
 [playerdata]
-storageMethod = file
-datafile = player.json
+storageMethod ="file"
+datafile="player.json"
 
 [stationdata]
-storageMethod = file
-datafile = station.json
+storageMethod="file"
+datafile="station.json"
 
 [moduledata]
-storageMethod = file
-datafile = module.json
+storageMethod="file"
+datafile="module.json"

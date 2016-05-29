@@ -19,21 +19,26 @@ mod common;
 mod character;
 mod tests;
 
-// describe external mods to use
+// my mods to use
 use std::time::Duration;
 use structure::station::AStation;
 use std::thread;
 use common::traits::StdTrait;
 use common::configuration;
 
+// standard mods to use
+use std::env;
+
 // testincludes
 // use tests::playertest;
 
 fn main() {
+    // read inputdata
+    let args: Vec<String> = env::args().collect();
 
     // read configuration and data
     let mut tick_counter: u64 = 0;
-    let myconfig = configuration::Configuration::load_config();
+    let myconfig = configuration::Configuration::load_config(args);
 
     // initalize timer and counter
     let tick_dur = Duration::from_secs(myconfig.get_tick());
