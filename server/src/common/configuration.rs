@@ -15,6 +15,7 @@ use toml;
 use serde_json;
 
 /// configuration
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Configuration {
     tick: u64,
     filename_player: String,
@@ -78,3 +79,19 @@ impl Configuration {
         self.tick
     }
 }
+
+// fn convert(toml: toml::Value) -> Vec<String> {
+//     let mut output = Vec::new();
+//     match toml {
+//         toml::Value::String(s) => output.push(s),
+//         toml::Value::Integer(i) => output.push(i),
+//         toml::Value::Float(f) => output.push(f),
+//         toml::Value::Boolean(b) => output.push(b),
+//         toml::Value::Array(arr) => Json::Array(arr.into_iter().map(convert).collect()),
+//         toml::Value::Table(table) => Json::Object(table.into_iter().map(|(k, v)| {
+//             (k, convert(v))
+//         }).collect()),
+//         toml::Value::Datetime(dt) => Json::String(dt),
+//     }
+//     output
+// }
