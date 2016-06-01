@@ -10,8 +10,9 @@ use std::io;
 use std::io::prelude::*;
 use std::error::Error;
 use std::path::Path;
+use std::collections::BTreeMap;
 
-use toml;
+use toml::{Value, Parser};
 use serde_json;
 
 /// configuration
@@ -45,10 +46,10 @@ impl Configuration {
         match file.read_to_string(&mut input) {
             Err(why) => panic!("couldn't read {}: {}", display,
                                                        why.description()),
-            Ok(_) => print!("{} contains:\n{}", display, input),
+            Ok(_) => print!("{} contains:\n{}\n\n", display, input),
         }
 
-        let mut parser = toml::Parser::new(&input);
+        let mut parser = Parser::new(&input);
 
         let toml = match parser.parse() {
             None       =>
@@ -64,8 +65,11 @@ impl Configuration {
             Some(toml) => toml,
         };
 
+
         //just for debugging purposes
-        println!("{:?}", toml);
+        println!("{:?} \n", toml);
+        let mut a:BTreeMap<String, Value> = toml;
+        println!("{:?} \n", a);
 
         let out = Configuration {tick: 2,
                                 filename_player:  "a".to_string(),
@@ -79,19 +83,3 @@ impl Configuration {
         self.tick
     }
 }
-
-// fn convert(toml: toml::Value) -> Vec<String> {
-//     let mut output = Vec::new();
-//     match toml {
-//         toml::Value::String(s) => output.push(s),
-//         toml::Value::Integer(i) => output.push(i),
-//         toml::Value::Float(f) => output.push(f),
-//         toml::Value::Boolean(b) => output.push(b),
-//         toml::Value::Array(arr) => Json::Array(arr.into_iter().map(convert).collect()),
-//         toml::Value::Table(table) => Json::Object(table.into_iter().map(|(k, v)| {
-//             (k, convert(v))
-//         }).collect()),
-//         toml::Value::Datetime(dt) => Json::String(dt),
-//     }
-//     output
-// }
