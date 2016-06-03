@@ -22,6 +22,7 @@ mod tests;
 // my mods to use
 use std::time::Duration;
 use structure::station::AStation;
+use character::player::Player;
 use std::thread;
 use common::traits::StdTrait;
 use common::configuration;
@@ -45,7 +46,9 @@ fn main() {
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
+    let mut one_player = Player::new("Ian Banks".to_string());
 
+    println!("{:?}", one_player);
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
 

@@ -2,7 +2,12 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// all player relevant informations and activities
+/// worker for player
 
-pub mod player;
-pub mod player_worker;
+// prepare
+// process for player
+
+
+pub struct player_worker {
+    
+}
