@@ -14,7 +14,7 @@ pub trait StdTrait<T> {
 /// worker trait and struct
 
 pub struct WorkerStruct {
-    name: String,
+    pub name: String,
     // queue with incomming updates
     // queue with outgoing updates
 }

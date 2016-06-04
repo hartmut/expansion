@@ -66,7 +66,7 @@ impl Configuration {
         };
 
 
-        //just for debugging purposes
+        // just for debugging purposes
         println!("{:?} \n", toml);
         let mut a:BTreeMap<String, Value> = toml;
         println!("{:?} \n", a);

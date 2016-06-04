@@ -23,6 +23,7 @@ mod tests;
 use std::time::Duration;
 use structure::station::AStation;
 use character::player::Player;
+use character::player_worker::PlayerWorker;
 use std::thread;
 use common::traits::StdTrait;
 use common::configuration;
@@ -47,6 +48,7 @@ fn main() {
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
     let mut one_player = Player::new("Ian Banks".to_string());
+    let mut player_worker = PlayerWorker::new("Player_Worker".to_string());
 
     println!("{:?}", one_player);
     // ticker input by webservice/json

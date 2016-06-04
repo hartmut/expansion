@@ -7,9 +7,13 @@ authors = ["Hartmut "]
 quasi_macros = "0.10.0"
 
 [dependencies]
-time = "0.1"             # https://crates.io/crates/time
+time = "0.1" # https://crates.io/crates/time
 uuid = { version = "0.2", features = ["serde", "v4"] } # https://crates.io/crates/uuid
 serde = "0.7" # https://crates.io/crates/serde
 serde_json = "*" # https://crates.io/crates/serde_json
 serde_macros = "*" # https://crates.io/crates/serde_macros
 toml = "0.1" # https://crates.io/crates/toml
+
+[features]
+default = []
+# secure-password = ["bcrypt"]

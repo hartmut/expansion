@@ -4,10 +4,20 @@
 //
 /// worker for player
 
-// prepare
-// process for player
 
+use common::traits;
 
-pub struct player_worker {
-    
+/// this structure holds the informations for the worker in the player area
+pub struct PlayerWorker {
+    /// structure with 'general worker structure'
+    worker_struct: traits::WorkerStruct,
+    //vec with players in it
+}
+
+impl PlayerWorker {
+    pub fn new (name: String) -> PlayerWorker {
+        PlayerWorker {
+            worker_struct: traits::WorkerStruct{name: name},
+        }
+    }
 }
