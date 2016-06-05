@@ -5,9 +5,9 @@
 //! player code, independent whether it is a NPC or a PC
 
 // uses
-use common::myuuid;
 use common::traits::StdTrait;
 use serde_json;
+use common::myuuid;
 
 // players data
 

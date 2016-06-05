@@ -6,10 +6,10 @@
 //! can have thrust
 
 // uses
-use common::myuuid;
 use common::traits::StdTrait;
-use physic::location::SpaceObj;
 use serde_json;
+use common::myuuid;
+use physic::location::SpaceObj;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
