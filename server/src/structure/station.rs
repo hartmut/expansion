@@ -6,7 +6,7 @@
 //! can have thrust
 
 // uses
-use common::traits::StdTrait;
+use common::stdtrait::StdTrait;
 use serde_json;
 use common::myuuid;
 use physic::location::SpaceObj;
@@ -66,7 +66,7 @@ impl StdTrait<AStation> for AStation {
 mod tests {
     use super::*;
     use serde_json;
-    use common::traits::StdTrait;
+    use common::stdtrait::StdTrait;
 
     #[test]
     fn serialize_test() {

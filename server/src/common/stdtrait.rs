@@ -25,17 +25,3 @@ pub trait StdTrait<T> {
     // }
 
 }
-
-/// worker trait and struct
-
-pub struct WorkerStruct {
-    pub name: String,
-    // queue with incomming updates
-    // queue with outgoing updates
-}
-
-pub trait WorkerTrait {
-    fn initalize (&mut self);
-    fn send_update (&self);
-    fn get_update (&mut self);
-}

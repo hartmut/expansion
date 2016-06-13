@@ -7,7 +7,7 @@
 // pos based on Ecliptic_coordinate_system (wikipedia)
 // TODO known objects like Jupiter should be determined by a standard library, use astro-rust?
 
-use common::traits::StdTrait;
+use common::stdtrait::StdTrait;
 use serde_json;
 
 #[derive(Serialize,Deserialize,Debug)]

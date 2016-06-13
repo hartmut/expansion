@@ -5,7 +5,7 @@
 //! player code, independent whether it is a NPC or a PC
 
 // uses
-use common::traits::StdTrait;
+use common::stdtrait::StdTrait;
 use serde_json;
 use common::myuuid;
 
@@ -47,4 +47,16 @@ impl StdTrait<Player> for Player {
         serde_json::from_str(&input).unwrap()
     }
 
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use serde_json;
+    use common::stdtrait::StdTrait;
+
+    #[test]
+    fn new_player() {
+        let one_player = Player::new("Ian Banks".to_string());
+    }
 }

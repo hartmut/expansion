@@ -25,8 +25,9 @@ use structure::station::AStation;
 use character::player::Player;
 use character::player_worker::PlayerWorker;
 use std::thread;
-use common::traits::StdTrait;
+use common::stdtrait::StdTrait;
 use common::configuration;
+use common::readfile::*;
 
 // standard mods to use
 use std::env;
@@ -47,10 +48,10 @@ fn main() {
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
-    let mut one_player = Player::new("Ian Banks".to_string());
-    let mut player_worker = PlayerWorker::new("Player_Worker".to_string());
+    let player_worker = PlayerWorker::new("Player_Worker".to_string());
+    let f = newreader("src/data/player.json".to_string());
+    printfile(f);
 
-    println!("{:?}", one_player);
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
 

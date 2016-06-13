@@ -5,6 +5,7 @@
 // all central tools
 
 pub mod myuuid;
-pub mod traits;
+pub mod stdtrait;
+pub mod workertrait;
 pub mod configuration;
 pub mod readfile;
