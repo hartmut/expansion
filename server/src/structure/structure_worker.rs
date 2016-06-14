@@ -6,6 +6,8 @@
 
 use common::workertrait::*;
 use common::readfile::*;
+use common::myuuid::*;
+use std::collections::BTreeMap;
 use super::station::AStation;
 
 /// this structure holds the informations for the worker in the player area
@@ -14,7 +16,7 @@ pub struct StructureWorker {
     /// structure with 'general worker structure'
     worker_struct: WorkerStruct,
     //vec with stations in it
-    vec_structure: Vec<AStation>,
+    stations: BTreeMap<ExpUuid, AStation>,
 }
 
 impl StructureWorker {
@@ -22,11 +24,11 @@ impl StructureWorker {
         let f = newreader(filename);
         printfile(f);
 
-        let a: Vec<AStation> = Vec::new();
+        let mut a: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         StructureWorker {
             worker_struct: WorkerStruct{name: name},
-            vec_structure: a,
+            stations: a,
         }
     }
 }
