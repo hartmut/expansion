@@ -5,15 +5,15 @@
 
 /// used mods
 use std::fs::File;
-use std::env;
-use std::io;
+// use std::env;
+// use std::io;
 use std::io::prelude::*;
 use std::error::Error;
 use std::path::Path;
 use std::collections::BTreeMap;
 
 use toml::{Value, Parser};
-use serde_json;
+// use serde_json;
 
 /// configuration
 #[derive(Serialize, Deserialize, Debug)]
@@ -68,7 +68,7 @@ impl Configuration {
 
         // just for debugging purposes
         println!("{:?} \n", toml);
-        let mut a:BTreeMap<String, Value> = toml;
+        let a:BTreeMap<String, Value> = toml;
         println!("{:?} \n", a);
 
         let out = Configuration {tick: 2,

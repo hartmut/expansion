@@ -6,13 +6,13 @@
 /// used mods
 use std::fs::File;
 use std::io::prelude::*;
-use std::io::{self, BufReader};
+use std::io::BufReader;
 use std::path::Path;
 use std::error::Error;
 
-pub fn newreader (FileName: String) -> BufReader<File> {
+pub fn newreader (filename: String) -> BufReader<File> {
 
-    let path = Path::new(&FileName);
+    let path = Path::new(&filename);
 
     // Open the path in read-only mode, returns `io::Result<File>`
     let f = match File::open(&path) {

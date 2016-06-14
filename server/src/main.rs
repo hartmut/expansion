@@ -22,12 +22,12 @@ mod tests;
 // my mods to use
 use std::time::Duration;
 use structure::station::AStation;
+use structure::structure_worker::StructureWorker;
 use character::player::Player;
 use character::player_worker::PlayerWorker;
 use std::thread;
 use common::stdtrait::StdTrait;
 use common::configuration;
-use common::readfile::*;
 
 // standard mods to use
 use std::env;
@@ -38,6 +38,7 @@ use std::env;
 fn main() {
     // read inputdata
     let args: Vec<String> = env::args().collect();
+    // TODO panic when args is empty
 
     // read configuration and data
     let mut tick_counter: u64 = 0;
@@ -48,9 +49,14 @@ fn main() {
 
     //tests
     let mut my_station = AStation::new("Firefly".to_string());
-    let player_worker = PlayerWorker::new("Player_Worker".to_string());
-    let f = newreader("src/data/player.json".to_string());
-    printfile(f);
+    let my_player = Player::new("Ian Banks".to_string());
+    println!("{:?}", my_player);
+    let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
+                                            "src/data/player.json".to_string());
+    println!("{:?}", player_worker);
+    let structure_worker = StructureWorker::new(  "Structure_Worker".to_string(),
+                                            "src/data/station.json".to_string());
+    println!("{:?}", structure_worker);
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients

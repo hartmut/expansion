@@ -6,6 +6,7 @@
 
 /// worker trait and struct
 
+#[derive(Debug)]
 pub struct WorkerStruct {
     pub name: String,
     // queue with incomming updates

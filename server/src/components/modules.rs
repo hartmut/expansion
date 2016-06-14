@@ -7,7 +7,7 @@
 
 // uses
 use common::myuuid;
-use rustc-serialize::json::{self, ToJson, Json};
+use serde_json;;
 
 struct module {
 //general informations

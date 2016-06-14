@@ -2,26 +2,31 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-/// worker for player
+//! managing the stations updates
 
 use common::workertrait::*;
 use common::readfile::*;
+use super::station::AStation;
 
 /// this structure holds the informations for the worker in the player area
 #[derive(Debug)]
-pub struct PlayerWorker {
+pub struct StructureWorker {
     /// structure with 'general worker structure'
     worker_struct: WorkerStruct,
-    //vec with players in it
+    //vec with stations in it
+    vec_structure: Vec<AStation>,
 }
 
-impl PlayerWorker {
-    pub fn new (name: String, filename: String) -> PlayerWorker {
+impl StructureWorker {
+    pub fn new (name: String, filename: String) -> StructureWorker {
         let f = newreader(filename);
         printfile(f);
 
-        PlayerWorker {
+        let a: Vec<AStation> = Vec::new();
+
+        StructureWorker {
             worker_struct: WorkerStruct{name: name},
+            vec_structure: a,
         }
     }
 }

@@ -4,8 +4,8 @@
 //
 /// all the traits in one file
 
-use serde_json;
-use physic::location::SpaceObj;
+// use serde_json;
+// use physic::location::SpaceObj;
 
 /// trait for Objects in this world
 pub trait StdTrait<T> {
