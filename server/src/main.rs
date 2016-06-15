@@ -27,6 +27,7 @@ use character::player::Player;
 use character::player_worker::PlayerWorker;
 use std::thread;
 use common::stdtrait::StdTrait;
+use common::workertrait::WorkerTrait;
 use common::configuration;
 
 // standard mods to use
@@ -54,8 +55,9 @@ fn main() {
     let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
                                             "src/data/player.json".to_string());
     println!("{:?}", player_worker);
-    let structure_worker = StructureWorker::new(  "Structure_Worker".to_string(),
-                                            "src/data/station.json".to_string());
+    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string());
+    structure_worker.initalize("src/data/station.json".to_string());
+
     println!("{:?}", structure_worker);
 
     // ticker input by webservice/json

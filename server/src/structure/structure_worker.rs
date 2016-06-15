@@ -19,16 +19,32 @@ pub struct StructureWorker {
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
-impl StructureWorker {
-    pub fn new (name: String, filename: String) -> StructureWorker {
-        let f = newreader(filename);
-        printfile(f);
+// impl StructureWorker {
+//
+// }
 
-        let mut a: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
+impl WorkerTrait<StructureWorker> for StructureWorker {
+    fn new (name: String) -> StructureWorker {
+
+        let mut btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         StructureWorker {
             worker_struct: WorkerStruct{name: name},
-            stations: a,
+            stations: btree,
         }
+    }
+
+    fn initalize (&mut self, filename: String) {
+        let f = newreader(filename);
+        printfile(f);
+
+    }
+
+    fn send_update (&self) {
+
+    }
+
+    fn get_update (&mut self) {
+
     }
 }

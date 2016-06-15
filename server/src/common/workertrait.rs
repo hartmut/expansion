@@ -13,8 +13,9 @@ pub struct WorkerStruct {
     // queue with outgoing updates
 }
 
-pub trait WorkerTrait {
-    fn initalize (&mut self);
+pub trait WorkerTrait<T> {
+    fn new (name: String) -> T;
+    fn initalize (&mut self, filename: String);
     fn send_update (&self);
     fn get_update (&mut self);
 }
