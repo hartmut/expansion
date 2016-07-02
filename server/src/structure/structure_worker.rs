@@ -37,6 +37,18 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     fn initalize (&mut self, filename: String) {
         let f = newreader(filename);
         printfile(f);
+        loop {
+            //TODO ambigous type, does not compile
+            let unwline = getline(f);
+            println!("{}", unwline);
+            //let tempstation: AStation = AStation::StdTrait::new_from_deserialized(&unwline);
+            // let uuid = tempstation.getuuid();
+            // self.stations.insert(uuid, tempstation);
+        }
+
+    }
+
+    fn run(&mut self) {
 
     }
 

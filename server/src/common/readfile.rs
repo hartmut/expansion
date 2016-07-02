@@ -7,6 +7,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
+use std::io::Lines;
 use std::path::Path;
 use std::error::Error;
 
@@ -32,4 +33,9 @@ pub fn printfile (f: BufReader<File>) {
         println!("{}", line.unwrap());
     }
     println!("\n ******************************** \n");
+}
+
+//TODO does not compile
+pub fn getline (f: BufReader<File>) {
+    f.lines().next().unwrap()
 }

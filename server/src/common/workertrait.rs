@@ -18,4 +18,5 @@ pub trait WorkerTrait<T> {
     fn initalize (&mut self, filename: String);
     fn send_update (&self);
     fn get_update (&mut self);
+    fn run(&mut self);
 }

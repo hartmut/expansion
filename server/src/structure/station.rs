@@ -43,6 +43,10 @@ impl AStation {
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
         }
     }
+
+    pub fn getuuid(&self) -> myuuid::ExpUuid {
+        self.uuid
+    }
 }
 
 impl StdTrait<AStation> for AStation {
