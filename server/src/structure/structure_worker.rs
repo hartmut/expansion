@@ -7,6 +7,9 @@
 use common::workertrait::*;
 use common::readfile::*;
 use common::myuuid::*;
+use common::stdtrait::StdTrait;
+use std::io::BufReader;
+use std::io::BufRead;
 use std::collections::BTreeMap;
 use super::station::AStation;
 
@@ -35,15 +38,14 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     }
 
     fn initalize (&mut self, filename: String) {
-        let f = newreader(filename);
-        printfile(f);
-        loop {
-            //TODO ambigous type, does not compile
-            let unwline = getline(f);
-            println!("{}", unwline);
-            //let tempstation: AStation = AStation::StdTrait::new_from_deserialized(&unwline);
-            // let uuid = tempstation.getuuid();
-            // self.stations.insert(uuid, tempstation);
+        let mut f = newreader(filename);
+        let mut line = String::new();
+
+        while f.read_line(&mut line).unwrap() > 0 {
+            let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
+            let uuid = tempstation.getuuid();
+            self.stations.insert(uuid, tempstation);
+            line.clear();
         }
 
     }

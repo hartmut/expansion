@@ -3,16 +3,18 @@ name = "expansion_server"
 version = "0.0.1"
 authors = ["Hartmut "]
 
-[build-dependencies]
-quasi_macros = "0.10.0"
-
 [dependencies]
 time = "0.1" # https://crates.io/crates/time
-uuid = { version = "0.2", features = ["serde", "v4"] } # https://crates.io/crates/uuid
-serde = "0.7" # https://crates.io/crates/serde
-serde_json = "*" # https://crates.io/crates/serde_json
-serde_macros = "*" # https://crates.io/crates/serde_macros
+uuid = { version = "*", features = ["serde", "v4"] } # https://crates.io/crates/uuid
+# uuid = { version = "*", features = ["v4"] } # https://crates.io/crates/uuid
+serde = "^0.7" # https://crates.io/crates/serde
+serde_json = "^0.7" # https://crates.io/crates/serde_json
+serde_macros = "^0.7" # https://crates.io/crates/serde_macros
 toml = "0.1" # https://crates.io/crates/toml
+
+#temp, until the cargo packages got repaired for the nightly rust build
+# serde_codegen = { file = "../../serde/serde_codegen"}
+# serde_macros = { file = "../../serde/serde_macros"}
 
 [features]
 default = []

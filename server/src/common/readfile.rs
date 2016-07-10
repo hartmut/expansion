@@ -35,7 +35,10 @@ pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
 }
 
-//TODO does not compile
-pub fn getline (f: BufReader<File>) {
-    f.lines().next().unwrap()
+//TODO write generic getline function for this project
+pub fn getline (mut f: &BufReader<File>) -> String {
+    let mut line = String::new();
+    // let len = f.read_line(&mut line);
+    // f.lines().next().unwrap()
+    line
 }
