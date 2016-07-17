@@ -35,10 +35,23 @@ pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
 }
 
-//TODO write generic getline function for this project
-pub fn getline (mut f: &BufReader<File>) -> String {
+// old function, doesn't work TODO cleanup whe getline works
+pub fn getline2 (mut f: BufReader<File>) -> String {
     let mut line = String::new();
-    // let len = f.read_line(&mut line);
-    // f.lines().next().unwrap()
+    let len = f.read_line(&mut line).unwrap();
+    if len > 0 {
+        println!("{:?}", line);
+    }
     line
+}
+
+//TODO write generic getline function for this project
+pub fn getline (mut f: BufReader<File>) -> Option<String> {
+    let mut line = String::new();
+    let len = f.read_line(&mut line).unwrap();
+    if len == 0 {
+        None
+    } else {
+        Some(line)
+    }
 }

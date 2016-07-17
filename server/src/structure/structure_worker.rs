@@ -38,15 +38,44 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     }
 
     fn initalize (&mut self, filename: String) {
+        let gfile = filename.clone();
         let mut f = newreader(filename);
         let mut line = String::new();
 
         while f.read_line(&mut line).unwrap() > 0 {
+
+            // create an entry
             let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
             let uuid = tempstation.getuuid();
             self.stations.insert(uuid, tempstation);
+
+            //cleanup
             line.clear();
         }
+
+        // test
+        // let mut g = newreader(gfile);
+        // let mut line = String::new();
+        //
+        // loop {
+        //
+        //     let result = getline(&g);
+        //
+        //     match result {
+        //         // all bad
+        //         None => break,
+        //         // got something
+        //         Some(x) => line = x,
+        //     }
+        //
+        //     // create an entry
+        //     let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
+        //     let uuid = tempstation.getuuid();
+        //     self.stations.insert(uuid, tempstation);
+        //
+        //     //cleanup
+        //     line.clear();
+        // }
 
     }
 

@@ -23,7 +23,6 @@ mod tests;
 use std::time::Duration;
 use structure::station::AStation;
 use structure::structure_worker::StructureWorker;
-use character::player::Player;
 use character::player_worker::PlayerWorker;
 use std::thread;
 use common::stdtrait::StdTrait;
@@ -48,16 +47,14 @@ fn main() {
     // initalize timer and counter
     let tick_dur = Duration::from_secs(myconfig.get_tick());
 
-    //tests
-    let mut my_station = AStation::new("Firefly".to_string());
-    let my_player = Player::new("Ian Banks".to_string());
-    println!("{:?}", my_player);
+    //create the player worker and initalize it
     let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
                                             "src/data/player.json".to_string());
     println!("{:?}", player_worker);
+
+    //create the structure worker and initalize it
     let mut structure_worker = StructureWorker::new("Structure_Worker".to_string());
     structure_worker.initalize("src/data/station.json".to_string());
-
     println!("{:?}", structure_worker);
 
     // ticker input by webservice/json
@@ -65,6 +62,9 @@ fn main() {
 
     // wait, then update all objects,
     // wait for TICK Seconds in real time, this is analog to 2h in world time
+
+    //tests
+    let mut my_station = AStation::new("Firefly".to_string());
     loop {
         thread::sleep (tick_dur);
         tick_counter += 1;
