@@ -54,28 +54,28 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
         }
 
         // test
-        // let mut g = newreader(gfile);
-        // let mut line = String::new();
-        //
-        // loop {
-        //
-        //     let result = getline(&g);
-        //
-        //     match result {
-        //         // all bad
-        //         None => break,
-        //         // got something
-        //         Some(x) => line = x,
-        //     }
-        //
-        //     // create an entry
-        //     let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
-        //     let uuid = tempstation.getuuid();
-        //     self.stations.insert(uuid, tempstation);
-        //
-        //     //cleanup
-        //     line.clear();
-        // }
+        let mut g = newreader(gfile);
+        let mut line = String::new();
+
+        loop {
+
+            let result = getline(&mut g);
+
+            match result {
+                // all bad
+                None => break,
+                // got something
+                Some(x) => line = x,
+            }
+
+            // create an entry
+            let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
+            let uuid = tempstation.getuuid();
+            self.stations.insert(uuid, tempstation);
+
+            //cleanup
+            line.clear();
+        }
 
     }
 

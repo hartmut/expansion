@@ -46,7 +46,7 @@ pub fn getline2 (mut f: BufReader<File>) -> String {
 }
 
 //TODO write generic getline function for this project
-pub fn getline (mut f: BufReader<File>) -> Option<String> {
+pub fn getline (f: &mut BufReader<File>) -> Option<String> {
     let mut line = String::new();
     let len = f.read_line(&mut line).unwrap();
     if len == 0 {
