@@ -8,8 +8,6 @@ use common::workertrait::*;
 use common::readfile::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
-use std::io::BufReader;
-use std::io::BufRead;
 use std::collections::BTreeMap;
 use super::station::AStation;
 
@@ -29,7 +27,7 @@ pub struct StructureWorker {
 impl WorkerTrait<StructureWorker> for StructureWorker {
     fn new (name: String) -> StructureWorker {
 
-        let mut btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
+        let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         StructureWorker {
             worker_struct: WorkerStruct{name: name},
@@ -38,28 +36,15 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     }
 
     fn initalize (&mut self, filename: String) {
-        let gfile = filename.clone();
+
+        //init
         let mut f = newreader(filename);
-        let mut line = String::new();
+        let mut line = String::new(); 
 
-        while f.read_line(&mut line).unwrap() > 0 {
-
-            // create an entry
-            let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
-            let uuid = tempstation.getuuid();
-            self.stations.insert(uuid, tempstation);
-
-            //cleanup
-            line.clear();
-        }
-
-        // test
-        let mut g = newreader(gfile);
-        let mut line = String::new();
-
+        //iterate over all lines
         loop {
 
-            let result = getline(&mut g);
+            let result = getline(&mut f);
 
             match result {
                 // all bad

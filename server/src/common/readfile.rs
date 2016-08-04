@@ -7,7 +7,6 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
-use std::io::Lines;
 use std::path::Path;
 use std::error::Error;
 
@@ -27,6 +26,7 @@ pub fn newreader (filename: String) -> BufReader<File> {
     BufReader::new(f)
 }
 
+// print the content of a file
 pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
     for line in f.lines() {
@@ -35,17 +35,7 @@ pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
 }
 
-// old function, doesn't work TODO cleanup whe getline works
-pub fn getline2 (mut f: BufReader<File>) -> String {
-    let mut line = String::new();
-    let len = f.read_line(&mut line).unwrap();
-    if len > 0 {
-        println!("{:?}", line);
-    }
-    line
-}
-
-//TODO write generic getline function for this project
+// generic getline function
 pub fn getline (f: &mut BufReader<File>) -> Option<String> {
     let mut line = String::new();
     let len = f.read_line(&mut line).unwrap();
