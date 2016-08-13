@@ -8,12 +8,12 @@ tick = 2
 
 [playerdata]
 storageMethod ="file"
-datafile="player.json"
+datafile="src/data/player.json"
 
-[stationdata]
+[structuredata]
 storageMethod="file"
-datafile="station.json"
+datafile="src/data/structure.json"
 
 [moduledata]
 storageMethod="file"
-datafile="module.json"
+datafile="src/data/module.json"

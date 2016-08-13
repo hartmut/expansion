@@ -36,9 +36,12 @@ use std::env;
 // use tests::playertest;
 
 fn main() {
-    // read inputdata
+
+    // move all arguments to a string vector
     let args: Vec<String> = env::args().collect();
-    // TODO panic when args is empty
+
+    // panic if vector is too short
+    if args.len() <= 1 { panic!("I need your input"); }
 
     // read configuration and data
     let mut tick_counter: u64 = 0;
@@ -50,11 +53,11 @@ fn main() {
 
     //create the player worker and initalize it
     let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
-                                            "src/data/player.json".to_string());
+                                            myconfig.get_filenameplayer());
 
     //create the structure worker and initalize it
     let mut structure_worker = StructureWorker::new("Structure_Worker".to_string());
-    structure_worker.initalize("src/data/station.json".to_string());
+    structure_worker.initalize(myconfig.get_filenamestructure());
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients

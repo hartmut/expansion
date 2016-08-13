@@ -5,7 +5,6 @@
 //! calculations of positions in solar system
 
 // pos based on Ecliptic_coordinate_system (wikipedia)
-// TODO known objects like Jupiter should be determined by a standard library, use astro-rust?
 
 // use common::stdtrait::StdTrait;
 // use serde_json;
