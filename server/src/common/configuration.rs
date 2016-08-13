@@ -69,14 +69,13 @@ impl Configuration {
         let structure = conf.get(&"structuredata".to_string()).unwrap();
         let module = conf.get(&"moduledata".to_string()).unwrap();
 
-        // let out = Configuration {tick: global.get(&"tick".to_string()),
-        let out = Configuration {
+        // create the Configuration structure
+        Configuration {
             tick:  global.lookup("tick").unwrap().as_integer().unwrap() as u64,
             filename_player:  player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
             filename_structure: structure.lookup("datafile").unwrap().as_str().unwrap().to_string(),
             filename_module:  module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-        };
-        out
+        }
     }
 
     pub fn get_tick(&self) -> u64 {
