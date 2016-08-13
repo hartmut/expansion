@@ -67,7 +67,6 @@ impl Configuration {
 
 
         // just for debugging purposes
-        println!("{:?} \n", toml);
         let a:BTreeMap<String, Value> = toml;
         println!("{:?} \n", a);
 

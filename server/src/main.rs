@@ -43,6 +43,7 @@ fn main() {
     // read configuration and data
     let mut tick_counter: u64 = 0;
     let myconfig = configuration::Configuration::load_config(args);
+    println!("{:?}", myconfig);
 
     // initalize timer and counter
     let tick_dur = Duration::from_secs(myconfig.get_tick());
@@ -50,12 +51,10 @@ fn main() {
     //create the player worker and initalize it
     let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
                                             "src/data/player.json".to_string());
-    println!("{:?}", player_worker);
 
     //create the structure worker and initalize it
     let mut structure_worker = StructureWorker::new("Structure_Worker".to_string());
     structure_worker.initalize("src/data/station.json".to_string());
-    println!("{:?}", structure_worker);
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
@@ -74,9 +73,7 @@ fn main() {
 
         //call the update methods of all relevant strutures for this tick
         my_station.update();
-        let serialized = my_station.serialize();
-        println!("{} \n", serialized);
-        //println!("{:?} \n", my_station);
+        println!("{} \n", my_station.serialize());
 
     }
 }
