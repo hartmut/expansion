@@ -51,7 +51,7 @@ impl Configuration {
 
         let mut parser = Parser::new(&input);
 
-        let toml = match parser.parse() {
+        let mut toml = match parser.parse() {
             None       =>
                 {
                     for err in &parser.errors {
@@ -67,10 +67,21 @@ impl Configuration {
 
 
         // just for debugging purposes
-        let a:BTreeMap<String, Value> = toml;
-        println!("{:?} \n", a);
+        let mut conf:BTreeMap<String, Value> = toml;
+        println!("{:?} \n", conf);
 
-        let out = Configuration {tick: 2,
+        // TODO extract values from toml table
+        let mut global = conf.get(&"global".to_string()).unwrap().type_str();
+        // let mut global:BTreeMap<String, Value> = globalval;
+        println!("{:?}", global);
+
+        // continue
+        let mut player = conf.get(&"playerdata".to_string());
+        let mut station = conf.get(&"stationdata".to_string());
+        let mut module = conf.get(&"moduledata".to_string());
+
+        // let out = Configuration {tick: global.get(&"tick".to_string()),
+        let out = Configuration {tick:  2,
                                 filename_player:  "a".to_string(),
                                 filename_station: "a".to_string(),
                                 filename_module:  "a".to_string(),
