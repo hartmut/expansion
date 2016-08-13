@@ -61,12 +61,9 @@ impl Configuration {
             Some(toml) => toml,
         };
 
-
-        // just for debugging purposes
+        // decompose the toml file.
+        // IDEA: try to interpret the toml file in a less complex way
         let conf:BTreeMap<String, Value> = toml;
-        println!("{:?} \n", conf);
-
-        // TODO extract values from toml table
         let global = conf.get(&"global".to_string()).unwrap();
         let player = conf.get(&"playerdata".to_string()).unwrap();
         let structure = conf.get(&"structuredata".to_string()).unwrap();
