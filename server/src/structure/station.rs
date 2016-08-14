@@ -78,12 +78,5 @@ mod tests {
         let serialized = my_station.serialize();
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); // whats easier - this
     }
-
-    #[test]
-    fn test_new_from_deserialize ()
-    {
-        let mut my_station = AStation::new("Firefly".to_string());
-        let serialized = my_station.serialize();
-        let teststation: AStation = AStation::new_from_deserialized(&serialized);
-    }
+    
 }

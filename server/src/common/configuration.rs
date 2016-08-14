@@ -16,7 +16,7 @@ use toml::{Value, Parser};
 pub struct Configuration {
     tick: u64,
     filename_player: String,
-    filename_structure: String,
+    filename_station: String,
     filename_module: String,
 }
 
@@ -66,14 +66,14 @@ impl Configuration {
         let conf:BTreeMap<String, Value> = toml;
         let global = conf.get(&"global".to_string()).unwrap();
         let player = conf.get(&"playerdata".to_string()).unwrap();
-        let structure = conf.get(&"structuredata".to_string()).unwrap();
+        let station = conf.get(&"structuredata".to_string()).unwrap();
         let module = conf.get(&"moduledata".to_string()).unwrap();
 
         // create the Configuration structure
         Configuration {
             tick:  global.lookup("tick").unwrap().as_integer().unwrap() as u64,
             filename_player:  player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-            filename_structure: structure.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            filename_station: station.lookup("datafile_station").unwrap().as_str().unwrap().to_string(),
             filename_module:  module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
         }
     }
@@ -87,7 +87,7 @@ impl Configuration {
     }
 
     pub fn get_filenamestructure(&self) -> String {
-        self.filename_structure.clone()
+        self.filename_station.clone()
     }
 
     pub fn get_filenamemodule(&self) -> String {

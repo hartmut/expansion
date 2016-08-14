@@ -12,7 +12,7 @@ datafile="src/data/player.json"
 
 [structuredata]
 storageMethod="file"
-datafile="src/data/structure.json"
+datafile_station="src/data/station.json"
 
 [moduledata]
 storageMethod="file"
