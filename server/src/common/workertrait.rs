@@ -14,8 +14,8 @@ pub struct WorkerStruct {
 }
 
 pub trait WorkerTrait<T> {
-    fn new (name: String) -> T;
-    fn initalize (&mut self, filename: String);
+    fn new (name: String, filename: String) -> T;
+    fn initialize (&mut self);
     fn send_update (&self);
     fn get_update (&mut self);
     fn run(&mut self);

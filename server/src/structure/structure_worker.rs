@@ -17,6 +17,7 @@ pub struct StructureWorker {
     /// structure with 'general worker structure'
     worker_struct: WorkerStruct,
     //vec with stations in it
+    stationfile: String,
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
@@ -25,20 +26,21 @@ pub struct StructureWorker {
 // }
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
-    fn new (name: String) -> StructureWorker {
+    fn new (name: String, filename: String) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         StructureWorker {
             worker_struct: WorkerStruct{name: name},
+            stationfile: filename,
             stations: btree,
         }
     }
 
-    fn initalize (&mut self, filename: String) {
+    fn initialize (&mut self) {
 
         //init
-        let mut f = newreader(filename);
+        let mut f = newreader(self.stationfile.clone());
         let mut line = String::new();
 
         //iterate over all lines

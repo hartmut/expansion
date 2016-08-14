@@ -55,8 +55,9 @@ fn main() {
                                             myconfig.get_filenameplayer());
 
     //create the structure worker and initalize it
-    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string());
-    structure_worker.initalize(myconfig.get_filenamestructure());
+    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(),
+                                                    myconfig.get_filenamestructure());
+    structure_worker.initialize();
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
