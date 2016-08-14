@@ -5,7 +5,7 @@
 //! managing the stations updates
 
 use common::workertrait::*;
-use common::readfile::*;
+use common::fileoperations::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use std::collections::BTreeMap;
@@ -39,7 +39,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
 
         //init
         let mut f = newreader(filename);
-        let mut line = String::new(); 
+        let mut line = String::new();
 
         //iterate over all lines
         loop {

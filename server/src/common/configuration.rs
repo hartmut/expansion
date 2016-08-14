@@ -42,7 +42,8 @@ impl Configuration {
         match file.read_to_string(&mut input) {
             Err(why) => panic!("couldn't read {}: {}", display,
                                                        why.description()),
-            Ok(_) => print!("{} contains:\n{}\n\n", display, input),
+            // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
+            Ok(_) => print!(""),
         }
 
         let mut parser = Parser::new(&input);

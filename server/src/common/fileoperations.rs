@@ -7,8 +7,15 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::io::BufReader;
+use std::io::LineWriter;
 use std::path::Path;
 use std::error::Error;
+
+/* reading functions
+- newreader
+- printfile
+- readline
+*/
 
 pub fn newreader (filename: String) -> BufReader<File> {
 
@@ -25,6 +32,7 @@ pub fn newreader (filename: String) -> BufReader<File> {
 
     BufReader::new(f)
 }
+
 
 // print the content of a file
 pub fn printfile (f: BufReader<File>) {
@@ -44,4 +52,30 @@ pub fn getline (f: &mut BufReader<File>) -> Option<String> {
     } else {
         Some(line)
     }
+}
+
+/* writing functions
+- newwriter
+- writeline
+*/
+
+pub fn newlinewriter (filename: String) -> LineWriter<File> {
+
+    let path = Path::new(&filename);
+
+    // Open the file for writing, returns `io::Result<File>`
+    let f = match File::create(&path) {
+        // The `description` method of `io::Error` returns a string that
+        // describes the error
+        Err(why) => panic!("couldn't open {}: {}", path.display(),
+                                                   why.description()),
+        Ok(file) => file,
+    };
+
+    LineWriter::new(f)
+}
+
+// genericline  writeline function, returns length of written data
+pub fn writeline (f: &mut LineWriter<File>, output: String) -> u64  {
+    f.write(output.as_bytes()).unwrap() as u64
 }

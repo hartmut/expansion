@@ -46,7 +46,6 @@ fn main() {
     // read configuration and data
     let mut tick_counter: u64 = 0;
     let myconfig = configuration::Configuration::load_config(args);
-    println!("{:?}", myconfig);
 
     // initalize timer and counter
     let tick_dur = Duration::from_secs(myconfig.get_tick());

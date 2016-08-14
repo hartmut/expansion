@@ -5,7 +5,7 @@
 /// worker for player
 
 use common::workertrait::*;
-use common::readfile::*;
+use common::fileoperations::*;
 
 /// this structure holds the informations for the worker in the player area
 #[derive(Debug)]
@@ -18,7 +18,6 @@ pub struct PlayerWorker {
 impl PlayerWorker {
     pub fn new (name: String, filename: String) -> PlayerWorker {
         let f = newreader(filename);
-        printfile(f);
 
         PlayerWorker {
             worker_struct: WorkerStruct{name: name},

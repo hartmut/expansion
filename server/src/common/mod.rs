@@ -8,4 +8,4 @@ pub mod myuuid;
 pub mod stdtrait;
 pub mod workertrait;
 pub mod configuration;
-pub mod readfile;
+pub mod fileoperations;
