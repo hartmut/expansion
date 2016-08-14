@@ -12,9 +12,9 @@ use std::path::Path;
 use std::error::Error;
 
 /* reading functions
-- newreader
-- printfile
-- readline
+- pub fn newreader (filename: String) -> BufReader<File>
+- pub fn printfile (f: BufReader<File>)
+- pub fn getline (f: &mut BufReader<File>) -> Option<String>
 */
 
 pub fn newreader (filename: String) -> BufReader<File> {
@@ -45,9 +45,10 @@ pub fn printfile (f: BufReader<File>) {
 
 // generic getline function
 pub fn getline (f: &mut BufReader<File>) -> Option<String> {
+
     let mut line = String::new();
-    let len = f.read_line(&mut line).unwrap();
-    if len == 0 {
+
+    if f.read_line(&mut line).unwrap() == 0 {
         None
     } else {
         Some(line)
@@ -55,8 +56,8 @@ pub fn getline (f: &mut BufReader<File>) -> Option<String> {
 }
 
 /* writing functions
-- newwriter
-- writeline
+- pub fn newlinewriter (filename: String) -> LineWriter<File>
+- pub fn writeline (f: &mut LineWriter<File>, output: String) -> u64
 */
 
 pub fn newlinewriter (filename: String) -> LineWriter<File> {
@@ -76,6 +77,7 @@ pub fn newlinewriter (filename: String) -> LineWriter<File> {
 }
 
 // genericline  writeline function, returns length of written data
+// TODO better error handling in writeline
 pub fn writeline (f: &mut LineWriter<File>, output: String) -> u64  {
     f.write(output.as_bytes()).unwrap() as u64
 }
