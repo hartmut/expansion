@@ -18,7 +18,7 @@ struct module {
 
 //production and storage
     CurProdReceipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules
-
+    // type of things it can store, vector of ...  
 
 // seldom use
     ProdByReceipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module

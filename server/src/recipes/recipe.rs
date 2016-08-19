@@ -10,9 +10,9 @@ use package;
 
 //! my receipes
 struct Recipe {
-    uuid: ExpUuid,             // uuid for this receipe
+    uuid: ExpUuid,          // uuid for this receipe
     name: String,           // name of this receipe, something like Air with efficency x%
-    duration: u32           // ticks until the recipe got one run
+    duration: u32,          // ticks until the recipe got one run
     input: Vec<Package>,    // vector of UUIDs of materials with how much I need to produce
     output: Vec<Package>,   // vector of UUIDs of materials with how much I will produce
 }

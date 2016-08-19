@@ -20,10 +20,9 @@ pub struct AStation {
     energyprod: u64, // energy production per tick -> energy module?
     energyuse: u64,  // energy use per tick -> energy module?
     o2prod: u64,     // production of O2, see above -> people module?
-    o2use: u64,      // use of O2 for people TODO check if it can be modelled by a prduction modules -> people module?
+    o2use: u64,      // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, //where am I?
 
-    //storage room of type x
     //list of people on station
     //list of inventar on this station
     //list of modules of this station
@@ -78,5 +77,5 @@ mod tests {
         let serialized = my_station.serialize();
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); // whats easier - this
     }
-    
+
 }

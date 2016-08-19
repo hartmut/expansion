@@ -14,10 +14,11 @@ use super::station::AStation;
 /// this structure holds the informations for the worker in the player area
 #[derive(Debug)]
 pub struct StructureWorker {
-    /// structure with 'general worker structure'
+    // structure with 'general worker structure'
     worker_struct: WorkerStruct,
-    //vec with stations in it
+    // persistancefile for stations
     stationfile: String,
+    // Btree with stations in it
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
@@ -26,6 +27,7 @@ pub struct StructureWorker {
 // }
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
+    
     fn new (name: String, filename: String) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();

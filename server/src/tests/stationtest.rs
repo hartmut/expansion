@@ -31,4 +31,5 @@ fn read_write_file() {
     let mut lineout =  <AStation as StdTrait<AStation>>::serialize(&tempstation);
     let i = writeline(&mut g, &lineout);
 
+    assert_eq!(line, lineout+"\n");
 }
