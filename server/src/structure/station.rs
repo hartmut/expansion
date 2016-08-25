@@ -6,51 +6,53 @@
 //! can have thrust
 
 // uses
-use common::stdtrait::StdTrait;
+use std::vec;
 use serde_json;
-use common::myuuid;
+use common::stdtrait::StdTrait;
+use common::myuuid::*;
 use physic::location::SpaceObj;
+use components::modules::Module;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
-    uuid: myuuid::ExpUuid,       // global uniqe id, describes this station
+    uuid: ExpUuid,       // global uniqe id, describes this
     name: String,    // name of this station
-    owner: myuuid::ExpUuid,  // player who owns this station
-    cost: u64,       // cost per tick to keep it running, or is it just energy? who pays the people? -> people module?
-    energyprod: u64, // energy production per tick -> energy module?
-    energyuse: u64,  // energy use per tick -> energy module?
+    owner: ExpUuid,  // player who owns this station
+    energy: u64, // positiv energy production and negativ energyuse per tick, sum over all modules
     o2prod: u64,     // production of O2, see above -> people module?
     o2use: u64,      // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, //where am I?
 
-    //list of people on station
-    //list of inventar on this station
     //list of modules of this station
+    ModuleList: Vec<Module>,
+    //list of inventar on this station
+    //list of NPC on station
 }
 
 impl AStation {
     pub fn new ( name: String ) -> AStation {
+
+        let mut ModuleListTemp: Vec<Module> = Vec::new();
+
         AStation {
-            uuid: myuuid::get_new_uuid(),
+            uuid: get_new_uuid(),
             name: name,
-            owner: myuuid::get_new_uuid(),
-            cost: 0,
-            energyprod: 0,
-            energyuse: 0,
+            owner: get_new_uuid(),
+            energy: 0,
             o2use: 0,
             o2prod: 0,
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
+            ModuleList: ModuleListTemp,
         }
     }
 
-    pub fn getuuid(&self) -> myuuid::ExpUuid {
+    pub fn getuuid(&self) -> ExpUuid {
         self.uuid
     }
 }
 
 impl StdTrait<AStation> for AStation {
     fn update(&mut self) {
-        self.cost += 1;
     }
 
     fn serialize (&self) -> String

@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-//! player code, independent whether it is a NPC or a PC
+//! player code, only for PCs
 
 // uses
 use common::stdtrait::StdTrait;
@@ -15,7 +15,7 @@ use common::myuuid;
 pub struct Player {
     uuid: myuuid::ExpUuid,          // uuid of the player
     name: String,       // Name of the player
-    credits: u64,       // credits in purse
+    credits: u64,       // credits in purse, needed for buying inventar and material
 
     // TODO list of stations and ships uuids, send messages to update states?
 

@@ -18,6 +18,7 @@ mod structure;
 mod common;
 mod character;
 mod tests;
+mod components;
 
 // my mods to use
 use std::time::Duration;

@@ -6,22 +6,22 @@
 //! TODO how to implement improvements etc.? copy module an work with this in runtime?
 
 // uses
-use common::myuuid;
-use serde_json;;
+use common::myuuid::*;
+use serde_json;
 
-struct module {
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Module {
 //general informations
-    uuid: ExpUuid,      // global id of the module
-    name: String,     // name/description of the module
-    energyprod: u64, // energy production per tick -> energy module?
-    energyuse: u64,  // energy use per tick -> energy module?
+    uuid: ExpUuid,      // global id of this module
+    name: String,       // name/description of the module
+    energy: u64,        // positiv when energy using, negativ when energy producing
 
 //production and storage
-    CurProdReceipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules
-    // type of things it can store, vector of ...  
+    cur_prod_receipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules
+    // type of things it can store, vector of ...
 
 // seldom use
-    ProdByReceipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
+    prod_by_receipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
 
 
 }

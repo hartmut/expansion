@@ -22,12 +22,8 @@ pub struct StructureWorker {
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
-// impl StructureWorker {
-//
-// }
-
 impl WorkerTrait<StructureWorker> for StructureWorker {
-    
+
     fn new (name: String, filename: String) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
