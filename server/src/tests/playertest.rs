@@ -8,5 +8,5 @@ use character::player::Player;
 
 #[test]
 fn create_player() {
-    let iam = Player::new("Hartmut".to_string());
+    let iam = Player::new("Ian Banks".to_string());
 }

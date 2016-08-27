@@ -3,7 +3,7 @@
 // See doc/LICENSE for licensing information
 //
 //! templates of the modules usabel in stations and ships
-//! TODO how to implement improvements etc.? copy module an work with this in runtime?
+//! TODO how to implement improvements etc.? copy module and work with this in runtime?
 
 // uses
 use common::myuuid::*;
