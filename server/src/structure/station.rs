@@ -18,7 +18,8 @@ pub struct AStation {
     uuid: ExpUuid,       // global uniqe id, describes this
     name: String,    // name of this station
     owner: ExpUuid,  // player who owns this station
-    energy: u64, // positiv energy production and negativ energyuse per tick, sum over all modules
+    energyuse: u64,  // energy usage per tick, sum over all modules
+    energyprod: u64, // energy production per tick, sum over all modules
     o2prod: u64,     // production of O2, see above -> people module?
     o2use: u64,      // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, //where am I?
@@ -30,15 +31,16 @@ pub struct AStation {
 }
 
 impl AStation {
-    pub fn new ( name: String ) -> AStation {
+    pub fn new ( name: String, owner: ExpUuid ) -> AStation {
 
         let mut ModuleListTemp: Vec<Module> = Vec::new();
 
         AStation {
             uuid: get_new_uuid(),
             name: name,
-            owner: get_new_uuid(),
-            energy: 0,
+            owner: owner,
+            energyuse: 0,
+            energyprod: 0,
             o2use: 0,
             o2prod: 0,
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
@@ -63,21 +65,6 @@ impl StdTrait<AStation> for AStation {
     fn new_from_deserialized (input: &String) -> AStation
     {
         serde_json::from_str(&input).unwrap()
-    }
-
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use serde_json;
-    use common::stdtrait::StdTrait;
-
-    #[test]
-    fn serialize_test() {
-        let mut my_station = AStation::new("Firefly".to_string());
-        let serialized = my_station.serialize();
-        let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); // whats easier - this
     }
 
 }

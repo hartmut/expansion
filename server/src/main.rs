@@ -29,6 +29,7 @@ use std::thread;
 use common::stdtrait::StdTrait;
 use common::workertrait::WorkerTrait;
 use common::configuration;
+use common::myuuid::*;
 
 // standard mods to use
 use std::env;
@@ -67,7 +68,8 @@ fn main() {
     // wait for TICK Seconds in real time, this is analog to 2h in world time
 
     //tests
-    let mut my_station = AStation::new("Firefly".to_string());
+    let owner = ExpUuid::parse_str("54258d72-dacc-4ee9-ac87-0a0276dda7a6").unwrap();
+    let mut my_station = AStation::new("Firefly".to_string(), owner);
     loop {
         thread::sleep (tick_dur);
         tick_counter += 1;
