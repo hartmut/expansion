@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-/// helpfull macros find on the web
+/// helpfull macros found on the web
 
 // https://users.rust-lang.org/t/my-gamedever-wishlist-for-rust/2859/2
 macro_rules! max {
