@@ -2,4 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-// strcture to organize production and research trees.
+// structure to organize production and research trees.

@@ -10,7 +10,7 @@ macro_rules! max {
      ($e: expr, $($rest: tt)*) => { max($e, max!($($rest)*)) }
 }
 
-// derivation of macro above
+// derivation of macro "max" above
 macro_rules! min {
      ($e: expr) => { $e };
      ($e: expr, $($rest: tt)*) => { min($e, min!($($rest)*)) }
