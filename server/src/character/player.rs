@@ -16,6 +16,7 @@ pub struct Player {
     uuid: myuuid::ExpUuid,          // uuid of the player
     name: String,       // Name of the player
     credits: u64,       // credits in purse, needed for buying inventar and material
+    // list of available recipes of this player
 
     // TODO list of stations and ships uuids, send messages to update states?
 

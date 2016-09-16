@@ -16,13 +16,12 @@ pub struct Module {
     uuid: ExpUuid,      // global id of this module
     name: String,       // name/description of the module
     energy: u64,        // positiv when energy using, negativ when energy producing
+    prod_by_receipe: ExpUuid, //uuid of receipe with which it had been produced, neede for dismantling of module
 
 //production and storage
-    cur_prod_receipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules
-    // type of things it can store, vector of ...
+    cur_prod_receipe: ExpUuid, // uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel?
 
-// seldom use
-    prod_by_receipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
+    // type of things it can store, vector of ...
 
 }
 
