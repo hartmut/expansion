@@ -5,6 +5,7 @@
 // macros and plugins
 #![feature(custom_derive, plugin)]
 #![plugin(serde_macros)]
+#![allow(dead_code)]
 
 // extern
 extern crate time;

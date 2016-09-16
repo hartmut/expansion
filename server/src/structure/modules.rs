@@ -7,6 +7,7 @@
 
 // uses
 use common::myuuid::*;
+use common::stdtrait::StdTrait;
 use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -23,5 +24,20 @@ pub struct Module {
 // seldom use
     prod_by_receipe: ExpUuid, //uuid of receipe with which it had been produced, usefull for dismantling of module
 
+}
+
+impl StdTrait<Module> for Module {
+    fn update(&mut self) {
+    }
+
+    fn serialize (&self) -> String
+    {
+        serde_json::to_string(&self).unwrap()
+    }
+
+    fn new_from_deserialized (input: &String) -> Module
+    {
+        serde_json::from_str(&input).unwrap()
+    }
 
 }

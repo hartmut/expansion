@@ -6,12 +6,11 @@
 //! can have thrust
 
 // uses
-use std::vec;
 use serde_json;
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
 use physic::location::SpaceObj;
-use components::modules::Module;
+use super::modules::Module;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
@@ -25,7 +24,7 @@ pub struct AStation {
     location: SpaceObj, //where am I?
 
     //list of modules of this station
-    ModuleList: Vec<Module>,
+    module_list: Vec<Module>,
     //list of inventar on this station
     //list of NPC on station
 }
@@ -33,7 +32,7 @@ pub struct AStation {
 impl AStation {
     pub fn new ( name: String, owner: ExpUuid ) -> AStation {
 
-        let mut ModuleListTemp: Vec<Module> = Vec::new();
+        let module_list_temp: Vec<Module> = Vec::new();
 
         AStation {
             uuid: get_new_uuid(),
@@ -44,7 +43,7 @@ impl AStation {
             o2use: 0,
             o2prod: 0,
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
-            ModuleList: ModuleListTemp,
+            module_list: module_list_temp,
         }
     }
 
