@@ -50,6 +50,7 @@ impl AStation {
     pub fn getuuid(&self) -> ExpUuid {
         self.uuid
     }
+
 }
 
 impl StdTrait<AStation> for AStation {

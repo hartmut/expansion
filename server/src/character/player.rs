@@ -49,15 +49,3 @@ impl StdTrait<Player> for Player {
     }
 
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use serde_json;
-    use common::stdtrait::StdTrait;
-
-    #[test]
-    fn new_player() {
-        let one_player = Player::new("Ian Banks".to_string());
-    }
-}

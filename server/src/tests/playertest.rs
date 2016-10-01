@@ -4,9 +4,21 @@
 //
 //
 
-use character::player::Player;
 
-#[test]
-fn create_player() {
-    let iam = Player::new("Ian Banks".to_string());
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use serde_json;
+    use common::stdtrait::StdTrait;
+    use character::player::Player;
+
+    #[test]
+    fn new_player() {
+        let one_player = Player::new("Ian Banks".to_string());
+    }
+
+    #[test]
+    fn create_player() {
+        let iam = Player::new("Ian Banks".to_string());
+    }
 }

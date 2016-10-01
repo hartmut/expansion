@@ -7,7 +7,6 @@
 use common::workertrait::*;
 use common::fileoperations::*;
 use common::myuuid::*;
-use common::stdtrait::StdTrait;
 use std::collections::BTreeMap;
 use super::player::Player;
 
