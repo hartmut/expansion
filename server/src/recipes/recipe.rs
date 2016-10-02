@@ -7,11 +7,10 @@
 
 // uses
 use std::sync::Arc;
-use uuid::Uuid;
-use package;
+use common::myuuid::*;
 
-//! the package
-//! material and quantity
+// the package
+// material and quantity
 #[derive(Serialize, Deserialize, Debug)]
 struct Package {
     // pointer at material
@@ -19,7 +18,7 @@ struct Package {
     material: ExpUuid,  //what
 }
 
-//!types of recipes
+// types of recipes
 #[derive(Serialize, Deserialize, Debug)]
 enum RecipeType {
     Module,
@@ -27,12 +26,12 @@ enum RecipeType {
     Research,
 }
 
-//! my recipes
+// my recipes
 #[derive(Serialize, Deserialize, Debug)]
 struct Recipe {
     uuid: ExpUuid,          // uuid for this recipe
     uuid_origin: ExpUuid,   // Origin of this recipe, if this is a starter it has the value "0"
-    type: RecipeType,       // what type will be produced?
+    RecipeType: RecipeType,       // what type will be produced?
     name: String,           // name of this recipe, something like Air with efficency x%
     duration: u32,          // ticks until the recipe got one run
     input: Arc<Package>,    // vector of UUIDs of materials with how much I need to produce

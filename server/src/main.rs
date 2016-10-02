@@ -23,7 +23,7 @@ mod common;
 mod character;
 mod tests;
 mod components;
-// mod recipes;
+mod recipes;
 
 // my mods to use
 use std::time::Duration;
