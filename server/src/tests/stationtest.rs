@@ -31,7 +31,7 @@ mod tests {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
         let mut my_station = AStation::new("Firefly".to_string(), owner);
         let serialized = my_station.serialize();
-        let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); // whats easier - this
+        let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); 
     }
 
     #[test]

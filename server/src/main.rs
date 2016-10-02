@@ -3,8 +3,6 @@
 // See doc/LICENSE for licensing information
 
 // macros and plugins
-// #![feature(custom_derive, plugin)]
-// #![plugin(serde_macros)]
 #![allow(dead_code)]
 #![feature(rustc_macro)]
 #[macro_use]
