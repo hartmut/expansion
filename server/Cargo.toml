@@ -8,7 +8,8 @@ time = "0.1" # https://crates.io/crates/time
 uuid = { version = "*", features = ["serde", "v4"] } # https://crates.io/crates/uuid
 serde = "0.8" # https://crates.io/crates/serde
 serde_json = "0.8" # https://crates.io/crates/serde_json
-serde_macros = "0.8" # https://crates.io/crates/serde_macros
+# serde_macros = "0.8" # https://crates.io/crates/serde_macros
+serde_derive = "0.8" # https://crates.io/crates/serde_derive
 toml = "0.1" # https://crates.io/crates/toml
 
 #temp, until the cargo packages got repaired for the nightly rust build

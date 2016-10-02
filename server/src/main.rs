@@ -3,14 +3,17 @@
 // See doc/LICENSE for licensing information
 
 // macros and plugins
-#![feature(custom_derive, plugin)]
-#![plugin(serde_macros)]
+// #![feature(custom_derive, plugin)]
+// #![plugin(serde_macros)]
 #![allow(dead_code)]
+#![feature(rustc_macro)]
+#[macro_use]
 
 // extern
+extern crate serde_derive;
+extern crate serde_json;
 extern crate time;
 extern crate uuid;
-extern crate serde_json;
 extern crate toml;
 
 // describe internal mods to use
@@ -20,6 +23,7 @@ mod common;
 mod character;
 mod tests;
 mod components;
+// mod recipes;
 
 // my mods to use
 use std::time::Duration;
