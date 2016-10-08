@@ -5,6 +5,7 @@
 # duration of tick in seconds
 [global]
 tick = 2
+02player = 10
 
 [playerdata]
 storageMethod ="file"

@@ -6,12 +6,16 @@
 
 
 /// trait for Objects in this world
+use super::myuuid::*;
+
 pub trait StdTrait<T> {
 
     fn update (&mut self)
     {
         println!("update");
     }
+
+    fn getuuid(&self) -> ExpUuid;
 
     fn serialize (&self) -> String;
 

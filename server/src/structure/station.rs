@@ -19,7 +19,7 @@ pub struct AStation {
     owner: ExpUuid,  // player who owns this station
     energyuse: u64,  // energy usage per tick, sum over all modules
     energyprod: u64, // energy production per tick, sum over all modules
-    peoplecount: u64,// how many people are on this station
+    personcount: u64,// how many people are on this station
     o2prod: u64,     // production of O2, see above -> people module?
     o2use: u64,      // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, //where am I?
@@ -41,7 +41,7 @@ impl AStation {
             owner: owner,
             energyuse: 0,
             energyprod: 0,
-            peoplecount: 0,
+            personcount: 0,
             o2use: 0,
             o2prod: 0,
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
@@ -49,12 +49,8 @@ impl AStation {
         }
     }
 
-    pub fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
     pub fn arriving_people(&self) {
-        // error if not enogh place on station
+        // error if not enough place on station
         // check for o2 and throw error if not enough o2 available
     }
 
@@ -62,13 +58,32 @@ impl AStation {
         // error if not enogh people on station
     }
 
+    pub fn attach_module(&self, definition: String) {
+        // how long does it take to attach it?
+        // definition contains json definition of new module
+        // create module from definition
+        // update energyuse/energyprod
+        // insert into module list
+    }
+
+    pub fn detach_module(&self) {
+        // how long does it take to detach it?
+        // remove from module list
+        // update energyuse/energyprod
+        // what to do with the module after detaching it
+    }
+
 }
 
 impl StdTrait<AStation> for AStation {
     fn update(&mut self) {
-        // update modules
+        // iterate over modules and update local variables
 
-        // update player
+        // update player, send infos relvant for player to player structure
+    }
+
+    fn getuuid(&self) -> ExpUuid {
+        self.uuid
     }
 
     fn serialize (&self) -> String

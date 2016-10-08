@@ -6,6 +6,7 @@
 
 // uses
 use common::stdtrait::StdTrait;
+use common::myuuid::*;
 use serde_json;
 use common::myuuid;
 
@@ -36,6 +37,10 @@ impl Player {
 impl StdTrait<Player> for Player {
     fn update(&mut self) {
         self.credits += 1;
+    }
+
+    fn getuuid(&self) -> ExpUuid {
+        self.uuid
     }
 
     fn serialize (&self) -> String

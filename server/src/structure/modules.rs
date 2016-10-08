@@ -47,6 +47,10 @@ impl StdTrait<Module> for Module {
     fn update(&mut self) {
     }
 
+    fn getuuid(&self) -> ExpUuid {
+        self.uuid
+    }
+
     fn serialize (&self) -> String
     {
         serde_json::to_string(&self).unwrap()
