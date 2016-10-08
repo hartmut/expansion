@@ -18,6 +18,7 @@ pub struct Configuration {
     filename_player: String,
     filename_station: String,
     filename_module: String,
+    O2_per_person_and_tick: u64,
 }
 
 impl Configuration {
@@ -76,6 +77,7 @@ impl Configuration {
             filename_player:  player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
             filename_station: station.lookup("datafile_station").unwrap().as_str().unwrap().to_string(),
             filename_module:  module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            O2_per_person_and_tick: 10,
         }
     }
 

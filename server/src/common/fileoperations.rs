@@ -5,7 +5,7 @@
 
 /// used mods
 use std::fs::File;
-use std::fs::OpenOptions;
+// use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::io::LineWriter;
@@ -17,6 +17,15 @@ use std::error::Error;
 - pub fn printfile (f: BufReader<File>)
 - pub fn getline (f: &mut BufReader<File>) -> Option<String>
 */
+
+// print the content of a file
+pub fn printfile (f: BufReader<File>) {
+    println!("\n ******************************** \n");
+    for line in f.lines() {
+        println!("{}", line.unwrap());
+    }
+    println!("\n ******************************** \n");
+}
 
 pub fn newreader (filename: String) -> BufReader<File> {
 
@@ -32,16 +41,6 @@ pub fn newreader (filename: String) -> BufReader<File> {
     };
 
     BufReader::new(f)
-}
-
-
-// print the content of a file
-pub fn printfile (f: BufReader<File>) {
-    println!("\n ******************************** \n");
-    for line in f.lines() {
-        println!("{}", line.unwrap());
-    }
-    println!("\n ******************************** \n");
 }
 
 // generic getline function
@@ -81,4 +80,8 @@ pub fn newlinewriter (filename: String) -> LineWriter<File> {
 // TODO better error handling in writeline
 pub fn writeline (f: &mut LineWriter<File>, output: &String) -> u64  {
     f.write(output.as_bytes()).unwrap() as u64
+}
+
+pub fn closefile (f: &mut LineWriter<File>) {
+    let flust_result = f.flush();
 }

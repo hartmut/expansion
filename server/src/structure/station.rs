@@ -19,6 +19,7 @@ pub struct AStation {
     owner: ExpUuid,  // player who owns this station
     energyuse: u64,  // energy usage per tick, sum over all modules
     energyprod: u64, // energy production per tick, sum over all modules
+    peoplecount: u64,// how many people are on this station
     o2prod: u64,     // production of O2, see above -> people module?
     o2use: u64,      // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, //where am I?
@@ -40,6 +41,7 @@ impl AStation {
             owner: owner,
             energyuse: 0,
             energyprod: 0,
+            peoplecount: 0,
             o2use: 0,
             o2prod: 0,
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
@@ -51,10 +53,22 @@ impl AStation {
         self.uuid
     }
 
+    pub fn arriving_people(&self) {
+        // error if not enogh place on station
+        // check for o2 and throw error if not enough o2 available
+    }
+
+    pub fn departing_people(&self) {
+        // error if not enogh people on station
+    }
+
 }
 
 impl StdTrait<AStation> for AStation {
     fn update(&mut self) {
+        // update modules
+
+        // update player
     }
 
     fn serialize (&self) -> String

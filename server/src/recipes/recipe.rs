@@ -31,7 +31,7 @@ enum RecipeType {
 struct Recipe {
     uuid: ExpUuid,          // uuid for this recipe
     uuid_origin: ExpUuid,   // Origin of this recipe, if this is a starter it has the value "0"
-    RecipeType: RecipeType, // what type will be produced?
+    recipe_type: RecipeType, // what type will be produced?
     name: String,           // name of this recipe, something like Air with efficency x%
     duration: u32,          // ticks until the recipe got one run
     input: Arc<Package>,    // vector of UUIDs of materials and quantity needed to produce the result

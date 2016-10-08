@@ -5,7 +5,6 @@
 /// worker for player
 
 use common::workertrait::*;
-use common::fileoperations::*;
 use common::myuuid::*;
 use std::collections::BTreeMap;
 use super::player::Player;
