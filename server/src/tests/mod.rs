@@ -5,3 +5,4 @@
 //
 pub mod playertest;
 pub mod stationtest;
+pub mod moduletest;

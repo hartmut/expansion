@@ -16,7 +16,7 @@ pub struct Module {
     uuid: ExpUuid,      // global id of this module
     staion_uuid: ExpUuid, // Uuid of the station for later reference
     name: String,       // name/description of the module
-    energy: i64,        // positiv when energy using, negativ when energy producing
+    energy: i64,        // positiv when energy producing, negativ when energy using
     prod_by_receipe: ExpUuid, //uuid of receipe with which it had been produced, neede for dismantling of module
 
 //production and storage

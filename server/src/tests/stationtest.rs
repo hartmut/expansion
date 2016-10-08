@@ -5,6 +5,7 @@
 //
 
 // standard test player is Ian Banks with uuid 96ff7368-c559-443b-a0c2-0c1324e63cbe
+// standard test station is Firefly with uuid 7da4a015-eea9-4a62-aeac-e458910b7b6a
 
 #[cfg(test)]
 mod tests {
@@ -15,7 +16,7 @@ mod tests {
     use structure::station::AStation;
 
     #[test]
-    fn create_testdata() {
+    fn create_teststation() {
         //create station
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
         let mut my_station = AStation::new("Firefly".to_string(), owner);
@@ -26,12 +27,17 @@ mod tests {
         let i = writeline(&mut g, &lineout);
     }
 
+    // #[test]
+    // fn create_testmodules() {
+    //     unimplemented!()
+    // }
+
     #[test]
     fn serialize_test() {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
         let mut my_station = AStation::new("Firefly".to_string(), owner);
         let serialized = my_station.serialize();
-        let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap(); 
+        let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap();
     }
 
     #[test]
