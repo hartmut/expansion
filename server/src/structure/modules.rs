@@ -26,6 +26,8 @@ pub struct Module {
 
 }
 
+enum ModuleCapabilities
+
 impl Module {
 
     //! create a new Space Module
@@ -34,9 +36,9 @@ impl Module {
         Module {
             uuid: get_new_uuid(),
             staion_uuid: station_uuid,
+            prod_by_receipe: prod_by_receipe,
             name: name,
             energy: energy,
-            prod_by_receipe: prod_by_receipe,
             cur_prod_receipe: ExpUuid::nil(),
         }
     }

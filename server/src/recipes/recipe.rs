@@ -30,11 +30,13 @@ enum RecipeType {
 #[derive(Serialize, Deserialize, Debug)]
 struct Recipe {
     uuid: ExpUuid,          // uuid for this recipe
-    uuid_origin: ExpUuid,   // Origin of this recipe, if this is a starter it has the value "0"
+    uuid_origin: ExpUuid,   // Origin of this recipe, if this is an origianl recipe it has the value "0"
     recipe_type: RecipeType, // what type will be produced?
-    name: String,           // name of this recipe, something like Air with efficency x%
+    name: String,           // name of this recipe
     duration: u32,          // ticks until the recipe got one run
     input: Arc<Package>,    // vector of UUIDs of materials and quantity needed to produce the result
     output: Arc<Package>,   // vector of UUIDs of materials and quantity produced, empty if it is a module
     module: String,         // json format for creation of a new module, empty if it is not a module
 }
+
+//TODO write standard stdtrait for recipes

@@ -4,7 +4,7 @@
 
 // macros and plugins
 #![allow(dead_code)]
-#![feature(rustc_macro)]
+#![feature(proc_macro)]
 #[macro_use]
 
 // extern
@@ -58,7 +58,7 @@ fn main() {
     //create the player worker and initalize it
     let player_worker = PlayerWorker::new(  "Player_Worker".to_string(),
                                             myconfig.get_filenameplayer());
-
+                                            
     //create the structure worker and initalize it
     let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(),
                                                     myconfig.get_filenamestructure());

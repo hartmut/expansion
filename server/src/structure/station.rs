@@ -47,6 +47,9 @@ impl AStation {
             location: SpaceObj::new(1.0, 12.0 ,3.0 ,4),
             module_list: module_list_temp,
         }
+
+        // TODO add a standard module for persons with minimal functionality,
+        // need a recipe for a minimal module
     }
 
     pub fn arriving_people(&self) {

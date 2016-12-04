@@ -12,13 +12,21 @@ use std::io::LineWriter;
 use std::path::Path;
 use std::error::Error;
 
-/* reading functions
-- pub fn newreader (filename: String) -> BufReader<File>
-- pub fn printfile (f: BufReader<File>)
-- pub fn getline (f: &mut BufReader<File>) -> Option<String>
-*/
+//! General file functions
 
-// print the content of a file
+/**
+print the content of a file
+
+# Returns
+
+* nothing
+
+# Arguments
+
+* `f` File to print, expects a BufReader<File>
+
+**/
+
 pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
     for line in f.lines() {
@@ -83,5 +91,5 @@ pub fn writeline (f: &mut LineWriter<File>, output: &String) -> u64  {
 }
 
 pub fn closefile (f: &mut LineWriter<File>) {
-    let flust_result = f.flush();
+    let flush_result = f.flush();
 }
