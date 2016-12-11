@@ -2,9 +2,10 @@
 # Copyright (C) 2016  Hartmut Prochaska
 # See doc/LICENSE for licensing information
 
-# duration of tick in seconds
 [global]
+# duration of tick in seconds, on tick is 6h in worldtime
 tick = 2
+# needed O2 in liter per player and tick 
 02player = 10
 
 [playerdata]

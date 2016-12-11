@@ -26,7 +26,11 @@ pub struct Module {
 
 }
 
-enum ModuleCapabilities
+enum ModuleCapabilities {
+    cap1,
+    cap2,
+    cap3,
+}
 
 impl Module {
 

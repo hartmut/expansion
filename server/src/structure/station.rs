@@ -49,7 +49,7 @@ impl AStation {
         }
 
         // TODO add a standard module for persons with minimal functionality,
-        // need a recipe for a minimal module
+        // TODO need a recipe for a minimal module
     }
 
     pub fn arriving_people(&self) {

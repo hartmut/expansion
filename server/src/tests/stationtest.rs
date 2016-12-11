@@ -38,6 +38,15 @@ mod tests {
     }
 
     #[test]
+    fn station_getuuid() {
+        let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
+        let mut my_station = AStation::new("Firefly".to_string(), owner);
+        let uuid1 = my_station.getuuid();
+        let uuid2 = my_station.getuuid();
+        assert_eq!(uuid1, uuid2);
+    }
+
+    #[test]
     fn read_write_file() {
         //init
         let mut f = newreader("src/tests/testdata/stationtestin.json".to_string());

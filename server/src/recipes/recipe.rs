@@ -8,6 +8,9 @@
 // uses
 use std::sync::Arc;
 use common::myuuid::*;
+use common::stdtrait::StdTrait;
+use common::fileoperations::*;
+use serde_json;
 
 // the package
 // material and quantity
@@ -20,6 +23,7 @@ struct Package {
 
 // types of recipes
 #[derive(Serialize, Deserialize, Debug)]
+#[derive(Copy, Clone)]
 enum RecipeType {
     Module,
     Component,
@@ -39,4 +43,101 @@ struct Recipe {
     module: String,         // json format for creation of a new module, empty if it is not a module
 }
 
-//TODO write standard stdtrait for recipes
+
+impl Recipe {
+
+    fn get_duration(&self) -> u32 {
+        self.duration
+    }
+
+    fn get_name(&self) -> String {
+        self.name.clone()
+    }
+
+    fn get_module_def(&self) -> String {
+        self.module.clone()
+    }
+
+    fn get_recipe_type(&self) -> RecipeType {
+        self.recipe_type
+    }
+
+    fn is_module(&self) -> bool {
+        match self.recipe_type {
+            RecipeType::Module => true,
+            _ => false,
+        }
+    }
+
+    fn is_component(&self) -> bool {
+        match self.recipe_type {
+            RecipeType::Component => true,
+            _ => false,
+        }
+    }
+
+    fn is_research(&self) -> bool {
+        match self.recipe_type {
+            RecipeType::Research => true,
+            _ => false,
+        }
+    }
+
+    //TODO function which returns an produced module
+
+    //TODO function improve recipe
+}
+
+impl StdTrait<Recipe> for Recipe {
+    fn update(&mut self) {
+        // count up ticks should be done in the proucing module
+        // is there anything we could do here?
+    }
+
+    fn getuuid(&self) -> ExpUuid {
+        self.uuid
+    }
+
+    fn serialize (&self) -> String
+    {
+        serde_json::to_string(&self).unwrap()
+    }
+
+    fn new_from_deserialized (input: &String) -> Recipe
+    {
+        serde_json::from_str(&input).unwrap()
+    }
+    
+}
+
+#[test]
+fn create_module_example() {
+
+    let new_package1 = Package {
+        quantity: 1000,
+        material: get_new_uuid(),
+    };
+
+    let new_package2 = Package {
+        quantity: 0,
+        material: get_new_uuid(),
+    };
+
+
+    // create a standard module
+    let new_module_recipe = Recipe {
+        uuid: get_new_uuid(),
+        uuid_origin: get_new_uuid(),
+        recipe_type: RecipeType::Module,
+        name: "Basic Module I".to_string(),
+        duration: 100,
+        input: Arc::<Package>::new(new_package1),
+        output: Arc::<Package>::new(new_package2),
+        module: "".to_string(),
+    };
+
+    // and now write it
+    let mut g = newlinewriter("src/tests/testdata/recipetestout.json".to_string());
+    let lineout =  Recipe::serialize(&new_module_recipe);
+    writeline(&mut g, &lineout);
+}

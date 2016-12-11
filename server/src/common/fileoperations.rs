@@ -12,7 +12,7 @@ use std::io::LineWriter;
 use std::path::Path;
 use std::error::Error;
 
-//! General file functions
+// General file functions
 
 /**
 print the content of a file
@@ -26,7 +26,6 @@ print the content of a file
 * `f` File to print, expects a BufReader<File>
 
 **/
-
 pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
     for line in f.lines() {
