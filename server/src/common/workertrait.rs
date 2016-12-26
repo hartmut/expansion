@@ -5,18 +5,16 @@
 /// all the traits in one file
 
 /// worker trait and struct
-
 #[derive(Debug)]
 pub struct WorkerStruct {
-    pub name: String,
-    // queue with incomming updates
-    // queue with outgoing updates
+    pub name: String, /* queue with incomming updates
+                       * queue with outgoing updates */
 }
 
 pub trait WorkerTrait<T> {
-    fn new (name: String, filename: String) -> T;
-    fn initialize (&mut self);
-    fn send_update (&self);
-    fn get_update (&mut self);
+    fn new(name: String, filename: String) -> T;
+    fn initialize(&mut self);
+    fn send_update(&self);
+    fn get_update(&mut self);
     fn run(&mut self);
 }

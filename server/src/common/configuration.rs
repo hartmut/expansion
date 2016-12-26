@@ -22,7 +22,6 @@ pub struct Configuration {
 }
 
 impl Configuration {
-
     pub fn load_config(args: Vec<String>) -> Configuration {
 
         // configuration is here server/src/data/config.toml
@@ -34,15 +33,13 @@ impl Configuration {
         let mut file = match File::open(&path) {
             // The `description` method of `io::Error` returns a string that
             // describes the error
-            Err(why) => panic!("couldn't open {}: {}", display,
-                                                       why.description()),
+            Err(why) => panic!("couldn't open {}: {}", display, why.description()),
             Ok(file) => file,
         };
 
         // Read the file contents into a string, returns `io::Result<usize>`
         match file.read_to_string(&mut input) {
-            Err(why) => panic!("couldn't read {}: {}", display,
-                                                       why.description()),
+            Err(why) => panic!("couldn't read {}: {}", display, why.description()),
             // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
             Ok(_) => print!(""),
         }
@@ -50,22 +47,26 @@ impl Configuration {
         let mut parser = Parser::new(&input);
 
         let toml = match parser.parse() {
-            None       =>
-                {
-                    for err in &parser.errors {
-                        let (loline, locol) = parser.to_linecol(err.lo);
-                        let (hiline, hicol) = parser.to_linecol(err.hi);
-                        println!("{}:{}:{}-{}:{} error: {}",
-                                 display, loline, locol, hiline, hicol, err.desc)
-                     }
-                     panic!("configuration error");
-                },
+            None => {
+                for err in &parser.errors {
+                    let (loline, locol) = parser.to_linecol(err.lo);
+                    let (hiline, hicol) = parser.to_linecol(err.hi);
+                    println!("{}:{}:{}-{}:{} error: {}",
+                             display,
+                             loline,
+                             locol,
+                             hiline,
+                             hicol,
+                             err.desc)
+                }
+                panic!("configuration error");
+            }
             Some(toml) => toml,
         };
 
         // decompose the toml file.
         // IDEA: try to interpret the toml file in a less complex way
-        let conf:BTreeMap<String, Value> = toml;
+        let conf: BTreeMap<String, Value> = toml;
         let global = conf.get(&"global".to_string()).unwrap();
         let player = conf.get(&"playerdata".to_string()).unwrap();
         let station = conf.get(&"structuredata".to_string()).unwrap();
@@ -73,11 +74,15 @@ impl Configuration {
 
         // create the Configuration structure
         Configuration {
-            tick:  global.lookup("tick").unwrap().as_integer().unwrap() as u64,
+            tick: global.lookup("tick").unwrap().as_integer().unwrap() as u64,
             o2_per_person: global.lookup("02player").unwrap().as_integer().unwrap() as u64,
-            filename_player:  player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-            filename_station: station.lookup("datafile_station").unwrap().as_str().unwrap().to_string(),
-            filename_module:  module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            filename_player: player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            filename_station: station.lookup("datafile_station")
+                .unwrap()
+                .as_str()
+                .unwrap()
+                .to_string(),
+            filename_module: module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
         }
     }
 
@@ -96,5 +101,4 @@ impl Configuration {
     pub fn get_filenamemodule(&self) -> String {
         self.filename_module.clone()
     }
-
 }

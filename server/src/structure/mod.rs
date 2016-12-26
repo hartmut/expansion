@@ -4,6 +4,6 @@
 //
 // station relevant informaitons
 
-pub mod modules; 
+pub mod modules;
 pub mod station;
 pub mod structure_worker;

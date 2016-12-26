@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
-//! managing the stations updates
+// managing the stations updates
 
 use common::workertrait::*;
 use common::fileoperations::*;
@@ -23,25 +23,24 @@ pub struct StructureWorker {
 }
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
-
-    fn new (name: String, filename: String) -> StructureWorker {
+    fn new(name: String, filename: String) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         StructureWorker {
-            worker_struct: WorkerStruct{name: name},
+            worker_struct: WorkerStruct { name: name },
             stationfile: filename,
             stations: btree,
         }
     }
 
-    fn initialize (&mut self) {
+    fn initialize(&mut self) {
 
-        //init
+        // init
         let mut f = newreader(self.stationfile.clone());
         let mut line = String::new();
 
-        //iterate over all lines
+        // iterate over all lines
         loop {
 
             let result = getline(&mut f);
@@ -58,21 +57,15 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             let uuid = tempstation.getuuid();
             self.stations.insert(uuid, tempstation);
 
-            //cleanup
+            // cleanup
             line.clear();
         }
 
     }
 
-    fn run(&mut self) {
+    fn run(&mut self) {}
 
-    }
+    fn send_update(&self) {}
 
-    fn send_update (&self) {
-
-    }
-
-    fn get_update (&mut self) {
-
-    }
+    fn get_update(&mut self) {}
 }

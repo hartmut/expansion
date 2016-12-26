@@ -4,27 +4,23 @@
 //
 /// all the traits in one file
 
-
 /// trait for Objects in this world
 use super::myuuid::*;
 
 pub trait StdTrait<T> {
-
-    fn update (&mut self)
-    {
+    fn update(&mut self) {
         println!("update");
     }
 
     fn getuuid(&self) -> ExpUuid;
 
-    fn serialize (&self) -> String;
+    fn serialize(&self) -> String;
 
-    fn new_from_deserialized (input: &String) -> T;
+    fn new_from_deserialized(input: &String) -> T;
 
     // TODO why does this default implementation not work with locations?
     // fn new_from_deserialized (input: &String) -> T
     // {
     //     serde_json::from_str(&input).unwrap()
     // }
-
 }

@@ -21,32 +21,24 @@ pub struct PlayerWorker {
 }
 
 impl WorkerTrait<PlayerWorker> for PlayerWorker {
-
-    fn new (name: String, filename: String) -> PlayerWorker {
+    fn new(name: String, filename: String) -> PlayerWorker {
 
         let btree: BTreeMap<ExpUuid, Player> = BTreeMap::new();
 
         PlayerWorker {
-            worker_struct: WorkerStruct{name: name},
+            worker_struct: WorkerStruct { name: name },
             playerfile: filename,
             player: btree,
         }
     }
 
-    fn initialize (&mut self) {
-// TODO fill initialization analog StructureWorker
+    fn initialize(&mut self) {
+        // TODO fill initialization analog StructureWorker
     }
 
-    fn run(&mut self) {
+    fn run(&mut self) {}
 
-    }
+    fn send_update(&self) {}
 
-    fn send_update (&self) {
-
-    }
-
-    fn get_update (&mut self) {
-
-    }
-
+    fn get_update(&mut self) {}
 }

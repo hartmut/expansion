@@ -22,7 +22,7 @@ mod tests {
     #[test]
     fn writefile() {
         let mut f = newlinewriter("src/tests/testdata/testfileout".to_string());
-        let lineout =  "This is something\n".to_string();
+        let lineout = "This is something\n".to_string();
         writeline(&mut f, &lineout);
         closefile(&mut f);
 
