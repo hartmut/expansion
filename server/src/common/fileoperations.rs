@@ -26,7 +26,7 @@ print the content of a file
 * `f` File to print, expects a BufReader<File>
 
 **/
-pub fn printfile (f: BufReader<File>) {
+pub fn printfile(f: BufReader<File>) {
     println!("\n ******************************** \n");
     for line in f.lines() {
         println!("{}", line.unwrap());
@@ -34,7 +34,7 @@ pub fn printfile (f: BufReader<File>) {
     println!("\n ******************************** \n");
 }
 
-pub fn newreader (filename: String) -> BufReader<File> {
+pub fn newreader(filename: String) -> BufReader<File> {
 
     let path = Path::new(&filename);
 
@@ -42,8 +42,7 @@ pub fn newreader (filename: String) -> BufReader<File> {
     let f = match File::open(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", path.display(),
-                                                   why.description()),
+        Err(why) => panic!("couldn't open {}: {}", path.display(), why.description()),
         Ok(file) => file,
     };
 
@@ -51,7 +50,7 @@ pub fn newreader (filename: String) -> BufReader<File> {
 }
 
 // generic getline function
-pub fn getline (f: &mut BufReader<File>) -> Option<String> {
+pub fn getline(f: &mut BufReader<File>) -> Option<String> {
 
     let mut line = String::new();
 
@@ -62,12 +61,12 @@ pub fn getline (f: &mut BufReader<File>) -> Option<String> {
     }
 }
 
-/* writing functions
-- pub fn newlinewriter (filename: String) -> LineWriter<File>
-- pub fn writeline (f: &mut LineWriter<File>, output: String) -> u64
-*/
+// writing functions
+// - pub fn newlinewriter (filename: String) -> LineWriter<File>
+// - pub fn writeline (f: &mut LineWriter<File>, output: String) -> u64
+//
 
-pub fn newlinewriter (filename: String) -> LineWriter<File> {
+pub fn newlinewriter(filename: String) -> LineWriter<File> {
 
     let path = Path::new(&filename);
 
@@ -75,8 +74,7 @@ pub fn newlinewriter (filename: String) -> LineWriter<File> {
     let f = match File::create(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", path.display(),
-                                                   why.description()),
+        Err(why) => panic!("couldn't open {}: {}", path.display(), why.description()),
         Ok(file) => file,
     };
 
@@ -85,10 +83,12 @@ pub fn newlinewriter (filename: String) -> LineWriter<File> {
 
 // genericline  writeline function, returns length of written data
 // TODO better error handling in writeline
-pub fn writeline (f: &mut LineWriter<File>, output: &String) -> u64  {
+pub fn writeline(f: &mut LineWriter<File>, output: &String) -> u64 {
     f.write(output.as_bytes()).unwrap() as u64
+    // TODO insert newlines and repaire tests
+    // f.write('\n'.to_string().as_bytes()).unwrap() as u64
 }
 
-pub fn closefile (f: &mut LineWriter<File>) {
+pub fn closefile(f: &mut LineWriter<File>) {
     let flush_result = f.flush();
 }

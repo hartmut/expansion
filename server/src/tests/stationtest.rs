@@ -19,13 +19,14 @@ mod tests {
 
     #[test]
     fn create_teststation() {
-        //create station
+        // create station
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
         let mut my_station = AStation::new("Firefly".to_string(), owner);
 
-        //write station
+        // write station
         let mut g = newlinewriter("src/tests/testdata/stationtestin.json".to_string());
-        let mut lineout =  <AStation as StdTrait<AStation>>::serialize(&my_station);
+        let mut lineout =
+            <AStation as StdTrait<AStation>>::serialize(&my_station);
         let i = writeline(&mut g, &lineout);
     }
 
@@ -48,7 +49,7 @@ mod tests {
 
     #[test]
     fn read_write_file() {
-        //init
+        // init
         let mut f = newreader("src/tests/testdata/stationtestin.json".to_string());
         let mut line = String::new();
 
@@ -66,7 +67,8 @@ mod tests {
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdata/stationtestout.json".to_string());
-        let mut lineout =  <AStation as StdTrait<AStation>>::serialize(&tempstation);
+        let mut lineout =
+            <AStation as StdTrait<AStation>>::serialize(&tempstation);
         let i = writeline(&mut g, &lineout);
 
         assert_eq!(line, lineout);

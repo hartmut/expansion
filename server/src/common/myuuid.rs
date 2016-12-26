@@ -12,3 +12,5 @@ pub type ExpUuid = Uuid;
 pub fn get_new_uuid() -> ExpUuid {
     ExpUuid::new_v4()
 }
+
+//TODO define numbergroups -> array with types, enum of types, function for uuids by type
