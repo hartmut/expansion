@@ -24,7 +24,7 @@ mod tests {
         let mut my_station = AStation::new("Firefly".to_string(), owner);
 
         // write station
-        let mut g = newlinewriter("src/tests/testdata/stationtestin.json".to_string());
+        let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
         let mut lineout =
             <AStation as StdTrait<AStation>>::serialize(&my_station);
         let i = writeline(&mut g, &lineout);
@@ -38,6 +38,7 @@ mod tests {
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap();
     }
 
+    // TODO test seems not usefull
     #[test]
     fn station_getuuid() {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
@@ -50,7 +51,7 @@ mod tests {
     #[test]
     fn read_write_file() {
         // init
-        let mut f = newreader("src/tests/testdata/stationtestin.json".to_string());
+        let mut f = newreader("src/tests/testdatain/stationtestin.json".to_string());
         let mut line = String::new();
 
         let result = getline(&mut f);
@@ -66,7 +67,7 @@ mod tests {
         let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
 
         // and now write it
-        let mut g = newlinewriter("src/tests/testdata/stationtestout.json".to_string());
+        let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
         let mut lineout =
             <AStation as StdTrait<AStation>>::serialize(&tempstation);
         let i = writeline(&mut g, &lineout);
