@@ -57,8 +57,15 @@ pub fn getline(f: &mut BufReader<File>) -> Option<String> {
     if f.read_line(&mut line).unwrap() == 0 {
         None
     } else {
+        let lastchar = line.pop().unwrap();
+
+        if lastchar != '\n' {
+            line.push(lastchar)
+        }
+
         Some(line)
     }
+
 }
 
 // writing functions
@@ -84,9 +91,8 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
 // genericline  writeline function, returns length of written data
 // TODO better error handling in writeline
 pub fn writeline(f: &mut LineWriter<File>, output: &String) -> u64 {
-    f.write(output.as_bytes()).unwrap() as u64
-    // TODO insert newlines and repaire tests
-    // f.write('\n'.to_string().as_bytes()).unwrap() as u64
+    f.write(output.as_bytes()).unwrap() as u64;
+    f.write('\n'.to_string().as_bytes()).unwrap() as u64
 }
 
 pub fn closefile(f: &mut LineWriter<File>) {
