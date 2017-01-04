@@ -70,8 +70,8 @@ fn create_player_example() {
     // and now write it
     let mut g = newlinewriter("src/tests/testdataout/playertestout.json".to_string());
     let lineout = Player::serialize(&new_player1);
-    writeline(&mut g, &lineout);
+    writerecord(&mut g, &lineout);
     let lineout = Player::serialize(&new_player2);
-    writeline(&mut g, &lineout);
+    writerecord(&mut g, &lineout);
     closefile(&mut g);
 }

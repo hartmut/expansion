@@ -11,10 +11,10 @@ mod tests {
         let mut f = newreader("src/tests/testdatain/testfile".to_string());
         // let mut result = String::new();
 
-        let result = getline(&mut f).unwrap();
+        let result = getrecord(&mut f).unwrap();
         assert_eq!(result, "This is something");
 
-        let result = getline(&mut f).unwrap();
+        let result = getrecord(&mut f).unwrap();
         assert_eq!(result, "This is something else");
 
     }
@@ -23,11 +23,11 @@ mod tests {
     // fn writefile_with_newline() {
     //     let mut f = newlinewriter("src/tests/testdataout/testfileout".to_string());
     //     let lineout = "This is something\n".to_string();
-    //     writeline(&mut f, &lineout);
+    //     writerecord(&mut f, &lineout);
     //     closefile(&mut f);
     //
     //     let mut g = newreader("src/tests/testdataout/testfileout".to_string());
-    //     let result = getline(&mut g).unwrap();
+    //     let result = getrecord(&mut g).unwrap();
     //     assert_eq!(result, lineout);
     // }
 
@@ -35,11 +35,11 @@ mod tests {
     fn writefile_without_newline() {
         let mut f = newlinewriter("src/tests/testdataout/testfileout".to_string());
         let lineout = "This is something".to_string();
-        writeline(&mut f, &lineout);
+        writerecord(&mut f, &lineout);
         closefile(&mut f);
 
         let mut g = newreader("src/tests/testdataout/testfileout".to_string());
-        let result = getline(&mut g).unwrap();
+        let result = getrecord(&mut g).unwrap();
         assert_eq!(result, lineout);
     }
 }

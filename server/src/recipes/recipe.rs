@@ -134,5 +134,5 @@ fn create_module_example() {
     // and now write it
     let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());
     let lineout = Recipe::serialize(&new_module_recipe);
-    writeline(&mut g, &lineout);
+    writerecord(&mut g, &lineout);
 }

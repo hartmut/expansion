@@ -27,7 +27,7 @@ mod tests {
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
         let mut lineout =
             <AStation as StdTrait<AStation>>::serialize(&my_station);
-        let i = writeline(&mut g, &lineout);
+        let i = writerecord(&mut g, &lineout);
     }
 
     #[test]
@@ -54,7 +54,7 @@ mod tests {
         let mut f = newreader("src/tests/testdatain/stationtestin.json".to_string());
         let mut line = String::new();
 
-        let result = getline(&mut f);
+        let result = getrecord(&mut f);
 
         match result {
             // all bad
@@ -70,7 +70,7 @@ mod tests {
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
         let mut lineout =
             <AStation as StdTrait<AStation>>::serialize(&tempstation);
-        let i = writeline(&mut g, &lineout);
+        let i = writerecord(&mut g, &lineout);
 
         assert_eq!(line, lineout);
     }

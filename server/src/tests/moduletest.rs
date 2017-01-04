@@ -17,7 +17,7 @@ mod tests {
     fn writetestdata(input: Module) {
         let mut f = newlinewriter("src/tests/testdataout/moduletestout.json".to_string());
         let lineout = <Module as StdTrait<Module>>::serialize(&input);
-        writeline(&mut f, &lineout);
+        writerecord(&mut f, &lineout);
     }
 
     #[test]

@@ -43,7 +43,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
         // iterate over all lines
         loop {
 
-            let result = getline(&mut f);
+            let result = getrecord(&mut f);
 
             match result {
                 // all bad
