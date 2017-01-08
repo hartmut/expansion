@@ -30,7 +30,7 @@ pub struct StructureWorker {
 // TODO make a smal test case for mutability of BufReader in two stages
 // pub fn read_record(f: &mut BufReader<File>) -> AStation {
 //     let mut line = String::new();
-//     let testplayer = get_new_uuid();
+//     let testplayer = uuidnull();
 //     let mut outstation = AStation::new("someone".to_string(), testplayer);
 //
 //     // read lines until you have a record

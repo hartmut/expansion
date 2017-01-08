@@ -13,4 +13,8 @@ pub fn get_new_uuid() -> ExpUuid {
     ExpUuid::new_v4()
 }
 
+pub fn uuidnull() -> ExpUuid {
+    ExpUuid::nil()
+}
+
 // TODO define numbergroups -> array with types, enum of types, function for uuids by type
