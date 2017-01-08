@@ -10,10 +10,10 @@
 // uses
 use common::myuuid;
 
-//! all the atomar material you can't build
-
+//! all the elemenets
+// updates from https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json
+// TODO design struct and read from file 
 struct rawmaterial { //TODO integrate in components?
-    uuid: ExpUuid,      // global id of the raw material
-    name: String,     // Name of the raw material
-
+    uuid: ExpUuid,   // global id of the raw material
+    name: String,    // Name of the raw material
 }

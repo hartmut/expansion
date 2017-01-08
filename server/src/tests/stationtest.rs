@@ -38,7 +38,7 @@ mod tests {
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap();
     }
 
-    // TODO test seems not usefull
+    // TODO test doesn't look  usefull
     #[test]
     fn station_getuuid() {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
@@ -54,7 +54,7 @@ mod tests {
         let mut f = newreader("src/tests/testdatain/stationtestin.json".to_string());
         let mut line = String::new();
 
-        let result = getrecord(&mut f);
+        let result = readline(&mut f);
 
         match result {
             // all bad
@@ -63,8 +63,17 @@ mod tests {
             Some(x) => line = x,
         }
 
+        println!("{}", line);
+
         // create an entry
+        // TODO try with deserializaion, transfer this to stdtrait for json reading
         let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
+        // let tempstation: AStation =
+        // try!(<AStation as StdTrait<AStation>>::new_from_deserialized(&line));
+        // match Stationresult {
+        //     OK(Station) => tempstation: AStation = Station,
+        //     Err(err) => println!("didn't work"),
+        // }
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());

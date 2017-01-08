@@ -11,10 +11,10 @@ mod tests {
         let mut f = newreader("src/tests/testdatain/testfile".to_string());
         // let mut result = String::new();
 
-        let result = getrecord(&mut f).unwrap();
+        let result = readline(&mut f).unwrap();
         assert_eq!(result, "This is something");
 
-        let result = getrecord(&mut f).unwrap();
+        let result = readline(&mut f).unwrap();
         assert_eq!(result, "This is something else");
 
     }
@@ -27,7 +27,7 @@ mod tests {
     //     closefile(&mut f);
     //
     //     let mut g = newreader("src/tests/testdataout/testfileout".to_string());
-    //     let result = getrecord(&mut g).unwrap();
+    //     let result = readline(&mut g).unwrap();
     //     assert_eq!(result, lineout);
     // }
 
@@ -39,7 +39,7 @@ mod tests {
         closefile(&mut f);
 
         let mut g = newreader("src/tests/testdataout/testfileout".to_string());
-        let result = getrecord(&mut g).unwrap();
+        let result = readline(&mut g).unwrap();
         assert_eq!(result, lineout);
     }
 }

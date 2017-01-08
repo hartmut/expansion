@@ -24,8 +24,9 @@ pub struct AStation {
     o2use: u64, // use of O2 for people TODO modelle by a prduction modules -> people module?
     location: SpaceObj, // where am I?
 
-    // list of modules of this station
-    module_list: Vec<Module>, /* list of inventar on this station
+    module_list: Vec<Module>, /* list of modules of this station
+                               *
+                               * list of inventar on this station
                                * list of NPC on station */
 }
 

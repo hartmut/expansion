@@ -1,2 +1,10 @@
-{"uuid":"2c3c48c0-d4c1-43f7-ab01-7e76d5db4220","name":"Ian Banks","credits":100}
-{"uuid":"6deac6c5-ef28-4289-8a00-f1374406555a","name":"Daniel Suarez","credits":1000}
+{
+  "uuid": "2c3c48c0-d4c1-43f7-ab01-7e76d5db4220",
+  "name": "Ian Banks",
+  "credits": 100
+}
+{
+  "uuid": "6deac6c5-ef28-4289-8a00-f1374406555a",
+  "name": "Daniel Suarez",
+  "credits": 1000
+}

@@ -23,4 +23,6 @@ pub trait StdTrait<T> {
     // {
     //     serde_json::from_str(&input).unwrap()
     // }
+
+    // TODO read multiline JSON Records correctly
 }

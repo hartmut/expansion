@@ -6,12 +6,13 @@
 
 /// used mods
 use std::fs::File;
-// use std::fs::OpenOptions;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::io::LineWriter;
 use std::path::Path;
 use std::error::Error;
+
+// IDEA rewrite to use json database by default, simpler?
 
 // General file functions
 
@@ -50,8 +51,8 @@ pub fn newreader(filename: String) -> BufReader<File> {
     BufReader::new(f)
 }
 
-// generic getrecord function
-pub fn getrecord(f: &mut BufReader<File>) -> Option<String> {
+// generic readline function
+pub fn readline(f: &mut BufReader<File>) -> Option<String> {
 
     let mut line = String::new();
 
