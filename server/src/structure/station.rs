@@ -7,6 +7,7 @@
 
 // uses
 use serde_json;
+use serde_json::error::Error;
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
 use physic::location::SpaceObj;
@@ -50,6 +51,11 @@ impl AStation {
 
         // TODO add a standard module for persons with minimal functionality,
         // TODO need a recipe for a minimal module
+    }
+
+    // TODO integrate into stdtraits
+    pub fn deserialize_test(input: &String) -> Result<AStation, Error> {
+        serde_json::from_str(&input)
     }
 
     pub fn arriving_people(&self) {

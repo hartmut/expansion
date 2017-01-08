@@ -25,4 +25,6 @@ pub trait StdTrait<T> {
     // }
 
     // TODO read multiline JSON Records correctly
+
+    // TODO create empty objects
 }

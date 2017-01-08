@@ -66,14 +66,7 @@ mod tests {
         println!("{}", line);
 
         // create an entry
-        // TODO try with deserializaion, transfer this to stdtrait for json reading
         let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
-        // let tempstation: AStation =
-        // try!(<AStation as StdTrait<AStation>>::new_from_deserialized(&line));
-        // match Stationresult {
-        //     OK(Station) => tempstation: AStation = Station,
-        //     Err(err) => println!("didn't work"),
-        // }
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
