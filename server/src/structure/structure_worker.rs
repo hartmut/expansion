@@ -26,36 +26,35 @@ pub struct StructureWorker {
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
-// TODO test deserializaion, transfer this to stdtrait for json records #next
-// TODO make a smal test case for mutability of BufReader in two stages
-// pub fn read_record(f: &mut BufReader<File>) -> AStation {
-//     let mut line = String::new();
-//     let testplayer = uuidnull();
-//     let mut outstation = AStation::new("someone".to_string(), testplayer);
-//
-//     // read lines until you have a record
-//     loop {
-//         let result = readline(&mut f);
-//
-//         match result {
-//             // all bad
-//             None => break,
-//             // got something
-//             Some(x) => line = x,
-//         }
-//
-//         outstation = AStation::deserialize_test(&line).unwrap();
-//         // let tempstation: Result<AStation, String> =
-//         // try!(<AStation as StdTrait<AStation>>::new_from_deserialized(&line));
-//
-//         // match tempstation {
-//         //     OK(Station) => outstation = Station,
-//         //     Err(err) => println!("didn't work"),
-//         // }
-//
-//     }
-//     outstation
-// }
+// TODO test deserialization, transfer this to stdtrait for json records #next
+pub fn read_record(mut f: &mut BufReader<File>) -> AStation {
+    let mut line = String::new();
+    let testplayer = uuidnull();
+    let mut outstation = AStation::new("someone".to_string(), testplayer);
+
+    // read lines until you have a record
+    loop {
+        let result = readline(&mut f);
+
+        match result {
+            // all bad
+            None => break,
+            // got something
+            Some(x) => line = x,
+        }
+
+        // outstation = AStation::deserialize_test(&line).unwrap();
+        // let tempstation: Result<AStation, String> =
+        //     try!(<AStation as StdTrait<AStation>>::new_from_deserialized(&line));
+        //
+        // match tempstation {
+        //     OK(Station) => outstation = Station,
+        //     Err(err) => println!("didn't work"),
+        // }
+
+    }
+    outstation
+}
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
     fn new(name: String, filename: String) -> StructureWorker {

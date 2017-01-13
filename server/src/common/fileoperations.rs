@@ -52,7 +52,7 @@ pub fn newreader(filename: String) -> BufReader<File> {
 }
 
 // generic readline function
-pub fn readline(f: &mut BufReader<File>) -> Option<String> {
+pub fn readline(mut f: &mut BufReader<File>) -> Option<String> {
 
     let mut line = String::new();
 
@@ -92,11 +92,11 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
 
 // genericline  writerecord function, returns length of written data
 // TODO better error handling in writerecord
-pub fn writerecord(f: &mut LineWriter<File>, output: &String) -> u64 {
+pub fn writerecord(mut f: &mut LineWriter<File>, output: &String) -> u64 {
     f.write(output.as_bytes()).unwrap() as u64;
     f.write('\n'.to_string().as_bytes()).unwrap() as u64
 }
 
-pub fn closefile(f: &mut LineWriter<File>) {
+pub fn closefile(mut f: &mut LineWriter<File>) {
     let flush_result = f.flush();
 }
