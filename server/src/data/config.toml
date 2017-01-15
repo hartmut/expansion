@@ -5,7 +5,7 @@
 [global]
 # duration of tick in seconds, on tick is 6h in worldtime
 tick = 2
-# needed O2 in liter per player and tick 
+# needed O2 in liter per player and tick
 02player = 10
 
 [playerdata]
@@ -19,3 +19,9 @@ datafile_station="src/data/station.json"
 [moduledata]
 storageMethod="file"
 datafile="src/data/module.json"
+
+[ptable]
+storageMethod="file"
+datafile="src/data/PeriodicTableJSON.json"
+#source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
+source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"

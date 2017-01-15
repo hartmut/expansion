@@ -15,10 +15,11 @@ use toml::{Value, Parser};
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Configuration {
     tick: u64,
+    o2_per_person: u64,
     filename_player: String,
     filename_station: String,
     filename_module: String,
-    o2_per_person: u64,
+    filename_ptable: String, // periodic table
 }
 
 impl Configuration {
@@ -71,6 +72,7 @@ impl Configuration {
         let player = conf.get(&"playerdata".to_string()).unwrap();
         let station = conf.get(&"structuredata".to_string()).unwrap();
         let module = conf.get(&"moduledata".to_string()).unwrap();
+        let ptable = conf.get(&"ptable".to_string()).unwrap();
 
         // create the Configuration structure
         Configuration {
@@ -83,6 +85,7 @@ impl Configuration {
                 .unwrap()
                 .to_string(),
             filename_module: module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            filename_ptable: ptable.lookup("datafile").unwrap().as_str().unwrap().to_string(),
         }
     }
 
@@ -100,5 +103,9 @@ impl Configuration {
 
     pub fn get_filenamemodule(&self) -> String {
         self.filename_module.clone()
+    }
+
+    pub fn filenameptable(&self) -> String {
+        self.filename_ptable.clone()
     }
 }

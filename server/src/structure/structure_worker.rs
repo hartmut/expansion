@@ -26,7 +26,7 @@ pub struct StructureWorker {
     stations: BTreeMap<ExpUuid, AStation>,
 }
 
-// TODO test deserialization, transfer this to stdtrait for json records #next
+// IDEA test deserialization, transfer this to stdtrait for json records
 pub fn read_record(mut f: &mut BufReader<File>) -> AStation {
     let mut line = String::new();
     let testplayer = uuidnull();
@@ -43,10 +43,11 @@ pub fn read_record(mut f: &mut BufReader<File>) -> AStation {
             Some(x) => line = x,
         }
 
+        // test whether the line is a json record of this type
+
         // outstation = AStation::deserialize_test(&line).unwrap();
         // let tempstation: Result<AStation, String> =
         //     try!(<AStation as StdTrait<AStation>>::new_from_deserialized(&line));
-        //
         // match tempstation {
         //     OK(Station) => outstation = Station,
         //     Err(err) => println!("didn't work"),
