@@ -20,7 +20,7 @@ datafile_station="src/data/station.json"
 storageMethod="file"
 datafile="src/data/module.json"
 
-[ptable]
+[elements]
 storageMethod="file"
 datafile="src/data/PeriodicTableJSON.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator

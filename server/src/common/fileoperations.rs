@@ -51,6 +51,29 @@ pub fn newreader(filename: String) -> BufReader<File> {
     BufReader::new(f)
 }
 
+// read whole file
+pub fn read_file_to_string(filename: String) -> String {
+    let path = Path::new(&filename);
+    let display = path.display();
+    let mut input = String::new();
+
+    // Open the path in read-only mode, returns `io::Result<File>`
+    let mut file = match File::open(&path) {
+        // The `description` method of `io::Error` returns a string that
+        // describes the error
+        Err(why) => panic!("couldn't open {}: {}", display, why.description()),
+        Ok(file) => file,
+    };
+
+    // Read the file contents into a string, returns `io::Result<usize>`
+    match file.read_to_string(&mut input) {
+        Err(why) => panic!("couldn't read {}: {}", display, why.description()),
+        // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
+        Ok(_) => input,
+    }
+
+}
+
 // generic readline function
 pub fn readline(mut f: &mut BufReader<File>) -> Option<String> {
 
@@ -68,6 +91,27 @@ pub fn readline(mut f: &mut BufReader<File>) -> Option<String> {
         Some(line)
     }
 
+}
+
+pub fn read_record(mut f: &mut BufReader<File>) -> String {
+    let mut line = String::new();
+
+    // read lines until you have a json record
+    // TODO example from tokio *if let Some(n) = buf.as_ref().iter().position(|b| *b == b'\n') {*
+    // https://lukesteensen.com/2016/12/getting-started-with-tokio/
+    loop {
+        let result = readline(&mut f);
+
+
+        match result {
+            // all bad
+            None => break,
+            // got something
+            Some(x) => line = x,
+        }
+
+    }
+    line
 }
 
 // writing functions
