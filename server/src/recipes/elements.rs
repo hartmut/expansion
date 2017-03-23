@@ -8,9 +8,10 @@
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
 // uses
+use std::sync::Arc;
 use serde_json;
 use common::myuuid::*;
-use std::sync::Arc;
+use common::fileoperations::*;
 
 // all the elemenets
 // updates from https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json
@@ -42,8 +43,24 @@ pub struct Element {
     ypos: u32,
 }
 
-// #[derive(Serialize, Deserialize, Debug)]
+pub type ElementListVec = Vec<Element>;
 pub type ElementList = Arc<Vec<Element>>;
+
+// read Elementlist from file
+fn readElementlistFile() -> ElementListVec {
+    // TODO send filename
+
+    let mut f = newreader("src/data/PeriodicTableJSON.json".to_string());
+
+    // assumption: one big line
+    let result = readline(&mut f).unwrap();
+
+    // ElementList
+    let elementlist: ElementListVec =
+        <Arc<Vec<Element>>>::serde_json::from_str(&result).unwrap();
+    elementlist
+}
+
 
 // TODO create collection struct to reference to, use arc?
 
