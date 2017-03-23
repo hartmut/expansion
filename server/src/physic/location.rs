@@ -9,7 +9,7 @@
 // use common::stdtrait::StdTrait;
 // use serde_json;
 
-#[derive(Serialize,Deserialize,Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct SpaceObj {
     long: f64, // longtitude (l) in relation to sun
     lat: f64, // latitude (b) in relation to sun

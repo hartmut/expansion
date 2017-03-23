@@ -15,7 +15,7 @@ use std::io::BufReader;
 use std::sync::Arc;
 use serde_json;
 use super::station::AStation;
-use components::elements::*;
+use recipes::elements::*;
 
 /// holds the informations for the worker for structures
 #[derive(Debug)]

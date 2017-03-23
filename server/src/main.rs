@@ -20,7 +20,6 @@ mod structure;
 mod common;
 mod character;
 mod tests;
-mod components;
 mod recipes;
 
 // my mods to use

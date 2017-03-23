@@ -5,3 +5,4 @@
 //
 
 pub mod recipe;
+pub mod elements;
