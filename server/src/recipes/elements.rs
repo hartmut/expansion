@@ -44,7 +44,6 @@ pub struct Element {
 }
 
 pub type ElementListVec = Vec<Element>;
-pub type elements = Vec<Element>;
 pub type ElementListArc = Arc<Vec<Element>>;
 
 // read Elementlist from file
@@ -57,7 +56,7 @@ pub fn read_elementlist_file() -> ElementListVec {
     let result = readline(&mut f).unwrap();
 
     // ElementList
-    let elementlist: elements = serde_json::from_str(&result).unwrap();
+    let elementlist: ElementListVec = serde_json::from_str(&result).unwrap();
     // let elementlist: ElementListVec = <std::vec::Vec<recipes::elements::Element> as Trait>::serde_json::from_str(&result).unwrap();
     elementlist
 }
