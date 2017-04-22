@@ -21,7 +21,6 @@ use common::fileoperations::*;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Element {
-    number: u32, // atomic number
     name: String,
     appearance: String,
     atomic_mass: f64,
@@ -33,6 +32,7 @@ pub struct Element {
     melt: f64, // in Kelvin
     molar_heat: f64, // in Kelvin
     named_by: String,
+    number: u32, // atomic number
     period: u32,
     phase: String,
     source: String,
@@ -44,10 +44,11 @@ pub struct Element {
 }
 
 pub type ElementListVec = Vec<Element>;
-pub type ElementList = Arc<Vec<Element>>;
+pub type elements = Vec<Element>;
+pub type ElementListArc = Arc<Vec<Element>>;
 
 // read Elementlist from file
-fn readElementlistFile() -> ElementListVec {
+pub fn read_elementlist_file() -> ElementListVec {
     // TODO send filename
 
     let mut f = newreader("src/data/PeriodicTableJSON.json".to_string());
@@ -56,8 +57,8 @@ fn readElementlistFile() -> ElementListVec {
     let result = readline(&mut f).unwrap();
 
     // ElementList
-    let elementlist: ElementListVec =
-        <Arc<Vec<Element>>>::serde_json::from_str(&result).unwrap();
+    let elementlist: elements = serde_json::from_str(&result).unwrap();
+    // let elementlist: ElementListVec = <std::vec::Vec<recipes::elements::Element> as Trait>::serde_json::from_str(&result).unwrap();
     elementlist
 }
 

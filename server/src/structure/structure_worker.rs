@@ -27,7 +27,7 @@ pub struct StructureWorker {
     // Btree with stations in it
     stations: BTreeMap<ExpUuid, AStation>,
     // List of Elements for production
-    elementlist: ElementList,
+    elementlist: ElementListVec,
 }
 
 // IDEA test deserialization, transfer this to stdtrait for json records
@@ -67,7 +67,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     fn new(name: String, filename: String) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
-        let elementlist: ElementList = Arc::new(Vec::new());
+        let elementlist: ElementListVec = Vec::new();
 
         StructureWorker {
             worker_struct: WorkerStruct { name: name },
@@ -105,9 +105,9 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             // cleanup
             line.clear();
         }
-
         // read elementlist
-
+        self.elementlist = read_elementlist_file();
+        println!("{:?}", self.elementlist);
 
     }
 
