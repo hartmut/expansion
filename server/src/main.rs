@@ -4,12 +4,13 @@
 
 // macros and plugins
 #![allow(dead_code)]
-#![feature(proc_macro)]
+// #![feature(proc_macro)]
 #[macro_use]
 
 // extern
 extern crate serde_derive;
 extern crate serde_json;
+extern crate serde;
 extern crate time;
 extern crate uuid;
 extern crate toml;

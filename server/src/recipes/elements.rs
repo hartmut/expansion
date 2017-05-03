@@ -10,6 +10,7 @@
 // uses
 use std::sync::Arc;
 use serde_json;
+use serde::de;
 use common::myuuid::*;
 use common::fileoperations::*;
 
@@ -44,7 +45,6 @@ pub struct Element {
 }
 
 pub type ElementListVec = Vec<Element>;
-pub type ElementListArc = Arc<Vec<Element>>;
 
 // read Elementlist from file
 pub fn read_elementlist_file() -> ElementListVec {
@@ -56,8 +56,15 @@ pub fn read_elementlist_file() -> ElementListVec {
     let result = readline(&mut f).unwrap();
 
     // ElementList
-    let elementlist: ElementListVec = serde_json::from_str(&result).unwrap();
+    let checker_elementlist: Result<ElementListVec> = serde_json::from_str(&result);
     // let elementlist: ElementListVec = <std::vec::Vec<recipes::elements::Element> as Trait>::serde_json::from_str(&result).unwrap();
+    let elementlist = match checker_elementlist {
+        Ok(elementlist) => elementlist,
+        Err(error) => {
+            panic!("somethings is wrong with the deserelization of the elementsfile: {:?}",
+                   error)
+        }
+    };
     elementlist
 }
 
