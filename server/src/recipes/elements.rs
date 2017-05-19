@@ -33,7 +33,7 @@ pub struct Element {
     melt: f64, // in Kelvin
     molar_heat: f64, // in Kelvin
     named_by: String,
-    number: u32, // atomic number
+    number: String, // atomic number
     period: u32,
     phase: String,
     source: String,
