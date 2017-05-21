@@ -31,6 +31,9 @@ pub struct AStation {
                                * list of NPC on station */
 }
 
+// TODO create matrix of modules, one meter is one cell? or linked list dijkstra style? transpotision
+// not necessesary, but difficult later to display, optimization later :)
+
 impl AStation {
     pub fn new(name: String, owner: ExpUuid) -> AStation {
 
