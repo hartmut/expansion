@@ -21,10 +21,10 @@ pub struct Module {
 
     // production and storage
     cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel?
-
-    //type of things it can store, vector
-    //TODO sizing of module (lenght, height, width)
-    //TODO where are hatches?
+                                *
+                                * type of things it can store, vector
+                                * TODO sizing of module (lenght, height, width)
+                                * TODO where are hatches? */
 }
 
 

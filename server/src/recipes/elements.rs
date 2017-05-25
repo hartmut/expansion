@@ -48,24 +48,18 @@ pub type ElementListVec = Vec<Element>;
 
 // read Elementlist from file
 pub fn read_elementlist_file() -> ElementListVec {
-    // TODO send filename
 
-    let mut f = newreader("src/data/PeriodicTableJSON.json".to_string());
-
-    // assumption: one big line
-    let result = readline(&mut f).unwrap();
-
-    // ElementList
-    let checker_elementlist: Result<ElementListVec> = serde_json::from_str(&result);
-    // let elementlist: ElementListVec = <std::vec::Vec<recipes::elements::Element> as Trait>::serde_json::from_str(&result).unwrap();
-    let elementlist = match checker_elementlist {
-        Ok(elementlist) => elementlist,
-        Err(error) => {
-            panic!("somethings is wrong with the deserelization of the elementsfile: {:?}",
-                   error)
-        }
-    };
-    elementlist
+    let result = read_file_to_string("src/data/PeriodicTableJSON1.json".to_string());
+    let result: ElementListVec = serde_json::from_str(&result).unwrap();
+    // let result = match checker_elementlist {
+    //     Ok(elementlist) => elementlist,
+    //     Err(error) => {
+    //         panic!("somethings is wrong with the deserelization of the elementsfile: {:?}",
+    //                error)
+    //     }
+    // };
+    // elementlist
+    result
 }
 
 
