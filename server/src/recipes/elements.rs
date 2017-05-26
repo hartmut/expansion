@@ -15,7 +15,7 @@ use common::myuuid::*;
 use common::fileoperations::*;
 
 // all the elemenets
-// updates from https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json
+// updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
 
 // TODO design struct and read from file #NEXT
 // IDEA move this to the structure module? do I need this data anywhere else?
