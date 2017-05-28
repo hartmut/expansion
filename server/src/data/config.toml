@@ -22,6 +22,6 @@ datafile="src/data/module.json"
 
 [elements]
 storageMethod="file"
-datafile="src/data/PeriodicTableJSON.json"
+datafile="src/data/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"

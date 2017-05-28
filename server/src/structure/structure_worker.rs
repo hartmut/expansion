@@ -107,8 +107,6 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
         }
         // read elementlist
         self.elementlist = read_elementlist_file();
-        println!("{:?}", self.elementlist);
-
     }
 
     fn run(&mut self) {}
