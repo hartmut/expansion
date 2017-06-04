@@ -93,30 +93,34 @@ pub fn read_elementlist_file() -> ElementListVec {
 
     // define dark matter for element 0
     let dark_matter = Element {
-        name: "Helium".to_string(),
-        appearance: "colorless gas, exhibiting a red-orange glow when placed in a high-voltage \
-        electric field"
-            .to_string(),
-        atomic_mass: 4.0026022,
-        boil: 4.222,
-        category: "noble gas".to_string(),
-        color: "".to_string(),
-        density: 0.1786,
-        discovered_by: "Pierre Janssen".to_string(),
-        melt: 0.95,
+        name: "Dark Matter".to_string(),
+        appearance: "everywhere, but you cant see it".to_string(),
+        atomic_mass: 0.0,
+        boil: 0.0,
+        category: "unobtainium".to_string(),
+        color: "black".to_string(),
+        density: 0.0,
+        discovered_by: "no one yet".to_string(),
+        melt: 0.0,
         molar_heat: 0.0,
-        named_by: "".to_string(),
-        number: "2".to_string(),
-        period: 1,
-        phase: "Gas".to_string(),
-        source: "https://en.wikipedia.org/wiki/Helium".to_string(),
-        spectral_img: "https://en.wikipedia.org/wiki/File:Helium_spectrum.jpg".to_string(),
-        summary: "Helium is a chemical element with symbol He and atomic number 2. It is a \
-        colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the \
-        noble gas group in the periodic table. Its boiling and melting points are the \
-        lowest among all the elements."
+        named_by: "need to find out".to_string(),
+        number: "0".to_string(),
+        period: 0,
+        phase: "dark matter".to_string(),
+        source: "https://en.wikipedia.org/wiki/Dark_matter".to_string(),
+        spectral_img: "".to_string(),
+        summary: "Dark matter is a hypothetical type of matter distinct from baryonic matter \
+                  (ordinary matter such as protons and neutrons), neutrinos and dark energy. The \
+                  existence of dark matter would explain a number of otherwise puzzling \
+                  astronomical observations.The name refers to the fact that it does not emit or \
+                  interact with electromagnetic radiation, such as light, and is thus invisible \
+                  to the entire electromagnetic spectrum. Although dark matter has not been \
+                  directly observed, its existence and properties are inferred from its \
+                  gravitational effects such as the motions of visible matter,gravitational \
+                  lensing, its influence on the universe's large-scale structure, on galaxies, \
+                  and its effects in the cosmic microwave background."
             .to_string(),
-        symbol: "He".to_string(),
+        symbol: "not yet".to_string(),
         xpos: 18,
         ypos: 1,
     };
