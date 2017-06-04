@@ -10,10 +10,7 @@ use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use std::collections::BTreeMap;
 use std::fs::File;
-use std::io::prelude::*;
 use std::io::BufReader;
-use std::sync::Arc;
-use serde_json;
 use super::station::AStation;
 use recipes::elements::*;
 
@@ -34,7 +31,7 @@ pub struct StructureWorker {
 pub fn read_record(mut f: &mut BufReader<File>) -> AStation {
     let mut line = String::new();
     let testplayer = uuidnull();
-    let mut outstation = AStation::new("someone".to_string(), testplayer);
+    let outstation = AStation::new("someone".to_string(), testplayer);
 
     // read lines until you have a record
     // TODO example from tokio *if let Some(n) = buf.as_ref().iter().position(|b| *b == b'\n') {*

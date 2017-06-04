@@ -8,7 +8,6 @@
 
 #[cfg(test)]
 mod tests {
-    use serde_json;
     use common::myuuid::*;
     use common::stdtrait::StdTrait;
     use common::fileoperations::*;

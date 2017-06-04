@@ -21,11 +21,11 @@ mod tests {
     fn create_teststation() {
         // create station
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
-        let mut my_station = AStation::new("Firefly".to_string(), owner);
+        let my_station = AStation::new("Firefly".to_string(), owner);
 
         // write station
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
-        let mut lineout =
+        let lineout =
             <AStation as StdTrait<AStation>>::serialize(&my_station);
         let i = writerecord(&mut g, &lineout);
     }
@@ -33,7 +33,7 @@ mod tests {
     #[test]
     fn serialize_test() {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
-        let mut my_station = AStation::new("Firefly".to_string(), owner);
+        let my_station = AStation::new("Firefly".to_string(), owner);
         let serialized = my_station.serialize();
         let alternativetempstation: AStation = serde_json::from_str(&serialized).unwrap();
     }
@@ -42,7 +42,7 @@ mod tests {
     #[test]
     fn station_getuuid() {
         let owner = ExpUuid::parse_str("96ff7368-c559-443b-a0c2-0c1324e63cbe").unwrap();
-        let mut my_station = AStation::new("Firefly".to_string(), owner);
+        let my_station = AStation::new("Firefly".to_string(), owner);
         let uuid1 = my_station.getuuid();
         let uuid2 = my_station.getuuid();
         assert_eq!(uuid1, uuid2);
@@ -70,7 +70,7 @@ mod tests {
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
-        let mut lineout =
+        let lineout =
             <AStation as StdTrait<AStation>>::serialize(&tempstation);
         let i = writerecord(&mut g, &lineout);
 

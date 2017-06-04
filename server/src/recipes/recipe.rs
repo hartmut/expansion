@@ -6,7 +6,6 @@
 // first step: write it for normal production
 
 // uses
-use std::sync::Arc;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use common::fileoperations::*;
@@ -120,16 +119,20 @@ fn create_module_example() {
 
 
     // create a standard module
-    let new_module_recipe = Recipe {
+    let mut new_module_recipe = Recipe {
         uuid: get_new_uuid(),
         uuid_origin: get_new_uuid(),
         recipe_type: RecipeType::Module,
         name: "Basic Module I".to_string(),
         duration: 100,
-        input: Arc::<Package>::new(new_package1),
-        output: Arc::<Package>::new(new_package2),
+        input: Vec::<Package>::new(),
+        output: Vec::<Package>::new(),
         module: "".to_string(),
     };
+
+    // and put something into input and output
+    new_module_recipe.input.push(new_package1);
+    new_module_recipe.output.push(new_package2);
 
     // and now write it
     let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());

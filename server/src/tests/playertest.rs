@@ -7,18 +7,18 @@
 
 #[cfg(test)]
 mod tests {
-    use super::*;
-    use serde_json;
     use common::stdtrait::StdTrait;
     use character::player::Player;
 
     #[test]
     fn new_player() {
         let one_player = Player::new("Ian Banks".to_string());
+        let iam = Player::new("Ian Banks".to_string());
+        let mut t: bool = false;
+        if one_player.getuuid() == iam.getuuid() {
+            t = true;
+        };
+        assert!(!t);
     }
 
-    #[test]
-    fn create_player() {
-        let iam = Player::new("Ian Banks".to_string());
-    }
 }

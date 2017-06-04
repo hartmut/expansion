@@ -8,11 +8,9 @@
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
 // uses
-use std::sync::Arc;
-use serde_json::{Value, Error};
+use serde_json::Error;
 use serde_json;
-use serde::de::{self, Deserialize, Deserializer};
-use common::myuuid::*;
+use serde::de::{Deserialize, Deserializer};
 use common::fileoperations::*;
 
 // all the elemenets
@@ -20,6 +18,7 @@ use common::fileoperations::*;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Element {
+    #[serde(deserialize_with="parse_string")]
     name: String,
     #[serde(deserialize_with="parse_string")]
     appearance: String,
@@ -41,6 +40,7 @@ pub struct Element {
     molar_heat: f64,
     #[serde(deserialize_with="parse_string")]
     named_by: String,
+    #[serde(deserialize_with="parse_string")]
     number: String,
     period: u32,
     #[serde(deserialize_with="parse_string")]
@@ -77,16 +77,52 @@ fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
 // TODO insert dark matter as element 0
 
 pub fn read_elementlist_file() -> ElementListVec {
+
+    // read the json file and convert it to a vector of elements
     let result = read_file_to_string("src/data/PeriodicTableJSON-cleaned.json".to_string());
     let e: Result<ElementListVec, Error> = serde_json::from_str(&result);
 
-    match e {
+    // check if the conversion of the elementlist from the json file worked as predicted
+    let evec: ElementListVec = match e {
         Ok(elementlist) => elementlist,
         Err(error) => {
             panic!("somethings is wrong with the deserialization of the elementsfile: {:?}",
                    error);
         }
-    }
+    };
+
+    // define dark matter for element 0
+    let dark_matter = Element {
+        name: "Helium".to_string(),
+        appearance: "colorless gas, exhibiting a red-orange glow when placed in a high-voltage \
+        electric field"
+            .to_string(),
+        atomic_mass: 4.0026022,
+        boil: 4.222,
+        category: "noble gas".to_string(),
+        color: "".to_string(),
+        density: 0.1786,
+        discovered_by: "Pierre Janssen".to_string(),
+        melt: 0.95,
+        molar_heat: 0.0,
+        named_by: "".to_string(),
+        number: "2".to_string(),
+        period: 1,
+        phase: "Gas".to_string(),
+        source: "https://en.wikipedia.org/wiki/Helium".to_string(),
+        spectral_img: "https://en.wikipedia.org/wiki/File:Helium_spectrum.jpg".to_string(),
+        summary: "Helium is a chemical element with symbol He and atomic number 2. It is a \
+        colorless, odorless, tasteless, non-toxic, inert, monatomic gas that heads the \
+        noble gas group in the periodic table. Its boiling and melting points are the \
+        lowest among all the elements."
+            .to_string(),
+        symbol: "He".to_string(),
+        xpos: 18,
+        ypos: 1,
+    };
+
+    evec
+
 }
 
 // TODO create collection struct to reference to, use arc?
