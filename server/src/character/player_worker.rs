@@ -32,13 +32,11 @@ impl WorkerTrait<PlayerWorker> for PlayerWorker {
         }
     }
 
-    fn initialize(&mut self) {
-        // TODO fill initialization analog StructureWorker
-    }
-
-    fn run(&mut self) {}
-
     fn send_update(&self) {}
 
     fn get_update(&mut self) {}
+
+    fn step(&mut self) {
+        unimplemented!();
+    }
 }

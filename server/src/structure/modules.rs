@@ -55,8 +55,6 @@ impl Module {
 }
 
 impl StdTrait<Module> for Module {
-    fn update(&mut self) {}
-
     fn getuuid(&self) -> ExpUuid {
         self.uuid
     }
@@ -67,5 +65,9 @@ impl StdTrait<Module> for Module {
 
     fn new_from_deserialized(input: &String) -> Module {
         serde_json::from_str(&input).unwrap()
+    }
+
+    fn step(&mut self) {
+        unimplemented!()
     }
 }

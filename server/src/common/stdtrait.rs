@@ -8,15 +8,15 @@
 use super::myuuid::*;
 
 pub trait StdTrait<T> {
-    fn update(&mut self) {
-        println!("update");
+    fn new_from_deserialized(input: &String) -> T;
+
+    fn step(&mut self) {
+        println!("one step", );
     }
 
     fn getuuid(&self) -> ExpUuid;
 
     fn serialize(&self) -> String;
-
-    fn new_from_deserialized(input: &String) -> T;
 
     // TODO why does this default implementation not work with locations?
     // fn new_from_deserialized (input: &String) -> T

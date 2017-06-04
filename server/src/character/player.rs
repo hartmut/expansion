@@ -34,7 +34,7 @@ impl Player {
 
 
 impl StdTrait<Player> for Player {
-    fn update(&mut self) {
+    fn step(&mut self) {
         self.credits += 1;
     }
 

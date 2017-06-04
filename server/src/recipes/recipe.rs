@@ -86,11 +86,6 @@ impl Recipe {
 }
 
 impl StdTrait<Recipe> for Recipe {
-    fn update(&mut self) {
-        // count up ticks should be done in the proucing module
-        // is there anything we could do here?
-    }
-
     fn getuuid(&self) -> ExpUuid {
         self.uuid
     }
@@ -101,6 +96,12 @@ impl StdTrait<Recipe> for Recipe {
 
     fn new_from_deserialized(input: &String) -> Recipe {
         serde_json::from_str(&input).unwrap()
+    }
+
+    fn step(&mut self) {
+        // count up ticks should be done in the proucing module
+        // is there anything we could do here?
+        unimplemented!()
     }
 }
 

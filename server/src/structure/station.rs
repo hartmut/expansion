@@ -84,15 +84,13 @@ impl AStation {
         // update energyuse/energyprod
         // what to do with the module after detaching it
     }
+
+    pub fn get_name(&self) -> &String {
+        &self.name
+    }
 }
 
 impl StdTrait<AStation> for AStation {
-    fn update(&mut self) {
-        // iterate over modules and update local variables
-
-        // update player, send infos relvant for player to player structure
-    }
-
     fn getuuid(&self) -> ExpUuid {
         self.uuid
     }
@@ -103,5 +101,12 @@ impl StdTrait<AStation> for AStation {
 
     fn new_from_deserialized(input: &String) -> AStation {
         serde_json::from_str(&input).unwrap()
+    }
+
+    fn step(&mut self) {
+        // iterate over modules and update local variables
+
+        // update player, send infos relvant for player to player structure
+        unimplemented!()
     }
 }

@@ -6,6 +6,7 @@
 // or should we model the basic elements into components?
 
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
+//! TODO integrate isotops
 
 // uses
 use serde_json::Error;
@@ -15,46 +16,45 @@ use common::fileoperations::*;
 
 // all the elemenets
 // updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
-
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Element {
     #[serde(deserialize_with="parse_string")]
-    name: String,
+    pub name: String,
     #[serde(deserialize_with="parse_string")]
-    appearance: String,
+    pub appearance: String,
     #[serde(deserialize_with="parse_f64")]
-    atomic_mass: f64,
+    pub atomic_mass: f64,
     #[serde(deserialize_with="parse_f64")]
-    boil: f64,
+    pub boil: f64,
     #[serde(deserialize_with="parse_string")]
-    category: String,
+    pub category: String,
     #[serde(deserialize_with="parse_string")]
-    color: String,
+    pub color: String,
     #[serde(deserialize_with="parse_f64")]
-    density: f64,
+    pub density: f64,
     #[serde(deserialize_with="parse_string")]
-    discovered_by: String,
+    pub discovered_by: String,
     #[serde(deserialize_with="parse_f64")]
-    melt: f64,
+    pub melt: f64,
     #[serde(deserialize_with="parse_f64")]
-    molar_heat: f64,
+    pub molar_heat: f64,
     #[serde(deserialize_with="parse_string")]
-    named_by: String,
+    pub named_by: String,
     #[serde(deserialize_with="parse_string")]
-    number: String,
-    period: u32,
+    pub number: String,
+    pub period: u32,
     #[serde(deserialize_with="parse_string")]
-    phase: String,
+    pub phase: String,
     #[serde(deserialize_with="parse_string")]
-    source: String,
+    pub source: String,
     #[serde(deserialize_with="parse_string")]
-    spectral_img: String,
+    pub spectral_img: String,
     #[serde(deserialize_with="parse_string")]
-    summary: String,
+    pub summary: String,
     #[serde(deserialize_with="parse_string")]
-    symbol: String,
-    xpos: u32,
-    ypos: u32,
+    pub symbol: String,
+    pub xpos: u32,
+    pub ypos: u32,
 }
 
 pub type ElementListVec = Vec<Element>;
@@ -80,10 +80,10 @@ pub fn read_elementlist_file() -> ElementListVec {
 
     // read the json file and convert it to a vector of elements
     let result = read_file_to_string("src/data/PeriodicTableJSON-cleaned.json".to_string());
-    let e: Result<ElementListVec, Error> = serde_json::from_str(&result);
+    let evec: Result<ElementListVec, Error> = serde_json::from_str(&result);
 
     // check if the conversion of the elementlist from the json file worked as predicted
-    let evec: ElementListVec = match e {
+    let mut evec: ElementListVec = match evec {
         Ok(elementlist) => elementlist,
         Err(error) => {
             panic!("somethings is wrong with the deserialization of the elementsfile: {:?}",
@@ -125,8 +125,10 @@ pub fn read_elementlist_file() -> ElementListVec {
         ypos: 1,
     };
 
-    evec
-
+    let mut outevec: ElementListVec = ElementListVec::new();
+    outevec.push(dark_matter);
+    outevec.append(&mut evec);
+    outevec
 }
 
 // TODO create collection struct to reference to, use arc?
