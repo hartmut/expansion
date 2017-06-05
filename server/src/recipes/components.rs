@@ -28,7 +28,9 @@ pub struct Component {
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
 
 impl StdTrait<Component> for Component {
-    fn new_from_deserialized(input: &String) -> Component {}
+    fn new_from_deserialized(input: &String) -> Component {
+        serde_json::from_str(&input).unwrap()
+    }
 
     fn step(&mut self) {
         println!("shouldn't do anything per step", );
@@ -38,5 +40,7 @@ impl StdTrait<Component> for Component {
         self.uuid
     }
 
-    fn serialize(&self) -> String {}
+    fn serialize(&self) -> String {
+        serde_json::to_string(&self).unwrap()
+    }
 }
