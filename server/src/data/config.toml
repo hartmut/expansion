@@ -8,7 +8,7 @@
 tick = 2
 # needed O2 in liter per player and 6 hour tick, later value per hour
 # https://www.quora.com/How-much-oxygen-does-the-average-person-burn-in-a-day-What-volume-of-air-is-that
-# using the nasa values, per hour a person will need about 25l, could be higher if exercising => we could improve the model later 
+# using the nasa values, per hour a person will need about 25l, could be higher if exercising => we could improve the model later
 02player = 150
 
 [playerdata]
@@ -28,3 +28,7 @@ storageMethod="file"
 datafile="src/data/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
+
+[componentdata]
+storageMethod="file"
+datafile="src/data/components.json"

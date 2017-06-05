@@ -12,6 +12,7 @@ pub struct WorkerStruct {
 }
 
 pub trait WorkerTrait<T> {
+    // propably we will need a btree map for the different storage files managed by a worker
     fn new(name: String, filename: String) -> T;
 
     fn step(&mut self) {

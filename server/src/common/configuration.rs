@@ -20,6 +20,7 @@ pub struct Configuration {
     filename_station: String,
     filename_module: String,
     filename_elements: String, // periodic table
+    filename_components: String,
 }
 
 impl Configuration {
@@ -73,6 +74,7 @@ impl Configuration {
         let station = conf.get(&"structuredata".to_string()).unwrap();
         let module = conf.get(&"moduledata".to_string()).unwrap();
         let elements = conf.get(&"elements".to_string()).unwrap();
+        let components = conf.get(&"componentdata".to_string()).unwrap();
 
         // create the Configuration structure
         Configuration {
@@ -86,6 +88,11 @@ impl Configuration {
                 .to_string(),
             filename_module: module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
             filename_elements: elements.lookup("datafile").unwrap().as_str().unwrap().to_string(),
+            filename_components: components.lookup("datafile")
+                .unwrap()
+                .as_str()
+                .unwrap()
+                .to_string(),
         }
     }
 
@@ -107,5 +114,9 @@ impl Configuration {
 
     pub fn filenameelements(&self) -> String {
         self.filename_elements.clone()
+    }
+
+    pub fn filenamecomponents(&self) -> String {
+        self.filename_components.clone()
     }
 }

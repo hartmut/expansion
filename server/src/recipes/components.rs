@@ -14,8 +14,9 @@ use serde::de::{Deserialize, Deserializer};
 use std::collections::BTreeMap;
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
+use common::fileoperations::*;
 
-// one material
+// one Component
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Component {
     uuid: ExpUuid, // id of the component
@@ -27,13 +28,40 @@ pub struct Component {
 
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
 
+// COMBAK initialize the Componentlist from the datafile
+pub fn InitializeComponenteListVec(Componentfile: String) -> ComponentListVec {
+    let mut clv: ComponentListVec = BTreeMap::new();
+
+    let mut f = newreader(Componentfile);
+    let mut line = String::new();
+
+    // iterate over all components
+    loop {
+        let result = readline(&mut f);
+
+        match result {
+            // all bad or end of file
+            None => break,
+            // got something
+            Some(x) => line = x,
+        }
+
+        // insert the station into the structure of the worker
+        let tempcomp: Component = <Component as StdTrait<Component>>::new_from_deserialized(&line);
+        let uuid = tempcomp.getuuid();
+        clv.insert(uuid, tempcomp);
+    }
+
+    clv
+}
+
 impl StdTrait<Component> for Component {
     fn new_from_deserialized(input: &String) -> Component {
         serde_json::from_str(&input).unwrap()
     }
 
     fn step(&mut self) {
-        println!("shouldn't do anything per step", );
+        println!("shouldn't neet to do anything per step", );
     }
 
     fn getuuid(&self) -> ExpUuid {
