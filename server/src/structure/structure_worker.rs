@@ -9,7 +9,7 @@ use common::fileoperations::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use std::collections::BTreeMap;
-use super::station::AStation;
+use super::station::*;
 use recipes::elements::*;
 
 /// holds the informations for the worker for structures
@@ -20,7 +20,7 @@ pub struct StructureWorker {
     // persistancefile for stations
     stationfile: String,
     // Btree with stations in it
-    stations: BTreeMap<ExpUuid, AStation>,
+    stations: BtreeStations,
     // List of Elements for production
     elementlist: ElementListVec,
 }
@@ -38,9 +38,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             elementlist: elementlist,
         };
 
-        // general initialization
-
-        // Read stations
+        // import stations
         let mut f = newreader(sw.stationfile.clone());
         let mut line = String::new();
 
@@ -55,7 +53,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
                 Some(x) => line = x,
             }
 
-            // insert the station
+            // insert the station into the structure of the worker
             let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
             let uuid = tempstation.getuuid();
             sw.stations.insert(uuid, tempstation);

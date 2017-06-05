@@ -9,20 +9,20 @@
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use common::fileoperations::*;
+use super::elements::*;
+use super::components::*;
 use serde_json;
 
-// the package
-// material and quantity
+// one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]
-struct Package {
-    // pointer at material
+struct Bundle {
     quantity: u64, // how much
-    material: ExpUuid, // what
+    component: Component, // either a component or
+    element: Element, // a Element
 }
 
 // types of recipes
-#[derive(Serialize, Deserialize, Debug)]
-#[derive(Copy, Clone)]
+#[derive(Serialize, Deserialize, Debug, Copy, Clone)]
 enum RecipeType {
     Module,
     Component,
@@ -33,12 +33,12 @@ enum RecipeType {
 #[derive(Serialize, Deserialize, Debug)]
 struct Recipe {
     uuid: ExpUuid, // uuid for this recipe
-    uuid_origin: ExpUuid, // Origin of this recipe, if this is an origianl recipe it has the value "0"
+    uuid_origin: ExpUuid, // Origin of this recipe, if this is an original recipe it has the value "0"
     recipe_type: RecipeType, // what type will be produced?
     name: String, // name of this recipe
     duration: u32, // ticks until the recipe got one run
-    input: Vec<Package>, // vector of UUIDs of materials and quantity needed to produce the result
-    output: Vec<Package>, // vector of UUIDs of materials and quantity produced, empty if it is a module
+    input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
+    output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
     module: String, // json format for creation of a new module, empty if it is not a module
 }
 
@@ -108,12 +108,12 @@ impl StdTrait<Recipe> for Recipe {
 #[test]
 fn create_module_example() {
 
-    let new_package1 = Package {
+    let new_bundle1 = Bundle {
         quantity: 1000,
         material: get_new_uuid(),
     };
 
-    let new_package2 = Package {
+    let new_bundle2 = Bundle {
         quantity: 0,
         material: get_new_uuid(),
     };
@@ -126,14 +126,14 @@ fn create_module_example() {
         recipe_type: RecipeType::Module,
         name: "Basic Module I".to_string(),
         duration: 100,
-        input: Vec::<Package>::new(),
-        output: Vec::<Package>::new(),
+        input: Vec::<Bundle>::new(),
+        output: Vec::<Bundle>::new(),
         module: "".to_string(),
     };
 
     // and put something into input and output
-    new_module_recipe.input.push(new_package1);
-    new_module_recipe.output.push(new_package2);
+    new_module_recipe.input.push(new_bundle1);
+    new_module_recipe.output.push(new_bundle2);
 
     // and now write it
     let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());

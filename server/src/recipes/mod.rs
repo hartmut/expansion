@@ -6,3 +6,4 @@
 
 pub mod recipe;
 pub mod elements;
+pub mod components;

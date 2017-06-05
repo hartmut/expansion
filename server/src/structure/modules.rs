@@ -20,11 +20,21 @@ pub struct Module {
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
 
     // production and storage
-    cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel?
-                                *
-                                * type of things it can store, vector
-                                * TODO sizing of module (lenght, height, width)
-                                * TODO where are hatches? */
+    cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel? */
+    // sizing of the module in m
+    #[serde(default)]
+    xsize: u32,
+    #[serde(default)]
+    ysize: u32,
+    #[serde(default)]
+    zsize: u32,
+    // currently it can only store one type of material, needs to be a vector for generalization e.g.
+    // what is needed for the production of one recipe
+    // TODO make an enum for storagetype
+    #[serde(default)]
+    storagetype: String,
+    #[serde(default)]
+    storage_volume: u64,
 }
 
 
@@ -36,7 +46,7 @@ enum ModuleCapabilities {
 }
 
 impl Module {
-    //! create a new Space Module
+    //! create a new Module for a structure
     pub fn new(name: String,
                station_uuid: ExpUuid,
                energy: i64,
@@ -50,6 +60,11 @@ impl Module {
             name: name,
             energy: energy,
             cur_prod_receipe: ExpUuid::nil(),
+            xsize: 1,
+            ysize: 1,
+            zsize: 1,
+            storagetype: "".to_string(),
+            storage_volume: 0,
         }
     }
 }

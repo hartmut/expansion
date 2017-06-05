@@ -11,14 +11,10 @@ mod tests {
     use character::player::Player;
 
     #[test]
-    fn new_player() {
+    fn do_i_realy_get_a_new_uuid_for_a_new_player() {
         let one_player = Player::new("Ian Banks".to_string());
         let iam = Player::new("Ian Banks".to_string());
-        let mut t: bool = false;
-        if one_player.getuuid() == iam.getuuid() {
-            t = true;
-        };
-        assert!(!t);
+        assert!(!(one_player.getuuid() == iam.getuuid()));
     }
 
 }

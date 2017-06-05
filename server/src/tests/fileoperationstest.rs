@@ -19,18 +19,6 @@ mod tests {
 
     }
 
-    // #[test]
-    // fn writefile_with_newline() {
-    //     let mut f = newlinewriter("src/tests/testdataout/testfileout".to_string());
-    //     let lineout = "This is something\n".to_string();
-    //     writerecord(&mut f, &lineout);
-    //     closefile(&mut f);
-    //
-    //     let mut g = newreader("src/tests/testdataout/testfileout".to_string());
-    //     let result = readline(&mut g).unwrap();
-    //     assert_eq!(result, lineout);
-    // }
-
     #[test]
     fn writefile_without_newline() {
         let mut f = newlinewriter("src/tests/testdataout/testfileout".to_string());

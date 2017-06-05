@@ -8,6 +8,7 @@
 // uses
 use serde_json;
 use serde_json::error::Error;
+use std::collections::BTreeMap;
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
 use physic::location::SpaceObj;
@@ -30,6 +31,9 @@ pub struct AStation {
                                * list of inventar on this station
                                * list of NPC on station */
 }
+
+// general BtreeMap type for stations
+pub type BtreeStations = BTreeMap<ExpUuid, AStation>;
 
 // TODO create matrix of modules, one meter is one cell? or linked list dijkstra style? transpotision
 // not necessesary, but difficult later to display, optimization later :)

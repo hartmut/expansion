@@ -37,6 +37,6 @@ impl WorkerTrait<PlayerWorker> for PlayerWorker {
     fn get_update(&mut self) {}
 
     fn step(&mut self) {
-        unimplemented!();
+        println!("does nothing at the moment", );
     }
 }

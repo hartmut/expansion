@@ -121,8 +121,8 @@ pub fn read_elementlist_file() -> ElementListVec {
                   and its effects in the cosmic microwave background."
             .to_string(),
         symbol: "not yet".to_string(),
-        xpos: 18,
-        ypos: 1,
+        xpos: 0,
+        ypos: 0,
     };
 
     let mut outevec: ElementListVec = ElementListVec::new();
