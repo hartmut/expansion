@@ -6,6 +6,7 @@
 
 use common::workertrait::*;
 use common::myuuid::*;
+use common::configuration::*;
 use std::collections::BTreeMap;
 use super::player::Player;
 
@@ -16,18 +17,21 @@ pub struct PlayerWorker {
     worker_struct: WorkerStruct,
     // persistancefile for player
     playerfile: String,
+    // TODO insert link on configuration instead of copying all the values
+    // config: Configuration,
     // Btree with player in it
     player: BTreeMap<ExpUuid, Player>,
 }
 
 impl WorkerTrait<PlayerWorker> for PlayerWorker {
-    fn new(name: String, filename: String) -> PlayerWorker {
+    fn new(name: String, config: &Configuration) -> PlayerWorker {
 
         let btree: BTreeMap<ExpUuid, Player> = BTreeMap::new();
 
         PlayerWorker {
             worker_struct: WorkerStruct { name: name },
-            playerfile: filename,
+            playerfile: config.get_filenameplayer(),
+            // config: config,
             player: btree,
         }
     }

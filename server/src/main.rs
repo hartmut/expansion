@@ -55,12 +55,9 @@ fn main() {
     let tick_dur = Duration::from_secs(myconfig.get_tick());
 
     // create the player worker and initalize it
-    let mut player_worker = PlayerWorker::new("Player_Worker".to_string(),
-                                              myconfig.get_filenameplayer());
-
+    let mut player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
     // create the structure worker and initalize it
-    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(),
-                                                    myconfig.get_filenamestructure());
+    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(), &myconfig);
 
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
@@ -71,7 +68,7 @@ fn main() {
         thread::sleep(tick_dur);
         tick_counter += 1;
 
-        println!("Hello world, this is tick {}", tick_counter);
+        println!("\nHello world, this is tick {}", tick_counter);
         println!("time elapsed since start: {} sec \n",
                  tick_counter * myconfig.get_tick());
 

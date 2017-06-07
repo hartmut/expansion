@@ -5,6 +5,7 @@
 // managing the stations updates
 
 use common::workertrait::*;
+use common::configuration::*;
 use common::fileoperations::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
@@ -26,16 +27,15 @@ pub struct StructureWorker {
 }
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
-    fn new(name: String, stationfile: String) -> StructureWorker {
+    fn new(name: String, myconfig: &Configuration) -> StructureWorker {
 
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
-        let elementlist: ElementListVec = read_elementlist_file();
 
         let mut sw = StructureWorker {
             worker_struct: WorkerStruct { name: name },
-            stationfile: stationfile,
+            stationfile: myconfig.get_filenamestation(),
             stations: btree,
-            elementlist: elementlist,
+            elementlist: read_elementlist_file(myconfig.get_filenameelements()),
         };
 
         // import stations
@@ -63,7 +63,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     }
 
     fn step(&mut self) {
-        unimplemented!()
+        println!("one step in structure worker", );
     }
 
     fn send_update(&self) {}

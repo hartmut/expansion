@@ -12,7 +12,7 @@ use std::collections::BTreeMap;
 use toml::{Value, Parser};
 
 /// configuration
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Configuration {
     tick: u64,
     o2_per_person: u64,
@@ -100,11 +100,15 @@ impl Configuration {
         self.tick
     }
 
+    pub fn get_o2(&self) -> u64 {
+        self.o2_per_person.clone()
+    }
+
     pub fn get_filenameplayer(&self) -> String {
         self.filename_player.clone()
     }
 
-    pub fn get_filenamestructure(&self) -> String {
+    pub fn get_filenamestation(&self) -> String {
         self.filename_station.clone()
     }
 
@@ -112,11 +116,11 @@ impl Configuration {
         self.filename_module.clone()
     }
 
-    pub fn filenameelements(&self) -> String {
+    pub fn get_filenameelements(&self) -> String {
         self.filename_elements.clone()
     }
 
-    pub fn filenamecomponents(&self) -> String {
+    pub fn get_filenamecomponents(&self) -> String {
         self.filename_components.clone()
     }
 }

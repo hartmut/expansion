@@ -4,6 +4,8 @@
 //
 /// all the traits in one file
 
+use common::configuration::*;
+
 /// worker trait and struct
 #[derive(Debug)]
 pub struct WorkerStruct {
@@ -13,7 +15,7 @@ pub struct WorkerStruct {
 
 pub trait WorkerTrait<T> {
     // propably we will need a btree map for the different storage files managed by a worker
-    fn new(name: String, filename: String) -> T;
+    fn new(name: String, config: &Configuration) -> T;
 
     fn step(&mut self) {
         println!("one step", );

@@ -73,13 +73,10 @@ fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
 }
 
 // read Elementlist from file
-// TODO get filename from config
-// TODO insert dark matter as element 0
-
-pub fn read_elementlist_file() -> ElementListVec {
+pub fn read_elementlist_file(filename: String) -> ElementListVec {
 
     // read the json file and convert it to a vector of elements
-    let result = read_file_to_string("src/data/PeriodicTableJSON-cleaned.json".to_string());
+    let result = read_file_to_string(filename);
     let evec: Result<ElementListVec, Error> = serde_json::from_str(&result);
 
     // check if the conversion of the elementlist from the json file worked as predicted
