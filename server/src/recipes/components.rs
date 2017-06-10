@@ -12,6 +12,7 @@ use serde_json::Error;
 use serde_json;
 use serde::de::{Deserialize, Deserializer};
 use std::collections::BTreeMap;
+use std::io::BufRead;
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
 use common::fileoperations::*;
@@ -36,20 +37,12 @@ pub fn InitializeComponenteListVec(Componentfile: String) -> ComponentListVec {
     let mut line = String::new();
 
     // iterate over all components
-    loop {
-        let result = readline(&mut f);
-
-        match result {
-            // all bad or end of file
-            None => break,
-            // got something
-            Some(x) => line = x,
-        }
-
+    while f.read_line(&mut line).unwrap() > 0 {
         // insert the station into the structure of the worker
         let tempcomp: Component = <Component as StdTrait<Component>>::new_from_deserialized(&line);
         let uuid = tempcomp.getuuid();
         clv.insert(uuid, tempcomp);
+        line.clear();
     }
 
     clv
