@@ -12,7 +12,7 @@ use std::collections::BTreeMap;
 use toml::{Value, Parser};
 
 /// configuration
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Debug, Clone)]
 pub struct Configuration {
     tick: u64,
     o2_per_person: u64,
@@ -24,6 +24,7 @@ pub struct Configuration {
 }
 
 impl Configuration {
+    // TODO rewrite it to use serde, so that we don't need a further crate
     pub fn load_config(args: Vec<String>) -> Configuration {
 
         // configuration is here server/src/data/config.toml

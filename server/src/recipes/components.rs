@@ -30,10 +30,10 @@ pub struct Component {
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
 
 // COMBAK initialize the Componentlist from the datafile
-pub fn InitializeComponenteListVec(Componentfile: String) -> ComponentListVec {
+pub fn initialize_componente_listvec(componentfile: String) -> ComponentListVec {
     let mut clv: ComponentListVec = BTreeMap::new();
 
-    let mut f = newreader(Componentfile);
+    let mut f = newreader(componentfile);
     let mut line = String::new();
 
     // iterate over all components
