@@ -16,6 +16,8 @@ use recipes::elements::*;
 /// holds the informations for the worker for structures
 #[derive(Debug)]
 pub struct StructureWorker {
+    // link to the central Configuration
+    conf: Configuration,
     // structure with 'general worker structure'
     worker_struct: WorkerStruct,
     // persistancefile for stations
@@ -32,6 +34,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         let mut sw = StructureWorker {
+            conf: myconfig.clone(),
             worker_struct: WorkerStruct { name: name },
             stationfile: myconfig.get_filenamestation(),
             stations: btree,

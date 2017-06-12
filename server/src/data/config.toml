@@ -2,7 +2,6 @@
 # Copyright (C) 2016  Hartmut Prochaska
 # See doc/LICENSE for licensing information
 
-[global]
 # duration of tick in seconds, one tick is 6h in worldtime
 # TODO define length of tick
 tick = 2
@@ -11,15 +10,15 @@ tick = 2
 # using the nasa values, per hour a person will need about 25l, could be higher if exercising => we could improve the model later
 02player = 150
 
-[playerdata]
+[player]
 storageMethod ="file"
 datafile="src/data/player.json"
 
-[structuredata]
+[structure]
 storageMethod="file"
-datafile_station="src/data/station.json"
+datafile="src/data/station.json"
 
-[moduledata]
+[module]
 storageMethod="file"
 datafile="src/data/module.json"
 
@@ -29,6 +28,6 @@ datafile="src/data/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
 
-[componentdata]
+[component]
 storageMethod="file"
 datafile="src/data/components.json"

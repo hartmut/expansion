@@ -8,23 +8,28 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::error::Error;
 use std::path::Path;
-use std::collections::BTreeMap;
-use toml::{Value, Parser};
+use toml;
 
 /// configuration
-#[derive(Debug, Clone)]
+#[derive(Debug, Deserialize,Clone)]
 pub struct Configuration {
-    tick: u64,
-    o2_per_person: u64,
-    filename_player: String,
-    filename_station: String,
-    filename_module: String,
-    filename_elements: String, // periodic table
-    filename_components: String,
+    tick: Option<u64>,
+    o2_per_person: Option<u64>,
+    structure: Option<FileData>,
+    player: Option<FileData>,
+    module: Option<FileData>,
+    elements: Option<FileData>,
+    components: Option<FileData>,
+}
+
+#[derive(Debug, Deserialize,Clone)]
+struct FileData {
+    storagemethod: Option<String>,
+    datafile: Option<String>,
+    source: Option<String>,
 }
 
 impl Configuration {
-    // TODO rewrite it to use serde, so that we don't need a further crate
     pub fn load_config(args: Vec<String>) -> Configuration {
 
         // configuration is here server/src/data/config.toml
@@ -47,81 +52,45 @@ impl Configuration {
             Ok(_) => print!(""),
         }
 
-        let mut parser = Parser::new(&input);
-
-        let toml = match parser.parse() {
-            None => {
-                for err in &parser.errors {
-                    let (loline, locol) = parser.to_linecol(err.lo);
-                    let (hiline, hicol) = parser.to_linecol(err.hi);
-                    println!("{}:{}:{}-{}:{} error: {}",
-                             display,
-                             loline,
-                             locol,
-                             hiline,
-                             hicol,
-                             err.desc)
-                }
-                panic!("configuration error");
-            }
-            Some(toml) => toml,
-        };
-
-        // decompose the toml file.
-        // IDEA: try to interpret the toml file in a less complex way
-        let conf: BTreeMap<String, Value> = toml;
-        let global = conf.get(&"global".to_string()).unwrap();
-        let player = conf.get(&"playerdata".to_string()).unwrap();
-        let station = conf.get(&"structuredata".to_string()).unwrap();
-        let module = conf.get(&"moduledata".to_string()).unwrap();
-        let elements = conf.get(&"elements".to_string()).unwrap();
-        let components = conf.get(&"componentdata".to_string()).unwrap();
-
-        // create the Configuration structure
-        Configuration {
-            tick: global.lookup("tick").unwrap().as_integer().unwrap() as u64,
-            o2_per_person: global.lookup("02player").unwrap().as_integer().unwrap() as u64,
-            filename_player: player.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-            filename_station: station.lookup("datafile_station")
-                .unwrap()
-                .as_str()
-                .unwrap()
-                .to_string(),
-            filename_module: module.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-            filename_elements: elements.lookup("datafile").unwrap().as_str().unwrap().to_string(),
-            filename_components: components.lookup("datafile")
-                .unwrap()
-                .as_str()
-                .unwrap()
-                .to_string(),
-        }
+        let decoded: Configuration = toml::de::from_str(&input).unwrap();
+        decoded
     }
 
     pub fn get_tick(&self) -> u64 {
-        self.tick
+        // self.tick
+        match self.tick {
+            Some(x) => x,
+            None => 2,
+        }
     }
 
     pub fn get_o2(&self) -> u64 {
-        self.o2_per_person.clone()
+        // self.o2_per_person.clone()
+        0
     }
 
     pub fn get_filenameplayer(&self) -> String {
-        self.filename_player.clone()
+        // self.filename_player.clone()
+        "".to_string()
     }
 
     pub fn get_filenamestation(&self) -> String {
-        self.filename_station.clone()
+        // self.filename_station.clone()
+        "".to_string()
     }
 
     pub fn get_filenamemodule(&self) -> String {
-        self.filename_module.clone()
+        // self.filename_module.clone()
+        "".to_string()
     }
 
     pub fn get_filenameelements(&self) -> String {
-        self.filename_elements.clone()
+        // self.filename_elements.clone()
+        "".to_string()
     }
 
     pub fn get_filenamecomponents(&self) -> String {
-        self.filename_components.clone()
+        // self.filename_components.clone()
+        "".to_string()
     }
 }
