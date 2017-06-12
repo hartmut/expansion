@@ -9,6 +9,7 @@ use std::io::prelude::*;
 use std::error::Error;
 use std::path::Path;
 use toml;
+use common::fileoperations::*;
 
 /// configuration
 #[derive(Debug, Deserialize,Clone)]
@@ -22,6 +23,7 @@ pub struct Configuration {
     components: Option<FileData>,
 }
 
+// TODO implement functions for this structure
 #[derive(Debug, Deserialize,Clone)]
 struct FileData {
     storagemethod: Option<String>,
@@ -63,7 +65,7 @@ impl Configuration {
             None => 2,
         }
     }
-
+    // TODO rewrite functions
     pub fn get_o2(&self) -> u64 {
         // self.o2_per_person.clone()
         0
