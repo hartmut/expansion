@@ -16,12 +16,10 @@ use recipes::elements::*;
 /// holds the informations for the worker for structures
 #[derive(Debug)]
 pub struct StructureWorker {
-    // link to the central Configuration
-    conf: Configuration,
     // structure with 'general worker structure'
     worker_struct: WorkerStruct,
     // persistancefile for stations
-    stationfile: String,
+    stationdata: FileData,
     // Btree with stations in it
     stations: BtreeStations,
     // List of Elements for production
@@ -34,15 +32,14 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         let mut sw = StructureWorker {
-            conf: myconfig.clone(),
             worker_struct: WorkerStruct { name: name },
-            stationfile: myconfig.get_filenamestation(),
+            stationdata: myconfig.get_structure_config(),
             stations: btree,
-            elementlist: read_elementlist_file(myconfig.get_filenameelements()),
+            elementlist: read_elementlist_file(myconfig.get_elements_config().get_datafile()),
         };
 
         // import stations
-        let mut f = newreader(sw.stationfile.clone());
+        let mut f = newreader(sw.stationdata.get_datafile());
         let mut line = String::new();
 
         // iterate over all stations
@@ -74,6 +71,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     fn get_update(&mut self) {}
 }
 
+// FIXME
 #[test]
 fn elementlist_dark_matter_check() {
     let sw = StructureWorker::new("Structure_Worker".to_string(),
@@ -81,7 +79,7 @@ fn elementlist_dark_matter_check() {
     let e: &Element = &sw.elementlist[0];
     assert!(e.name == "Dark Matter".to_string());
 }
-
+// FIXME
 #[test]
 fn check_station_read_firefly() {
     let sw = StructureWorker::new("Structure_Worker".to_string(),
@@ -90,7 +88,7 @@ fn check_station_read_firefly() {
     let firefly: &AStation = sw.stations.get(&station_id).unwrap();
     assert!(firefly.get_name() == &"Firefly".to_string())
 }
-
+// FIXME
 #[test]
 fn check_station_read_deepspace() {
     let sw = StructureWorker::new("Structure_Worker".to_string(),

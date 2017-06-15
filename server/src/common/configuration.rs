@@ -16,24 +16,49 @@ use common::fileoperations::*;
 pub struct Configuration {
     tick: Option<u64>,
     o2_per_person: Option<u64>,
-    structure: Option<FileData>,
-    player: Option<FileData>,
-    module: Option<FileData>,
-    elements: Option<FileData>,
-    components: Option<FileData>,
+    structure: Option<FileDataWrap>,
+    player: Option<FileDataWrap>,
+    module: Option<FileDataWrap>,
+    elements: Option<FileDataWrap>,
+    components: Option<FileDataWrap>,
 }
 
 // TODO implement functions for this structure
 #[derive(Debug, Deserialize,Clone)]
-struct FileData {
+struct FileDataWrap {
     storagemethod: Option<String>,
     datafile: Option<String>,
     source: Option<String>,
 }
 
+#[derive(Debug, Deserialize,Clone)]
+pub struct FileData {
+    storagemethod: String,
+    datafile: String,
+    source: String,
+}
+
+
+impl FileDataWrap {
+    pub fn inner_unwrap(self) -> FileData {
+        FileData {
+            storagemethod: self.storagemethod.unwrap(),
+            datafile: self.datafile.unwrap(),
+            source: self.source.unwrap(),
+        }
+    }
+}
+
+impl FileData {
+    pub fn get_datafile(&self) -> String {
+        self.datafile.clone()
+    }
+}
+
 impl Configuration {
     pub fn load_config(args: Vec<String>) -> Configuration {
 
+        // TODO use fileoperations from common::fileoperations
         // configuration is here server/src/data/config.toml
         let path = Path::new(&args[1]);
         let display = path.display();
@@ -61,38 +86,80 @@ impl Configuration {
     pub fn get_tick(&self) -> u64 {
         // self.tick
         match self.tick {
-            Some(x) => x,
-            None => 2,
+            Some(x) => x.clone(),
+            None => 60,
         }
     }
-    // TODO rewrite functions
+
     pub fn get_o2(&self) -> u64 {
-        // self.o2_per_person.clone()
-        0
+        match self.o2_per_person {
+            Some(o2) => o2.clone(),
+            None => 150,
+        }
     }
 
-    pub fn get_filenameplayer(&self) -> String {
-        // self.filename_player.clone()
-        "".to_string()
+    pub fn get_structure_config(&self) -> FileData {
+        match self.structure.clone() {
+            Some(struc) => struc.inner_unwrap(),
+            None => {
+                FileData {
+                    storagemethod: "File".to_string(),
+                    datafile: "src/data/station.json".to_string(),
+                    source: "".to_string(),
+                }
+            }
+        }
     }
 
-    pub fn get_filenamestation(&self) -> String {
-        // self.filename_station.clone()
-        "".to_string()
+    pub fn get_player_config(&self) -> FileData {
+        match self.player.clone() {
+            Some(struc) => struc.inner_unwrap(),
+            None => {
+                FileData {
+                    storagemethod: "File".to_string(),
+                    datafile: "src/data/player.json".to_string(),
+                    source: "".to_string(),
+                }
+            }
+        }
     }
 
-    pub fn get_filenamemodule(&self) -> String {
-        // self.filename_module.clone()
-        "".to_string()
+    pub fn get_module_config(&self) -> FileData {
+        match self.module.clone() {
+            Some(struc) => struc.inner_unwrap(),
+            None => {
+                FileData {
+                    storagemethod: "File".to_string(),
+                    datafile: "src/data/module.json".to_string(),
+                    source: "".to_string(),
+                }
+            }
+        }
     }
 
-    pub fn get_filenameelements(&self) -> String {
-        // self.filename_elements.clone()
-        "".to_string()
+    pub fn get_elements_config(&self) -> FileData {
+        match self.elements.clone() {
+            Some(struc) => struc.inner_unwrap(),
+            None => {
+                FileData {
+                    storagemethod: "File".to_string(),
+                    datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
+                    source: "".to_string(),
+                }
+            }
+        }
     }
 
-    pub fn get_filenamecomponents(&self) -> String {
-        // self.filename_components.clone()
-        "".to_string()
+    pub fn get_components_config(&self) -> FileData {
+        match self.components.clone() {
+            Some(struc) => struc.inner_unwrap(),
+            None => {
+                FileData {
+                    storagemethod: "File".to_string(),
+                    datafile: "src/data/components.json".to_string(),
+                    source: "".to_string(),
+                }
+            }
+        }
     }
 }

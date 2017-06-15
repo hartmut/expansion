@@ -13,12 +13,10 @@ use super::player::Player;
 /// this structure holds the informations for the worker in the player area
 #[derive(Debug)]
 pub struct PlayerWorker {
-    // configuration
-    conf: Configuration,
     /// structure with 'general worker structure'
     worker_struct: WorkerStruct,
     // persistancefile for player
-    playerfile: String,
+    playerdata: FileData,
     // TODO insert link on configuration instead of copying all the values
     // config: Configuration,
     // Btree with player in it
@@ -31,9 +29,8 @@ impl WorkerTrait<PlayerWorker> for PlayerWorker {
         let btree: BTreeMap<ExpUuid, Player> = BTreeMap::new();
 
         PlayerWorker {
-            conf: config.clone(),
             worker_struct: WorkerStruct { name: name },
-            playerfile: config.get_filenameplayer(),
+            playerdata: config.get_player_config(),
             // config: config,
             player: btree,
         }
