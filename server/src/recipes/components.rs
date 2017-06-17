@@ -4,9 +4,6 @@
 //
 // contains informations about components needed to build stations, other components, etc.
 
-// IDEA do I need this or will I only need materials?
-// COMBAK work on this next time
-
 // uses
 use serde_json;
 use std::collections::BTreeMap;
@@ -20,15 +17,15 @@ use common::fileoperations::*;
 pub struct Component {
     uuid: ExpUuid, // id of the component
     name: String, // Name of the component
-    weight: u64, // in kg of one item
-    volume: u64, /* in m^3 of one item, at first we ignore the case that the volume could be 1 m^3 but it is realy long and doesn't fit into the bay */
-    receipe_uuid: ExpUuid, // UUId of receip with whichComponentd been produced, usefull for dismantling
+    weight: f64, // in kg of one item
+    volume: f64, /* in m^3 of one item, at first we ignore the case that the volume could be 1 m^3 but it is realy long and doesn't fit into the bay */
+    receipe_uuid: ExpUuid, /* UUId of receip with whichComponentd had been produced, usefull for dismantling */
 }
 
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
 
 // COMBAK initialize the Componentlist from the datafile
-pub fn initialize_componente_listvec(componentfile: String) -> ComponentListVec {
+pub fn initialize_component_listvec(componentfile: String) -> ComponentListVec {
     let mut clv: ComponentListVec = BTreeMap::new();
 
     let mut f = newreader(componentfile);

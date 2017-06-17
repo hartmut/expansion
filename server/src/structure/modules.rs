@@ -18,7 +18,6 @@ pub struct Module {
     name: String, // name/description of the module
     energy: i64, // positiv when energy producing, negativ when energy using
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
-
     // production and storage
     cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel? */
     // sizing of the module in m
@@ -30,11 +29,15 @@ pub struct Module {
     zsize: u32,
     // currently it can only store one type of material, needs to be a vector for generalization e.g.
     // what is needed for the production of one recipe
-    // TODO make an enum for storagetype
+    // TODO make an enum for storagetype and a structure for all the possible storage types?
     #[serde(default)]
     storagetype: String,
+    // in m^3
     #[serde(default)]
     storage_volume: u64,
+    // in kg
+    #[serde(default)]
+    mass: u64,
 }
 
 

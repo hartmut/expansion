@@ -27,6 +27,7 @@ enum RecipeType {
     Module,
     Component,
     Research,
+    Energy,
 }
 
 // my recipes
