@@ -31,7 +31,6 @@ impl WorkerTrait<PlayerWorker> for PlayerWorker {
         PlayerWorker {
             worker_struct: WorkerStruct { name: name },
             playerdata: config.get_player_config(),
-            // config: config,
             player: btree,
         }
     }
@@ -41,6 +40,6 @@ impl WorkerTrait<PlayerWorker> for PlayerWorker {
     fn get_update(&mut self) {}
 
     fn step(&mut self) {
-        println!("does nothing at the moment", );
+        println!("one step in player worker", );
     }
 }

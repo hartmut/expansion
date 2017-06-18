@@ -24,7 +24,7 @@ pub struct Component {
 
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
 
-// COMBAK initialize the Componentlist from the datafile
+// TODO initialize the Componentlist from the datafile
 pub fn initialize_component_listvec(componentfile: String) -> ComponentListVec {
     let mut clv: ComponentListVec = BTreeMap::new();
 

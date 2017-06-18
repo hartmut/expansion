@@ -26,14 +26,14 @@ pub struct Configuration {
 // TODO implement functions for this structure
 #[derive(Debug, Deserialize,Clone)]
 struct FileDataWrap {
-    storagemethod: Option<String>,
+    storageMethod: Option<String>,
     datafile: Option<String>,
     source: Option<String>,
 }
 
 #[derive(Debug, Deserialize,Clone)]
 pub struct FileData {
-    storagemethod: String,
+    storageMethod: String,
     datafile: String,
     source: String,
 }
@@ -42,9 +42,18 @@ pub struct FileData {
 impl FileDataWrap {
     pub fn inner_unwrap(self) -> FileData {
         FileData {
-            storagemethod: self.storagemethod.unwrap(),
-            datafile: self.datafile.unwrap(),
-            source: self.source.unwrap(),
+            storageMethod: match self.storageMethod {
+                Some(x) => x,
+                None => "".to_string(),
+            },
+            datafile: match self.datafile {
+                Some(x) => x,
+                None => "".to_string(),
+            },
+            source: match self.source {
+                Some(x) => x,
+                None => "".to_string(),
+            },
         }
     }
 }
@@ -103,7 +112,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storagemethod: "File".to_string(),
+                    storageMethod: "File".to_string(),
                     datafile: "src/data/station.json".to_string(),
                     source: "".to_string(),
                 }
@@ -116,7 +125,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storagemethod: "File".to_string(),
+                    storageMethod: "File".to_string(),
                     datafile: "src/data/player.json".to_string(),
                     source: "".to_string(),
                 }
@@ -129,7 +138,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storagemethod: "File".to_string(),
+                    storageMethod: "File".to_string(),
                     datafile: "src/data/module.json".to_string(),
                     source: "".to_string(),
                 }
@@ -142,7 +151,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storagemethod: "File".to_string(),
+                    storageMethod: "File".to_string(),
                     datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
                     source: "".to_string(),
                 }
@@ -155,11 +164,17 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storagemethod: "File".to_string(),
+                    storageMethod: "File".to_string(),
                     datafile: "src/data/components.json".to_string(),
                     source: "".to_string(),
                 }
             }
         }
     }
+}
+
+#[test]
+pub fn empty_config() {
+    let json = "".to_string();
+    let decoded: Configuration = toml::de::from_str(&json).unwrap();
 }

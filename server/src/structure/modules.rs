@@ -68,6 +68,7 @@ impl Module {
             zsize: 1,
             storagetype: "".to_string(),
             storage_volume: 0,
+            mass: 0,
         }
     }
 }
