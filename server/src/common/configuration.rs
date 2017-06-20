@@ -26,14 +26,14 @@ pub struct Configuration {
 // TODO implement functions for this structure
 #[derive(Debug, Deserialize,Clone)]
 struct FileDataWrap {
-    storageMethod: Option<String>,
+    storage_method: Option<String>,
     datafile: Option<String>,
     source: Option<String>,
 }
 
 #[derive(Debug, Deserialize,Clone)]
 pub struct FileData {
-    storageMethod: String,
+    storage_method: String,
     datafile: String,
     source: String,
 }
@@ -42,7 +42,7 @@ pub struct FileData {
 impl FileDataWrap {
     pub fn inner_unwrap(self) -> FileData {
         FileData {
-            storageMethod: match self.storageMethod {
+            storage_method: match self.storage_method {
                 Some(x) => x,
                 None => "".to_string(),
             },
@@ -112,7 +112,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storageMethod: "File".to_string(),
+                    storage_method: "File".to_string(),
                     datafile: "src/data/station.json".to_string(),
                     source: "".to_string(),
                 }
@@ -125,7 +125,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storageMethod: "File".to_string(),
+                    storage_method: "File".to_string(),
                     datafile: "src/data/player.json".to_string(),
                     source: "".to_string(),
                 }
@@ -138,7 +138,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storageMethod: "File".to_string(),
+                    storage_method: "File".to_string(),
                     datafile: "src/data/module.json".to_string(),
                     source: "".to_string(),
                 }
@@ -151,7 +151,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storageMethod: "File".to_string(),
+                    storage_method: "File".to_string(),
                     datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
                     source: "".to_string(),
                 }
@@ -164,7 +164,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => {
                 FileData {
-                    storageMethod: "File".to_string(),
+                    storage_method: "File".to_string(),
                     datafile: "src/data/components.json".to_string(),
                     source: "".to_string(),
                 }

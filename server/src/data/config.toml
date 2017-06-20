@@ -11,23 +11,23 @@ tick = 2
 02player = 150
 
 [player]
-storageMethod ="file"
+storage_method ="file"
 datafile="src/data/player.json"
 
 [structure]
-storageMethod="file"
+storage_method="file"
 datafile="src/data/station.json"
 
 [module]
-storageMethod="file"
+storage_method="file"
 datafile="src/data/module.json"
 
 [elements]
-storageMethod="file"
+storage_method="file"
 datafile="src/data/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
 
 [component]
-storageMethod="file"
+storage_method="file"
 datafile="src/data/components.json"

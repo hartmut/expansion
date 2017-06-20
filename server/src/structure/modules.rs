@@ -8,6 +8,7 @@
 // uses
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
+use super::storage::*;
 use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -20,6 +21,7 @@ pub struct Module {
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
     // production and storage
     cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel? */
+    // TODO use a vector
     // sizing of the module in m
     #[serde(default)]
     xsize: u32,
@@ -29,7 +31,8 @@ pub struct Module {
     zsize: u32,
     // currently it can only store one type of material, needs to be a vector for generalization e.g.
     // what is needed for the production of one recipe
-    // TODO make an enum for storagetype and a structure for all the possible storage types?
+    // TODO use a storage structure
+    store: Store,
     #[serde(default)]
     storagetype: String,
     // in m^3
@@ -38,14 +41,6 @@ pub struct Module {
     // in kg
     #[serde(default)]
     mass: u64,
-}
-
-
-// TODO express capabilities
-enum ModuleCapabilities {
-    Cap1,
-    Cap2,
-    Cap4,
 }
 
 impl Module {
@@ -66,6 +61,7 @@ impl Module {
             xsize: 1,
             ysize: 1,
             zsize: 1,
+            store: Store::new_empty(),
             storagetype: "".to_string(),
             storage_volume: 0,
             mass: 0,
