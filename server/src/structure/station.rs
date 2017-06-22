@@ -24,6 +24,8 @@ pub struct AStation {
     personcount: u64, // how many people are on this station
     o2prod: u64, // production of O2, see above -> people module?
     o2use: u64, // use of O2 for people TODO modelle by a prduction modules -> people module?
+    #[serde(default)]
+    mass: u64, // mass of the station
     location: SpaceObj, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
                                *
@@ -51,6 +53,7 @@ impl AStation {
             personcount: 0,
             o2use: 0,
             o2prod: 0,
+            mass: 0,
             location: SpaceObj::new(1.0, 12.0, 3.0, 4),
             module_list: module_list_temp,
         }
