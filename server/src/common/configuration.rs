@@ -16,6 +16,8 @@ use common::fileoperations::*;
 pub struct Configuration {
     tick: Option<u64>,
     o2_per_person: Option<u64>,
+    food_per_person: Option<u64>,
+    water_per_person: Option<u64>,
     structure: Option<FileDataWrap>,
     player: Option<FileDataWrap>,
     module: Option<FileDataWrap>,
@@ -104,6 +106,20 @@ impl Configuration {
         match self.o2_per_person {
             Some(o2) => o2.clone(),
             None => 150,
+        }
+    }
+
+    pub fn get_food(&self) -> u64 {
+        match self.food_per_person {
+            Some(food) => food.clone(),
+            None => 1,
+        }
+    }
+
+    pub fn get_water(&self) -> u64 {
+        match self.water_per_person {
+            Some(water) => water.clone(),
+            None => 5,
         }
     }
 
