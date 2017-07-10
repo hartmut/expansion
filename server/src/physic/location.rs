@@ -9,6 +9,7 @@
 // use common::stdtrait::StdTrait;
 // use serde_json;
 
+// TODO other name, as mass is not a part of location but a part of a ...?
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SpaceObj {
     long: f64, // longtitude (l) in relation to sun

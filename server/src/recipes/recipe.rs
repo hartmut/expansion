@@ -15,15 +15,15 @@ use serde_json;
 
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]
-struct Bundle {
-    quantity: u64, // how much
-    component: Component, // either a component or
-    element: Element, // a Element
+pub struct Bundle {
+    pub quantity: u64, // how much
+    pub component: Component, // either a component or
+    pub element_no: u32, // a Element
 }
 
 // types of recipes
 #[derive(Serialize, Deserialize, Debug, Copy, Clone)]
-enum RecipeType {
+pub enum RecipeType {
     Module,
     Component,
     Research,
@@ -32,15 +32,15 @@ enum RecipeType {
 
 // my recipes
 #[derive(Serialize, Deserialize, Debug)]
-struct Recipe {
-    uuid: ExpUuid, // uuid for this recipe
-    uuid_origin: ExpUuid, // Origin of this recipe, if this is an original recipe it has the value "0"
-    recipe_type: RecipeType, // what type will be produced?
-    name: String, // name of this recipe
-    duration: u32, // ticks until the recipe got one run
-    input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
-    output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
-    module: String, // json format for creation of a new module, empty if it is not a module
+pub struct Recipe {
+    pub uuid: ExpUuid, // uuid for this recipe
+    pub uuid_origin: ExpUuid, // Origin of this recipe, if this is an original recipe it has the value "0"
+    pub recipe_type: RecipeType, // what type will be produced?
+    pub name: String, // name of this recipe
+    pub duration: u32, // hours until the recipe produces one set of outputs
+    pub input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
+    pub output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
+    pub module: String, // json format for creation of a new module, empty if it is not a module
 }
 
 impl Recipe {
@@ -106,39 +106,56 @@ impl StdTrait<Recipe> for Recipe {
     }
 }
 
-// FIXME changed datastructure
-// #[test]
-// fn create_module_example() {
-//
-//     let new_bundle1 = Bundle {
-//         quantity: 1000,
-//         material: get_new_uuid(),
-//     };
-//
-//     let new_bundle2 = Bundle {
-//         quantity: 0,
-//         material: get_new_uuid(),
-//     };
-//
-//
-//     // create a standard module
-//     let mut new_module_recipe = Recipe {
-//         uuid: get_new_uuid(),
-//         uuid_origin: get_new_uuid(),
-//         recipe_type: RecipeType::Module,
-//         name: "Basic Module I".to_string(),
-//         duration: 100,
-//         input: Vec::<Bundle>::new(),
-//         output: Vec::<Bundle>::new(),
-//         module: "".to_string(),
-//     };
-//
-//     // and put something into input and output
-//     new_module_recipe.input.push(new_bundle1);
-//     new_module_recipe.output.push(new_bundle2);
-//
-//     // and now write it
-//     let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());
-//     let lineout = Recipe::serialize(&new_module_recipe);
-//     writerecord(&mut g, &lineout);
-// }
+#[test]
+fn create_recipe_example() {
+
+    let output_component = Component {
+        uuid: get_new_uuid(),
+        name: "cheap Solar Panel".to_string(),
+        weight: 1000.0,
+        volume: 5.0,
+        receipe_uuid: uuidnull(),
+    };
+
+    let input_component = Component {
+        uuid: get_new_uuid(),
+        name: "Silicon".to_string(),
+        weight: 1.0,
+        volume: 0.1,
+        receipe_uuid: uuidnull(),
+    };
+
+
+    let input_bundle = Bundle {
+        quantity: 1000,
+        component: input_component,
+        element_no: 0,
+    };
+
+    let output_bundle = Bundle {
+        quantity: 1,
+        component: output_component,
+        element_no: 0,
+    };
+
+    // create a standard module
+    let mut new_recipe = Recipe {
+        uuid: get_new_uuid(),
+        uuid_origin: uuidnull(),
+        recipe_type: RecipeType::Energy,
+        name: "cheap Solar Panel".to_string(),
+        duration: 48,
+        input: Vec::<Bundle>::new(),
+        output: Vec::<Bundle>::new(),
+        module: "".to_string(),
+    };
+
+    // and put something into input and output
+    new_recipe.input.push(input_bundle);
+    new_recipe.output.push(output_bundle);
+
+    // and now write it
+    let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());
+    let lineout = Recipe::serialize(&new_recipe);
+    writerecord(&mut g, &lineout);
+}

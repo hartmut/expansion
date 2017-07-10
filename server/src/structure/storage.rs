@@ -9,12 +9,12 @@ use self::StorageType::*;
 
 #[derive(Serialize, Deserialize, Debug)]
 enum StorageType {
+    Energy, // in kwh
     Food, // in kg
     Propulsion, // in l
     Liquid, // in l
     Gas, // in l
     Solid, // in kg
-    Energy, // in kwh
 }
 
 #[derive(Serialize, Deserialize, Debug)]
