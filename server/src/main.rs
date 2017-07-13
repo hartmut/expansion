@@ -14,6 +14,7 @@ extern crate serde;
 extern crate time;
 extern crate uuid;
 extern crate toml;
+extern crate chrono;
 
 // describe internal mods to use
 mod physic;
@@ -29,6 +30,7 @@ use structure::structure_worker::StructureWorker;
 use character::player_worker::PlayerWorker;
 use std::thread;
 use common::workertrait::WorkerTrait;
+
 // use common::configuration;
 use common::configuration;
 
@@ -49,11 +51,13 @@ fn main() {
     }
 
     // read configuration and data
-    let mut tick_counter: u64 = 0;
     let myconfig = configuration::Configuration::load_config(args);
 
     // initalize timer and counter
+    let mut tick_counter: u64 = 1;
     let tick_dur = Duration::from_secs(myconfig.get_tick());
+    let tick_length = time::Duration::hours(myconfig.get_tick_length());
+    let mut worldtime = chrono::DateTime::parse_from_rfc2822("1 Jan 2023 00:00:00 +0000").unwrap();
 
     // create the player worker and initalize it
     let mut player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
@@ -64,17 +68,21 @@ fn main() {
     // TODO start webserver as an own thread to get informations from clients
 
     // wait, then update all objects,
-    // wait for TICK Seconds in real time, this is analog to 2h in world time
+    // wait for TICK Seconds in real time, this is analog to xh in world time, look at the config
     loop {
-        thread::sleep(tick_dur);
-        tick_counter += 1;
 
         println!("\nHello world, this is tick {}", tick_counter);
         println!("time elapsed since start: {} sec \n",
                  tick_counter * myconfig.get_tick());
+        println!("the current worldtime is {:?}", worldtime);
 
         // call the update methods of all relevant strutures for this tick
         structure_worker.step();
         player_worker.step();
+
+        // time management
+        tick_counter += 1;
+        thread::sleep(tick_dur);
+        worldtime = worldtime + tick_length;
     }
 }

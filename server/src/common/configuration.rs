@@ -15,6 +15,7 @@ use common::fileoperations::*;
 #[derive(Debug, Deserialize,Clone)]
 pub struct Configuration {
     tick: Option<u64>,
+    tick_length: Option<i64>,
     o2_per_person: Option<u64>,
     food_per_person: Option<u64>,
     water_per_person: Option<u64>,
@@ -98,7 +99,14 @@ impl Configuration {
         // self.tick
         match self.tick {
             Some(x) => x.clone(),
-            None => 60,
+            None => 10,
+        }
+    }
+
+    pub fn get_tick_length(&self) -> i64 {
+        match self.tick_length {
+            Some(ticklen) => ticklen.clone(),
+            None => 6,
         }
     }
 
