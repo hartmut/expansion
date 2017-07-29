@@ -12,6 +12,7 @@ use common::fileoperations::*;
 use super::elements::*;
 use super::components::*;
 use serde_json;
+use std::collections::HashMap;
 
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]
@@ -41,6 +42,15 @@ pub struct Recipe {
     pub input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
     pub output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
     pub json_create: String, // json format for creation of a new module, empty if it is not a module
+}
+
+pub type RecipeHashMap = HashMap<ExpUuid, Recipe>;
+
+// TODO flesh out read_recipe_file
+pub fn read_recipe_file(filename: String) -> RecipeHashMap {
+    let recipehash: RecipeHashMap = HashMap::new();
+
+    recipehash
 }
 
 impl Recipe {

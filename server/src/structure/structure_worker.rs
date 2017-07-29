@@ -10,8 +10,10 @@ use common::fileoperations::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
 use std::collections::BTreeMap;
+use std::collections::HashMap;
 use super::station::*;
 use recipes::elements::*;
+use recipes::recipe::*;
 
 /// holds the informations for the worker for structures
 /// is created out of recipes, when you want to see what modules are available,
@@ -27,6 +29,8 @@ pub struct StructureWorker {
     stations: BtreeStations,
     // List of Elements for production
     elementlist: ElementListVec,
+    // List of recipes
+    recipelist: RecipeHashMap,
 }
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
@@ -39,6 +43,8 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             stationdata: myconfig.get_structure_config(),
             stations: btree,
             elementlist: read_elementlist_file(myconfig.get_elements_config().get_datafile()),
+            // TODO read file from config
+            recipelist: read_recipe_file("src/data/recipe.json".to_string()),
         };
 
         // import stations

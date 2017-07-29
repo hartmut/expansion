@@ -33,6 +33,10 @@ datafile="src/data/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
 
+[recipes]
+storage_method="file"
+datafile="src/data/recipe.json"
+
 [component]
 storage_method="file"
 datafile="src/data/components.json"

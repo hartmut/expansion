@@ -9,7 +9,6 @@ use std::io::prelude::*;
 use std::error::Error;
 use std::path::Path;
 use toml;
-use common::fileoperations::*;
 
 /// configuration
 #[derive(Debug, Deserialize,Clone)]
