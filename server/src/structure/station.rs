@@ -29,7 +29,7 @@ pub struct AStation {
     location: SpaceObj, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
                                *
-                               * list of inventar on this station
+                               * list of inventar on this station -> stored in storagemodules
                                * list of NPC on station */
 }
 
