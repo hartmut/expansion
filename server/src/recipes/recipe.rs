@@ -40,7 +40,7 @@ pub struct Recipe {
     pub duration: u32, // hours until the recipe produces one set of outputs
     pub input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
     pub output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
-    pub module: String, // json format for creation of a new module, empty if it is not a module
+    pub json_create: String, // json format for creation of a new module, empty if it is not a module
 }
 
 impl Recipe {
@@ -52,8 +52,8 @@ impl Recipe {
         self.name.clone()
     }
 
-    fn get_module_def(&self) -> String {
-        self.module.clone()
+    fn get_json_create_def(&self) -> String {
+        self.json_create.clone()
     }
 
     fn get_recipe_type(&self) -> RecipeType {
@@ -147,7 +147,7 @@ fn create_recipe_example() {
         duration: 48,
         input: Vec::<Bundle>::new(),
         output: Vec::<Bundle>::new(),
-        module: "".to_string(),
+        json_create: "".to_string(),
     };
 
     // and put something into input and output
