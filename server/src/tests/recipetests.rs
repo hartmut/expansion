@@ -28,7 +28,7 @@ mod tests {
 
         let output_component = Component {
             uuid: get_new_uuid(),
-            name: "chap Solar Panel".to_string(),
+            name: "cheap Solar Panel".to_string(),
             weight: between.ind_sample(&mut rng),
             volume: 5.0,
             prodfrom_recipe_uuid: uuidnull(),
