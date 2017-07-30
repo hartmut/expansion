@@ -12,6 +12,7 @@ use common::fileoperations::*;
 use super::elements::*;
 use super::components::*;
 use serde_json;
+use serde_json::Error;
 use std::collections::HashMap;
 
 // one Bundle, material or element and quantity
@@ -46,14 +47,28 @@ pub struct Recipe {
 
 pub type RecipeHashMap = HashMap<ExpUuid, Recipe>;
 
-// TODO flesh out read_recipe_file
 pub fn read_recipe_file(filename: String) -> RecipeHashMap {
-    let recipehash: RecipeHashMap = HashMap::new();
+    // read the json file and convert it to a hashmap of recipes
+    let result = read_file_to_string(filename);
+    let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
+
+    // check if the conversion of the elementlist from the json file worked as predicted
+    let mut recipehash: RecipeHashMap = match recipes {
+        Ok(recipes) => recipes,
+        Err(error) => {
+            panic!("somethings is wrong with the deserialization of the recipehashfile: {:?}",
+                   error);
+        }
+    };
 
     recipehash
 }
 
 impl Recipe {
+    pub fn get_uuid(&self) -> ExpUuid {
+        self.uuid.clone()
+    }
+
     fn get_duration(&self) -> u32 {
         self.duration
     }
@@ -114,58 +129,4 @@ impl StdTrait<Recipe> for Recipe {
         // is there anything we could do here?
         unimplemented!()
     }
-}
-
-#[test]
-fn create_recipe_example() {
-
-    let output_component = Component {
-        uuid: get_new_uuid(),
-        name: "cheap Solar Panel".to_string(),
-        weight: 1000.0,
-        volume: 5.0,
-        receipe_uuid: uuidnull(),
-    };
-
-    let input_component = Component {
-        uuid: get_new_uuid(),
-        name: "Silicon".to_string(),
-        weight: 1.0,
-        volume: 0.1,
-        receipe_uuid: uuidnull(),
-    };
-
-
-    let input_bundle = Bundle {
-        quantity: 1000,
-        component: input_component,
-        element_no: 0,
-    };
-
-    let output_bundle = Bundle {
-        quantity: 1,
-        component: output_component,
-        element_no: 0,
-    };
-
-    // create a standard module
-    let mut new_recipe = Recipe {
-        uuid: get_new_uuid(),
-        uuid_origin: uuidnull(),
-        recipe_type: RecipeType::Energy,
-        name: "cheap Solar Panel".to_string(),
-        duration: 48,
-        input: Vec::<Bundle>::new(),
-        output: Vec::<Bundle>::new(),
-        json_create: "".to_string(),
-    };
-
-    // and put something into input and output
-    new_recipe.input.push(input_bundle);
-    new_recipe.output.push(output_bundle);
-
-    // and now write it
-    let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());
-    let lineout = Recipe::serialize(&new_recipe);
-    writerecord(&mut g, &lineout);
 }

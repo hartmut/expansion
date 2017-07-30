@@ -7,3 +7,4 @@ pub mod playertest;
 pub mod stationtest;
 pub mod moduletest;
 pub mod fileoperationstest;
+pub mod recipetests;

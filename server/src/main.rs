@@ -15,6 +15,7 @@ extern crate time;
 extern crate uuid;
 extern crate toml;
 extern crate chrono;
+extern crate rand;
 
 // describe internal mods to use
 mod physic;

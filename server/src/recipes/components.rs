@@ -19,7 +19,7 @@ pub struct Component {
     pub name: String, // Name of the component
     pub weight: f64, // in kg of one item
     pub volume: f64, /* in m^3 of one item, at first we ignore the case that the volume could be 1 m^3 but it is realy long and doesn't fit into the bay */
-    pub receipe_uuid: ExpUuid, /* UUId of receip with whichComponentd had been produced, usefull for dismantling */
+    pub prodfrom_recipe_uuid: ExpUuid, /* UUId of receip with whichComponentd had been produced, usefull for dismantling */
 }
 
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
@@ -41,6 +41,12 @@ pub fn initialize_component_listvec(componentfile: String) -> ComponentListVec {
     }
 
     clv
+}
+
+impl Component {
+    pub fn set_prodfrom_recipe_uuid(&mut self, producer: ExpUuid) {
+        self.prodfrom_recipe_uuid = producer.clone();
+    }
 }
 
 impl StdTrait<Component> for Component {
