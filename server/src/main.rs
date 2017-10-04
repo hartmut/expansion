@@ -16,6 +16,7 @@ extern crate uuid;
 extern crate toml;
 extern crate chrono;
 extern crate rand;
+extern crate specs;
 
 // describe internal mods to use
 mod physic;
@@ -24,22 +25,25 @@ mod common;
 mod character;
 mod tests;
 mod recipes;
+mod core;
 
 // my mods to use
-use std::time::Duration;
 use structure::structure_worker::StructureWorker;
 use character::player_worker::PlayerWorker;
-use std::thread;
 use common::workertrait::WorkerTrait;
+use core::Core;
 
 // use common::configuration;
 use common::configuration;
 
 // standard mods to use
 use std::env;
+use std::thread;
+use std::time::Duration;
 
 // testincludes
 // use tests::playertest;
+// TODO replace all unwraps with proper error handling
 
 fn main() {
 
@@ -70,20 +74,28 @@ fn main() {
 
     // wait, then update all objects,
     // wait for TICK Seconds in real time, this is analog to xh in world time, look at the config
+    // loop {
+    //
+    //     println!("\nHello world, this is tick {}", tick_counter);
+    //     println!("time elapsed since start: {} sec \n",
+    //              tick_counter * myconfig.get_tick());
+    //     println!("the current worldtime is {:?}", worldtime);
+    //
+    //     // call the update methods of all relevant strutures for this tick
+    //     structure_worker.step();
+    //     player_worker.step();
+    //
+    //     // time management
+    //     tick_counter += 1;
+    //     thread::sleep(tick_dur);
+    //     worldtime = worldtime + tick_length;
+    // }
+
+    // initalize Core
+    let mut core = Core::new();
+
+    // loop Core
     loop {
-
-        println!("\nHello world, this is tick {}", tick_counter);
-        println!("time elapsed since start: {} sec \n",
-                 tick_counter * myconfig.get_tick());
-        println!("the current worldtime is {:?}", worldtime);
-
-        // call the update methods of all relevant strutures for this tick
-        structure_worker.step();
-        player_worker.step();
-
-        // time management
-        tick_counter += 1;
-        thread::sleep(tick_dur);
-        worldtime = worldtime + tick_length;
+        core.step();
     }
 }
