@@ -22,3 +22,16 @@ impl Desc {
 impl specs::Component for Desc {
     type Storage = specs::VecStorage<Desc>;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn create_description_component() {
+        let mut world = specs::World::new();
+        world.register::<Desc>();
+        world.create_entity()
+            .with(Desc::new("Daniel Suarez".to_string(), "".to_string()));
+    }
+}

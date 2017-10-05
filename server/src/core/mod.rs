@@ -28,7 +28,9 @@ impl<'a, 'b> Core<'a, 'b> {
 
         // import data
         world.create_entity()
-            .with(component::Desc::new("Daniel Suarez".to_string(), "".to_string()));
+            .with(component::Desc::new("Daniel Suarez".to_string(), "".to_string()))
+            .with(component::Player::new(1))
+            .with(component::Account::new(1000000));
 
         // return Core structure
         Core {
