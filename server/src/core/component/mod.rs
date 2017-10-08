@@ -6,14 +6,14 @@ use specs;
 mod desc;
 pub use self::desc::Desc;
 
-mod player;
-pub use self::player::Player;
+mod owner;
+pub use self::owner::Owner;
 
 mod account;
 pub use self::account::Account;
 
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
-    world.register::<Player>();
+    world.register::<Owner>();
     world.register::<Account>();
 }

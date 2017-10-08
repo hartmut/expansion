@@ -5,6 +5,7 @@
 // descriptions for entities
 use specs;
 
+// Descriptions
 pub struct Desc {
     pub name: String,
     pub longname: String,

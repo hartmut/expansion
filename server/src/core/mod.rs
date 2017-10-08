@@ -6,6 +6,7 @@ use specs;
 mod component;
 mod system;
 mod resource;
+mod entity;
 
 pub struct Core<'a, 'b> {
     world: specs::World,
@@ -27,10 +28,7 @@ impl<'a, 'b> Core<'a, 'b> {
         // register systems
 
         // import data
-        world.create_entity()
-            .with(component::Desc::new("Daniel Suarez".to_string(), "".to_string()))
-            .with(component::Player::new(1))
-            .with(component::Account::new(1000000));
+        let player: specs::Index = entity::player::new(&mut world, "Daniel Suarez".to_string());
 
         // return Core structure
         Core {

@@ -5,6 +5,7 @@
 // descriptions for entities
 use specs;
 
+// Money
 pub struct Account {
     pub credits: u64,
 }

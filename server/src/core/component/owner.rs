@@ -5,18 +5,19 @@
 // descriptions for entities
 use specs;
 
-pub struct Player {
-    pub id: u32,
+// Owner of entities
+pub struct Owner {
+    pub id: specs::Index,
 }
 
-impl Player {
-    pub fn new(id: u32) -> Self {
-        Player { id: id }
+impl Owner {
+    pub fn new(id: specs::Index) -> Self {
+        Owner { id: id }
     }
 }
 
-impl specs::Component for Player {
-    type Storage = specs::HashMapStorage<Player>;
+impl specs::Component for Owner {
+    type Storage = specs::VecStorage<Owner>;
 }
 
 #[cfg(test)]
@@ -26,8 +27,8 @@ mod tests {
     #[test]
     fn create_player_component() {
         let mut world = specs::World::new();
-        world.register::<Player>();
+        world.register::<Owner>();
         world.create_entity()
-            .with(Player::new(1));
+            .with(Owner::new(1));
     }
 }
