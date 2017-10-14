@@ -4,7 +4,7 @@
 //
 // implementation of Storage
 
-use serde_json;
+// use serde_json;
 use self::StorageType::*;
 
 #[derive(Serialize, Deserialize, Debug)]

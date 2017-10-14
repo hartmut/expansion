@@ -2,6 +2,4 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use specs;
-
 pub mod player;

@@ -28,8 +28,8 @@ impl<'a, 'b> Core<'a, 'b> {
         // register systems
 
         // import data
-        let player: specs::Index = entity::player::new(&mut world, "Daniel Suarez".to_string());
-        let player: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
+        let _player: specs::Index = entity::player::new(&mut world, "Daniel Suarez".to_string());
+        let _player: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
 
         // return Core structure
         Core {

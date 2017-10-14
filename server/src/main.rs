@@ -38,7 +38,7 @@ use common::configuration;
 
 // standard mods to use
 use std::env;
-use std::thread;
+// use std::thread;
 use std::time::Duration;
 
 // testincludes

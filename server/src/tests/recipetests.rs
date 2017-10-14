@@ -11,12 +11,12 @@
 mod tests {
     use serde_json;
     use serde_json::Error;
-    use serde::Serialize;
+    // use serde::Serialize;
     use common::myuuid::*;
-    use common::stdtrait::StdTrait;
+    // use common::stdtrait::StdTrait;
     use common::fileoperations::*;
     use recipes::recipe::*;
-    use recipes::elements::*;
+    // use recipes::elements::*;
     use recipes::components::*;
     use std::collections::HashMap;
     use rand;
