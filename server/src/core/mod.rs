@@ -29,6 +29,7 @@ impl<'a, 'b> Core<'a, 'b> {
 
         // import data
         let player: specs::Index = entity::player::new(&mut world, "Daniel Suarez".to_string());
+        let player: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
 
         // return Core structure
         Core {
@@ -38,7 +39,7 @@ impl<'a, 'b> Core<'a, 'b> {
     }
 
     pub fn step(self: &mut Self) {
-        println!("one step", );
+        // println!("one step", );
         self.dispatcher.dispatch(&mut self.world.res);
     }
 }

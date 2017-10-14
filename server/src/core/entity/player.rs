@@ -12,5 +12,25 @@ pub fn new(world: &mut specs::World, name: String) -> specs::Index {
             longname: "".to_string(),
         })
         .build();
-    player.id()
+    let mut addowner = world.write::<Owner>();
+    let id: specs::Index = player.id();
+    addowner.insert(player, Owner::new(id));
+    println!("{:?}", player);
+    id
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn create_new_player() {
+        let mut world = specs::World::new();
+        world.register::<Owner>();
+        world.register::<Desc>();
+        world.register::<Account>();
+        let player1: specs::Index = new(&mut world, "Daniel Suarez".to_string());
+        let player2: specs::Index = new(&mut world, "Yoda".to_string());
+        assert_ne!(player1, player2);
+    }
 }
