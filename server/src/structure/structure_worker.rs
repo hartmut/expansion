@@ -79,30 +79,3 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
 
     fn get_update(&mut self) {}
 }
-
-// FIXME changed datastructure
-// #[test]
-// fn elementlist_dark_matter_check() {
-//     let sw = StructureWorker::new("Structure_Worker".to_string(),
-//                                   "src/data/station.json".to_string());
-//     let e: &Element = &sw.elementlist[0];
-//     assert!(e.name == "Dark Matter".to_string());
-// }
-// FIXME changed datastructure
-// #[test]
-// fn check_station_read_firefly() {
-//     let sw = StructureWorker::new("Structure_Worker".to_string(),
-//                                   "src/data/station.json".to_string());
-//     let station_id = ExpUuid::parse_str("f862e3aa-4a77-4706-88fa-4d03e4e718f2").unwrap();
-//     let firefly: &AStation = sw.stations.get(&station_id).unwrap();
-//     assert!(firefly.get_name() == &"Firefly".to_string())
-// }
-// FIXME changed datastructure
-// #[test]
-// fn check_station_read_deepspace() {
-//     let sw = StructureWorker::new("Structure_Worker".to_string(),
-//                                   "src/data/station.json".to_string());
-//     let station_id = ExpUuid::parse_str("f962e3aa-4a77-4706-88fa-4d03e4e718f2").unwrap();
-//     let deepspace: &AStation = sw.stations.get(&station_id).unwrap();
-//     assert!(deepspace.get_name() == &"Deep Space 9".to_string())
-// }

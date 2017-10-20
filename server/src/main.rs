@@ -92,7 +92,7 @@ fn main() {
     // }
 
     // initalize Core
-    let mut core = Core::new();
+    let mut core = Core::new(myconfig);
 
     // loop Core
     loop {

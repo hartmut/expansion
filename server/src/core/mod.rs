@@ -2,6 +2,8 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 use specs;
+use common::configuration;
+use std::time::Duration;
 
 mod component;
 mod system;
@@ -14,13 +16,16 @@ pub struct Core<'a, 'b> {
 }
 
 impl<'a, 'b> Core<'a, 'b> {
-    pub fn new() -> Core<'a, 'b> {
+    pub fn new(myconfig: configuration::Configuration) -> Core<'a, 'b> {
 
         // create world and register components
         let mut world = specs::World::new();
 
         // register components
         component::new(&mut world);
+
+        // register resources
+        resource::new(&mut world, &myconfig);
 
         // register dispatcher
         let dispatcher = specs::DispatcherBuilder::new().build();

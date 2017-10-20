@@ -17,14 +17,4 @@ pub trait StdTrait<T> {
     fn getuuid(&self) -> ExpUuid;
 
     fn serialize(&self) -> String;
-
-    // TODO why does this default implementation not work with locations?
-    // fn new_from_deserialized (input: &String) -> T
-    // {
-    //     serde_json::from_str(&input).unwrap()
-    // }
-
-    // TODO read multiline JSON Records correctly
-
-    // TODO create empty objects
 }

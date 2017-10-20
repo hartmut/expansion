@@ -43,12 +43,8 @@ mod tests {
     fn compare_owner_with_player_id() {
         let mut world = newworld();
         let player: specs::Index = new(&mut world, "Yoda".to_string());
-        let fetch: specs::Fetch<specs::EntitiesRes> = world.entities();
-        let deref = fetch.deref();
-        println!("{:?}", deref);
-        // let readowner = world.read_with_id::<Owner>(player as usize);
-        // let owner = readowner.get(player as usize);
-        // TODO read the owner of this player
+        let entities: specs::Entities = world.entities();
+        // TODO how to get the entity where a component belongs to);
         assert_eq!(player, player);
     }
 }
