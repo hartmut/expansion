@@ -3,7 +3,6 @@
 // See doc/LICENSE for licensing information
 use specs;
 use common::configuration;
-use std::time::Duration;
 
 mod component;
 mod system;
@@ -16,24 +15,24 @@ pub struct Core<'a, 'b> {
 }
 
 impl<'a, 'b> Core<'a, 'b> {
-    pub fn new(myconfig: configuration::Configuration) -> Core<'a, 'b> {
+    pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
 
         // create world and register components
         let mut world = specs::World::new();
 
-        // register components
+        // register components in the mod of the component sub directory
         component::new(&mut world);
 
-        // register resources
+        // register resources in the mod of the resource sub directory
         resource::new(&mut world, &myconfig);
 
         // register dispatcher
         let dispatcher = specs::DispatcherBuilder::new().build();
 
-        // register systems
+        // register systems in the mod of the system sub directory
 
         // import data
-        let _player: specs::Index = entity::player::new(&mut world, "Daniel Suarez".to_string());
+        let _player: specs::Index = entity::player::new(&mut world, "Luke".to_string());
         let _player: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
 
         // return Core structure
@@ -44,7 +43,12 @@ impl<'a, 'b> Core<'a, 'b> {
     }
 
     pub fn step(self: &mut Self) {
-        // println!("one step", );
+        // update time
+        {
+            let mut worldtime = self.world.write_resource::<resource::worldtime::Worldtime>();
+            worldtime.step();
+        }
+        // run all the systems
         self.dispatcher.dispatch(&mut self.world.res);
     }
 }

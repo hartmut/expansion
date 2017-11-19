@@ -12,6 +12,7 @@ pub use self::owner::Owner;
 mod account;
 pub use self::account::Account;
 
+// register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
     world.register::<Owner>();

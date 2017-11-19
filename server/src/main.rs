@@ -27,19 +27,20 @@ mod tests;
 mod recipes;
 mod core;
 
+// standard mods to use
+use std::env;
+use std::thread;
+use std::time::Duration;
+
+// use common::configuration;
+use common::configuration;
+
 // my mods to use
 use structure::structure_worker::StructureWorker;
 use character::player_worker::PlayerWorker;
 use common::workertrait::WorkerTrait;
 use core::Core;
 
-// use common::configuration;
-use common::configuration;
-
-// standard mods to use
-use std::env;
-// use std::thread;
-use std::time::Duration;
 
 // testincludes
 // use tests::playertest;
@@ -52,49 +53,24 @@ fn main() {
 
     // panic if vector is too short
     if args.len() <= 1 {
-        panic!("I need your input");
+        panic!("I need a config file");
     }
 
     // read configuration and data
     let myconfig = configuration::Configuration::load_config(args);
-
-    // initalize timer and counter
-    let mut tick_counter: u64 = 1;
-    let tick_dur = Duration::from_secs(myconfig.get_tick());
-    let tick_length = time::Duration::hours(myconfig.get_tick_length());
-    let mut worldtime = chrono::DateTime::parse_from_rfc2822("1 Jan 2023 00:00:00 +0000").unwrap();
 
     // create the player worker and initalize it
     let mut player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
     // create the structure worker and initalize it
     let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(), &myconfig);
 
+    // create the core
+    let mut core = Core::new(&myconfig);
+
     // ticker input by webservice/json
     // TODO start webserver as an own thread to get informations from clients
 
-    // wait, then update all objects,
-    // wait for TICK Seconds in real time, this is analog to xh in world time, look at the config
-    // loop {
-    //
-    //     println!("\nHello world, this is tick {}", tick_counter);
-    //     println!("time elapsed since start: {} sec \n",
-    //              tick_counter * myconfig.get_tick());
-    //     println!("the current worldtime is {:?}", worldtime);
-    //
-    //     // call the update methods of all relevant strutures for this tick
-    //     structure_worker.step();
-    //     player_worker.step();
-    //
-    //     // time management
-    //     tick_counter += 1;
-    //     thread::sleep(tick_dur);
-    //     worldtime = worldtime + tick_length;
-    // }
-
-    // initalize Core
-    let mut core = Core::new(myconfig);
-
-    // loop Core
+    // core loop, all the management is done in the systems and core.step()
     loop {
         core.step();
     }

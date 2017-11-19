@@ -5,7 +5,7 @@
 use specs;
 use common::configuration;
 
-mod worldtime;
+pub mod worldtime;
 pub use self::worldtime::Worldtime;
 
 pub fn new(world: &mut specs::World, myconfig: &configuration::Configuration) {
