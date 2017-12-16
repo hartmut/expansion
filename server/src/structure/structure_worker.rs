@@ -53,9 +53,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
 
         // iterate over all stations
         loop {
-            let result = readline(&mut f);
-
-            match result {
+            match readline(&mut f) {
                 // all bad or end of file
                 None => break,
                 // got something
