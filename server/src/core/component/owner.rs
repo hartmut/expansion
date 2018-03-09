@@ -1,11 +1,11 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-//
-// descriptions for entities
+
 use specs;
 
 // Owner of entities
+#[derive(Debug)]
 pub struct Owner {
     pub id: specs::Index,
 }

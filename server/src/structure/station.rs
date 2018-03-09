@@ -77,6 +77,7 @@ impl AStation {
     }
 
     pub fn attach_module(&self, definition: String) {
+        println!("{:?}", definition);
         // how long does it take to attach it?
         // definition contains json definition of new module
         // create module from definition

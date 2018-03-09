@@ -108,7 +108,7 @@ mod tests {
         let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
 
         // check if the conversion of the elementlist from the json file worked as predicted
-        let mut recipehash: RecipeHashMap = match recipes {
+        let recipehash: RecipeHashMap = match recipes {
             Ok(recipes) => recipes,
             Err(error) => {
                 panic!("somethings is wrong with the deserialization of the recipehashfile: {:?}",

@@ -6,11 +6,8 @@ use core::component::*;
 
 pub fn new(world: &mut specs::World, name: String) -> specs::Index {
     let player: specs::Entity = world.create_entity()
-        .with(Account { credits: 1000 })
-        .with(Desc {
-            name: name,
-            longname: "".to_string(),
-        })
+        .with(Account::new(1000))
+        .with(Desc::new(name, "".to_string()))
         .build();
     let mut addowner = world.write::<Owner>();
     let id: specs::Index = player.id();

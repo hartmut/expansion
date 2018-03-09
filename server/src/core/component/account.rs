@@ -1,13 +1,13 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-//
-// descriptions for entities
+
 use specs;
 
 // Money
+#[derive(Debug)]
 pub struct Account {
-    pub credits: u64,
+    credits: u64,
 }
 
 impl Account {

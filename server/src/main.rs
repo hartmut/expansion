@@ -4,6 +4,8 @@
 
 // macros and plugins
 #![allow(dead_code)]
+#![warn(unused_variables)]
+// #![warn(unused_mut)]
 // #![feature(proc_macro)]
 #[macro_use]
 
@@ -29,8 +31,8 @@ mod core;
 
 // standard mods to use
 use std::env;
-use std::thread;
-use std::time::Duration;
+// use std::thread;
+// use std::time::Duration;
 
 // use common::configuration;
 use common::configuration;
@@ -60,9 +62,9 @@ fn main() {
     let myconfig = configuration::Configuration::load_config(args);
 
     // create the player worker and initalize it
-    let mut player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
+    let _player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
     // create the structure worker and initalize it
-    let mut structure_worker = StructureWorker::new("Structure_Worker".to_string(), &myconfig);
+    let _structure_worker = StructureWorker::new("Structure_Worker".to_string(), &myconfig);
 
     // create the core
     let mut core = Core::new(&myconfig);

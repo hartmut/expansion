@@ -7,7 +7,6 @@
 // uses
 use common::stdtrait::StdTrait;
 use common::myuuid::*;
-use common::fileoperations::*;
 use serde_json;
 
 // players data
@@ -53,6 +52,7 @@ impl StdTrait<Player> for Player {
 
 #[test]
 fn create_player_example() {
+    use common::fileoperations::*;
 
     // create a standard module
     let new_player1 = Player {

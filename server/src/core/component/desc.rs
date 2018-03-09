@@ -1,14 +1,14 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-//
-// descriptions for entities
+
 use specs;
 
 // Descriptions
+#[derive(Debug)]
 pub struct Desc {
-    pub name: String,
-    pub longname: String,
+    name: String,
+    longname: String,
 }
 
 impl Desc {

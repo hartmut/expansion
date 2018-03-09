@@ -17,7 +17,7 @@ pub struct Core<'a, 'b> {
 impl<'a, 'b> Core<'a, 'b> {
     pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
 
-        // create world and register components
+        // create the world
         let mut world = specs::World::new();
 
         // register components in the mod of the component sub directory
@@ -50,5 +50,16 @@ impl<'a, 'b> Core<'a, 'b> {
         }
         // run all the systems
         self.dispatcher.dispatch(&mut self.world.res);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn newworld_with_components() {
+        let mut world = specs::World::new();
+        component::new(&mut world);
     }
 }
