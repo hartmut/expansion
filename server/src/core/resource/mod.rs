@@ -9,5 +9,8 @@ pub mod worldtime;
 pub use self::worldtime::Worldtime;
 
 pub fn new(world: &mut specs::World, myconfig: &configuration::Configuration) {
-    world.add_resource(worldtime::Worldtime::new(myconfig.get_tick(), myconfig.get_tick_length()));
+    world.add_resource(worldtime::Worldtime::new(
+        myconfig.get_tick(),
+        myconfig.get_tick_length(),
+    ));
 }

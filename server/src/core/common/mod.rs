@@ -2,5 +2,9 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-pub mod player;
-pub mod station;
+pub mod maps;
+pub mod plystrvec;
+
+use specs;
+pub type PlayerInd = specs::Index;
+pub type StructInd = specs::Index;

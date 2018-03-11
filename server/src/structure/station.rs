@@ -58,11 +58,8 @@ impl AStation {
             module_list: module_list_temp,
         }
 
-        // TODO add a standard module for persons with minimal functionality,
-        // TODO need a recipe for a minimal module
     }
 
-    // TODO integrate into stdtraits
     pub fn deserialize_test(input: &String) -> Result<AStation, Error> {
         serde_json::from_str(&input)
     }

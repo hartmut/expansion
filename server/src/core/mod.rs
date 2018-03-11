@@ -8,14 +8,19 @@ mod component;
 mod system;
 mod resource;
 mod entity;
+mod common;
 
 pub struct Core<'a, 'b> {
     world: specs::World,
     dispatcher: specs::Dispatcher<'a, 'b>,
+    structplayermap: common::maps::StructPlayerMap,
 }
 
 impl<'a, 'b> Core<'a, 'b> {
     pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
+        // Initialize
+        let mut stationmap = common::maps::StructPlayerMap::new();
+        let mut playervec = common::plystrvec::PlayerStructVec::new();
 
         // create the world
         let mut world = specs::World::new();
@@ -32,20 +37,30 @@ impl<'a, 'b> Core<'a, 'b> {
         // register systems in the mod of the system sub directory
 
         // import data
-        let _player: specs::Index = entity::player::new(&mut world, "Luke".to_string());
-        let _player: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
+        let player1: specs::Index = entity::player::new(&mut world, "Luke".to_string());
+        let _player2: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
+        let station1: specs::Index = entity::station::new(&mut world, "ISS".to_string(), player1);
+        let station2: specs::Index =
+            entity::station::new(&mut world, "Moon Base".to_string(), player1);
+
+        stationmap.insert(station1, player1);
+        println!("stationmap {:?}", stationmap);
+        stationmap.insert(station2, player1);
+        println!("stationmap {:?}", stationmap);
 
         // return Core structure
         Core {
             world: world,
             dispatcher: dispatcher,
+            structplayermap: stationmap,
         }
     }
 
     pub fn step(self: &mut Self) {
         // update time
         {
-            let mut worldtime = self.world.write_resource::<resource::worldtime::Worldtime>();
+            let mut worldtime = self.world
+                .write_resource::<resource::worldtime::Worldtime>();
             worldtime.step();
         }
         // run all the systems

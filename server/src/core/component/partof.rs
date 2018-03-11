@@ -16,7 +16,7 @@ impl Partof {
     }
 
     pub fn modify(&mut self, id: specs::Index) {
-        self.id = id.clone();
+        self.id = id;
     }
 }
 
@@ -32,8 +32,7 @@ mod tests {
     fn create_partof_component() {
         let mut world = specs::World::new();
         world.register::<Partof>();
-        world.create_entity()
-            .with(Partof::new(1));
+        world.create_entity().with(Partof::new(1));
     }
 
     #[test]

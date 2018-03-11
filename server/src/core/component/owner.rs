@@ -28,7 +28,6 @@ mod tests {
     fn create_player_component() {
         let mut world = specs::World::new();
         world.register::<Owner>();
-        world.create_entity()
-            .with(Owner::new(1));
+        world.create_entity().with(Owner::new(1));
     }
 }

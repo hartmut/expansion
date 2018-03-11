@@ -11,9 +11,16 @@ pub struct O2 {
     o2use: u64,
 }
 
+impl specs::Component for O2 {
+    type Storage = specs::VecStorage<Self>;
+}
+
 impl O2 {
     pub fn new() -> Self {
-        O2 { o2prod : 0, o2use: 0 }
+        O2 {
+            o2prod: 0,
+            o2use: 0,
+        }
     }
 
     pub fn change_o2use(&mut self, o2new: u64) {
@@ -23,10 +30,6 @@ impl O2 {
     pub fn change_o2prod(&mut self, o2new: u64) {
         self.o2prod = o2new;
     }
-}
-
-impl specs::Component for O2 {
-    type Storage = specs::VecStorage<Self>;
 }
 
 #[cfg(test)]
@@ -39,12 +42,11 @@ mod tests {
     fn create_o2_component() {
         let mut world = specs::World::new();
         world.register::<O2>();
-        world.create_entity()
-            .with(O2::new());
+        world.create_entity().with(O2::new());
     }
 
     #[test]
-    fn change_o2use(){
+    fn change_o2use() {
         let mut rng = rand::thread_rng();
         let between = Range::new(10u64, 100);
         let sample = between.ind_sample(&mut rng);
@@ -54,7 +56,7 @@ mod tests {
     }
 
     #[test]
-    fn change_o2prod(){
+    fn change_o2prod() {
         let mut rng = rand::thread_rng();
         let between = Range::new(10u64, 100);
         let sample = between.ind_sample(&mut rng);

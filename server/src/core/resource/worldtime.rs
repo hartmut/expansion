@@ -10,9 +10,9 @@ use std::thread;
 
 // Descriptions
 pub struct Worldtime {
-    pub tick_counter: u64, // actual counter
-    pub tick_length: chrono::Duration, // duration in worldtime between two ticks
-    pub tick_dur: chrono::Duration, // duration in realtime
+    pub tick_counter: u64,                                // actual counter
+    pub tick_length: chrono::Duration,                    // duration in worldtime between two ticks
+    pub tick_dur: chrono::Duration,                       // duration in realtime
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
 }
 

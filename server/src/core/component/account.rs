@@ -28,7 +28,6 @@ mod tests {
     fn create_player_component() {
         let mut world = specs::World::new();
         world.register::<Account>();
-        world.create_entity()
-            .with(Account::new(100));
+        world.create_entity().with(Account::new(100));
     }
 }

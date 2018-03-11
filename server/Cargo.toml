@@ -13,6 +13,7 @@ toml = "*" # https://crates.io/crates/toml
 chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 specs = "*" # https://crates.io/crates/specs
+#trace = "*" # https://crates.io/crates/trace
 
 [features]
 default = []

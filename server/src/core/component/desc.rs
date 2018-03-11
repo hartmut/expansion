@@ -32,7 +32,8 @@ mod tests {
     fn create_description_component() {
         let mut world = specs::World::new();
         world.register::<Desc>();
-        world.create_entity()
+        world
+            .create_entity()
             .with(Desc::new("Daniel Suarez".to_string(), "".to_string()));
     }
 }
