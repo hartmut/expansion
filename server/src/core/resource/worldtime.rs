@@ -9,6 +9,7 @@ use chrono;
 use std::thread;
 
 // Descriptions
+#[derive(Debug)]
 pub struct Worldtime {
     pub tick_counter: u64,                                // actual counter
     pub tick_length: chrono::Duration,                    // duration in worldtime between two ticks

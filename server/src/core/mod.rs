@@ -13,14 +13,13 @@ mod common;
 pub struct Core<'a, 'b> {
     world: specs::World,
     dispatcher: specs::Dispatcher<'a, 'b>,
-    structplayermap: common::maps::StructPlayerMap,
+    playerindex: common::plystrindex::Playerstructindex,
 }
 
 impl<'a, 'b> Core<'a, 'b> {
     pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
         // Initialize
-        let mut stationmap = common::maps::StructPlayerMap::new();
-        let mut playervec = common::plystrvec::PlayerStructVec::new();
+        let mut playerindex = common::plystrindex::Playerstructindex::new();
 
         // create the world
         let mut world = specs::World::new();
@@ -38,21 +37,21 @@ impl<'a, 'b> Core<'a, 'b> {
 
         // import data
         let player1: specs::Index = entity::player::new(&mut world, "Luke".to_string());
-        let _player2: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
+        let player2: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
         let station1: specs::Index = entity::station::new(&mut world, "ISS".to_string(), player1);
         let station2: specs::Index =
             entity::station::new(&mut world, "Moon Base".to_string(), player1);
 
-        stationmap.insert(station1, player1);
-        println!("stationmap {:?}", stationmap);
-        stationmap.insert(station2, player1);
-        println!("stationmap {:?}", stationmap);
+        playerindex.add_station(player1, station1);
+        println!("stationmap {:?}", playerindex);
+        playerindex.add_station(player2, station2);
+        println!("stationmap {:?}", playerindex);
 
         // return Core structure
         Core {
             world: world,
             dispatcher: dispatcher,
-            structplayermap: stationmap,
+            playerindex: playerindex,
         }
     }
 
