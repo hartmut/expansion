@@ -8,8 +8,9 @@ use core::common::*;
 
 // TODO write index structures
 
-// BTreeMap of Player Structure combinations
+// Vector of player structure combinations
 pub type PlayerStructVec = Vec<Playerstructpair>;
+// BTreeMap of structure player combinations
 pub type StructPlayerMap = BTreeMap<StructInd, PlayerInd>;
 
 #[derive(Debug)]
@@ -60,7 +61,7 @@ impl Playerstructindex {
     //TODO write test for remove record
     pub fn remove_record(&mut self, structure: StructInd) {
         match self.get_player(structure) {
-            //TODO should retrun None
+            //TODO should return None
             None => return,
             Some(&player) => {
                 let psp = Playerstructpair {
