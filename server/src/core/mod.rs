@@ -9,6 +9,9 @@ mod system;
 mod resource;
 mod entity;
 mod common;
+mod init;
+
+use core;
 
 pub struct Core<'a, 'b> {
     world: specs::World,
@@ -35,17 +38,8 @@ impl<'a, 'b> Core<'a, 'b> {
 
         // register systems in the mod of the system sub directory
 
-        // import data
-        let player1: specs::Index = entity::player::new(&mut world, "Luke".to_string());
-        let player2: specs::Index = entity::player::new(&mut world, "Yoda".to_string());
-        let station1: specs::Index = entity::station::new(&mut world, "ISS".to_string(), player1);
-        let station2: specs::Index =
-            entity::station::new(&mut world, "Moon Base".to_string(), player1);
-
-        playerindex.add_station(player1, station1);
-        println!("stationmap {:?}", playerindex);
-        playerindex.add_station(player2, station2);
-        println!("stationmap {:?}", playerindex);
+        // init with data
+        core::init::init(&mut world, &mut playerindex);
 
         // return Core structure
         Core {

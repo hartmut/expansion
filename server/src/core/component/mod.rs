@@ -3,7 +3,7 @@
 // See doc/LICENSE for licensing information
 use specs;
 
-mod desc;
+pub mod desc;
 pub use self::desc::Desc;
 
 mod owner;

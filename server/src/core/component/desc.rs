@@ -7,7 +7,7 @@ use specs;
 // Descriptions
 #[derive(Debug)]
 pub struct Desc {
-    name: String,
+    pub name: String,
     longname: String,
 }
 

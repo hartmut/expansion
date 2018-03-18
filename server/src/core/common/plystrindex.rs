@@ -57,7 +57,7 @@ impl Playerstructindex {
         self.spi.get(&structure)
     }
 
-    // remove a station
+    // remove a structure
     //TODO write test for remove record
     pub fn remove_record(&mut self, structure: StructInd) {
         match self.get_player(structure) {
@@ -73,9 +73,9 @@ impl Playerstructindex {
                     Err(_) => return,
                     Ok(index) => {
                         self.psi.remove(index);
+                        self.spi.remove(&structure);
                     }
                 }
-                self.spi.remove(&structure);
             }
         }
     }
