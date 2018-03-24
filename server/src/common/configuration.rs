@@ -11,7 +11,7 @@ use std::path::Path;
 use toml;
 
 /// configuration
-#[derive(Debug, Deserialize,Clone)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct Configuration {
     tick: Option<u64>,
     tick_length: Option<i64>,
@@ -26,20 +26,19 @@ pub struct Configuration {
 }
 
 // TODO implement functions for this structure
-#[derive(Debug, Deserialize,Clone)]
+#[derive(Debug, Deserialize, Clone)]
 struct FileDataWrap {
     storage_method: Option<String>,
     datafile: Option<String>,
     source: Option<String>,
 }
 
-#[derive(Debug, Deserialize,Clone)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct FileData {
     storage_method: String,
     datafile: String,
     source: String,
 }
-
 
 impl FileDataWrap {
     pub fn inner_unwrap(self) -> FileData {
@@ -68,7 +67,6 @@ impl FileData {
 
 impl Configuration {
     pub fn load_config(args: Vec<String>) -> Configuration {
-
         // TODO use fileoperations from common::fileoperations
         // configuration is here server/src/data/config.toml
         let path = Path::new(&args[1]);
@@ -133,65 +131,55 @@ impl Configuration {
     pub fn get_structure_config(&self) -> FileData {
         match self.structure.clone() {
             Some(struc) => struc.inner_unwrap(),
-            None => {
-                FileData {
-                    storage_method: "File".to_string(),
-                    datafile: "src/data/station.json".to_string(),
-                    source: "".to_string(),
-                }
-            }
+            None => FileData {
+                storage_method: "File".to_string(),
+                datafile: "src/data/station.json".to_string(),
+                source: "".to_string(),
+            },
         }
     }
 
     pub fn get_player_config(&self) -> FileData {
         match self.player.clone() {
             Some(struc) => struc.inner_unwrap(),
-            None => {
-                FileData {
-                    storage_method: "File".to_string(),
-                    datafile: "src/data/player.json".to_string(),
-                    source: "".to_string(),
-                }
-            }
+            None => FileData {
+                storage_method: "File".to_string(),
+                datafile: "src/data/player.json".to_string(),
+                source: "".to_string(),
+            },
         }
     }
 
     pub fn get_module_config(&self) -> FileData {
         match self.module.clone() {
             Some(struc) => struc.inner_unwrap(),
-            None => {
-                FileData {
-                    storage_method: "File".to_string(),
-                    datafile: "src/data/module.json".to_string(),
-                    source: "".to_string(),
-                }
-            }
+            None => FileData {
+                storage_method: "File".to_string(),
+                datafile: "src/data/module.json".to_string(),
+                source: "".to_string(),
+            },
         }
     }
 
     pub fn get_elements_config(&self) -> FileData {
         match self.elements.clone() {
             Some(struc) => struc.inner_unwrap(),
-            None => {
-                FileData {
-                    storage_method: "File".to_string(),
-                    datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
-                    source: "".to_string(),
-                }
-            }
+            None => FileData {
+                storage_method: "File".to_string(),
+                datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
+                source: "".to_string(),
+            },
         }
     }
 
     pub fn get_components_config(&self) -> FileData {
         match self.components.clone() {
             Some(struc) => struc.inner_unwrap(),
-            None => {
-                FileData {
-                    storage_method: "File".to_string(),
-                    datafile: "src/data/components.json".to_string(),
-                    source: "".to_string(),
-                }
-            }
+            None => FileData {
+                storage_method: "File".to_string(),
+                datafile: "src/data/components.json".to_string(),
+                source: "".to_string(),
+            },
         }
     }
 }

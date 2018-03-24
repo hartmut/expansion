@@ -41,7 +41,7 @@ mod tests {
     fn compare_owner_with_player_id() {
         let mut world = newworld();
         let player: specs::Index = new(&mut world, "Yoda".to_string());
-        let entities: specs::Entities = world.entities();
+        // let entities: specs::Entities = world.entities();
         // TODO how to get the entity where a component belongs to);
         assert_eq!(player, player);
     }

@@ -81,7 +81,7 @@ impl Playerstructindex {
     }
 
     // COMBAK all the structures of a player
-    fn get_structures(&self, player: PlayerInd) {
+    fn get_structures(&self, _player: PlayerInd) {
         println!("test",);
     }
 }

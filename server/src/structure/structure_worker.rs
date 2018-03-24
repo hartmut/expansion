@@ -35,7 +35,6 @@ pub struct StructureWorker {
 
 impl WorkerTrait<StructureWorker> for StructureWorker {
     fn new(name: String, myconfig: &Configuration) -> StructureWorker {
-
         let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
 
         let mut sw = StructureWorker {
@@ -61,7 +60,8 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             }
 
             // insert the station into the structure of the worker
-            let tempstation: AStation = <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
+            let tempstation: AStation =
+                <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
             let uuid = tempstation.getuuid();
             sw.stations.insert(uuid, tempstation);
         }
@@ -70,7 +70,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
     }
 
     fn step(&mut self) {
-        println!("one step in structure worker", );
+        println!("one step in structure worker",);
     }
 
     fn send_update(&self) {}

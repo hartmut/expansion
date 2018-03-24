@@ -17,7 +17,6 @@ mod tests {
     use recipes::recipe::*;
     // use recipes::elements::*;
     use recipes::components::*;
-    use std::collections::HashMap;
     use rand;
     use rand::distributions::{IndependentSample, Range};
 
