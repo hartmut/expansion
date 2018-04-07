@@ -12,7 +12,7 @@ pub struct Owner {
 
 impl Owner {
     pub fn new(id: specs::Index) -> Self {
-        Owner { id: id }
+        Owner { id }
     }
 }
 

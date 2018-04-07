@@ -12,7 +12,7 @@ pub struct Partof {
 
 impl Partof {
     pub fn new(id: specs::Index) -> Self {
-        Partof { id: id }
+        Partof { id }
     }
 
     pub fn modify(&mut self, id: specs::Index) {

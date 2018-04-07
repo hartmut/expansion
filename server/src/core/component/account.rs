@@ -12,7 +12,7 @@ pub struct Account {
 
 impl Account {
     pub fn new(credits: u64) -> Self {
-        Account { credits: credits }
+        Account { credits }
     }
 }
 

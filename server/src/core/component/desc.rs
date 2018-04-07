@@ -13,10 +13,7 @@ pub struct Desc {
 
 impl Desc {
     pub fn new(name: String, longname: String) -> Self {
-        Desc {
-            name: name,
-            longname: longname,
-        }
+        Desc { name, longname }
     }
 }
 

@@ -2,10 +2,9 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use specs;
-use core::entity;
-use core::component::desc::*;
 use core::common::*;
+use core::entity;
+use specs;
 
 pub fn init(mut world: &mut specs::World, playerindex: &mut plystrindex::Playerstructindex) {
     //currently manual insert of testdata
@@ -21,12 +20,15 @@ pub fn init(mut world: &mut specs::World, playerindex: &mut plystrindex::Players
     println!("stationmap {:?}", playerindex);
 
     // COMBAK example for getting values of components
-    // let name = world.read::<Desc>();
-    // let catch = world.entities();
-    // let catch1 = catch.fetch();
-    // let entity = catch.entity(station1);
-    // println!(
-    //     "The name of the station is {:?}",
-    //     name.get(entity).unwrap().name
-    // );
+    // {
+    //     use core::component::desc::*;
+    //     // type SystemData = specs::ReadStorage<'a, Desc>;
+    //     let name = world.read::<Desc>();
+    //     let catch = world.entities();
+    //     let entity = catch.entity(station1);
+    //     println!(
+    //         "The name of the station is {:?}",
+    //         name.get(catch).unwrap().name
+    //     );
+    // }
 }

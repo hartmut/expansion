@@ -1,12 +1,12 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
+use std::error::Error;
 /// for initalization and configuration
 
 /// used mods
 use std::fs::File;
 use std::io::prelude::*;
-use std::error::Error;
 use std::path::Path;
 use toml;
 
@@ -43,18 +43,21 @@ pub struct FileData {
 impl FileDataWrap {
     pub fn inner_unwrap(self) -> FileData {
         FileData {
-            storage_method: match self.storage_method {
-                Some(x) => x,
-                None => "".to_string(),
-            },
-            datafile: match self.datafile {
-                Some(x) => x,
-                None => "".to_string(),
-            },
-            source: match self.source {
-                Some(x) => x,
-                None => "".to_string(),
-            },
+            // storage_method: match self.storage_method {
+            //     Some(x) => x,
+            //     None => "".to_string(),
+            // },
+            // datafile: match self.datafile {
+            //     Some(x) => x,
+            //     None => "".to_string(),
+            // },
+            // source: match self.source {
+            //     Some(x) => x,
+            //     None => "".to_string(),
+            // },
+            storage_method: self.storage_method.unwrap_or("".to_string()),
+            datafile: self.datafile.unwrap_or("".to_string()),
+            source: self.source.unwrap_or("".to_string()),
         }
     }
 }
@@ -92,26 +95,23 @@ impl Configuration {
         decoded
     }
 
+    // default waiting for new step in realtime is 10 seconds
     pub fn get_tick(&self) -> u64 {
-        // self.tick
-        match self.tick {
-            Some(x) => x.clone(),
-            None => 10,
-        }
+        self.tick.unwrap_or(10)
     }
 
+    // default tick length in world time is 6 hours
     pub fn get_tick_length(&self) -> i64 {
-        match self.tick_length {
-            Some(ticklen) => ticklen.clone(),
-            None => 6,
-        }
+        self.tick_length.unwrap_or(6)
     }
 
+    // default 02 need per person and 6 hours is 150 liters
     pub fn get_o2(&self) -> u64 {
-        match self.o2_per_person {
-            Some(o2) => o2.clone(),
-            None => 150,
-        }
+        self.o2_per_person.unwrap_or(150)
+        // match self.o2_per_person {
+        //     Some(o2) => o2.clone(),
+        //     None => 150,
+        // }
     }
 
     pub fn get_food(&self) -> u64 {
