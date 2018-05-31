@@ -14,7 +14,7 @@ use toml;
 #[derive(Debug, Deserialize, Clone)]
 pub struct Configuration {
     tick: Option<u64>,
-    tick_length: Option<i64>,
+    tick_length: Option<u64>,
     o2_per_person: Option<u64>,
     food_per_person: Option<u64>,
     water_per_person: Option<u64>,
@@ -101,7 +101,7 @@ impl Configuration {
     }
 
     // default tick length in world time is 6 hours
-    pub fn get_tick_length(&self) -> i64 {
+    pub fn get_tick_length(&self) -> u64 {
         self.tick_length.unwrap_or(6)
     }
 
