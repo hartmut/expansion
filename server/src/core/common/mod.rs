@@ -6,5 +6,5 @@ use specs;
 
 pub mod plystrindex;
 
-pub type PlayerInd = specs::Index;
-pub type StructInd = specs::Index;
+pub type PlayerInd = specs::world::Index;
+pub type StructInd = specs::world::Index;

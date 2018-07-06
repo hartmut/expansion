@@ -5,17 +5,18 @@
 use specs;
 
 // Part of a bigger structure
+// use in modules
 #[derive(Debug)]
 pub struct Partof {
-    id: specs::Index,
+    id: specs::world::Index,
 }
 
 impl Partof {
-    pub fn new(id: specs::Index) -> Self {
+    pub fn new(id: specs::world::Index) -> Self {
         Partof { id }
     }
 
-    pub fn modify(&mut self, id: specs::Index) {
+    pub fn modify(&mut self, id: specs::world::Index) {
         self.id = id;
     }
 }
@@ -27,12 +28,13 @@ impl specs::Component for Partof {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs::world::Builder;
 
     #[test]
     fn create_partof_component() {
         let mut world = specs::World::new();
         world.register::<Partof>();
-        world.create_entity().with(Partof::new(1));
+        world.create_entity().with(Partof::new(1)).build();
     }
 
     #[test]

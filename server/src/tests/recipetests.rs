@@ -17,17 +17,15 @@ mod tests {
     use recipes::recipe::*;
     // use recipes::elements::*;
     use recipes::components::*;
-    use rand;
-    use rand::distributions::{IndependentSample, Range};
+    use rand::{thread_rng, Rng};
 
     fn create_one_recipe() -> Recipe {
-        let mut rng = rand::thread_rng();
-        let between = Range::new(1000f64, 10000.);
+        let mut rng =   thread_rng();
 
         let output_component = Component {
             uuid: get_new_uuid(),
             name: "cheap Solar Panel".to_string(),
-            weight: between.ind_sample(&mut rng),
+            weight: rng.gen_range(1000f64, 10000.),
             volume: 5.0,
             prodfrom_recipe_uuid: uuidnull(),
         };

@@ -35,8 +35,8 @@ impl O2 {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use rand;
-    use rand::distributions::{IndependentSample, Range};
+    use rand::{thread_rng, Rng};
+    use specs::world::Builder;
 
     #[test]
     fn create_o2_component() {
@@ -47,9 +47,8 @@ mod tests {
 
     #[test]
     fn change_o2use() {
-        let mut rng = rand::thread_rng();
-        let between = Range::new(10u64, 100);
-        let sample = between.ind_sample(&mut rng);
+        let mut rng = thread_rng();
+        let sample = rng.gen_range(10u64, 100);
         let mut o2 = O2::new();
         o2.change_o2use(sample);
         assert_eq!(o2.o2use, sample);
@@ -57,9 +56,8 @@ mod tests {
 
     #[test]
     fn change_o2prod() {
-        let mut rng = rand::thread_rng();
-        let between = Range::new(10u64, 100);
-        let sample = between.ind_sample(&mut rng);
+        let mut rng = thread_rng();
+        let sample = rng.gen_range(10u64, 100);
         let mut o2 = O2::new();
         o2.change_o2prod(sample);
         assert_eq!(o2.o2prod, sample);

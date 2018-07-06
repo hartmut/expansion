@@ -24,6 +24,7 @@ impl specs::Component for Desc {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs::world::Builder;
 
     #[test]
     fn create_description_component() {

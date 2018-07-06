@@ -23,6 +23,7 @@ impl specs::Component for Account {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs::world::Builder;
 
     #[test]
     fn create_player_component() {

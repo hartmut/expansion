@@ -7,11 +7,11 @@ use specs;
 // Owner of entities
 #[derive(Debug)]
 pub struct Owner {
-    pub id: specs::Index,
+    pub id: specs::world::Index,
 }
 
 impl Owner {
-    pub fn new(id: specs::Index) -> Self {
+    pub fn new(id: specs::world::Index) -> Self {
         Owner { id }
     }
 }
@@ -23,11 +23,12 @@ impl specs::Component for Owner {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs::world::Builder;
 
     #[test]
     fn create_player_component() {
         let mut world = specs::World::new();
         world.register::<Owner>();
-        world.create_entity().with(Owner::new(1));
+        world.create_entity().with(Owner::new(1)).build();
     }
 }

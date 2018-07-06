@@ -11,7 +11,6 @@ use self::StorageType::*;
 enum StorageType {
     Energy, // in kwh
     Food, // in kg
-    Propulsion, // in l
     Liquid, // in l
     Gas, // in l
     Solid, // in kg
