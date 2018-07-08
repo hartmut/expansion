@@ -40,6 +40,15 @@ impl HasParts {
         result
     }
 
+    pub fn remove(&mut self, id: specs::world::Index) -> Option<usize> {
+        let toremove = self.find(id);
+        if toremove != None {
+            self.parts.remove(toremove.unwrap());
+            self.parts.sort();
+        }
+        toremove
+    }
+
 }
 
 impl specs::Component for HasParts {
@@ -91,30 +100,26 @@ mod tests {
 
     fn create_testdata() -> HasParts {
         let mut part = HasParts::new();
-        //record 3
+        //record 0
         part.add(ObjType::Owner, 1);
         // record shouldn't be added
         part.add(ObjType::Owner, 1);
-        //record Station
-        part.add(ObjType::Station, 1000);
-        //record Module
+        //record 2
         part.add(ObjType::Module, 1002);
-        //record Module
+        //record 3
         part.add(ObjType::Module, 2003);
+        //record 1
+        part.add(ObjType::Station, 1000);
         part
     }
 
     #[test]
-    fn get_vecindex_of_part() {
+    fn get_sorttest() {
         let testdata = create_testdata();
-        let part = testdata.find(1);
-        assert_eq!(part, Some(0));
-        let part = testdata.find(1000);
-        assert_eq!(part, Some(1));
-        let part = testdata.find(1002);
-        assert_eq!(part, Some(2));
-        let part = testdata.find(2003);
-        assert_eq!(part, Some(3));
+        assert_eq!(testdata.find(0001), Some(0));
+        assert_eq!(testdata.find(1000), Some(1));
+        assert_eq!(testdata.find(1002), Some(2));
+        assert_eq!(testdata.find(2003), Some(3));
     }
 
     #[test]
@@ -135,117 +140,13 @@ mod tests {
         assert_eq!(None, offrecord);
     }
 
-    // #[test]
-    // fn add_structure_deny_when_structure_already_exists() {
-    //     let psi = create_testdata();
-    //     let record = Playerstructpair {
-    //         player: 2,
-    //         structure: 2003,
-    //     };
-    //     let element = psi.psi.binary_search(&record);
-    //     assert_eq!(element, Ok(2));
-    // }
+    #[test]
+    fn remove_from_vec() {
+        let mut testdata = create_testdata();
+        testdata.remove(5000);
+        assert_eq!(testdata.find(2003), Some(3));
+        testdata.remove(1002);
+        assert_eq!(testdata.find(2003), Some(2));
+    }
 
-    // #[test]
-    // fn playerstructindex_sorttest() {
-    //     //init
-    //     let mut psi = Playerstructindex::new();
-    //     psi.add_station(100, 1001);
-    //     psi.add_station(2, 1002);
-    //     //sorting ok?
-    //     let result = psi.psi[0] < psi.psi[1];
-    //     assert_eq!(result, true);
-    //     // one more element
-    //     psi.add_station(2, 2003);
-    //
-    //     //is record 0 what we expect?
-    //     let result = &psi.psi[0];
-    //     let record = Playerstructpair {
-    //         player: 2,
-    //         structure: 1002,
-    //     };
-    //     assert_eq!(*result, record);
-    //     //is record 1 what we expect?
-    //     let result = &psi.psi[1];
-    //     let record = Playerstructpair {
-    //         player: 2,
-    //         structure: 2003,
-    //     };
-    //     assert_eq!(*result, record);
-    //     //is record 2 what we expect?
-    //     let result = &psi.psi[2];
-    //     let record = Playerstructpair {
-    //         player: 100,
-    //         structure: 1001,
-    //     };
-    //     assert_eq!(*result, record);
-    // }
-    // #[test]
-    // fn playerstructpair_eq() {
-    //     let left = Playerstructpair {
-    //         player: 1,
-    //         structure: 1000,
-    //     };
-    //     let right = Playerstructpair {
-    //         player: 1,
-    //         structure: 1000,
-    //     };
-    //     assert_eq!(left, right);
-    //     let result = left == right;
-    //     assert_eq!(result, true);
-    // }
-    // #[test]
-    // fn playerstructpair_neq_player() {
-    //     let left = Playerstructpair {
-    //         player: 1,
-    //         structure: 1000,
-    //     };
-    //     let right = Playerstructpair {
-    //         player: 2,
-    //         structure: 1000,
-    //     };
-    //     assert_ne!(left, right);
-    // }
-    // #[test]
-    // fn playerstructpair_neq_structure() {
-    //     let left = Playerstructpair {
-    //         player: 1,
-    //         structure: 1000,
-    //     };
-    //     let right = Playerstructpair {
-    //         player: 1,
-    //         structure: 2001,
-    //     };
-    //     assert_ne!(left, right);
-    // }
-    // #[test]
-    // fn playerstructpair_order_player() {
-    //     let left = Playerstructpair {
-    //         player: 3,
-    //         structure: 1000,
-    //     };
-    //     let right = Playerstructpair {
-    //         player: 2,
-    //         structure: 2000,
-    //     };
-    //     let result = left < right;
-    //     assert_eq!(result, false);
-    //     let result = left > right;
-    //     assert_eq!(result, true);
-    // }
-    // #[test]
-    // fn playerstructpair_order_structure() {
-    //     let left = Playerstructpair {
-    //         player: 1,
-    //         structure: 1000,
-    //     };
-    //     let right = Playerstructpair {
-    //         player: 1,
-    //         structure: 2000,
-    //     };
-    //     let result = left < right;
-    //     assert_eq!(result, true);
-    //     let result = left > right;
-    //     assert_eq!(result, false);
-    // }
 }
