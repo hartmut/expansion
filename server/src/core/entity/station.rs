@@ -10,6 +10,7 @@ pub fn new(world: &mut specs::World, name: String, owner: specs::world::Index) -
         .create_entity()
         .with(Owner::new(owner))
         .with(Desc::new(name, "".to_string()))
+        .with(HasParts::new())
         .with(O2::new())
         .build();
     station.id()
@@ -23,6 +24,7 @@ mod tests {
         let mut world = specs::World::new();
         world.register::<Owner>();
         world.register::<Desc>();
+        world.register::<HasParts>();
         world.register::<O2>();
         world
     }

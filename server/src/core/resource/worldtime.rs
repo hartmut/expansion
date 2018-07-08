@@ -3,9 +3,7 @@
 // See doc/LICENSE for licensing information
 //
 // descriptions for entities
-use specs;
 use chrono;
-// use std::time::Duration;
 use std::thread;
 use std::time::{SystemTime, Duration};
 
@@ -60,6 +58,7 @@ impl Worldtime {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs;
 
     #[test]
     fn create_resource_worldtime() {

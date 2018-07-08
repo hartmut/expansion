@@ -18,6 +18,9 @@ pub use self::partof::Partof;
 mod o2;
 pub use self::o2::O2;
 
+mod hasparts;
+pub use self::hasparts::HasParts;
+
 // register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
@@ -25,4 +28,5 @@ pub fn new(world: &mut specs::World) {
     world.register::<Account>();
     world.register::<Partof>();
     world.register::<O2>();
+    world.register::<HasParts>();
 }

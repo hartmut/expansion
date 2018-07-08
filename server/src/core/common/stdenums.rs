@@ -2,10 +2,9 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use specs;
-
-pub mod plystrindex;
-pub mod stdenums;
-
-pub type PlayerInd = specs::world::Index;
-pub type StructInd = specs::world::Index;
+#[derive(Debug)]
+pub enum ObjType {
+    Station,
+    Module,
+    Owner,
+}
