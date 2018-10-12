@@ -147,6 +147,8 @@ mod tests {
         assert_eq!(testdata.find(2003), Some(3));
         testdata.remove(1002);
         assert_eq!(testdata.find(2003), Some(2));
+        testdata.remove(2003);
+        assert_eq!(testdata.find(1000), Some(1));
     }
 
 }

@@ -48,16 +48,15 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
 
         // import stations
         let mut f = newreader(sw.stationdata.get_datafile());
-        let mut line = String::new();
 
         // iterate over all stations
         loop {
-            match readline(&mut f) {
+            let line = match readline(&mut f) {
                 // all bad or end of file
                 None => break,
                 // got something
-                Some(x) => line = x,
-            }
+                Some(x) => x,
+            };
 
             // insert the station into the structure of the worker
             let tempstation: AStation =
