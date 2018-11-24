@@ -8,19 +8,16 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
+    use common::fileoperations::*;
+    use common::myuuid::*;
+    use rand::{thread_rng, Rng};
+    use recipes::components::*;
+    use recipes::recipe::*;
     use serde_json;
     use serde_json::Error;
-    // use serde::Serialize;
-    use common::myuuid::*;
-    // use common::stdtrait::StdTrait;
-    use common::fileoperations::*;
-    use recipes::recipe::*;
-    // use recipes::elements::*;
-    use recipes::components::*;
-    use rand::{thread_rng, Rng};
 
     fn create_one_recipe() -> Recipe {
-        let mut rng =   thread_rng();
+        let mut rng = thread_rng();
 
         let output_component = Component {
             uuid: get_new_uuid(),

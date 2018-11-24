@@ -4,11 +4,12 @@
 //
 //
 
+//TODO design new tests for specs
 
 #[cfg(test)]
 mod tests {
-    use common::stdtrait::StdTrait;
     use character::player::Player;
+    use common::stdtrait::StdTrait;
 
     #[test]
     fn do_i_realy_get_a_new_uuid_for_a_new_player() {

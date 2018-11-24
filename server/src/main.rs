@@ -11,23 +11,23 @@
 
 // extern
 extern crate serde_derive;
-extern crate serde_json;
-extern crate serde;
-extern crate time;
-extern crate uuid;
-extern crate toml;
 extern crate chrono;
 extern crate rand;
+extern crate serde;
+extern crate serde_json;
 extern crate specs;
+extern crate time;
+extern crate toml;
+extern crate uuid;
 
 // describe internal mods to use
-mod physic;
-mod structure;
-mod common;
 mod character;
-mod tests;
-mod recipes;
+mod common;
 mod core;
+mod physic;
+mod recipes;
+mod structure;
+mod tests;
 
 // standard mods to use
 use std::env;
@@ -38,18 +38,16 @@ use std::env;
 use common::configuration;
 
 // my mods to use
-use structure::structure_worker::StructureWorker;
 use character::player_worker::PlayerWorker;
 use common::workertrait::WorkerTrait;
 use core::Core;
-
+use structure::structure_worker::StructureWorker;
 
 // testincludes
 // use tests::playertest;
 // TODO replace all unwraps with proper error handling
 
 fn main() {
-
     // move all arguments to a string vector
     let args: Vec<String> = env::args().collect();
 
