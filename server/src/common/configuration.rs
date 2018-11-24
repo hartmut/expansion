@@ -133,7 +133,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "src/data/station.json".to_string(),
+                datafile: "data/station.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -144,7 +144,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "src/data/player.json".to_string(),
+                datafile: "data/player.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -155,7 +155,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "src/data/module.json".to_string(),
+                datafile: "data/module.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -166,7 +166,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "src/data/PeriodicTableJSON-cleaned.json".to_string(),
+                datafile: "data/PeriodicTableJSON-cleaned.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -177,7 +177,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "src/data/components.json".to_string(),
+                datafile: "data/components.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -188,4 +188,5 @@ impl Configuration {
 pub fn empty_config() {
     let json = "".to_string();
     let decoded: Configuration = toml::de::from_str(&json).unwrap();
+    //TODO test missing
 }
