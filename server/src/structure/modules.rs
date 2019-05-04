@@ -6,18 +6,19 @@
 // TODO how to implement improvements etc.? copy module and work with this in runtime?
 
 // uses
+use super::storage::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
-use super::storage::*;
+use serde::{Deserialize, Serialize};
 use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Module {
     // general informations
-    uuid: ExpUuid, // global id of this module
-    staion_uuid: ExpUuid, // Uuid of the station for later reference
-    name: String, // name/description of the module
-    energy: i64, // positiv when energy producing, negativ when energy using
+    uuid: ExpUuid,            // global id of this module
+    staion_uuid: ExpUuid,     // Uuid of the station for later reference
+    name: String,             // name/description of the module
+    energy: i64,              // positiv when energy producing, negativ when energy using
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
     // production and storage
     cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel? */
@@ -44,12 +45,12 @@ pub struct Module {
 // TODO test to create example modules
 impl Module {
     //! create a new Module for a structure
-    pub fn new(name: String,
-               station_uuid: ExpUuid,
-               energy: i64,
-               prod_by_receipe: ExpUuid)
-               -> Module {
-
+    pub fn new(
+        name: String,
+        station_uuid: ExpUuid,
+        energy: i64,
+        prod_by_receipe: ExpUuid,
+    ) -> Module {
         Module {
             uuid: get_new_uuid(),
             staion_uuid: station_uuid,

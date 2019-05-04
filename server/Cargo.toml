@@ -1,12 +1,12 @@
 [package]
-name = "expansion_server"
+name = "expansion"
 version = "0.0.1"
-authors = ["Hartmut "]
+authors = ["Hartmut"]
 
 [dependencies]
 time = "*" # https://crates.io/crates/time
 uuid = { version = "*", features = ["serde", "v4"] } # https://crates.io/crates/uuid
-serde = "*" # https://crates.io/crates/serde
+serde = { version = "*", features = ["derive"] } # https://crates.io/crates/serde
 serde_json = "*" # https://crates.io/crates/serde_json
 serde_derive = "*" # https://crates.io/crates/serde_derive
 toml = "*" # https://crates.io/crates/toml

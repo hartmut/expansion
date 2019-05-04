@@ -9,49 +9,50 @@
 //! TODO integrate isotops
 
 // uses
-use serde_json::Error;
-use serde_json;
-use serde::de::{Deserialize, Deserializer};
 use common::fileoperations::*;
+use serde::de::Deserializer;
+use serde::{Deserialize, Serialize};
+use serde_json;
+use serde_json::Error;
 
 // all the elemenets
 // updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Element {
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub name: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub appearance: String,
-    #[serde(deserialize_with="parse_f64")]
+    #[serde(deserialize_with = "parse_f64")]
     pub atomic_mass: f64,
-    #[serde(deserialize_with="parse_f64")]
+    #[serde(deserialize_with = "parse_f64")]
     pub boil: f64,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub category: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub color: String,
-    #[serde(deserialize_with="parse_f64")]
+    #[serde(deserialize_with = "parse_f64")]
     pub density: f64,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub discovered_by: String,
-    #[serde(deserialize_with="parse_f64")]
+    #[serde(deserialize_with = "parse_f64")]
     pub melt: f64,
-    #[serde(deserialize_with="parse_f64")]
+    #[serde(deserialize_with = "parse_f64")]
     pub molar_heat: f64,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub named_by: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub number: String,
     pub period: u32,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub phase: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub source: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub spectral_img: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub summary: String,
-    #[serde(deserialize_with="parse_string")]
+    #[serde(deserialize_with = "parse_string")]
     pub symbol: String,
     pub xpos: u32,
     pub ypos: u32,
@@ -60,21 +61,22 @@ pub struct Element {
 pub type ElementListVec = Vec<Element>;
 
 fn parse_string<'de, D>(d: D) -> Result<String, D::Error>
-    where D: Deserializer<'de>
+where
+    D: Deserializer<'de>,
 {
     Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or("".to_string()))
 }
 
 // TODO react correctly to other types off errors, e.g. "" instead of null
 fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
-    where D: Deserializer<'de>
+where
+    D: Deserializer<'de>,
 {
     Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or(0.0))
 }
 
 // read Elementlist from file
 pub fn read_elementlist_file(filename: String) -> ElementListVec {
-
     // read the json file and convert it to a vector of elements
     let result = read_file_to_string(filename);
     let evec: Result<ElementListVec, Error> = serde_json::from_str(&result);
@@ -83,8 +85,10 @@ pub fn read_elementlist_file(filename: String) -> ElementListVec {
     let mut evec: ElementListVec = match evec {
         Ok(elementlist) => elementlist,
         Err(error) => {
-            panic!("somethings is wrong with the deserialization of the elementsfile: {:?}",
-                   error);
+            panic!(
+                "somethings is wrong with the deserialization of the elementsfile: {:?}",
+                error
+            );
         }
     };
 

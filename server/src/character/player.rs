@@ -5,8 +5,9 @@
 // player code, only for PCs
 
 // uses
-use common::stdtrait::StdTrait;
 use common::myuuid::*;
+use common::stdtrait::StdTrait;
+use serde::{Deserialize, Serialize};
 use serde_json;
 
 // players data
@@ -14,11 +15,11 @@ use serde_json;
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Player {
     uuid: ExpUuid, // uuid of the player
-    name: String, // Name of the player
-    credits: u64, /* credits in purse, needed for buying inventar and material
-                   * list of available recipes of this player
-                   *
-                   * TODO list of stations and ships uuids, send messages to update states? */
+    name: String,  // Name of the player
+    credits: u64,  /* credits in purse, needed for buying inventar and material
+                    * list of available recipes of this player
+                    *
+                    * TODO list of stations and ships uuids, send messages to update states? */
 }
 
 impl Player {
@@ -30,7 +31,6 @@ impl Player {
         }
     }
 }
-
 
 impl StdTrait<Player> for Player {
     fn step(&mut self) {

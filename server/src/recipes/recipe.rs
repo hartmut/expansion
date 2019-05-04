@@ -6,11 +6,12 @@
 // first step: write it for normal production
 
 // uses
+use common::fileoperations::*;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
-use common::fileoperations::*;
 // use super::elements::*;
 use super::components::*;
+use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::Error;
 use std::collections::HashMap;
@@ -18,7 +19,7 @@ use std::collections::HashMap;
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Bundle {
-    pub quantity: u64, // how much
+    pub quantity: u64,        // how much
     pub component: Component, // either a component or
     // TODO define with which units we work: cm^3? g/cm^3? or do we translate the elements to components?
     pub element_no: u32, // a Element
@@ -36,11 +37,11 @@ pub enum RecipeType {
 // my recipes
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Recipe {
-    pub uuid: ExpUuid, // uuid for this recipe
+    pub uuid: ExpUuid,           // uuid for this recipe
     pub uuid_origin: ExpUuid, // Origin of this recipe, if this is an original recipe it has the value "0"
     pub recipe_type: RecipeType, // what type will be produced?
-    pub name: String, // name of this recipe
-    pub duration: u32, // hours until the recipe produces one set of outputs
+    pub name: String,         // name of this recipe
+    pub duration: u32,        // hours until the recipe produces one set of outputs
     pub input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
     pub output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
     pub json_create: String, // json format for creation of a new module, empty if it is not a module
@@ -58,8 +59,10 @@ pub fn read_recipe_file(filename: String) -> RecipeHashMap {
     let recipehash: RecipeHashMap = match recipes {
         Ok(recipes) => recipes,
         Err(error) => {
-            panic!("somethings is wrong with the deserialization of the recipehashfile: {:?}",
-                   error);
+            panic!(
+                "somethings is wrong with the deserialization of the recipehashfile: {:?}",
+                error
+            );
         }
     };
 

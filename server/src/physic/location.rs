@@ -7,13 +7,14 @@
 // pos based on Ecliptic_coordinate_system (wikipedia)
 
 // use common::stdtrait::StdTrait;
+use serde::{Deserialize, Serialize};
 // use serde_json;
 
 // TODO other name, as mass is not a part of location but a part of a ...?
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SpaceObj {
     long: f64, // longtitude (l) in relation to sun
-    lat: f64, // latitude (b) in relation to sun
+    lat: f64,  // latitude (b) in relation to sun
     dist: f64, // distance from sun (r) in AU
     mass: u64, /* in kg, needed for accelerations
                 * center of world is sun, jupiter, earth ? default should be sun */

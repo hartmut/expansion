@@ -1,6 +1,7 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
+use serde::Deserialize;
 use std::error::Error;
 /// for initalization and configuration
 

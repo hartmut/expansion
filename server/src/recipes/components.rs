@@ -5,19 +5,20 @@
 // contains informations about components needed to build stations, other components, etc.
 
 // uses
+use common::fileoperations::*;
+use common::myuuid::*;
+use common::stdtrait::StdTrait;
+use serde::{Deserialize, Serialize};
 use serde_json;
 use std::collections::BTreeMap;
 use std::io::BufRead;
-use common::stdtrait::StdTrait;
-use common::myuuid::*;
-use common::fileoperations::*;
 
 // one Component
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Component {
-    pub uuid: ExpUuid, // id of the component
-    pub name: String, // Name of the component
-    pub weight: f64, // in kg of one item
+    pub uuid: ExpUuid,                 // id of the component
+    pub name: String,                  // Name of the component
+    pub weight: f64,                   // in kg of one item
     pub volume: f64, /* in m^3 of one item, at first we ignore the case that the volume could be 1 m^3 but it is realy long and doesn't fit into the bay */
     pub prodfrom_recipe_uuid: ExpUuid, /* UUId of receip with whichComponentd had been produced, usefull for dismantling */
 }
@@ -55,7 +56,7 @@ impl StdTrait<Component> for Component {
     }
 
     fn step(&mut self) {
-        println!("shouldn't neet to do anything per step", );
+        println!("shouldn't neet to do anything per step",);
     }
 
     fn getuuid(&self) -> ExpUuid {

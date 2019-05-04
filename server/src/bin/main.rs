@@ -2,46 +2,44 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-// macros and plugins
-#![allow(dead_code)]
-#![warn(unused_variables)]
-// #![warn(unused_mut)]
-// #![feature(proc_macro)]
-#[macro_use]
+// // macros and plugins
+// #![allow(dead_code)]
+// #![warn(unused_variables)]
+// // #![warn(unused_mut)]
+// // #![feature(proc_macro)]
+// #[macro_use]
+// // extern
+// extern crate serde_derive;
+// extern crate chrono;
+// extern crate rand;
+// extern crate serde;
+// extern crate serde_json;
+// extern crate specs;
+// extern crate time;
+// extern crate toml;
+// extern crate uuid;
+extern crate expansion;
 
-// extern
-extern crate serde_derive;
-extern crate chrono;
-extern crate rand;
-extern crate serde;
-extern crate serde_json;
-extern crate specs;
-extern crate time;
-extern crate toml;
-extern crate uuid;
-
-// describe internal mods to use
-mod character;
-mod common;
-mod core;
-mod physic;
-mod recipes;
-mod structure;
-mod tests;
+// // describe internal mods to use
+// mod character;
+// mod common;
+// mod core;
+// mod physic;
+// mod recipes;
+// mod structure;
+// mod tests;
 
 // standard mods to use
 use std::env;
-// use std::thread;
-// use std::time::Duration;
 
 // use common::configuration;
-use common::configuration;
+use expansion::common::configuration;
 
 // my mods to use
-use character::player_worker::PlayerWorker;
-use common::workertrait::WorkerTrait;
-use core::Core;
-use structure::structure_worker::StructureWorker;
+use expansion::character::player_worker::PlayerWorker;
+use expansion::common::workertrait::WorkerTrait;
+use expansion::core::Core;
+use expansion::structure::structure_worker::StructureWorker;
 
 // testincludes
 // use tests::playertest;

@@ -6,31 +6,32 @@
 // can have thrust
 
 // uses
+use super::modules::Module;
+use common::myuuid::*;
+use common::stdtrait::StdTrait;
+use physic::location::SpaceObj;
+use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::error::Error;
 use std::collections::BTreeMap;
-use common::stdtrait::StdTrait;
-use common::myuuid::*;
-use physic::location::SpaceObj;
-use super::modules::Module;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {
-    uuid: ExpUuid, // global uniqe id, describes this
-    name: String, // name of this station
-    owner: ExpUuid, // player who owns this station
-    energyuse: u64, // energy usage per tick, sum over all modules
-    energyprod: u64, // energy production per tick, sum over all modules
+    uuid: ExpUuid,    // global uniqe id, describes this
+    name: String,     // name of this station
+    owner: ExpUuid,   // player who owns this station
+    energyuse: u64,   // energy usage per tick, sum over all modules
+    energyprod: u64,  // energy production per tick, sum over all modules
     personcount: u64, // how many people are on this station
-    o2prod: u64, // production of O2, see above -> people module?
-    o2use: u64, // use of O2 for people TODO modelle by a prduction modules -> people module?
+    o2prod: u64,      // production of O2, see above -> people module?
+    o2use: u64,       // use of O2 for people TODO modelle by a prduction modules -> people module?
     #[serde(default)]
     mass: u64, // mass of the station
     location: SpaceObj, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
-                               *
-                               * list of inventar on this station -> stored in storagemodules
-                               * list of NPC on station */
+                       *
+                       * list of inventar on this station -> stored in storagemodules
+                       * list of NPC on station */
 }
 
 // general BtreeMap type for stations
@@ -41,7 +42,6 @@ pub type BtreeStations = BTreeMap<ExpUuid, AStation>;
 
 impl AStation {
     pub fn new(name: String, owner: ExpUuid) -> AStation {
-
         let module_list_temp: Vec<Module> = Vec::new();
 
         AStation {
@@ -57,7 +57,6 @@ impl AStation {
             location: SpaceObj::new(1.0, 12.0, 3.0, 4),
             module_list: module_list_temp,
         }
-
     }
 
     pub fn deserialize_test(input: &String) -> Result<AStation, Error> {
