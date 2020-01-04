@@ -6,6 +6,7 @@ use specs;
 
 // Part of a bigger structure
 // use in modules
+// TODO use rustgd/specs-hierarchy for this
 #[derive(Debug)]
 pub struct Partof {
     id: specs::world::Index,
