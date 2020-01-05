@@ -4,6 +4,8 @@
 
 use specs;
 
+//TODO enum which describes what object this is and unse the enum in the structure
+//TODO rename the structure more appropriate
 // Descriptions
 #[derive(Debug)]
 pub struct Desc {
