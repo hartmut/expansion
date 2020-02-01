@@ -6,7 +6,7 @@ use common::configuration;
 use specs::prelude::*;
 
 mod common;
-mod component;
+pub mod component;
 mod entity;
 mod init;
 mod resource;

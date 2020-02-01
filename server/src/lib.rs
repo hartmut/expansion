@@ -19,7 +19,6 @@ extern crate uuid;
 pub mod character;
 pub mod common;
 pub mod core;
-pub mod physic;
 pub mod recipes;
 pub mod structure;
 pub mod tests;

@@ -6,13 +6,12 @@
 
 // pos based on Ecliptic_coordinate_system (wikipedia)
 
-// use common::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
-// use serde_json;
+use specs;
 
 // TODO other name, as mass is not a part of location but a part of a ...?
 #[derive(Serialize, Deserialize, Debug)]
-pub struct SpaceObj {
+pub struct Location {
     long: f64, // longtitude (l) in relation to sun
     lat: f64,  // latitude (b) in relation to sun
     dist: f64, // distance from sun (r) in AU
@@ -20,9 +19,13 @@ pub struct SpaceObj {
                 * center of world is sun, jupiter, earth ? default should be sun */
 }
 
-impl SpaceObj {
-    pub fn new(longtitude: f64, latitude: f64, distance: f64, mass: u64) -> SpaceObj {
-        SpaceObj {
+impl specs::Component for Location {
+    type Storage = specs::VecStorage<Location>;
+}
+
+impl Location {
+    pub fn new(longtitude: f64, latitude: f64, distance: f64, mass: u64) -> Location {
+        Location {
             long: longtitude,
             lat: latitude,
             dist: distance,

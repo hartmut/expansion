@@ -9,7 +9,7 @@
 use super::modules::Module;
 use common::myuuid::*;
 use common::stdtrait::StdTrait;
-use physic::location::SpaceObj;
+use core::component::location::Location;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::error::Error;
@@ -27,7 +27,7 @@ pub struct AStation {
     o2use: u64,       // use of O2 for people TODO modelle by a prduction modules -> people module?
     #[serde(default)]
     mass: u64, // mass of the station
-    location: SpaceObj, // where am I?
+    location: Location, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
                        *
                        * list of inventar on this station -> stored in storagemodules
@@ -54,7 +54,7 @@ impl AStation {
             o2use: 0,
             o2prod: 0,
             mass: 0,
-            location: SpaceObj::new(1.0, 12.0, 3.0, 4),
+            location: Location::new(1.0, 12.0, 3.0, 4),
             module_list: module_list_temp,
         }
     }

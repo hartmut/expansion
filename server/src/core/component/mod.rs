@@ -23,6 +23,9 @@ pub use self::o2::O2;
 mod hasparts;
 pub use self::hasparts::HasParts;
 
+pub mod location;
+pub use self::location::Location;
+
 // register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
