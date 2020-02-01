@@ -36,13 +36,14 @@ impl O2 {
 mod tests {
     use super::*;
     use rand::{thread_rng, Rng};
+    use specs::prelude::*;
     use specs::world::Builder;
 
     #[test]
     fn create_o2_component() {
         let mut world = specs::World::new();
         world.register::<O2>();
-        world.create_entity().with(O2::new());
+        world.create_entity().with(O2::new()).build();
     }
 
     #[test]
@@ -62,5 +63,4 @@ mod tests {
         o2.change_o2prod(sample);
         assert_eq!(o2.o2prod, sample);
     }
-
 }

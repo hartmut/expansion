@@ -1,15 +1,16 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-use specs;
 use common::configuration;
+// use specs;
+use specs::prelude::*;
 
-mod component;
-mod system;
-mod resource;
-mod entity;
 mod common;
+mod component;
+mod entity;
 mod init;
+mod resource;
+mod system;
 
 use core;
 
@@ -52,12 +53,13 @@ impl<'a, 'b> Core<'a, 'b> {
     pub fn step(self: &mut Self) {
         // update time
         {
-            let mut worldtime = self.world
+            let mut worldtime = self
+                .world
                 .write_resource::<resource::worldtime::Worldtime>();
             worldtime.step();
         }
         // run all the systems
-        self.dispatcher.dispatch(&mut self.world.res);
+        self.dispatcher.dispatch(&mut self.world);
     }
 }
 

@@ -1,11 +1,15 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-use specs;
-use specs::world::Builder;
 use core::component::*;
+use specs;
+use specs::prelude::*;
 
-pub fn new(world: &mut specs::World, name: String, owner: specs::world::Index) -> specs::world::Index {
+pub fn new(
+    world: &mut specs::World,
+    name: String,
+    owner: specs::world::Index,
+) -> specs::world::Index {
     let station: specs::Entity = world
         .create_entity()
         .with(Owner::new(owner))
@@ -36,5 +40,4 @@ mod tests {
         let station2: specs::world::Index = new(&mut world, "Moon".to_string(), 2);
         assert_ne!(station1, station2);
     }
-
 }

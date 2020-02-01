@@ -188,6 +188,6 @@ impl Configuration {
 #[test]
 pub fn empty_config() {
     let json = "".to_string();
-    let decoded: Configuration = toml::de::from_str(&json).unwrap();
+    let _decoded: Configuration = toml::de::from_str(&json).unwrap();
     //TODO test missing
 }

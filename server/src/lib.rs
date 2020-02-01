@@ -3,8 +3,7 @@
 #![warn(unused_variables)]
 // #![warn(unused_mut)]
 // #![feature(proc_macro)]
-#[macro_use]
-
+// #[macro_use]
 // extern
 extern crate chrono;
 extern crate rand;

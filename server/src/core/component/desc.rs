@@ -3,6 +3,7 @@
 // See doc/LICENSE for licensing information
 
 use specs;
+// use specs::prelude::*;
 
 //TODO enum which describes what object this is and unse the enum in the structure
 //TODO rename the structure more appropriate
@@ -26,7 +27,7 @@ impl specs::Component for Desc {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use specs::world::Builder;
+    use specs::prelude::*;
 
     #[test]
     fn create_description_component() {
@@ -34,6 +35,7 @@ mod tests {
         world.register::<Desc>();
         world
             .create_entity()
-            .with(Desc::new("Daniel Suarez".to_string(), "".to_string()));
+            .with(Desc::new("Daniel Suarez".to_string(), "".to_string()))
+            .build();
     }
 }

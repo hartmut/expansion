@@ -29,7 +29,7 @@ impl specs::Component for Partof {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use specs::world::Builder;
+    use specs::prelude::*;
 
     #[test]
     fn create_partof_component() {

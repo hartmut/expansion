@@ -2,9 +2,9 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
+use core::common::stdenums::*;
 use specs;
 use std::cmp::Ordering;
-use core::common::stdenums::*;
 
 // structure describing each part
 #[derive(Debug)]
@@ -28,9 +28,9 @@ impl HasParts {
         HasParts { parts }
     }
 
-    pub fn add(&mut self, objtype: ObjType, index: specs::world::Index){
+    pub fn add(&mut self, objtype: ObjType, index: specs::world::Index) {
         if self.find(index) == None {
-            self.parts.push(Part{objtype, index});
+            self.parts.push(Part { objtype, index });
             self.parts.sort();
         }
     }
@@ -48,7 +48,6 @@ impl HasParts {
         }
         toremove
     }
-
 }
 
 impl specs::Component for HasParts {
@@ -58,7 +57,11 @@ impl specs::Component for HasParts {
 //impl traits for Playerstructpair
 impl PartialEq for Part {
     fn eq(&self, other: &Part) -> bool {
-        if self.index == other.index { true } else { false }
+        if self.index == other.index {
+            true
+        } else {
+            false
+        }
     }
 }
 
@@ -74,14 +77,13 @@ impl PartialOrd for Part {
 impl Ord for Part {
     fn cmp(&self, other: &Part) -> Ordering {
         if self.eq(other) {
-            return Ordering::Equal
-        }
-            else
-        {
-            if self.index > other.index
-                { Ordering::Greater }
-            else
-                { Ordering::Less }
+            return Ordering::Equal;
+        } else {
+            if self.index > other.index {
+                Ordering::Greater
+            } else {
+                Ordering::Less
+            }
         }
     }
 }
@@ -89,6 +91,7 @@ impl Ord for Part {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use specs::prelude::*;
     use specs::world::Builder;
 
     #[test]
@@ -150,5 +153,4 @@ mod tests {
         testdata.remove(2003);
         assert_eq!(testdata.find(1000), Some(1));
     }
-
 }

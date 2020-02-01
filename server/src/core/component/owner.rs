@@ -23,7 +23,7 @@ impl specs::Component for Owner {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use specs::world::Builder;
+    use specs::prelude::*;
 
     #[test]
     fn create_player_component() {

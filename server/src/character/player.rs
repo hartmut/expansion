@@ -59,13 +59,13 @@ mod tests {
         use common::fileoperations::*;
 
         // create a standard module
-        let new_player1 = Player {
+        let _new_player1 = Player {
             uuid: get_new_uuid(),
             name: "Ian Banks".to_string(),
             credits: 100,
         };
 
-        let new_player2 = Player {
+        let _new_player2 = Player {
             uuid: get_new_uuid(),
             name: "Daniel Suarez".to_string(),
             credits: 1000,

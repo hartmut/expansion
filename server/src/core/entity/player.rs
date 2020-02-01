@@ -1,9 +1,9 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-use specs;
-use specs::world::Builder;
 use core::component::*;
+use specs;
+use specs::prelude::*;
 
 pub fn new(world: &mut specs::World, name: String) -> specs::world::Index {
     let player: specs::Entity = world

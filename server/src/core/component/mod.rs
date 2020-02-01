@@ -1,7 +1,9 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-use specs;
+
+// use specs;
+use specs::prelude::*;
 
 pub mod desc;
 pub use self::desc::Desc;
