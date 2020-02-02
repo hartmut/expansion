@@ -17,6 +17,7 @@ use core;
 pub struct Core<'a, 'b> {
     world: specs::World,
     dispatcher: specs::Dispatcher<'a, 'b>,
+    // NOTE remove after specs rework
     playerindex: common::plystrindex::Playerstructindex,
 }
 

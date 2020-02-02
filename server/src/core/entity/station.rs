@@ -5,7 +5,7 @@ use core::component::*;
 use specs;
 use specs::prelude::*;
 
-pub fn new(
+pub fn new_old(
     world: &mut specs::World,
     name: String,
     owner: specs::world::Index,
@@ -19,23 +19,39 @@ pub fn new(
     station.id()
 }
 
+pub fn new(world: &mut specs::World, name: String, parent: Entity) -> Entity {
+    world
+        .create_entity()
+        .with(Parent::new(parent))
+        .with(Desc::new(name, "".to_string()))
+        .with(O2::new())
+        .build()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     fn newworld() -> specs::World {
         let mut world = specs::World::new();
-        world.register::<Owner>();
-        world.register::<Desc>();
-        world.register::<O2>();
+        super::super::super::component::new(&mut world);
         world
     }
 
     #[test]
     fn compare_station_ids() {
         let mut world = newworld();
-        let station1: specs::world::Index = new(&mut world, "ISS".to_string(), 1);
-        let station2: specs::world::Index = new(&mut world, "Moon".to_string(), 2);
+        let station1: specs::world::Index = new_old(&mut world, "ISS".to_string(), 1);
+        let station2: specs::world::Index = new_old(&mut world, "Moon".to_string(), 2);
+        assert_ne!(station1, station2);
+    }
+
+    #[test]
+    fn compare_station_entities() {
+        let mut world = newworld();
+        let player = super::super::player::new(&mut world, "Daniel Suarez".to_string());
+        let station1 = new(&mut world, "ISS".to_string(), player);
+        let station2 = new(&mut world, "Moon".to_string(), player);
         assert_ne!(station1, station2);
     }
 }

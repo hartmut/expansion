@@ -77,22 +77,6 @@ mod tests {
         closefile(&mut g);
     }
 
-    //TODO find the bug, non deterministic fail of this test
-    // #[test]
-    // fn create_recipe_hashmap_and_write_to_file() {
-    //     let mut outhash: RecipeHashMap = HashMap::new();
-    //     let new_recipe = create_one_recipe();
-    //     outhash.insert(new_recipe.get_uuid(), new_recipe);
-    //     let new_recipe = create_one_recipe();
-    //     outhash.insert(new_recipe.get_uuid(), new_recipe);
-    //
-    //     // and now write it
-    //     let mut g = newlinewriter("src/tests/testdataout/recipetestouthash.json".to_string());
-    //     let lineout = serde_json::to_string(&outhash).unwrap();
-    //     writerecord(&mut g, &lineout);
-    //     closefile(&mut g);
-    // }
-
     #[test]
     pub fn read_recipe_hashmap_file() {
         // read the json file and convert it to a hashmap of recipes
@@ -111,5 +95,4 @@ mod tests {
             }
         };
     }
-
 }

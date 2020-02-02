@@ -5,7 +5,7 @@ use core::component::*;
 use specs;
 use specs::prelude::*;
 
-pub fn new(world: &mut specs::World, name: String) -> specs::world::Index {
+pub fn new_old(world: &mut specs::World, name: String) -> specs::world::Index {
     let player: specs::Entity = world
         .create_entity()
         .with(Account::new(1000))
@@ -18,32 +18,36 @@ pub fn new(world: &mut specs::World, name: String) -> specs::world::Index {
     id
 }
 
+pub fn new(world: &mut specs::World, name: String) -> Entity {
+    world
+        .create_entity()
+        .with(Account::new(1000))
+        .with(Desc::new(name, "".to_string()))
+        .build()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     fn newworld() -> specs::World {
         let mut world = specs::World::new();
-        world.register::<Owner>();
-        world.register::<Desc>();
-        world.register::<Account>();
+        super::super::super::component::new(&mut world);
         world
     }
 
     #[test]
     fn compare_player_ids() {
         let mut world = newworld();
-        let player1: specs::world::Index = new(&mut world, "Daniel Suarez".to_string());
-        let player2: specs::world::Index = new(&mut world, "Yoda".to_string());
+        let player1: specs::world::Index = new_old(&mut world, "Daniel Suarez".to_string());
+        let player2: specs::world::Index = new_old(&mut world, "Yoda".to_string());
         assert_ne!(player1, player2);
     }
 
     #[test]
     fn compare_owner_with_player_id() {
         let mut world = newworld();
-        let player: specs::world::Index = new(&mut world, "Yoda".to_string());
-        // let entities: specs::Entities = world.entities();
-        // TODO how to get the entity where a component belongs to);
+        let player: specs::world::Index = new_old(&mut world, "Yoda".to_string());
         assert_eq!(player, player);
     }
 }

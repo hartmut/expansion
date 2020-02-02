@@ -5,7 +5,7 @@
 // use specs;
 use specs::prelude::*;
 
-pub mod desc;
+mod desc;
 pub use self::desc::Desc;
 
 mod owner;
@@ -20,7 +20,7 @@ pub use self::o2::O2;
 pub mod location;
 pub use self::location::Location;
 
-pub mod parent;
+mod parent;
 pub use self::parent::Parent;
 
 // register all the components
@@ -29,5 +29,6 @@ pub fn new(world: &mut specs::World) {
     world.register::<Owner>();
     world.register::<Account>();
     world.register::<O2>();
+    world.register::<Location>();
     world.register::<Parent>();
 }

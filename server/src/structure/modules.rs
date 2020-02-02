@@ -22,7 +22,6 @@ pub struct Module {
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
     // production and storage
     cur_prod_receipe: ExpUuid, /* uuid of receipe currently producing anything from food to other modules, later more than one recipe in parallel? */
-    // TODO use a vector by using cgmath
     // sizing of the module in m
     #[serde(default)]
     xsize: u32,
@@ -32,7 +31,6 @@ pub struct Module {
     zsize: u32,
     // currently it can only store one type of material, needs to be a vector for generalization e.g.
     // what is needed for the production of one recipe
-    // TODO use a storage structure
     store: Store,
     #[serde(default)]
     storagetype: String,

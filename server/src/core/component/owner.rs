@@ -5,6 +5,7 @@
 use specs;
 
 // Owner of entities
+//TODO obsolet when migrated to specs
 #[derive(Debug)]
 pub struct Owner {
     pub id: specs::world::Index,
