@@ -11,6 +11,7 @@ extern crate serde;
 extern crate serde_derive;
 extern crate serde_json;
 extern crate specs;
+extern crate specs_hierarchy;
 extern crate time;
 extern crate toml;
 extern crate uuid;

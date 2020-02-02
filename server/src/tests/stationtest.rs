@@ -11,10 +11,10 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
-    use serde_json;
+    use common::fileoperations::*;
     use common::myuuid::*;
     use common::stdtrait::StdTrait;
-    use common::fileoperations::*;
+    use serde_json;
     use structure::station::AStation;
 
     #[test]
@@ -25,8 +25,7 @@ mod tests {
 
         // write station
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
-        let lineout =
-            <AStation as StdTrait<AStation>>::serialize(&my_station);
+        let lineout = <AStation as StdTrait<AStation>>::serialize(&my_station);
         let i = writerecord(&mut g, &lineout);
     }
 
@@ -70,8 +69,7 @@ mod tests {
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/stationtestout.json".to_string());
-        let lineout =
-            <AStation as StdTrait<AStation>>::serialize(&tempstation);
+        let lineout = <AStation as StdTrait<AStation>>::serialize(&tempstation);
         let i = writerecord(&mut g, &lineout);
 
         assert_eq!(line, lineout);

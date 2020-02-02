@@ -20,7 +20,6 @@ pub struct Worldtime {
 }
 
 impl Worldtime {
-    // TODO change input variables to u32, should be enough
     pub fn new(tick_dur: u64, tick_length: u64) -> Self {
         Worldtime {
             tick_counter: 1,

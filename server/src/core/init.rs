@@ -11,8 +11,10 @@ pub fn init(mut world: &mut specs::World, playerindex: &mut plystrindex::Players
     // TODO import Data automagically
     let player1: specs::world::Index = entity::player::new(&mut world, "Luke".to_string());
     let player2: specs::world::Index = entity::player::new(&mut world, "Yoda".to_string());
-    let station1: specs::world::Index = entity::station::new(&mut world, "ISS".to_string(), player1);
-    let station2: specs::world::Index = entity::station::new(&mut world, "Moon Base".to_string(), player1);
+    let station1: specs::world::Index =
+        entity::station::new(&mut world, "ISS".to_string(), player1);
+    let station2: specs::world::Index =
+        entity::station::new(&mut world, "Moon Base".to_string(), player1);
 
     playerindex.add_station(player1, station1);
     println!("stationmap {:?}", playerindex);
