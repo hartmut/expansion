@@ -12,20 +12,15 @@ mod init;
 mod resource;
 mod system;
 
-use core;
+// use core;
 
 pub struct Core<'a, 'b> {
     world: specs::World,
     dispatcher: specs::Dispatcher<'a, 'b>,
-    // NOTE remove after specs rework
-    playerindex: common::plystrindex::Playerstructindex,
 }
 
 impl<'a, 'b> Core<'a, 'b> {
     pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
-        // Initialize
-        let mut playerindex = common::plystrindex::Playerstructindex::new();
-
         // create the world
         let mut world = specs::World::new();
 
@@ -38,16 +33,10 @@ impl<'a, 'b> Core<'a, 'b> {
         // register dispatcher
         let dispatcher = specs::DispatcherBuilder::new().build();
 
-        // register systems in the mod of the system sub directory
-
-        // init with data
-        core::init::init(&mut world, &mut playerindex);
-
         // return Core structure
         Core {
             world: world,
             dispatcher: dispatcher,
-            playerindex: playerindex,
         }
     }
 
