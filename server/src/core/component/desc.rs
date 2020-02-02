@@ -11,12 +11,12 @@ use specs;
 #[derive(Debug)]
 pub struct Desc {
     pub name: String,
-    longname: String,
+    longtext: String,
 }
 
 impl Desc {
-    pub fn new(name: String, longname: String) -> Self {
-        Desc { name, longname }
+    pub fn new(name: String, longtext: String) -> Self {
+        Desc { name, longtext }
     }
 }
 

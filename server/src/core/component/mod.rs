@@ -14,24 +14,20 @@ pub use self::owner::Owner;
 mod account;
 pub use self::account::Account;
 
-mod partof;
-pub use self::partof::Partof;
-
 mod o2;
 pub use self::o2::O2;
 
-mod hasparts;
-pub use self::hasparts::HasParts;
-
 pub mod location;
 pub use self::location::Location;
+
+pub mod parent;
+pub use self::parent::Parent;
 
 // register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
     world.register::<Owner>();
     world.register::<Account>();
-    world.register::<Partof>();
     world.register::<O2>();
-    world.register::<HasParts>();
+    world.register::<Parent>();
 }
