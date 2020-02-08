@@ -4,7 +4,6 @@
 use common::configuration;
 // use specs;
 use specs::prelude::*;
-
 mod common;
 pub mod component;
 mod entity;
@@ -30,8 +29,8 @@ impl<'a, 'b> Core<'a, 'b> {
         // register resources in the mod of the resource sub directory
         resource::new(&mut world, &myconfig);
 
-        // register dispatcher
-        let dispatcher = specs::DispatcherBuilder::new().build();
+        //register systems
+        let dispatcher = system::new(&mut world);
 
         // return Core structure
         Core {

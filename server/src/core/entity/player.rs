@@ -47,7 +47,9 @@ mod tests {
     #[test]
     fn compare_owner_with_player_id() {
         let mut world = newworld();
-        let player: specs::world::Index = new_old(&mut world, "Yoda".to_string());
+        let player: Entity = new(&mut world, "Yoda".to_string());
+        let _station = super::super::station::new(&mut world, "ISS".to_string(), player);
+        // let player_check = station.parent.parent_entity();
         assert_eq!(player, player);
     }
 }

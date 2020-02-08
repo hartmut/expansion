@@ -20,7 +20,7 @@ pub use self::o2::O2;
 pub mod location;
 pub use self::location::Location;
 
-mod parent;
+pub mod parent;
 pub use self::parent::Parent;
 
 // register all the components

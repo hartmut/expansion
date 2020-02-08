@@ -1,5 +1,5 @@
-// Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
+// Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use core::component::*;
 use specs;
@@ -30,7 +30,9 @@ pub fn new(world: &mut specs::World, name: String, parent: Entity) -> Entity {
 
 #[cfg(test)]
 mod tests {
+    use super::super::super::component::parent::*;
     use super::*;
+    use specs_hierarchy::Parent as HParent;
 
     fn newworld() -> specs::World {
         let mut world = specs::World::new();
@@ -53,5 +55,8 @@ mod tests {
         let station1 = new(&mut world, "ISS".to_string(), player);
         let station2 = new(&mut world, "Moon".to_string(), player);
         assert_ne!(station1, station2);
+        let parent_storage = world.read_storage::<Parent>();
+        let parent = parent_storage.get(station1).unwrap().parent_entity();
+        assert_eq!(parent, player);
     }
 }

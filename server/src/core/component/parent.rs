@@ -32,16 +32,50 @@ mod tests {
     use super::super::desc;
     use super::*;
     use specs::prelude::*;
+    use specs_hierarchy::{Hierarchy, HierarchySystem};
+
+    fn newworld() -> specs::World {
+        let mut world = specs::World::new();
+        super::super::super::component::new(&mut world);
+        world
+    }
 
     #[test]
     fn create_player_component() {
-        let mut world = specs::World::new();
-        world.register::<Parent>();
-        world.register::<desc::Desc>();
+        let mut world = newworld();
         let id = world
             .create_entity()
             .with(desc::Desc::new("Daniel Suarez".to_string(), "".to_string()))
             .build();
         world.create_entity().with(Parent::new(id)).build();
+    }
+
+    #[test]
+    fn test_hierarchy() {
+        // init the world
+        let mut world = newworld();
+        let mut dispatcher = specs::DispatcherBuilder::new()
+            .with(
+                HierarchySystem::<Parent>::new(&mut world),
+                "hierarchy_system",
+                &[],
+            )
+            .build();
+        dispatcher.setup(&mut world);
+
+        // create test Hierarchy
+        let parent = world
+            .create_entity()
+            .with(desc::Desc::new("Daniel Suarez".to_string(), "".to_string()))
+            .build();
+        let child = world.create_entity().with(Parent::new(parent)).build();
+
+        // one step
+        dispatcher.dispatch(&mut world);
+
+        // exexute test
+        let resource = world.fetch::<Hierarchy<Parent>>();
+        let childtest = resource.children(parent);
+        assert_eq!(child, childtest[0]);
     }
 }
