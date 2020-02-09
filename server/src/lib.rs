@@ -6,6 +6,7 @@
 // #[macro_use]
 // extern
 extern crate chrono;
+extern crate measurements;
 extern crate rand;
 extern crate serde;
 extern crate serde_derive;

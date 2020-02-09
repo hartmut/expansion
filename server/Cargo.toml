@@ -14,6 +14,7 @@ chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 specs = "*" # https://crates.io/crates/specs
 specs-hierarchy = "*" # https://github.com/rustgd/specs-hierarchy
+measurements = "*" # https://crates.io/crates/measurements
 
 [features]
 default = []

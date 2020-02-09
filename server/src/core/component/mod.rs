@@ -14,8 +14,8 @@ pub use self::owner::Owner;
 mod account;
 pub use self::account::Account;
 
-mod o2;
-pub use self::o2::O2;
+mod habitat;
+pub use self::habitat::Habitat;
 
 pub mod location;
 pub use self::location::Location;
@@ -28,7 +28,7 @@ pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
     world.register::<Owner>();
     world.register::<Account>();
-    world.register::<O2>();
+    world.register::<Habitat>();
     world.register::<Location>();
     world.register::<PartOf>();
 }

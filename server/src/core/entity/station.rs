@@ -14,7 +14,6 @@ pub fn new_old(
         .create_entity()
         .with(Owner::new(owner))
         .with(Desc::new(name, "".to_string()))
-        .with(O2::new())
         .build();
     station.id()
 }
@@ -24,7 +23,6 @@ pub fn new(world: &mut specs::World, name: String, parent: Entity) -> Entity {
         .create_entity()
         .with(PartOf::new(parent))
         .with(Desc::new(name, "".to_string()))
-        .with(O2::new())
         .build()
 }
 
