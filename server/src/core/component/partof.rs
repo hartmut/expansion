@@ -3,27 +3,27 @@
 // See doc/LICENSE for licensing information
 
 use specs::prelude::{Component, DenseVecStorage, Entity, FlaggedStorage};
-use specs_hierarchy::Parent as HParent;
+use specs_hierarchy::Parent;
 
 // Owner of entities
 #[derive(Debug, Clone, Eq, Ord, PartialEq, PartialOrd)]
-pub struct Parent {
+pub struct PartOf {
     pub parent: Entity,
 }
 
-impl HParent for Parent {
+impl Parent for PartOf {
     fn parent_entity(&self) -> Entity {
         self.parent
     }
 }
 
-impl Parent {
-    pub fn new(id: Entity) -> Parent {
-        Parent { parent: id }
+impl PartOf {
+    pub fn new(id: Entity) -> PartOf {
+        PartOf { parent: id }
     }
 }
 
-impl Component for Parent {
+impl Component for PartOf {
     type Storage = FlaggedStorage<Self, DenseVecStorage<Self>>;
 }
 
@@ -47,7 +47,7 @@ mod tests {
             .create_entity()
             .with(desc::Desc::new("Daniel Suarez".to_string(), "".to_string()))
             .build();
-        world.create_entity().with(Parent::new(id)).build();
+        world.create_entity().with(PartOf::new(id)).build();
     }
 
     #[test]
@@ -56,7 +56,7 @@ mod tests {
         let mut world = newworld();
         let mut dispatcher = specs::DispatcherBuilder::new()
             .with(
-                HierarchySystem::<Parent>::new(&mut world),
+                HierarchySystem::<PartOf>::new(&mut world),
                 "hierarchy_system",
                 &[],
             )
@@ -68,13 +68,13 @@ mod tests {
             .create_entity()
             .with(desc::Desc::new("Daniel Suarez".to_string(), "".to_string()))
             .build();
-        let child = world.create_entity().with(Parent::new(parent)).build();
+        let child = world.create_entity().with(PartOf::new(parent)).build();
 
         // one step
         dispatcher.dispatch(&mut world);
 
         // exexute test
-        let resource = world.fetch::<Hierarchy<Parent>>();
+        let resource = world.fetch::<Hierarchy<PartOf>>();
         let childtest = resource.children(parent);
         assert_eq!(child, childtest[0]);
     }

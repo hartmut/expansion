@@ -20,8 +20,8 @@ pub use self::o2::O2;
 pub mod location;
 pub use self::location::Location;
 
-pub mod parent;
-pub use self::parent::Parent;
+pub mod partof;
+pub use self::partof::PartOf;
 
 // register all the components
 pub fn new(world: &mut specs::World) {
@@ -30,5 +30,5 @@ pub fn new(world: &mut specs::World) {
     world.register::<Account>();
     world.register::<O2>();
     world.register::<Location>();
-    world.register::<Parent>();
+    world.register::<PartOf>();
 }

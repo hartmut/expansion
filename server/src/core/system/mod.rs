@@ -8,7 +8,7 @@ pub fn new<'a, 'b>(mut world: &mut specs::World) -> specs::Dispatcher<'a, 'b> {
     // register dispatcher
     let mut dispatcher = specs::DispatcherBuilder::new()
         .with(
-            HierarchySystem::<component::parent::Parent>::new(&mut world),
+            HierarchySystem::<component::partof::PartOf>::new(&mut world),
             "hierarchy_system",
             &[],
         )

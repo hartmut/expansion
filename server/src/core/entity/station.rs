@@ -22,7 +22,7 @@ pub fn new_old(
 pub fn new(world: &mut specs::World, name: String, parent: Entity) -> Entity {
     world
         .create_entity()
-        .with(Parent::new(parent))
+        .with(PartOf::new(parent))
         .with(Desc::new(name, "".to_string()))
         .with(O2::new())
         .build()
@@ -30,7 +30,7 @@ pub fn new(world: &mut specs::World, name: String, parent: Entity) -> Entity {
 
 #[cfg(test)]
 mod tests {
-    use super::super::super::component::parent::*;
+    use super::super::super::component::partof::*;
     use super::*;
     use specs_hierarchy::Parent as HParent;
 
@@ -55,7 +55,7 @@ mod tests {
         let station1 = new(&mut world, "ISS".to_string(), player);
         let station2 = new(&mut world, "Moon".to_string(), player);
         assert_ne!(station1, station2);
-        let parent_storage = world.read_storage::<Parent>();
+        let parent_storage = world.read_storage::<PartOf>();
         let parent = parent_storage.get(station1).unwrap().parent_entity();
         assert_eq!(parent, player);
     }
