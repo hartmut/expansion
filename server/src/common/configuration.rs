@@ -2,7 +2,6 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 use serde::Deserialize;
-use std::error::Error;
 /// for initalization and configuration
 
 /// used mods
@@ -81,13 +80,13 @@ impl Configuration {
         let mut file = match File::open(&path) {
             // The `description` method of `io::Error` returns a string that
             // describes the error
-            Err(why) => panic!("couldn't open {}: {}", display, why.description()),
+            Err(why) => panic!("couldn't open {}: {}", display, why.to_string()),
             Ok(file) => file,
         };
 
         // Read the file contents into a string, returns `io::Result<usize>`
         match file.read_to_string(&mut input) {
-            Err(why) => panic!("couldn't read {}: {}", display, why.description()),
+            Err(why) => panic!("couldn't read {}: {}", display, why.to_string()),
             // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
             Ok(_) => print!(""),
         }

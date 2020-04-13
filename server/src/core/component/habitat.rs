@@ -5,19 +5,27 @@
 use measurements::pressure::*;
 use specs;
 
+// TODO mix of chemical mix, will also be used for athmosperes
+pub struct ChemMix {
+    molecule: String, //TODO change to recipes::elements
+    kg: f64,
+}
+
 // when a module has an athmospere this component is used
 #[derive(Debug)]
 pub struct Habitat {
     // in m^3
     volume: u64,
 
-    // Athmospere
+    // Athmosphere
     // in kg, from this values and the volume you get the partial pressure
+    // TODO array of gases, could also be used for other purposes probably
     o2: f64,
     n2: f64,
     co2: f64,
-    //  pressure in atm, falls if you don't have enough consumables
-    k_pa: f64,
+    // pressure in atm, falls if you don't have enough consumables
+    // calculate pressure from volume, temperature and kg of gases
+    k_pa: f64, // calculated
 
     // futher environment variables
     temperature: f64,
@@ -50,7 +58,7 @@ impl Habitat {
         }
     }
 
-    // source https://en.wikipedia.org/wiki/Partial_pressure
+    // source https://en.wikipedia.org/wiki/Partial_pressure#In_diving_breathing_gases
     // TODO formula is not completly corret
     // TODO find pressure and cald library
     fn o2_part_pressure(&self) -> f64 {
