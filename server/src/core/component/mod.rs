@@ -23,6 +23,9 @@ pub use self::location::Location;
 pub mod partof;
 pub use self::partof::PartOf;
 
+pub mod energy;
+pub use self::energy::Energy;
+
 // register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();
@@ -31,4 +34,5 @@ pub fn new(world: &mut specs::World) {
     world.register::<Habitat>();
     world.register::<Location>();
     world.register::<PartOf>();
+    world.register::<Energy>();
 }

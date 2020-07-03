@@ -14,7 +14,6 @@ pub fn new_old(world: &mut specs::World, name: String) -> specs::world::Index {
     let mut addowner = world.write_storage::<Owner>();
     let id: specs::world::Index = player.id();
     addowner.insert(player, Owner::new(id)).unwrap();
-    println!("{:?}", player);
     id
 }
 

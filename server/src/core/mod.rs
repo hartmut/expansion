@@ -2,7 +2,6 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 use common::configuration;
-// use specs;
 use specs::prelude::*;
 mod common;
 pub mod component;
@@ -31,12 +30,10 @@ impl<'a, 'b> Core<'a, 'b> {
 
         //register systems
         let dispatcher = system::new(&mut world);
+        init::init(&mut world);
 
         // return Core structure
-        Core {
-            world: world,
-            dispatcher: dispatcher,
-        }
+        Core { world, dispatcher }
     }
 
     pub fn step(self: &mut Self) {
