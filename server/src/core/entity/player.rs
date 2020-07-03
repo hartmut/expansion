@@ -5,18 +5,6 @@ use core::component::*;
 use specs;
 use specs::prelude::*;
 
-pub fn new_old(world: &mut specs::World, name: String) -> specs::world::Index {
-    let player: specs::Entity = world
-        .create_entity()
-        .with(Account::new(1000))
-        .with(Desc::new(name, "".to_string()))
-        .build();
-    let mut addowner = world.write_storage::<Owner>();
-    let id: specs::world::Index = player.id();
-    addowner.insert(player, Owner::new(id)).unwrap();
-    id
-}
-
 pub fn new(world: &mut specs::World, name: String) -> Entity {
     world
         .create_entity()
@@ -38,8 +26,8 @@ mod tests {
     #[test]
     fn compare_player_ids() {
         let mut world = newworld();
-        let player1: specs::world::Index = new_old(&mut world, "Daniel Suarez".to_string());
-        let player2: specs::world::Index = new_old(&mut world, "Yoda".to_string());
+        let player1: Entity = new(&mut world, "Daniel Suarez".to_string());
+        let player2: Entity = new(&mut world, "Yoda".to_string());
         assert_ne!(player1, player2);
     }
 

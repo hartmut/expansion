@@ -3,15 +3,17 @@
 // See doc/LICENSE for licensing information
 
 use core::entity;
+use core::entity::station;
 use specs;
+use specs::prelude::*;
 
 pub fn init(mut world: &mut specs::World) {
     //currently manual insert of testdata
     // TODO import Data automagically
-    let player1: specs::world::Index = entity::player::new_old(&mut world, "Luke".to_string());
-    let _player2: specs::world::Index = entity::player::new_old(&mut world, "Yoda".to_string());
-    let _station1: specs::world::Index =
-        entity::station::new_old(&mut world, "ISS".to_string(), player1);
-    let _station2: specs::world::Index =
-        entity::station::new_old(&mut world, "Moon Base".to_string(), player1);
+    let player1: Entity = entity::player::new(&mut world, "Luke".to_string());
+    let _player2: Entity = entity::player::new(&mut world, "Yoda".to_string());
+    let player3: Entity = entity::player::new(&mut world, "FitzRoy".to_string());
+    let _station1: Entity = station::new(&mut world, "ISS".to_string(), player1);
+    let _station2: Entity = station::new(&mut world, "Moon Base".to_string(), player1);
+    let _station3: Entity = station::new(&mut world, "Beagle".to_string(), player3);
 }
