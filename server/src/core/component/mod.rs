@@ -22,9 +22,12 @@ pub use self::location::Location;
 
 pub mod partof;
 pub use self::partof::PartOf;
+pub mod basics;
+pub use self::basics::BasicParameter;
 
 pub mod energy;
-pub use self::energy::Energy;
+pub use self::energy::battery::Battery;
+pub use self::energy::solarcell::SolarCell;
 
 // register all the components
 pub fn new(world: &mut specs::World) {
@@ -34,5 +37,6 @@ pub fn new(world: &mut specs::World) {
     world.register::<Habitat>();
     world.register::<Location>();
     world.register::<PartOf>();
-    world.register::<Energy>();
+    world.register::<Battery>();
+    world.register::<SolarCell>();
 }

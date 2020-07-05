@@ -6,23 +6,22 @@ use specs;
 
 // energy store and production
 // first step solar cells, needs to be generalized for other production methods
+// assumption how much volt? TODO
 #[derive(Debug)]
-pub struct Energy {
+pub struct Battery {
     act_storage: f64, //Ah https://en.wikipedia.org/wiki/Ampere_hour
     max_storage: f64, //Ah https://en.wikipedia.org/wiki/Ampere_hour
-    production: f64,  //Watt in optimal conditions https://en.wikipedia.org/wiki/Watt
 }
 
-impl specs::Component for Energy {
+impl specs::Component for Battery {
     type Storage = specs::VecStorage<Self>;
 }
 
-impl Energy {
-    pub fn new() -> Energy {
-        Energy {
+impl Battery {
+    pub fn new() -> Battery {
+        Battery {
             act_storage: 0.0,
             max_storage: 0.0,
-            production: 10.0,
         }
     }
 }

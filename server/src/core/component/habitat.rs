@@ -15,7 +15,7 @@ pub struct ChemMix {
 #[derive(Debug)]
 pub struct Habitat {
     // in m^3
-    volume: u64,
+    volume: u64, //TODO replace with component basics
 
     // Athmosphere
     // in kg, from this values and the volume you get the partial pressure
