@@ -6,9 +6,10 @@ use specs;
 
 // solar cell energy production
 // first step solar cells, needs to be generalized for other production methods
-#[derive(Debug)]
+#[derive(Debug, Component, PrefabData)]
 pub struct SolarCell {
     production: f64, //Watt in optimal conditions https://en.wikipedia.org/wiki/Watt
+                     // parameters like conditions
 }
 
 impl specs::Component for SolarCell {

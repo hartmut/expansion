@@ -15,6 +15,11 @@ rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 specs = "*" # https://crates.io/crates/specs
 specs-hierarchy = "*" # https://github.com/rustgd/specs-hierarchy
 measurements = "*" # https://crates.io/crates/measurements
+amethyst = "*" # https://crates.io/crates/amethyst
+amethyst_rendy = { version = "*", features = ["empty"] } # https://crates.io/crates/amethyst_rendy
+amethyst_assets = "*"
+amethyst_derive = "*"
+amethyst_core ="*"
 
 [features]
 default = []
