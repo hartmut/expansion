@@ -4,8 +4,6 @@
 // #![warn(unused_mut)]
 // #![feature(proc_macro)]
 // #[macro_use]
-// extern
-extern crate amethyst;
 extern crate chrono;
 extern crate measurements;
 extern crate rand;
