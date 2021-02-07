@@ -2,28 +2,26 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
+extern crate amethyst;
 extern crate expansion;
 
-// standard mods to use
+use amethyst::{
+    // prelude::*,
+    utils::*,
+};
+use expansion::utils::configuration;
 use std::env;
 
-// use utils::configuration;
-use expansion::utils::configuration;
-
 // my mods to use
-// use expansion::character::player_worker::PlayerWorker;
-// use expansion::utils::workertrait::WorkerTrait;
 use expansion::core::Core;
-// use expansion::structure::structure_worker::StructureWorker;
-
-// testincludes
-// use tests::playertest;
-// TODO replace all unwraps with proper error handling
 
 fn main() {
+    amethyst::start_logger(Default::default());
+    let app_root = application_root_dir().unwrap();
+    let resource_dir = app_root.join("resources/");
+
     // move all arguments to a string vector
     let args: Vec<String> = env::args().collect();
-
     // panic if vector is too short
     if args.len() <= 1 {
         panic!("I need a config file");
