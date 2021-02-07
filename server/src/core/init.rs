@@ -9,7 +9,7 @@ use specs::prelude::*;
 
 pub fn init(mut world: &mut specs::World) {
     //currently manual insert of testdata
-    // TODO import Data automagically
+    // TODO import resources automagically
     let player1: Entity = entity::player::new(&mut world, "Luke".to_string());
     let _player2: Entity = entity::player::new(&mut world, "Yoda".to_string());
     let player3: Entity = entity::player::new(&mut world, "FitzRoy".to_string());

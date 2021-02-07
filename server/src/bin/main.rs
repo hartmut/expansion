@@ -29,7 +29,7 @@ fn main() {
         panic!("I need a config file");
     }
 
-    // read configuration and data
+    // read configuration and resources
     let myconfig = configuration::Configuration::load_config(args);
 
     // create the player worker and initalize it

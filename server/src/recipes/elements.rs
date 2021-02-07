@@ -134,7 +134,7 @@ pub fn read_elementlist_file(filename: String) -> ElementListVec {
 
 // TODO create collection struct to reference to, use arc?
 
-// TODO configuration in TOML file, and load the data the structure worker?
+// TODO configuration in TOML file, and load the resources the structure worker?
 
 // TODO stdstruct?, read all elements from local json databasefile
 

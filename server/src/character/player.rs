@@ -10,7 +10,7 @@ use common::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
 use serde_json;
 
-// players data
+// players resources
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Player {

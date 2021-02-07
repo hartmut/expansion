@@ -1,28 +1,19 @@
 \section{Client / Server}
-At first everything will be developed in the server section.
+At first everything will be developed in the server section and the client should just be a display.
 
-How to structure the client and server part:
-\begin{itemize}
- \item piston
- \item webclient
-\end{itemize}
 Exchange of status informations by json or similar protocols.
 
-It should be possible to develop the client independent of the server, just connected
-by the structures which are send to the client. This will enable, in a later stage
-the distribution of servers (No ideas yet how to prevent cheating).
+It should be possible to develop the client independent of the server, just connected by the structures which are send to the client. This will enable, in a later stage the distribution of servers (No ideas yet how to prevent cheating).
 
 \subsection{Protocol}
 
-The protocol needs to transport full and delta status informations for every relevant object.
-Performance could get an issue.
+The protocol needs to transport full and delta status informations for every relevant object. Performance could get an issue.
 
-For graphicinformations we need a standard protocol for which there exists standard client
-and server libraries.
+For graphicinformations we need a standard protocol for which there exists standard client and server libraries.
 
 \section{Physic Simulation}
 
-TODO Evaluate use of crate \href{https://github.com/saurvs/astro-rust}{astro} for positions of objects in space.
+
 
 Some different drives
 \begin{itemize}

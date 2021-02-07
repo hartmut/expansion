@@ -71,7 +71,7 @@ impl FileData {
 impl Configuration {
     pub fn load_config(args: Vec<String>) -> Configuration {
         // TODO use fileoperations from common::fileoperations
-        // configuration is here server/src/data/config.toml
+        // configuration is here server/src/resources/config.toml
         let path = Path::new(&args[1]);
         let display = path.display();
         let mut input = String::new();
@@ -133,7 +133,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "data/station.json".to_string(),
+                datafile: "resources/station.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -144,7 +144,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "data/player.json".to_string(),
+                datafile: "resources/player.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -155,7 +155,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "data/module.json".to_string(),
+                datafile: "resources/module.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -166,7 +166,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "data/PeriodicTableJSON-cleaned.json".to_string(),
+                datafile: "resources/PeriodicTableJSON-cleaned.json".to_string(),
                 source: "".to_string(),
             },
         }
@@ -177,7 +177,7 @@ impl Configuration {
             Some(struc) => struc.inner_unwrap(),
             None => FileData {
                 storage_method: "File".to_string(),
-                datafile: "data/components.json".to_string(),
+                datafile: "resources/components.json".to_string(),
                 source: "".to_string(),
             },
         }

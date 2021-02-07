@@ -126,7 +126,7 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
     LineWriter::new(f)
 }
 
-// genericline  writerecord function, returns length of written data
+// genericline  writerecord function, returns length of written resources
 // TODO better error handling in writerecord
 pub fn writerecord(f: &mut LineWriter<File>, output: &String) -> u64 {
     f.write(output.as_bytes()).unwrap() as u64;

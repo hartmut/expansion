@@ -43,7 +43,7 @@ impl WorkerTrait<StructureWorker> for StructureWorker {
             stations: btree,
             elementlist: read_elementlist_file(myconfig.get_elements_config().get_datafile()),
             // TODO read file from config
-            recipelist: read_recipe_file("data/recipe.json".to_string()),
+            recipelist: read_recipe_file("resources/recipe.json".to_string()),
         };
 
         // import stations

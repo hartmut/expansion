@@ -22,26 +22,26 @@ airmix_n2 = 0.8
 
 [player]
 storage_method ="file"
-datafile="data/player.json"
+datafile="resources/player.json"
 
 [structure]
 storage_method="file"
-datafile="data/station.json"
+datafile="resources/station.json"
 
 [module]
 storage_method="file"
-datafile="data/module.json"
+datafile="resources/module.json"
 
 [elements]
 storage_method="file"
-datafile="data/PeriodicTableJSON-cleaned.json"
+datafile="resources/PeriodicTableJSON-cleaned.json"
 #source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
 source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
 
 [recipes]
 storage_method="file"
-datafile="data/recipe.json"
+datafile="resources/recipe.json"
 
 [component]
 storage_method="file"
-datafile="data/components.json"
+datafile="resources/components.json"
