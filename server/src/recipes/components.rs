@@ -5,9 +5,9 @@
 // contains informations about components needed to build stations, other components, etc.
 
 // uses
-use common::fileoperations::*;
-use common::myuuid::*;
-use common::stdtrait::StdTrait;
+use utils::fileoperations::*;
+use utils::myuuid::*;
+use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use std::collections::BTreeMap;

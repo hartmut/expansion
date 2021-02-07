@@ -20,8 +20,6 @@ pub use self::habitat::Habitat;
 pub mod location;
 pub use self::location::Location;
 
-pub mod partof;
-pub use self::partof::PartOf;
 pub mod basics;
 pub use self::basics::BasicParameter;
 
@@ -36,7 +34,6 @@ pub fn new(world: &mut specs::World) {
     world.register::<Account>();
     world.register::<Habitat>();
     world.register::<Location>();
-    world.register::<PartOf>();
     world.register::<Battery>();
     world.register::<SolarCell>();
 }

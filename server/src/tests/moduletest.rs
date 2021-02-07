@@ -8,9 +8,7 @@
 
 #[cfg(test)]
 mod tests {
-    use common::myuuid::*;
-    use common::stdtrait::StdTrait;
-    use common::fileoperations::*;
+    use utils::{myuuid::*,stdtrait::StdTrait,fileoperations::*};
     use structure::modules::Module;
 
     fn writetestdata(input: Module) {

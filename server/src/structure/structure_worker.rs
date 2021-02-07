@@ -4,13 +4,7 @@
 //
 // managing the stations updates
 
-use common::configuration::*;
-use common::fileoperations::*;
-use common::myuuid::*;
-use common::stdtrait::StdTrait;
-use common::workertrait::*;
-use std::collections::BTreeMap;
-// use std::collections::HashMap;
+use utils::{configuration::*};
 use super::station::*;
 use recipes::elements::*;
 use recipes::recipe::*;
@@ -21,8 +15,6 @@ use recipes::recipe::*;
 // TODO recipe list with loading at start etc.
 #[derive(Debug)]
 pub struct StructureWorker {
-    // structure with 'general worker structure'
-    worker_struct: WorkerStruct,
     // persistancefile for stations
     stationdata: FileData,
     // Btree with stations in it
@@ -31,48 +23,4 @@ pub struct StructureWorker {
     elementlist: ElementListVec,
     // List of recipes
     recipelist: RecipeHashMap,
-}
-
-impl WorkerTrait<StructureWorker> for StructureWorker {
-    fn new(name: String, myconfig: &Configuration) -> StructureWorker {
-        let btree: BTreeMap<ExpUuid, AStation> = BTreeMap::new();
-
-        let mut sw = StructureWorker {
-            worker_struct: WorkerStruct { name: name },
-            stationdata: myconfig.get_structure_config(),
-            stations: btree,
-            elementlist: read_elementlist_file(myconfig.get_elements_config().get_datafile()),
-            // TODO read file from config
-            recipelist: read_recipe_file("resources/recipe.json".to_string()),
-        };
-
-        // import stations
-        let mut f = newreader(sw.stationdata.get_datafile());
-
-        // iterate over all stations
-        loop {
-            let line = match readline(&mut f) {
-                // all bad or end of file
-                None => break,
-                // got something
-                Some(x) => x,
-            };
-
-            // insert the station into the structure of the worker
-            let tempstation: AStation =
-                <AStation as StdTrait<AStation>>::new_from_deserialized(&line);
-            let uuid = tempstation.getuuid();
-            sw.stations.insert(uuid, tempstation);
-        }
-
-        sw
-    }
-
-    fn step(&mut self) {
-        println!("one step in structure worker",);
-    }
-
-    fn send_update(&self) {}
-
-    fn get_update(&mut self) {}
 }

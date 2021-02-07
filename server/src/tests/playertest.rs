@@ -9,7 +9,7 @@
 #[cfg(test)]
 mod tests {
     use character::player::Player;
-    use common::stdtrait::StdTrait;
+    use utils::stdtrait::StdTrait;
 
     #[test]
     fn do_i_realy_get_a_new_uuid_for_a_new_player() {

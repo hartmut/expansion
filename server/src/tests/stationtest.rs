@@ -11,9 +11,9 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
-    use common::fileoperations::*;
-    use common::myuuid::*;
-    use common::stdtrait::StdTrait;
+    use utils::fileoperations::*;
+    use utils::myuuid::*;
+    use utils::stdtrait::StdTrait;
     use serde_json;
     use structure::station::AStation;
 

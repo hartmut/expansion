@@ -7,12 +7,12 @@ extern crate expansion;
 // standard mods to use
 use std::env;
 
-// use common::configuration;
-use expansion::common::configuration;
+// use utils::configuration;
+use expansion::utils::configuration;
 
 // my mods to use
 // use expansion::character::player_worker::PlayerWorker;
-// use expansion::common::workertrait::WorkerTrait;
+// use expansion::utils::workertrait::WorkerTrait;
 use expansion::core::Core;
 // use expansion::structure::structure_worker::StructureWorker;
 

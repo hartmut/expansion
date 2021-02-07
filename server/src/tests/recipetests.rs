@@ -8,8 +8,7 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
-    use common::fileoperations::*;
-    use common::myuuid::*;
+    use utils::{myuuid::*, fileoperations::*};
     use rand::{thread_rng, Rng};
     use recipes::components::*;
     use recipes::recipe::*;
@@ -56,7 +55,7 @@ mod tests {
             duration: 48,
             input: Vec::<Bundle>::new(),
             output: Vec::<Bundle>::new(),
-            json_create: "".to_string(),
+            prefab: "".to_string(),
         };
 
         // and put something into input and output

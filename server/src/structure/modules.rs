@@ -7,8 +7,8 @@
 
 // uses
 use super::storage::*;
-use common::myuuid::*;
-use common::stdtrait::StdTrait;
+use utils::myuuid::*;
+use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
 use serde_json;
 

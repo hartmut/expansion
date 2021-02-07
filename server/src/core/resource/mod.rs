@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use common::configuration;
+use utils::configuration;
 
 pub mod worldtime;
 pub use self::worldtime::Worldtime;

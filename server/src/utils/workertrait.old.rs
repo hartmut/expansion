@@ -4,7 +4,7 @@
 //
 /// all the traits in one file
 
-use common::configuration::*;
+use utils::configuration::*;
 
 /// worker trait and struct
 #[derive(Debug)]

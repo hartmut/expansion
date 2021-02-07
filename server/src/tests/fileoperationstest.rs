@@ -4,7 +4,7 @@
 
 #[cfg(test)]
 mod tests {
-    use common::fileoperations::*;
+    use utils::fileoperations::*;
 
     #[test]
     fn readfile() {

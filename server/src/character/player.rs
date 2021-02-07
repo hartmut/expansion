@@ -5,8 +5,8 @@
 // player code, only for PCs
 
 // uses
-use common::myuuid::*;
-use common::stdtrait::StdTrait;
+use utils::myuuid::*;
+use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
 use serde_json;
 
@@ -56,7 +56,7 @@ mod tests {
 
     #[test]
     fn create_player_example() {
-        use common::fileoperations::*;
+        use utils::fileoperations::*;
 
         // create a standard module
         let _new_player1 = Player {

@@ -1,6 +1,7 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
+// Old configuration - will be reworked
 use serde::Deserialize;
 /// for initalization and configuration
 
@@ -33,7 +34,7 @@ struct FileDataWrap {
     source: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Clone)]
 pub struct FileData {
     storage_method: String,
     datafile: String,
@@ -70,7 +71,7 @@ impl FileData {
 
 impl Configuration {
     pub fn load_config(args: Vec<String>) -> Configuration {
-        // TODO use fileoperations from common::fileoperations
+        // TODO use fileoperations from utils::fileoperations
         // configuration is here server/src/resources/config.toml
         let path = Path::new(&args[1]);
         let display = path.display();
