@@ -16,5 +16,9 @@ specs = "*" # https://crates.io/crates/specs
 specs-hierarchy = "*" # https://github.com/rustgd/specs-hierarchy
 measurements = "*" # https://crates.io/crates/measurements
 
+[dependencies.amethyst]
+version = "*"
+features = ["vulkan", "gltf"]
+
 [features]
 default = []

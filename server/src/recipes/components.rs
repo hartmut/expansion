@@ -5,13 +5,9 @@
 // contains informations about components needed to build stations, other components, etc.
 
 // uses
-use utils::fileoperations::*;
 use utils::myuuid::*;
-use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
-use serde_json;
 use std::collections::BTreeMap;
-use std::io::BufRead;
 
 // one Component
 #[derive(Serialize, Deserialize, Debug)]
@@ -24,46 +20,3 @@ pub struct Component {
 }
 
 pub type ComponentListVec = BTreeMap<ExpUuid, Component>;
-
-// TODO initialize the Componentlist from the datafile
-pub fn initialize_component_listvec(componentfile: String) -> ComponentListVec {
-    let mut clv: ComponentListVec = BTreeMap::new();
-
-    let mut f = newreader(componentfile);
-    let mut line = String::new();
-
-    // iterate over all components
-    while f.read_line(&mut line).unwrap() > 0 {
-        // insert the station into the structure of the worker
-        let tempcomp: Component = <Component as StdTrait<Component>>::new_from_deserialized(&line);
-        let uuid = tempcomp.getuuid();
-        clv.insert(uuid, tempcomp);
-        line.clear();
-    }
-
-    clv
-}
-
-impl Component {
-    pub fn set_prodfrom_recipe_uuid(&mut self, producer: ExpUuid) {
-        self.prodfrom_recipe_uuid = producer.clone();
-    }
-}
-
-impl StdTrait<Component> for Component {
-    fn new_from_deserialized(input: &String) -> Component {
-        serde_json::from_str(&input).unwrap()
-    }
-
-    fn step(&mut self) {
-        println!("shouldn't neet to do anything per step",);
-    }
-
-    fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
-    fn serialize(&self) -> String {
-        serde_json::to_string(&self).unwrap()
-    }
-}

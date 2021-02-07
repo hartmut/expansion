@@ -8,7 +8,6 @@
 // uses
 use super::modules::Module;
 use utils::myuuid::*;
-use utils::stdtrait::StdTrait;
 use core::component::location::Location;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -90,26 +89,5 @@ impl AStation {
 
     pub fn get_name(&self) -> &String {
         &self.name
-    }
-}
-
-impl StdTrait<AStation> for AStation {
-    fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
-    fn serialize(&self) -> String {
-        serde_json::to_string(&self).unwrap()
-    }
-
-    fn new_from_deserialized(input: &String) -> AStation {
-        serde_json::from_str(&input).unwrap()
-    }
-
-    fn step(&mut self) {
-        // iterate over modules and update local variables
-
-        // update player, send infos relvant for player to player structure
-        unimplemented!()
     }
 }

@@ -6,9 +6,7 @@
 
 // uses
 use utils::myuuid::*;
-use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
-use serde_json;
 
 // players resources
 
@@ -29,24 +27,6 @@ impl Player {
             name: name,
             credits: 0,
         }
-    }
-}
-
-impl StdTrait<Player> for Player {
-    fn step(&mut self) {
-        self.credits += 1;
-    }
-
-    fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
-    fn serialize(&self) -> String {
-        serde_json::to_string(&self).unwrap()
-    }
-
-    fn new_from_deserialized(input: &String) -> Player {
-        serde_json::from_str(&input).unwrap()
     }
 }
 

@@ -8,8 +8,6 @@
 // uses
 use utils::fileoperations::*;
 use utils::myuuid::*;
-use utils::stdtrait::StdTrait;
-// use super::elements::*;
 use super::components::*;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -112,24 +110,4 @@ impl Recipe {
     }
 
     // TODO function improve recipe
-}
-
-impl StdTrait<Recipe> for Recipe {
-    fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
-    fn serialize(&self) -> String {
-        serde_json::to_string(&self).unwrap()
-    }
-
-    fn new_from_deserialized(input: &String) -> Recipe {
-        serde_json::from_str(&input).unwrap()
-    }
-
-    fn step(&mut self) {
-        // count up ticks should be done in the proucing module
-        // is there anything we could do here?
-        unimplemented!()
-    }
 }

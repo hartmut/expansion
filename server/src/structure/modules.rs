@@ -8,9 +8,7 @@
 // uses
 use super::storage::*;
 use utils::myuuid::*;
-use utils::stdtrait::StdTrait;
 use serde::{Deserialize, Serialize};
-use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Module {
@@ -64,23 +62,5 @@ impl Module {
             storage_volume: 0,
             mass: 0,
         }
-    }
-}
-
-impl StdTrait<Module> for Module {
-    fn getuuid(&self) -> ExpUuid {
-        self.uuid
-    }
-
-    fn serialize(&self) -> String {
-        serde_json::to_string(&self).unwrap()
-    }
-
-    fn new_from_deserialized(input: &String) -> Module {
-        serde_json::from_str(&input).unwrap()
-    }
-
-    fn step(&mut self) {
-        unimplemented!()
     }
 }
