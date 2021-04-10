@@ -6,19 +6,20 @@ extern crate amethyst;
 extern crate expansion;
 
 use amethyst::{
-    // prelude::*,
-    utils::*,
-};
+    prelude::*,
+    utils::application_root_dir,
+    GameDataBuilder,
+    Application};
+
 use expansion::utils::configuration;
+use expansion::core::states::running_state::*;
 use std::env;
 
 // my mods to use
 use expansion::core::Core;
 
-fn main() {
+fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
-    let app_root = application_root_dir().unwrap();
-    let resource_dir = app_root.join("resources/");
 
     // move all arguments to a string vector
     let args: Vec<String> = env::args().collect();
@@ -29,6 +30,16 @@ fn main() {
 
     // read configuration and resources
     let myconfig = configuration::Configuration::load_config(args);
+
+    // set up assets directory
+    let app_root = application_root_dir()?;
+    let assets_dir = app_root.join("assets");
+
+    // build GameData
+    let game_data = GameDataBuilder::default();
+
+    // build Application
+    let mut game = Application::new(assets_dir, RunningState, game_data)?;
 
     // create the player worker and initalize it
     // let _player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);

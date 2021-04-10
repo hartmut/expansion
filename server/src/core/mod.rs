@@ -3,8 +3,9 @@
 // See doc/LICENSE for licensing information
 use utils::configuration;
 use specs::prelude::*;
-mod common;
 pub mod component;
+pub mod states;
+mod common;
 mod entity;
 mod init;
 mod resource;
