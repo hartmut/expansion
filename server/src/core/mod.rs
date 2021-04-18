@@ -1,7 +1,8 @@
 // Experimental Simulator of a cooperative solar system economy.
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
-use utils::configuration;
+// use utils::configuration;
+use utils::config;
 use specs::prelude::*;
 pub mod component;
 pub mod states;
@@ -19,7 +20,7 @@ pub struct Core<'a, 'b> {
 }
 
 impl<'a, 'b> Core<'a, 'b> {
-    pub fn new(myconfig: &configuration::Configuration) -> Core<'a, 'b> {
+    pub fn new(myconfig: &config::Config) -> Core<'a, 'b> {
         // create the world
         let mut world = specs::World::new();
 

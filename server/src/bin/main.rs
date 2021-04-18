@@ -11,7 +11,7 @@ use amethyst::{
     GameDataBuilder,
     Application};
 
-use expansion::utils::configuration;
+use expansion::utils::config;
 use expansion::core::states::running_state::*;
 use std::env;
 
@@ -29,7 +29,7 @@ fn main() -> amethyst::Result<()> {
     }
 
     // read configuration and resources
-    let myconfig = configuration::Configuration::load_config(args);
+    let myconfig = config::Config::load_config(args);
 
     // set up assets directory
     let app_root = application_root_dir()?;
@@ -41,16 +41,8 @@ fn main() -> amethyst::Result<()> {
     // build Application
     let mut game = Application::new(assets_dir, RunningState, game_data)?;
 
-    // create the player worker and initalize it
-    // let _player_worker = PlayerWorker::new("Player_Worker".to_string(), &myconfig);
-    // create the structure worker and initalize it
-    // let _structure_worker = StructureWorker::new("Structure_Worker".to_string(), &myconfig);
-
     // create the core
     let mut core = Core::new(&myconfig);
-
-    // ticker input by webservice/json
-    // TODO start webserver as an own thread to get informations from clients
 
     // core loop, all the management is done in the systems and core.step()
     loop {
