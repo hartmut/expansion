@@ -6,6 +6,8 @@
 use chrono;
 use std::thread;
 use std::time::{Duration, SystemTime};
+use log::info;
+use amethyst::core::Time;
 
 // Descriptions
 #[derive(Debug)]
@@ -33,7 +35,7 @@ impl Worldtime {
     }
 
     pub fn step(&mut self) {
-        println!("this is a step of worldtime {}", self.worldtime);
+        info!("this is a step of worldtime {}", self.worldtime);
 
         //sleep and one more step
         thread::sleep(self.tick_dur.to_std().unwrap());
@@ -51,7 +53,7 @@ impl Worldtime {
         // save time of this step
         self.time_last = time_now;
 
-        println!(
+        info!(
             "step length with warp {:?}",
             self.step_leng * (self.warp as u32)
         );

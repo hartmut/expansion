@@ -44,6 +44,7 @@ fn main() -> amethyst::Result<()> {
     // create the core
     let mut core = Core::new(&myconfig);
 
+    // change to amethyst loop management
     // core loop, all the management is done in the systems and core.step()
     loop {
         core.step();

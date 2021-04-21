@@ -47,7 +47,7 @@ struct FileDataWrap {
     source: Option<String>,
 }
 
-/// Configuration 
+/// Configuration
 #[derive(Debug, Deserialize, Clone)]
 pub struct Config {
     tick: u64,
@@ -156,7 +156,7 @@ impl Config {
         if let Some(x) = input.food_per_person {self.food_per_person = x};
         if let Some(x) = input.water_per_person {self.water_per_person = x};
         // if let Some(x) = input.structure {self.structure = x.extract()};
-        // TODO files nee to be intergrated
+        // TODO files need to be intergrated
     }
 
     pub fn get_tick(&self) -> u64 {

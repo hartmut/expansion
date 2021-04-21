@@ -14,6 +14,7 @@ chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 specs = "*" # https://crates.io/crates/specs
 measurements = "*" # https://crates.io/crates/measurements
+log = "0.4" # https://crates.io/crates/log 
 
 [dependencies.amethyst]
 amethyst = "*" # https://crates.io/crates/amethyst
