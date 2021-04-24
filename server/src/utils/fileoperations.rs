@@ -133,7 +133,6 @@ pub fn writerecord(f: &mut LineWriter<File>, output: &String) -> u64 {
     f.write('\n'.to_string().as_bytes()).unwrap() as u64
 }
 
-// HACK Error handling instead of unwrap
 pub fn closefile(f: &mut LineWriter<File>) {
     f.flush().unwrap()
 }
@@ -152,7 +151,6 @@ pub fn write_string_to_file(filename: String, output: &String) -> u64 {
 
     // Read the file contents into a string, returns `io::Result<usize>`
     let i = f.write(&mut output.as_bytes()).unwrap() as u64;
-    // HACK better error handling necessary
     f.flush().unwrap();
     i
 }

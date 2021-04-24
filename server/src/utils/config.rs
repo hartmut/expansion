@@ -15,12 +15,12 @@ use toml;
 
 #[derive(Debug, Deserialize, Clone)]
 enum StorageType {
-    file,
+    File,
 }
 
 impl Default for StorageType {
     fn default() -> Self {
-        StorageType::file
+        StorageType::File
     }
 }
 
@@ -96,7 +96,7 @@ impl Default for Config {
 impl FileData {
     pub fn new_file(file: &str) -> Self {
         FileData {
-            storage_method: StorageType::file,
+            storage_method: StorageType::File,
             datafile: file.to_string(),
             source: "".to_string(),
         }

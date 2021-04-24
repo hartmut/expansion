@@ -9,19 +9,17 @@
 #[cfg(test)]
 mod tests {
     use utils::{myuuid::*, fileoperations::*};
-    use rand::{thread_rng, Rng};
     use recipes::components::*;
     use recipes::recipe::*;
     use serde_json;
     use serde_json::Error;
 
     fn create_one_recipe() -> Recipe {
-        let mut rng = thread_rng();
 
         let output_component = Component {
             uuid: get_new_uuid(),
             name: "cheap Solar Panel".to_string(),
-            weight: rng.gen_range(1000f64, 10000.),
+            weight: 200.3,
             volume: 5.0,
             prodfrom_recipe_uuid: uuidnull(),
         };
