@@ -5,9 +5,9 @@
 // contains informations about components needed to build stations, other components, etc.
 
 // uses
-use utils::myuuid::*;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
+use utils::myuuid::*;
 
 // one Component
 #[derive(Serialize, Deserialize, Debug)]

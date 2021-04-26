@@ -7,12 +7,12 @@
 
 // uses
 use super::modules::Module;
-use utils::myuuid::*;
 use core::component::location::Location;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::error::Error;
 use std::collections::BTreeMap;
+use utils::myuuid::*;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AStation {

@@ -16,7 +16,6 @@ mod tests {
 
         let result = readline(&mut f).unwrap();
         assert_eq!(result, "This is something else");
-
     }
 
     #[test]

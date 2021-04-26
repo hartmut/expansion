@@ -8,14 +8,13 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
-    use utils::{myuuid::*, fileoperations::*};
     use recipes::components::*;
     use recipes::recipe::*;
     use serde_json;
     use serde_json::Error;
+    use utils::{fileoperations::*, myuuid::*};
 
     fn create_one_recipe() -> Recipe {
-
         let output_component = Component {
             uuid: get_new_uuid(),
             name: "cheap Solar Panel".to_string(),

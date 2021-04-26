@@ -5,14 +5,10 @@
 extern crate amethyst;
 extern crate expansion;
 
-use amethyst::{
-    prelude::*,
-    utils::application_root_dir,
-    GameDataBuilder,
-    Application};
+use amethyst::{prelude::*, utils::application_root_dir, Application, GameDataBuilder};
 
-use expansion::utils::config;
 use expansion::core::states::running_state::*;
+use expansion::utils::config;
 use std::env;
 
 // my mods to use

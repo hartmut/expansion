@@ -7,8 +7,8 @@
 
 // uses
 use super::storage::*;
-use utils::myuuid::*;
 use serde::{Deserialize, Serialize};
+use utils::myuuid::*;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Module {

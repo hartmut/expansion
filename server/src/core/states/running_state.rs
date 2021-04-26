@@ -1,19 +1,16 @@
 // Standard State
-use amethyst::{GameData, SimpleState, SimpleTrans, StateData, prelude::*};
+use amethyst::{prelude::*, GameData, SimpleState, SimpleTrans, StateData};
 
 pub struct RunningState;
 
 impl SimpleState for RunningState {
     fn on_start(&mut self, data: StateData<'_, GameData<'_, '_>>) {
-        let StateData {
-            world, ..
-        } = data;
+        let StateData { world, .. } = data;
         // COMBAK continue, integrate time and bundle resources
-
     }
 
     fn update(&mut self, _data: &mut StateData<'_, GameData<'_, '_>>) -> SimpleTrans {
-                amethyst::Trans::None
+        amethyst::Trans::None
     }
 
     fn on_stop(&mut self, _data: StateData<'_, GameData<'_, '_>>) {}
@@ -30,7 +27,7 @@ impl SimpleState for RunningState {
         if let amethyst::StateEvent::Window(event) = &event {
             if amethyst::input::is_close_requested(&event) {
                 amethyst::Trans::Quit
-                } else {
+            } else {
                 amethyst::Trans::None
             }
         } else {
@@ -38,8 +35,8 @@ impl SimpleState for RunningState {
         }
     }
 
-    fn fixed_update(&mut self, _data: StateData<'_, GameData<'_, '_>>) -> amethyst::SimpleTrans {
-        amethyst::Trans::None
+    fn fixed_update(&mut self, _data: StateData<'_, GameData<'_, '_>>) -> SimpleTrans {
+        Trans::None
     }
 
     fn shadow_fixed_update(&mut self, _data: StateData<'_, GameData<'_, '_>>) {}

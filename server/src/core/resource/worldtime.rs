@@ -3,11 +3,11 @@
 // See doc/LICENSE for licensing information
 //
 // descriptions for entities
+use amethyst::core::Time;
 use chrono;
+use log::info;
 use std::thread;
 use std::time::{Duration, SystemTime};
-use log::info;
-use amethyst::core::Time;
 
 // Descriptions
 #[derive(Debug)]

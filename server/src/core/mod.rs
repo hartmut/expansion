@@ -2,14 +2,14 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 // use utils::configuration;
-use utils::config;
 use specs::prelude::*;
-pub mod component;
-pub mod states;
+use utils::config;
 mod common;
+pub mod component;
 mod entity;
 mod init;
 mod resource;
+pub mod states;
 mod system;
 
 // use core;

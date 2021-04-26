@@ -4,10 +4,10 @@
 //
 // managing the stations updates
 
-use utils::{configuration::*};
 use super::station::*;
 use recipes::elements::*;
 use recipes::recipe::*;
+use utils::configuration::*;
 
 /// holds the informations for the worker for structures
 /// is created out of recipes, when you want to see what modules are available,

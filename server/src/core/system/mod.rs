@@ -4,8 +4,7 @@
 
 pub fn new<'a, 'b>(mut world: &mut specs::World) -> specs::Dispatcher<'a, 'b> {
     // register dispatcher
-    let mut dispatcher = specs::DispatcherBuilder::new()
-        .build();
+    let mut dispatcher = specs::DispatcherBuilder::new().build();
 
     dispatcher.setup(&mut world);
     dispatcher

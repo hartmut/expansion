@@ -6,13 +6,13 @@
 // first step: write it for normal production
 
 // uses
-use utils::fileoperations::*;
-use utils::myuuid::*;
 use super::components::*;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::Error;
 use std::collections::HashMap;
+use utils::fileoperations::*;
+use utils::myuuid::*;
 
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]

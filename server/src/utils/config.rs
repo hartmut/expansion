@@ -62,7 +62,7 @@ pub struct Config {
     components: FileData,
 }
 
-#[derive(Debug, Deserialize, Clone,Default)]
+#[derive(Debug, Deserialize, Clone, Default)]
 pub struct FileData {
     storage_method: StorageType,
     datafile: String,
@@ -108,18 +108,16 @@ impl FileData {
 }
 
 impl FileDataWrap {
-    fn extract(&self) -> FileData{
+    fn extract(&self) -> FileData {
         let mut filedata = FileData::default();
         // TODO decompensate
         // if let Some(x) = self.storage_method {filedata.storage_method = x};
 
         filedata
     }
-
 }
 
 impl Config {
-
     pub fn load_config(args: Vec<String>) -> Config {
         // TODO use fileoperations from utils::fileoperations
         // configuration is here server/src/resources/config.toml
@@ -149,12 +147,22 @@ impl Config {
         config
     }
 
-    fn integrate_loaded_config (&mut self, input:ConfigWrap) {
-        if let Some(x) = input.tick {self.tick = x};
-        if let Some(x) = input.tick_length {self.tick_length = x};
-        if let Some(x) = input.o2_per_person {self.o2_per_person = x};
-        if let Some(x) = input.food_per_person {self.food_per_person = x};
-        if let Some(x) = input.water_per_person {self.water_per_person = x};
+    fn integrate_loaded_config(&mut self, input: ConfigWrap) {
+        if let Some(x) = input.tick {
+            self.tick = x
+        };
+        if let Some(x) = input.tick_length {
+            self.tick_length = x
+        };
+        if let Some(x) = input.o2_per_person {
+            self.o2_per_person = x
+        };
+        if let Some(x) = input.food_per_person {
+            self.food_per_person = x
+        };
+        if let Some(x) = input.water_per_person {
+            self.water_per_person = x
+        };
         // if let Some(x) = input.structure {self.structure = x.extract()};
         // TODO files need to be intergrated
     }
@@ -172,7 +180,7 @@ impl Config {
     }
 
     pub fn get_food(&self) -> f32 {
-         self.food_per_person
+        self.food_per_person
     }
 
     pub fn get_water(&self) -> f32 {
