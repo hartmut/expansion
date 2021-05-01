@@ -7,6 +7,7 @@ extern crate expansion;
 
 use amethyst::{prelude::*, utils::application_root_dir, Application, GameDataBuilder};
 
+use expansion::core::resource::*;
 use expansion::core::states::running_state::*;
 use expansion::utils::config;
 use std::env;
@@ -31,11 +32,14 @@ fn main() -> amethyst::Result<()> {
     let app_root = application_root_dir()?;
     let assets_dir = app_root.join("assets");
 
-    // build GameData
-    let game_data = GameDataBuilder::default();
+    // build Resources
+    let gamedata = GameDataBuilder::default();
+    let worldtime = Worldtime::new(myconfig.get_tick(), myconfig.get_tick_length());
 
     // build Application
-    let mut game = Application::new(assets_dir, RunningState, game_data)?;
+    let mut game = Application::build(assets_dir, RunningState)?
+        .with_resource(worldtime)
+        .build(gamedata);
 
     // create the core
     let mut core = Core::new(&myconfig);

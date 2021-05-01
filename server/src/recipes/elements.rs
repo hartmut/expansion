@@ -15,6 +15,7 @@ use serde_json;
 use serde_json::Error;
 use utils::fileoperations::*;
 
+// TODO change to resource
 // all the elemenets
 // updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
 #[derive(Serialize, Deserialize, Debug, Clone)]

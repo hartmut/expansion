@@ -11,8 +11,6 @@ use std::io::BufReader;
 use std::io::LineWriter;
 use std::path::Path;
 
-// IDEA rewrite to use json database by default, simpler?
-
 // General file functions
 
 /**

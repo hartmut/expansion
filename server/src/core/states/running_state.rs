@@ -1,12 +1,12 @@
 // Standard State
-use amethyst::{prelude::*, GameData, SimpleState, SimpleTrans, StateData};
+use amethyst::{prelude::*, SimpleState, SimpleTrans};
+// use amethyst::{prelude::*, GameData, SimpleState, SimpleTrans, StateData};
 
 pub struct RunningState;
 
 impl SimpleState for RunningState {
-    fn on_start(&mut self, data: StateData<'_, GameData<'_, '_>>) {
-        let StateData { world, .. } = data;
-        // COMBAK continue, integrate time and bundle resources
+    fn on_start(&mut self, data: StateData<'_, GameData>) {
+        let StateData { world, data } = data;
     }
 
     fn update(&mut self, _data: &mut StateData<'_, GameData<'_, '_>>) -> SimpleTrans {

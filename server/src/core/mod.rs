@@ -8,7 +8,7 @@ mod common;
 pub mod component;
 mod entity;
 mod init;
-mod resource;
+pub mod resource;
 pub mod states;
 mod system;
 

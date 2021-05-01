@@ -33,6 +33,7 @@ pub enum RecipeType {
 }
 
 // my recipes
+// TODO change to Resources
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Recipe {
     pub uuid: ExpUuid,           // uuid for this recipe

@@ -29,11 +29,12 @@ impl Worldtime {
             tick_length: chrono::Duration::hours(tick_length as i64),
             warp: (tick_length as u64) * 3600 / tick_dur,
             time_last: SystemTime::now(),
-            worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2023 00:00:00 +0000").unwrap(),
+            worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
             step_leng: Duration::new(0, 0),
         }
     }
 
+// COMBAK modify to system
     pub fn step(&mut self) {
         info!("this is a step of worldtime {}", self.worldtime);
 
