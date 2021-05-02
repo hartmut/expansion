@@ -62,7 +62,7 @@ mod tests {
     }
 
     #[test]
-    fn create_recipe_example_and_write_to_file() {
+    fn create_and_read_recipe_example_and_write_to_file() {
         let new_recipe = create_one_recipe();
 
         // and now write it
@@ -72,22 +72,22 @@ mod tests {
         closefile(&mut g);
     }
 
-    #[test]
-    pub fn read_recipe_hashmap_file() {
-        // read the json file and convert it to a hashmap of recipes
-        let result =
-            read_file_to_string("src/tests/testdataout/recipetestouthash.json".to_string());
-        let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
-
-        // check if the conversion of the elementlist from the json file worked as predicted
-        let recipehash: RecipeHashMap = match recipes {
-            Ok(recipes) => recipes,
-            Err(error) => {
-                panic!(
-                    "somethings is wrong with the deserialization of the recipehashfile: {:?}",
-                    error
-                );
-            }
-        };
-    }
+    // #[test]
+    // pub fn read_recipe_hashmap_file() {
+    //     // read the json file and convert it to a hashmap of recipes
+    //     let result =
+    //         read_file_to_string("src/tests/testdataout/recipetestouthash.json".to_string());
+    //     let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
+    //
+    //     // check if the conversion of the elementlist from the json file worked as predicted
+    //     let recipehash: RecipeHashMap = match recipes {
+    //         Ok(recipes) => recipes,
+    //         Err(error) => {
+    //             panic!(
+    //                 "somethings is wrong with the deserialization of the recipehashfile: {:?}",
+    //                 error
+    //             );
+    //         }
+    //     };
+    // }
 }

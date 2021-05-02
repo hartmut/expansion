@@ -19,4 +19,4 @@ legion-prefab = { git = "https://github.com/amethyst/prefab", rev = "7c30249f106
 
 [dependencies.amethyst]
 path = "../../game/amethyst"
-features = ["optional"]
+features = ["empty"]

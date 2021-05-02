@@ -9,7 +9,6 @@ pub use self::worldtime::Worldtime;
 
 pub fn new(world: &mut specs::World, myconfig: &config::Config) {
     world.insert(worldtime::Worldtime::new(
-        myconfig.get_tick(),
         myconfig.get_tick_length(),
     ));
 }

@@ -5,7 +5,9 @@
 extern crate amethyst;
 extern crate expansion;
 
-use amethyst::{utils::application_root_dir, Application};
+use amethyst::{
+    core::frame_limiter::FrameRateLimitStrategy, utils::application_root_dir, Application,
+};
 
 use expansion::core::resource::*;
 use expansion::core::states::running_state::*;
@@ -38,12 +40,13 @@ fn main() -> amethyst::Result<()> {
 
     // TODO move to Resources
     // build Resources
-    let worldtime = Worldtime::new(myconfig.get_tick(), myconfig.get_tick_length());
+    let worldtime = Worldtime::new(myconfig.get_tick_length());
 
     // TODO implement framlimiter
     // build Application
     let game = Application::build(assets_dir, RunningState)?
         .with_resource(worldtime)
+        .with_frame_limit(FrameRateLimitStrategy::Sleep, 1)
         .build(dispatcher)?;
 
     game.run();

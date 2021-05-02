@@ -27,7 +27,6 @@ impl Default for StorageType {
 /// configuration
 #[derive(Debug, Deserialize, Clone)]
 struct ConfigWrap {
-    tick: Option<u64>,
     tick_length: Option<u64>,
     o2_per_person: Option<u64>,
     food_per_person: Option<f32>,
@@ -49,7 +48,6 @@ struct FileDataWrap {
 /// Configuration
 #[derive(Debug, Deserialize, Clone)]
 pub struct Config {
-    tick: u64,
     tick_length: u64,
     o2_per_person: u64,
     food_per_person: f32,
@@ -73,8 +71,6 @@ pub struct FileData {
 impl Default for Config {
     fn default() -> Self {
         Config {
-            // default waiting for new step in realtime is 10 seconds
-            tick: 10,
             // default tick length in world time is 6 hours
             tick_length: 6,
             // default 02 need per person and 6 hours is 150 liters
@@ -142,9 +138,6 @@ impl Config {
     }
 
     fn integrate_loaded_config(&mut self, input: ConfigWrap) {
-        if let Some(x) = input.tick {
-            self.tick = x
-        };
         if let Some(x) = input.tick_length {
             self.tick_length = x
         };
@@ -159,10 +152,6 @@ impl Config {
         };
         // if let Some(x) = input.structure {self.structure = x.extract()};
         // TODO files need to be intergrated
-    }
-
-    pub fn get_tick(&self) -> u64 {
-        self.tick
     }
 
     pub fn get_tick_length(&self) -> u64 {

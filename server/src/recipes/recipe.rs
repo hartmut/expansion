@@ -23,7 +23,7 @@ use utils::myuuid::*;
 pub struct Bundle {
     pub quantity: u64,        // how much
     pub component: Component, // either a component or
-    pub element_no: u32, // a Element
+    pub element_no: u32,      // a Element
 }
 
 // types of recipes
@@ -110,5 +110,4 @@ impl Recipe {
             _ => false,
         }
     }
-
 }

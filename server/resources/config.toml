@@ -2,8 +2,8 @@
 # Copyright (C) 2016  Hartmut Prochaska
 # See doc/LICENSE for licensing information
 
-# duration of tick in seconds, one tick is tick_lenght hours in worldtime
-tick = 2
+# one tick is tick_lenght hours in worldtime per second realtime
+# tick = 2
 tick_length = 6
 # needed O2 in liter per player and 6 hour tick, later value per hour
 # https://www.quora.com/How-much-oxygen-does-the-average-person-burn-in-a-day-What-volume-of-air-is-that

@@ -16,7 +16,6 @@ extern crate toml;
 extern crate uuid;
 
 // describe mods to use
-pub mod character;
 pub mod core;
 pub mod recipes;
 pub mod structure;
