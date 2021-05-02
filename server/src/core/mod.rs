@@ -5,7 +5,6 @@
 mod common;
 pub mod component;
 mod entity;
-mod init;
 pub mod resource;
 pub mod states;
 pub mod system;
