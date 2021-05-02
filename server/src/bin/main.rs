@@ -7,8 +7,8 @@ extern crate expansion;
 
 use amethyst::{utils::application_root_dir, Application};
 
-use expansion::core::states::running_state::*;
 use expansion::core::resource::*;
+use expansion::core::states::running_state::*;
 use expansion::utils::config;
 
 use std::env;
@@ -33,11 +33,14 @@ fn main() -> amethyst::Result<()> {
     let app_root = application_root_dir()?;
     let assets_dir = app_root.join("assets");
 
+    // create Dispatcher
     let dispatcher = expansion::core::system::new();
 
+    // TODO move to Resources
     // build Resources
     let worldtime = Worldtime::new(myconfig.get_tick(), myconfig.get_tick_length());
 
+    // TODO implement framlimiter
     // build Application
     let game = Application::build(assets_dir, RunningState)?
         .with_resource(worldtime)

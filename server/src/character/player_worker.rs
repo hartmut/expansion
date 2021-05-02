@@ -13,7 +13,6 @@ use utils::myuuid::*;
 pub struct PlayerWorker {
     // persistancefile for player
     playerdata: FileData,
-    // TODO insert link on configuration instead of copying all the values
     // config: Configuration,
     // Btree with player in it
     player: BTreeMap<ExpUuid, Player>,

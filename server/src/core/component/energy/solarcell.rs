@@ -4,6 +4,8 @@
 
 use specs;
 
+// NOTE change to legion
+
 // solar cell energy production
 // first step solar cells, needs to be generalized for other production methods
 #[derive(Debug)]

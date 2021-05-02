@@ -39,7 +39,6 @@ struct ConfigWrap {
     components: Option<FileDataWrap>,
 }
 
-// TODO implement functions for this structure
 #[derive(Debug, Deserialize, Clone)]
 struct FileDataWrap {
     storage_method: Option<String>,
@@ -109,15 +108,12 @@ impl FileData {
 
 impl FileDataWrap {
     fn extract(&self) -> FileData {
-        // TODO decompensate
-        // if let Some(x) = self.storage_method {filedata.storage_method = x};
         FileData::default()
     }
 }
 
 impl Config {
     pub fn load_config(args: Vec<String>) -> Config {
-        // TODO use fileoperations from utils::fileoperations
         // configuration is here server/src/resources/config.toml
         let path = Path::new(&args[1]);
         let display = path.display();
@@ -204,11 +200,4 @@ impl Config {
     pub fn get_components_config(&self) -> FileData {
         self.components.clone()
     }
-}
-
-#[test]
-pub fn empty_config() {
-    let json = "".to_string();
-    let _decoded: Config = toml::de::from_str(&json).unwrap();
-    //TODO test missing
 }

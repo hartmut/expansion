@@ -26,7 +26,6 @@ pub struct Configuration {
     components: Option<FileDataWrap>,
 }
 
-// TODO implement functions for this structure
 #[derive(Debug, Deserialize, Clone)]
 struct FileDataWrap {
     storage_method: Option<String>,
@@ -71,7 +70,6 @@ impl FileData {
 
 impl Configuration {
     pub fn load_config(args: Vec<String>) -> Configuration {
-        // TODO use fileoperations from utils::fileoperations
         // configuration is here server/src/resources/config.toml
         let path = Path::new(&args[1]);
         let display = path.display();
@@ -183,11 +181,4 @@ impl Configuration {
             },
         }
     }
-}
-
-#[test]
-pub fn empty_config() {
-    let json = "".to_string();
-    let _decoded: Configuration = toml::de::from_str(&json).unwrap();
-    //TODO test missing
 }

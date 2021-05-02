@@ -4,6 +4,8 @@
 //
 // implementation of Storage
 
+// NOTE change to legion
+
 // use serde_json;
 use self::StorageType::*;
 use serde::{Deserialize, Serialize};

@@ -4,5 +4,7 @@
 //
 // all player relevant informations and activities
 
+// TODO integrated into new structure
+
 pub mod player;
 pub mod player_worker;

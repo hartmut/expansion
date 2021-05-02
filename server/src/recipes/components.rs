@@ -3,6 +3,8 @@
 // contains informations about components
 // needed to build stations, other components, etc.
 
+// NOTE change to legion
+
 // uses
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;

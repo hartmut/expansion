@@ -5,8 +5,8 @@
 use specs;
 // use specs::prelude::*;
 
-//TODO enum which describes what object this is and unse the enum in the structure
-//TODO rename the structure more appropriate
+//TODO rename the structure more appropriate and change to legion
+
 // Descriptions
 #[derive(Debug)]
 pub struct Desc {

@@ -23,7 +23,7 @@ pub struct AStation {
     energyprod: u64,  // energy production per tick, sum over all modules
     personcount: u64, // how many people are on this station
     o2prod: u64,      // production of O2, see above -> people module?
-    o2use: u64,       // use of O2 for people TODO modelle by a prduction modules -> people module?
+    o2use: u64,       // use of O2 for people
     #[serde(default)]
     mass: u64, // mass of the station
     location: Location, // where am I?
@@ -36,7 +36,7 @@ pub struct AStation {
 // general BtreeMap type for stations
 pub type BtreeStations = BTreeMap<ExpUuid, AStation>;
 
-// TODO create matrix of modules, one meter is one cell? or linked list dijkstra style? transpotision
+// TODO create matrix of modules
 // not necessesary, but difficult later to display, optimization later :)
 
 impl AStation {

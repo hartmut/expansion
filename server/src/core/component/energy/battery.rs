@@ -4,9 +4,11 @@
 
 use specs;
 
+// NOTE change to legion
+
 // energy store and production
 // first step solar cells, needs to be generalized for other production methods
-// assumption how much volt? TODO
+// NOTE assumption how much volt?
 #[derive(Debug)]
 pub struct Battery {
     act_storage: f64, //Ah https://en.wikipedia.org/wiki/Ampere_hour

@@ -5,6 +5,10 @@
 // definitino of recipes, generalized for all types of recipes like research and production
 // first step: write it for normal production
 
+// TODO integrated into new structure
+
+// NOTE change to legion
+
 // uses
 use super::components::*;
 use serde::{Deserialize, Serialize};
@@ -19,7 +23,6 @@ use utils::myuuid::*;
 pub struct Bundle {
     pub quantity: u64,        // how much
     pub component: Component, // either a component or
-    // TODO define with which units we work: cm^3? g/cm^3? or do we translate the elements to components?
     pub element_no: u32, // a Element
 }
 
@@ -33,7 +36,6 @@ pub enum RecipeType {
 }
 
 // my recipes
-// TODO change to Resources
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Recipe {
     pub uuid: ExpUuid,           // uuid for this recipe
@@ -46,7 +48,6 @@ pub struct Recipe {
     pub prefab: String, // json format for creation of a new module, empty if it is not a module
 }
 
-// TODO rewrite, so that only uuid in RecipeHashMap is needed
 pub type RecipeHashMap = HashMap<ExpUuid, Recipe>;
 
 pub fn read_recipe_file(filename: String) -> RecipeHashMap {
@@ -110,5 +111,4 @@ impl Recipe {
         }
     }
 
-    // TODO function improve recipe
 }

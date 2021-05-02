@@ -9,7 +9,8 @@
 use serde::{Deserialize, Serialize};
 use specs;
 
-// TODO other name, as mass is not a part of location but a part of a ...?
+// NOTE change to legion
+
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Location {
     long: f64, // longtitude (l) in relation to sun

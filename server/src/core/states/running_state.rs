@@ -5,6 +5,7 @@ pub struct RunningState;
 
 impl SimpleState for RunningState {
     fn on_start(&mut self, data: StateData<'_, GameData>) {
+        // TODO load World
         let StateData {
             world: _,
             resources: _,
@@ -16,9 +17,13 @@ impl SimpleState for RunningState {
         amethyst::Trans::None
     }
 
-    fn on_stop(&mut self, _data: StateData<'_, GameData>) {}
+    fn on_stop(&mut self, _data: StateData<'_, GameData>) {
+        // TODO save World
+    }
 
-    fn on_pause(&mut self, _data: StateData<'_, GameData>) {}
+    fn on_pause(&mut self, _data: StateData<'_, GameData>) {
+        // TODO save World
+    }
 
     fn on_resume(&mut self, _data: StateData<'_, GameData>) {}
 

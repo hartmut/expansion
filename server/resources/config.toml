@@ -3,7 +3,6 @@
 # See doc/LICENSE for licensing information
 
 # duration of tick in seconds, one tick is tick_lenght hours in worldtime
-# TODO read length of tick in configworker
 tick = 2
 tick_length = 6
 # needed O2 in liter per player and 6 hour tick, later value per hour

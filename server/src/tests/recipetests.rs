@@ -67,7 +67,6 @@ mod tests {
 
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/recipetestout.json".to_string());
-        // TODO rewrite to use serialize of recipe itself
         let lineout = serde_json::to_string(&new_recipe).unwrap();
         writerecord(&mut g, &lineout);
         closefile(&mut g);

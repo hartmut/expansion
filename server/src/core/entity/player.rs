@@ -5,6 +5,8 @@ use core::component::*;
 use specs;
 use specs::prelude::*;
 
+// NOTE change to legion
+
 pub fn new(world: &mut specs::World, name: String) -> Entity {
     world
         .create_entity()

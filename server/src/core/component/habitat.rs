@@ -5,9 +5,10 @@
 use measurements::pressure::*;
 use specs;
 
-// TODO mix of chemical mix, will also be used for athmosperes
+// NOTE change to legion
+
 pub struct ChemMix {
-    molecule: String, //TODO change to recipes::elements
+    molecule: String,
     kg: f64,
 }
 
@@ -15,7 +16,7 @@ pub struct ChemMix {
 #[derive(Debug)]
 pub struct Habitat {
     // in m^3
-    volume: u64, //TODO replace with component basics
+    volume: u64, // NOTE create module basics
 
     // Athmosphere
     // in kg, from this values and the volume you get the partial pressure
@@ -44,11 +45,9 @@ impl Habitat {
         Habitat {
             volume,
             // based on calculator https://www.engineeringtoolbox.com/oxygen-O2-density-specific-weight-temperature-pressure-d_2082.html
-            // TODO get the 0.2 from the configuration
             // gases are in kg in the available volume of the habitat, funnitures are not considered
             o2: 1.314 * volume as f64 * 0.2,
             // based on calculator https://www.engineeringtoolbox.com/nitrogen-N2-density-specific-weight-temperature-pressure-d_2039.html
-            // TODO get the 0.8 from the configuration
             n2: 1.16 * volume as f64 * 0.8,
             co2: 0.0,
             // source https://spaceflight.nasa.gov/shuttle/reference/shutref/orbiter/eclss/cabinpress.html - one atm or this kPa
@@ -59,8 +58,7 @@ impl Habitat {
     }
 
     // source https://en.wikipedia.org/wiki/Partial_pressure#In_diving_breathing_gases
-    // TODO formula is not completly corret
-    // TODO find pressure and cald library
+    // TODO find pressure and cald library and correct the formula
     fn o2_part_pressure(&self) -> f64 {
         (self.o2 / self.volume as f64) * Pressure::from_kilopascals(self.k_pa).as_atmospheres()
     }

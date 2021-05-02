@@ -6,7 +6,6 @@
 // or should we model the basic elements into components?
 
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
-//! TODO integrate isotops
 
 // uses
 use serde::de::Deserializer;
@@ -68,7 +67,6 @@ where
     Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or("".to_string()))
 }
 
-// TODO react correctly to other types off errors, e.g. "" instead of null
 fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
 where
     D: Deserializer<'de>,
@@ -132,13 +130,3 @@ pub fn read_elementlist_file(filename: String) -> ElementListVec {
     outevec.append(&mut evec);
     outevec
 }
-
-// TODO create collection struct to reference to, use arc?
-
-// TODO configuration in TOML file, and load the resources the structure worker?
-
-// TODO stdstruct?, read all elements from local json databasefile
-
-// TODO update function for database from web
-
-// TODO search in database

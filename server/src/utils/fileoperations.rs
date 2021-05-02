@@ -90,7 +90,6 @@ pub fn read_record(mut f: &mut BufReader<File>) -> String {
     let mut line = String::new();
 
     // read lines until you have a json record
-    // TODO example from tokio *if let Some(n) = buf.as_ref().iter().position(|b| *b == b'\n') {*
     // https://lukesteensen.com/2016/12/getting-started-with-tokio/
     loop {
         let result = readline(&mut f);
@@ -125,7 +124,6 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
 }
 
 // genericline  writerecord function, returns length of written resources
-// TODO better error handling in writerecord
 pub fn writerecord(f: &mut LineWriter<File>, output: &String) -> u64 {
     f.write(output.as_bytes()).unwrap() as u64;
     f.write('\n'.to_string().as_bytes()).unwrap() as u64

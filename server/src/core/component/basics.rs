@@ -4,7 +4,8 @@
 
 use specs;
 
-// solar cell energy production
+// NOTE change to legion
+
 // first step solar cells, needs to be generalized for other production methods
 #[derive(Debug)]
 pub struct BasicParameter {

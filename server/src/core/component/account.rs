@@ -3,6 +3,7 @@
 // See doc/LICENSE for licensing information
 
 use specs;
+// NOTE change to legion
 
 // Money
 #[derive(Debug)]

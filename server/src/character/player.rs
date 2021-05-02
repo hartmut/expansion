@@ -17,7 +17,7 @@ pub struct Player {
     credits: u64,  /* credits in purse, needed for buying inventar and material
                     * list of available recipes of this player
                     *
-                    * TODO list of stations and ships uuids, send messages to update states? */
+                    * list of stations and ships uuids, send messages to update states? */
 }
 
 impl Player {
@@ -51,13 +51,8 @@ mod tests {
             credits: 1000,
         };
 
-        //TODO repaire test
         // and now write it
         let mut g = newlinewriter("src/tests/testdataout/playertestout.json".to_string());
-        // let lineout = Player::serialize1(&new_player1);
-        // writerecord(&mut g, &lineout);
-        // let lineout = Player::serialize(&new_player2);
-        // writerecord(&mut g, &lineout);
         closefile(&mut g);
     }
 }

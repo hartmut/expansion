@@ -12,7 +12,6 @@ use utils::configuration::*;
 /// holds the informations for the worker for structures
 /// is created out of recipes, when you want to see what modules are available,
 /// you need to select the recipes for RecipeType => Module
-// TODO recipe list with loading at start etc.
 #[derive(Debug)]
 pub struct StructureWorker {
     // persistancefile for stations

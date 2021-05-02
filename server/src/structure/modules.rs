@@ -3,7 +3,8 @@
 // See doc/LICENSE for licensing information
 //
 // templates of the modules usabel in stations and ships
-// TODO how to implement improvements etc.? copy module and work with this in runtime?
+
+// NOTE change to legion
 
 // uses
 use super::storage::*;
@@ -38,7 +39,6 @@ pub struct Module {
     mass: u64, // in kg
 }
 
-// TODO test to create example modules
 impl Module {
     //! create a new Module for a structure
     pub fn new(
