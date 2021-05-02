@@ -42,12 +42,13 @@ fn main() -> amethyst::Result<()> {
     // build Resources
     let worldtime = Worldtime::new(myconfig.get_tick_length());
 
-    // TODO implement framlimiter
     // build Application
     let game = Application::build(assets_dir, RunningState)?
         .with_resource(worldtime)
         .with_frame_limit(FrameRateLimitStrategy::Sleep, 1)
         .build(dispatcher)?;
+
+    //TODO Load World
 
     game.run();
 

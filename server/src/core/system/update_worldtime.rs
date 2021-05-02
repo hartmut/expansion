@@ -11,7 +11,7 @@ impl System for UpdateWorldtime {
         Box::new(
             SystemBuilder::new("UpdateWorldtime")
                 .write_resource::<Worldtime>()
-                .build(move |_commands, _world, time, _queryy| {
+                .build(move |_commands, _world, time, _query| {
                     info!("this is a step of worldtime {}", time.worldtime);
 
                     //sleep and one more step

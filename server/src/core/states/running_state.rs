@@ -5,7 +5,6 @@ pub struct RunningState;
 
 impl SimpleState for RunningState {
     fn on_start(&mut self, data: StateData<'_, GameData>) {
-        // TODO load World
         let StateData {
             world: _,
             resources: _,
@@ -35,6 +34,7 @@ impl SimpleState for RunningState {
         if let amethyst::StateEvent::Window(event) = &event {
             if amethyst::input::is_close_requested(&event) {
                 amethyst::Trans::Quit
+                // TODO save World
             } else {
                 amethyst::Trans::None
             }
