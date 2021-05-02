@@ -109,11 +109,9 @@ impl FileData {
 
 impl FileDataWrap {
     fn extract(&self) -> FileData {
-        let mut filedata = FileData::default();
         // TODO decompensate
         // if let Some(x) = self.storage_method {filedata.storage_method = x};
-
-        filedata
+        FileData::default()
     }
 }
 

@@ -3,7 +3,6 @@
 // See doc/LICENSE for licensing information
 //
 // descriptions for entities
-use amethyst::core::Time;
 use chrono;
 use log::info;
 use std::thread;
@@ -12,11 +11,11 @@ use std::time::{Duration, SystemTime};
 // Descriptions
 #[derive(Debug)]
 pub struct Worldtime {
-    tick_counter: u64,                                    // counter of current step
-    tick_length: chrono::Duration,                        // duration in worldtime between two ticks
-    tick_dur: chrono::Duration,                           // duration in realtime
-    warp: u64,                                            // speedup of world- vs. real-time
-    time_last: SystemTime,                                // last time a step has been taken
+    pub tick_counter: u64,                                // counter of current step
+    pub tick_length: chrono::Duration,                    // duration in worldtime between two ticks
+    pub tick_dur: chrono::Duration,                       // duration in realtime
+    pub warp: u64,                                        // speedup of world- vs. real-time
+    pub time_last: SystemTime,                            // last time a step has been taken
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
     pub step_leng: Duration, // duration between two steps in worldtime in secs
 }
@@ -34,7 +33,7 @@ impl Worldtime {
         }
     }
 
-// COMBAK modify to system
+    // COMBAK modify to system
     pub fn step(&mut self) {
         info!("this is a step of worldtime {}", self.worldtime);
 

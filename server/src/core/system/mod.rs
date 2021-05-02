@@ -2,10 +2,13 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-pub fn new<'a, 'b>(mut world: &mut specs::World) -> specs::Dispatcher<'a, 'b> {
-    // register dispatcher
-    let mut dispatcher = specs::DispatcherBuilder::new().build();
+pub mod update_worldtime;
 
-    dispatcher.setup(&mut world);
+use amethyst::prelude::*;
+
+pub fn new() -> DispatcherBuilder {
+    // build Dispatcher
+    let mut dispatcher = DispatcherBuilder::default();
+    dispatcher.add_system(update_worldtime::UpdateWorldtime);
     dispatcher
 }

@@ -5,15 +5,16 @@
 extern crate amethyst;
 extern crate expansion;
 
-use amethyst::{prelude::*, utils::application_root_dir, Application, GameDataBuilder};
+use amethyst::{utils::application_root_dir, Application};
 
-use expansion::core::resource::*;
 use expansion::core::states::running_state::*;
+use expansion::core::resource::*;
 use expansion::utils::config;
+
 use std::env;
 
 // my mods to use
-use expansion::core::Core;
+// use expansion::core::Core;
 
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
@@ -32,21 +33,17 @@ fn main() -> amethyst::Result<()> {
     let app_root = application_root_dir()?;
     let assets_dir = app_root.join("assets");
 
+    let dispatcher = expansion::core::system::new();
+
     // build Resources
-    let gamedata = GameDataBuilder::default();
     let worldtime = Worldtime::new(myconfig.get_tick(), myconfig.get_tick_length());
 
     // build Application
-    let mut game = Application::build(assets_dir, RunningState)?
+    let game = Application::build(assets_dir, RunningState)?
         .with_resource(worldtime)
-        .build(gamedata);
+        .build(dispatcher)?;
 
-    // create the core
-    let mut core = Core::new(&myconfig);
+    game.run();
 
-    // change to amethyst loop management
-    // core loop, all the management is done in the systems and core.step()
-    loop {
-        core.step();
-    }
+    Ok(())
 }
