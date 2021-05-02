@@ -7,4 +7,3 @@
 pub mod modules;
 pub mod station;
 pub mod storage;
-pub mod structure_worker;
