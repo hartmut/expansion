@@ -27,6 +27,8 @@ pub mod energy;
 pub use self::energy::battery::Battery;
 pub use self::energy::solarcell::SolarCell;
 
+// TODO appbuilder integrate components
+
 // register all the components
 pub fn new(world: &mut specs::World) {
     world.register::<Desc>();

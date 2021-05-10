@@ -6,6 +6,7 @@ pub mod update_worldtime;
 
 use amethyst::prelude::*;
 
+// TODO change to bundle loader
 pub fn new() -> DispatcherBuilder {
     // build Dispatcher
     let mut dispatcher = DispatcherBuilder::default();

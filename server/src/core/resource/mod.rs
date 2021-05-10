@@ -2,13 +2,27 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use utils::config;
+use amethyst::{
+    core::ecs::SystemBundle,
+    ecs::{DispatcherBuilder, Resources, World},
+    error::Error,
+};
 
 pub mod worldtime;
 pub use self::worldtime::Worldtime;
 
-pub fn new(world: &mut specs::World, myconfig: &config::Config) {
-    world.insert(worldtime::Worldtime::new(
-        myconfig.get_tick_length(),
-    ));
+pub struct ExpResources;
+
+impl SystemBundle for ExpResources {
+    fn load(
+        &mut self,
+        _world: &mut World,
+        resources: &mut Resources,
+        _builder: &mut DispatcherBuilder,
+    ) -> Result<(), Error> {
+        let worldtime = Worldtime::new(6);
+        resources.insert(worldtime);
+
+        Ok(())
+    }
 }

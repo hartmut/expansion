@@ -4,6 +4,7 @@
 // Old configuration - will be reworked
 use serde::Deserialize;
 /// for initalization and configuration
+// TODO delete after config module works
 
 /// used mods
 use std::fs::File;

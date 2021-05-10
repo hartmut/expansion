@@ -9,7 +9,7 @@ use amethyst::{
     core::frame_limiter::FrameRateLimitStrategy, utils::application_root_dir, Application,
 };
 
-use expansion::core::resource::*;
+use expansion::core::resource::{self, *};
 use expansion::core::states::running_state::*;
 use expansion::utils::config;
 
@@ -29,22 +29,20 @@ fn main() -> amethyst::Result<()> {
     }
 
     // read configuration and resources
-    let myconfig = config::Config::load_config(args);
+    let _myconfig = config::Config::load_config(args);
 
     // set up assets directory
     let app_root = application_root_dir()?;
     let assets_dir = app_root.join("assets");
 
     // create Dispatcher
-    let dispatcher = expansion::core::system::new();
-
-    // TODO move to Resources
-    // build Resources
-    let worldtime = Worldtime::new(myconfig.get_tick_length());
+    let mut dispatcher = expansion::core::system::new();
+    dispatcher.add_bundle(resource::ExpResources);
+    // TODO bundle loader component
+    // TODO bundle loader system
 
     // build Application
     let game = Application::build(assets_dir, RunningState)?
-        .with_resource(worldtime)
         .with_frame_limit(FrameRateLimitStrategy::Sleep, 1)
         .build(dispatcher)?;
 
