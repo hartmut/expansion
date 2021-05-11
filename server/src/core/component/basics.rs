@@ -2,12 +2,8 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use specs;
-
-// NOTE change to legion
-
 // first step solar cells, needs to be generalized for other production methods
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BasicParameter {
     mass: f64, //in kg
     volume: f64, //in m^3

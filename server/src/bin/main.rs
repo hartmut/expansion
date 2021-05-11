@@ -9,7 +9,7 @@ use amethyst::{
     core::frame_limiter::FrameRateLimitStrategy, utils::application_root_dir, Application,
 };
 
-use expansion::core::resource::{self, *};
+use expansion::core::resource;
 use expansion::core::states::running_state::*;
 use expansion::utils::config;
 

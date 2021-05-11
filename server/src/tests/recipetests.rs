@@ -11,7 +11,6 @@ mod tests {
     use recipes::components::*;
     use recipes::recipe::*;
     use serde_json;
-    use serde_json::Error;
     use utils::{fileoperations::*, myuuid::*};
 
     fn create_one_recipe() -> Recipe {

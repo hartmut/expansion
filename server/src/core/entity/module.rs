@@ -1,12 +1,11 @@
-use core::component::*;
-use specs;
-use specs::prelude::*;
+use amethyst::prelude::*;
+use core::component::desc::Desc;
 
-// NOTE change to legion
+pub struct Module;
 
-pub fn new(world: &mut specs::World, name: String, _parent: Entity) -> Entity {
-    world
-        .create_entity()
-        .with(Desc::new(name, "".to_string()))
-        .build()
+impl Module {
+    pub fn new(world: &mut World, name: String, _parent: Entity) -> Entity {
+        let desc = Desc::new(name, "".to_string());
+        world.push((desc,))
+    }
 }
