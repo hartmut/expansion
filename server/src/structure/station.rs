@@ -8,13 +8,10 @@
 // uses
 use super::modules::Module;
 use core::component::location::Location;
-use serde::{Deserialize, Serialize};
-use serde_json;
-use serde_json::error::Error;
 use std::collections::BTreeMap;
 use utils::myuuid::*;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Debug)]
 pub struct AStation {
     uuid: ExpUuid,    // global uniqe id, describes this
     name: String,     // name of this station
@@ -24,7 +21,6 @@ pub struct AStation {
     personcount: u64, // how many people are on this station
     o2prod: u64,      // production of O2, see above -> people module?
     o2use: u64,       // use of O2 for people
-    #[serde(default)]
     mass: u64, // mass of the station
     location: Location, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
@@ -56,10 +52,6 @@ impl AStation {
             location: Location::new(1.0, 12.0, 3.0, 4),
             module_list: module_list_temp,
         }
-    }
-
-    pub fn deserialize_test(input: &String) -> Result<AStation, Error> {
-        serde_json::from_str(&input)
     }
 
     pub fn arriving_people(&self) {

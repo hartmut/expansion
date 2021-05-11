@@ -4,7 +4,6 @@
 
 use measurements::pressure::*;
 
-// NOTE change to legion
 
 pub struct ChemMix {
     molecule: String,
@@ -12,7 +11,7 @@ pub struct ChemMix {
 }
 
 // when a module has an athmospere this component is used
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Habitat {
     // in m^3
     volume: u64, // NOTE create module basics
@@ -74,7 +73,7 @@ impl Habitat {
 mod tests {
     // use super::*;
     // use specs::prelude::*;
-    
+
     // TODO rewrite test
 
     // fn create_world() -> specs::World {

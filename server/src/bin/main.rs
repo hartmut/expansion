@@ -38,8 +38,6 @@ fn main() -> amethyst::Result<()> {
     // create Dispatcher
     let mut dispatcher = expansion::core::system::new();
     dispatcher.add_bundle(resource::ExpResources);
-    // TODO bundle loader component
-    // TODO bundle loader system
 
     // build Application
     let game = Application::build(assets_dir, RunningState)?

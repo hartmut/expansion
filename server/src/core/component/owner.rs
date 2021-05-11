@@ -2,35 +2,31 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use specs;
-
-// NOTE change to legion
+use amethyst::ecs::Entity;
 
 // Owner of entities
-#[derive(Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Owner {
-    pub id: specs::world::Index,
+    pub id: Entity,
 }
 
 impl Owner {
-    pub fn new(id: specs::world::Index) -> Self {
+    pub fn new(id: Entity) -> Self {
         Owner { id }
     }
 }
 
-impl specs::Component for Owner {
-    type Storage = specs::VecStorage<Owner>;
-}
-
 #[cfg(test)]
 mod tests {
-    use super::*;
-    use specs::prelude::*;
+    // use super::*;
+    // use specs::prelude::*;
 
-    #[test]
-    fn create_player_component() {
-        let mut world = specs::World::new();
-        world.register::<Owner>();
-        world.create_entity().with(Owner::new(1)).build();
-    }
+// TODO new test
+
+    // #[test]
+    // fn create_player_component() {
+    //     let mut world = specs::World::new();
+    //     world.register::<Owner>();
+    //     world.create_entity().with(Owner::new(1)).build();
+    // }
 }
