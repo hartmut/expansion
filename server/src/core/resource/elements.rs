@@ -8,6 +8,7 @@
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
 // uses
+use log::info;
 use serde::de::Deserializer;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -58,26 +59,27 @@ pub struct Element {
     pub ypos: u32,
 }
 
-pub type ElementListVec = Vec<Element>;
+type ElementListVec = Vec<Element>;
 
-fn parse_string<'de, D>(d: D) -> Result<String, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or("".to_string()))
+#[derive(Debug)]
+pub struct ElementList {
+    elements: ElementListVec,
 }
 
-fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
-where
-    D: Deserializer<'de>,
-{
-    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or(0.0))
+impl ElementList {
+    pub fn new() -> Self {
+        info!("Reading ElementList");
+        ElementList {
+            elements: read_elementlist_file(),
+        }
+    }
 }
 
 // read Elementlist from file
-pub fn read_elementlist_file(filename: String) -> ElementListVec {
+fn read_elementlist_file() -> ElementListVec {
     // read the json file and convert it to a vector of elements
-    let result = read_file_to_string(filename);
+    // Source https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json
+    let result = read_file_to_string("resources/PeriodicTableJSON-cleaned.json".to_string());
     let evec: Result<ElementListVec, Error> = serde_json::from_str(&result);
 
     // check if the conversion of the elementlist from the json file worked as predicted
@@ -129,4 +131,18 @@ pub fn read_elementlist_file(filename: String) -> ElementListVec {
     outevec.push(dark_matter);
     outevec.append(&mut evec);
     outevec
+}
+
+fn parse_string<'de, D>(d: D) -> Result<String, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or("".to_string()))
+}
+
+fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or(0.0))
 }

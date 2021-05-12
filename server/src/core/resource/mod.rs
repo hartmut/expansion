@@ -8,8 +8,12 @@ use amethyst::{
     error::Error,
 };
 
+pub mod elements;
 pub mod worldtime;
+
+pub use self::elements::ElementList;
 pub use self::worldtime::Worldtime;
+use crate::utils::config;
 
 pub struct ExpResources;
 
@@ -20,8 +24,20 @@ impl SystemBundle for ExpResources {
         resources: &mut Resources,
         _builder: &mut DispatcherBuilder,
     ) -> Result<(), Error> {
+        // read config and insert resource``
+        let _myconfig = config::Config::load_config("resources/config.toml");
+
+        // insert resource worldtime
+        // COMBAK use parameter from config
         let worldtime = Worldtime::new(6);
         resources.insert(worldtime);
+
+        // insert resource elementlist
+        // COMBAK read
+        let elements = ElementList::new();
+        resources.insert(elements);
+
+        // COMBAK add myconfig as resource
 
         Ok(())
     }

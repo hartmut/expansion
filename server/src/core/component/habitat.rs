@@ -4,7 +4,6 @@
 
 use measurements::pressure::*;
 
-
 pub struct ChemMix {
     molecule: String,
     kg: f64,
@@ -32,7 +31,6 @@ pub struct Habitat {
     // how many people are currently in the habitat
     person_count: u32,
 }
-
 
 impl Habitat {
     // start with a human habitable athmosphere

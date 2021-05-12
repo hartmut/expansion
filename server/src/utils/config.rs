@@ -110,9 +110,9 @@ impl FileDataWrap {
 }
 
 impl Config {
-    pub fn load_config(args: Vec<String>) -> Config {
+    pub fn load_config(file: &str) -> Config {
         // configuration is here server/src/resources/config.toml
-        let path = Path::new(&args[1]);
+        let path = Path::new(file);
         let display = path.display();
         let mut input = String::new();
 

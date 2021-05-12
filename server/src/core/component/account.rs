@@ -14,14 +14,13 @@ impl Account {
     }
 }
 
-
 #[cfg(test)]
 mod tests {
     // use super::*;
     // use specs::prelude::*;
     // use specs::world::Builder;
 
-// TODO rewrite test
+    // TODO rewrite test
     // #[test]
     // fn create_player_component() {
     //     let mut world = specs::World::new();

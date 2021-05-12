@@ -13,20 +13,20 @@ use utils::myuuid::*;
 
 #[derive(Debug)]
 pub struct AStation {
-    uuid: ExpUuid,    // global uniqe id, describes this
-    name: String,     // name of this station
-    owner: ExpUuid,   // player who owns this station
-    energyuse: u64,   // energy usage per tick, sum over all modules
-    energyprod: u64,  // energy production per tick, sum over all modules
-    personcount: u64, // how many people are on this station
-    o2prod: u64,      // production of O2, see above -> people module?
-    o2use: u64,       // use of O2 for people
-    mass: u64, // mass of the station
+    uuid: ExpUuid,      // global uniqe id, describes this
+    name: String,       // name of this station
+    owner: ExpUuid,     // player who owns this station
+    energyuse: u64,     // energy usage per tick, sum over all modules
+    energyprod: u64,    // energy production per tick, sum over all modules
+    personcount: u64,   // how many people are on this station
+    o2prod: u64,        // production of O2, see above -> people module?
+    o2use: u64,         // use of O2 for people
+    mass: u64,          // mass of the station
     location: Location, // where am I?
     module_list: Vec<Module>, /* list of modules of this station
-                       *
-                       * list of inventar on this station -> stored in storagemodules
-                       * list of NPC on station */
+                         *
+                         * list of inventar on this station -> stored in storagemodules
+                         * list of NPC on station */
 }
 
 // general BtreeMap type for stations

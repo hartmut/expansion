@@ -21,7 +21,7 @@ mod tests {
     // use super::*;
     // use specs::prelude::*;
 
-// TODO new test
+    // TODO new test
 
     // #[test]
     // fn create_player_component() {
