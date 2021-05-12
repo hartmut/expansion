@@ -33,7 +33,7 @@ impl SystemBundle for ExpResources {
         resources.insert(worldtime);
 
         // insert resource elementlist
-        // COMBAK read
+        // COMBAK read elementlist from file in config
         let elements = ElementList::new();
         resources.insert(elements);
 
