@@ -14,6 +14,13 @@ use std::io::prelude::*;
 use std::path::Path;
 use toml;
 
+/// When you add or remove a parameter you need to change
+/// - the config.toml file
+/// - the structures ConfigWrap and Config
+/// - the implementation of default
+/// - the implementation of the function integrate_loaded_config
+/// - and add or remove a function to get the value
+
 #[derive(Debug, Deserialize, Clone)]
 enum StorageType {
     File,

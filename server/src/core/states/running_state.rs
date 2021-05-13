@@ -1,5 +1,6 @@
 // Standard State
 use amethyst::{prelude::*, SimpleState, SimpleTrans};
+use log::info;
 
 pub struct RunningState;
 
@@ -10,6 +11,7 @@ impl SimpleState for RunningState {
             resources: _,
             data: _,
         } = data;
+        info!("loading world");
     }
 
     fn update(&mut self, _data: &mut StateData<'_, GameData>) -> SimpleTrans {
@@ -33,6 +35,7 @@ impl SimpleState for RunningState {
     ) -> amethyst::SimpleTrans {
         if let amethyst::StateEvent::Window(event) = &event {
             if amethyst::input::is_close_requested(&event) {
+                info!("saving world");
                 amethyst::Trans::Quit
                 // TODO save World
             } else {

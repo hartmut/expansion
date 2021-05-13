@@ -4,6 +4,5 @@
 //
 // all central tools
 
-pub mod config;
 pub mod fileoperations;
 pub mod myuuid;

@@ -10,10 +10,11 @@ use amethyst::{
 
 pub mod elements;
 pub mod worldtime;
+pub mod config;
 
-pub use self::elements::ElementList;
-pub use self::worldtime::Worldtime;
-use crate::utils::config;
+use self::elements::ElementList;
+use self::worldtime::Worldtime;
+use self::config::Config;
 
 pub struct ExpResources;
 
@@ -25,11 +26,11 @@ impl SystemBundle for ExpResources {
         _builder: &mut DispatcherBuilder,
     ) -> Result<(), Error> {
         // read config and insert resource``
-        let _myconfig = config::Config::load_config("resources/config.toml");
+        let config = Config::load_config("resources/config.toml");
 
         // insert resource worldtime
         // COMBAK use parameter from config
-        let worldtime = Worldtime::new(6);
+        let worldtime = Worldtime::new(config.get_tick_length());
         resources.insert(worldtime);
 
         // insert resource elementlist
@@ -37,7 +38,8 @@ impl SystemBundle for ExpResources {
         let elements = ElementList::new();
         resources.insert(elements);
 
-        // COMBAK add myconfig as resource
+        // insert resource config
+        resources.insert(config);
 
         Ok(())
     }
