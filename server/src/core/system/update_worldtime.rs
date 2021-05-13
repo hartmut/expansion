@@ -12,8 +12,6 @@ impl System for UpdateWorldtime {
             SystemBuilder::new("UpdateWorldtime")
                 .write_resource::<Worldtime>()
                 .build(move |_commands, _world, time, _query| {
-                    info!("this is a step of worldtime {}", time.worldtime);
-
                     //sleep and one more step
                     time.tick_counter += 1;
 
@@ -29,10 +27,7 @@ impl System for UpdateWorldtime {
                     // save time of this step
                     time.time_last = time_now;
 
-                    info!(
-                        "step length with warp {:?}",
-                        time.step_leng * (time.warp as u32)
-                    );
+                    info!("step into worldtime {}", time.worldtime);
                 }),
         )
     }

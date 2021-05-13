@@ -173,9 +173,7 @@ impl Config {
         if let Some(x) = input.elements {
             self.elements = x.extract();
         };
-        info!("{:?}", self.elements);
-        // if let Some(x) = input.structure {self.structure = x.extract()};
-        // TODO files need to be intergrated
+        // TODO more files need to be intergrated
     }
 
     pub fn get_tick_length(&self) -> u64 {

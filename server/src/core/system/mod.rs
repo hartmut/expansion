@@ -9,6 +9,8 @@ use amethyst::prelude::*;
 pub fn new() -> DispatcherBuilder {
     // build Dispatcher
     let mut dispatcher = DispatcherBuilder::default();
-    dispatcher.add_system(update_worldtime::UpdateWorldtime);
+    dispatcher
+        .add_system(update_worldtime::UpdateWorldtime)
+        .flush();
     dispatcher
 }

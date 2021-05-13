@@ -39,7 +39,6 @@ impl SystemBundle for ExpResources {
 
         // insert resource config
         resources.insert(config);
-        
 
         Ok(())
     }
