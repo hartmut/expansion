@@ -8,13 +8,13 @@ use amethyst::{
     error::Error,
 };
 
+pub mod config;
 pub mod elements;
 pub mod worldtime;
-pub mod config;
 
+use self::config::Config;
 use self::elements::ElementList;
 use self::worldtime::Worldtime;
-use self::config::Config;
 
 pub struct ExpResources;
 
@@ -29,17 +29,17 @@ impl SystemBundle for ExpResources {
         let config = Config::load_config("resources/config.toml");
 
         // insert resource worldtime
-        // COMBAK use parameter from config
         let worldtime = Worldtime::new(config.get_tick_length());
         resources.insert(worldtime);
 
         // insert resource elementlist
-        // COMBAK read elementlist from file in config
+        // COMBAK use data source for elementlist from configfile
         let elements = ElementList::new();
         resources.insert(elements);
 
         // insert resource config
         resources.insert(config);
+        
 
         Ok(())
     }

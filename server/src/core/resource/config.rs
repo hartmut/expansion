@@ -4,6 +4,7 @@
 // Old configuration - will be reworked
 
 // implemented with default - will obsolete configuration.rs
+use log::info;
 use serde::Deserialize;
 /// for initalization and configuration
 // TODO mitgrate to resource
@@ -32,27 +33,6 @@ impl Default for StorageType {
     }
 }
 
-/// configuration
-#[derive(Debug, Deserialize, Clone)]
-struct ConfigWrap {
-    tick_length: Option<u64>,
-    o2_per_person: Option<u64>,
-    food_per_person: Option<f32>,
-    water_per_person: Option<f32>,
-    structure: Option<FileDataWrap>,
-    player: Option<FileDataWrap>,
-    module: Option<FileDataWrap>,
-    elements: Option<FileDataWrap>,
-    components: Option<FileDataWrap>,
-}
-
-#[derive(Debug, Deserialize, Clone)]
-struct FileDataWrap {
-    storage_method: Option<String>,
-    datafile: Option<String>,
-    source: Option<String>,
-}
-
 /// Configuration
 #[derive(Debug, Deserialize, Clone)]
 pub struct Config {
@@ -67,11 +47,32 @@ pub struct Config {
     components: FileData,
 }
 
+/// configuration
+#[derive(Debug, Deserialize, Clone)]
+struct ConfigWrap {
+    tick_length: Option<u64>,
+    o2_per_person: Option<u64>,
+    food_per_person: Option<f32>,
+    water_per_person: Option<f32>,
+    structure: Option<FileDataWrap>,
+    player: Option<FileDataWrap>,
+    module: Option<FileDataWrap>,
+    elements: Option<FileDataWrap>,
+    components: Option<FileDataWrap>,
+}
+
 #[derive(Debug, Deserialize, Clone, Default)]
 pub struct FileData {
     storage_method: StorageType,
     datafile: String,
     source: String,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+struct FileDataWrap {
+    pub storage_method: Option<String>,
+    pub datafile: Option<String>,
+    pub source: Option<String>,
 }
 
 // after changing this you also need to change structure ConfigWrap and the
@@ -112,7 +113,18 @@ impl FileData {
 
 impl FileDataWrap {
     fn extract(&self) -> FileData {
-        FileData::default()
+        let mut filedata = FileData::default();
+        if let Some(x) = &self.storage_method {
+            filedata.storage_method = StorageType::File
+        };
+        if let Some(x) = &self.datafile {
+            filedata.datafile = x.clone()
+        };
+        if let Some(x) = &self.source {
+            filedata.source = x.clone()
+        };
+
+        filedata
     }
 }
 
@@ -158,6 +170,10 @@ impl Config {
         if let Some(x) = input.water_per_person {
             self.water_per_person = x
         };
+        if let Some(x) = input.elements {
+            self.elements = x.extract();
+        };
+        info!("{:?}", self.elements);
         // if let Some(x) = input.structure {self.structure = x.extract()};
         // TODO files need to be intergrated
     }

@@ -19,6 +19,16 @@ water_per_person = 5
 airmix_o2 = 0.2
 airmix_n2 = 0.8
 
+[elements]
+storage_method="file"
+datafile="resources/PeriodicTableJSON-cleaned.json"
+#source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
+source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
+
+[recipes]
+storage_method="file"
+datafile="resources/recipe.json"
+
 [player]
 storage_method ="file"
 datafile="resources/player.json"
@@ -30,16 +40,6 @@ datafile="resources/station.json"
 [module]
 storage_method="file"
 datafile="resources/module.json"
-
-[elements]
-storage_method="file"
-datafile="resources/PeriodicTableJSON-cleaned.json"
-#source is github repository https://github.com/Bowserinator/Periodic-Table-JSON, created by Bowserinator
-source="https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json"
-
-[recipes]
-storage_method="file"
-datafile="resources/recipe.json"
 
 [component]
 storage_method="file"
