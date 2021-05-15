@@ -7,15 +7,12 @@
 // NOTE change to legion
 
 // uses
-use super::storage::*;
 use serde::{Deserialize, Serialize};
 use utils::myuuid::*;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Module {
     // general informations
-    uuid: ExpUuid,            // global id of this module
-    staion_uuid: ExpUuid,     // Uuid of the station for later reference
     name: String,             // name/description of the module
     energy: i64,              // positiv when energy producing, negativ when energy using
     prod_by_receipe: ExpUuid, /* uuid of receipe with which it had been produced, neede for dismantling of module */
@@ -28,13 +25,6 @@ pub struct Module {
     ysize: u32,
     #[serde(default)]
     zsize: u32,
-    // currently it can only store one type of material, needs to be a vector for generalization e.g.
-    // what is needed for the production of one recipe
-    store: Store,
-    #[serde(default)]
-    storagetype: String,
-    #[serde(default)]
-    storage_volume: u64, // in m^3
     #[serde(default)]
     mass: u64, // in kg
 }
@@ -48,8 +38,6 @@ impl Module {
         prod_by_receipe: ExpUuid,
     ) -> Module {
         Module {
-            uuid: get_new_uuid(),
-            staion_uuid: station_uuid,
             prod_by_receipe: prod_by_receipe,
             name: name,
             energy: energy,
@@ -57,9 +45,6 @@ impl Module {
             xsize: 1,
             ysize: 1,
             zsize: 1,
-            store: Store::new_empty(),
-            storagetype: "".to_string(),
-            storage_volume: 0,
             mass: 0,
         }
     }

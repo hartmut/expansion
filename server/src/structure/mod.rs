@@ -6,4 +6,3 @@
 
 pub mod modules;
 pub mod station;
-pub mod storage;

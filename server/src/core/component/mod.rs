@@ -8,4 +8,4 @@ pub mod desc;
 pub mod energy;
 pub mod habitat;
 pub mod location;
-pub mod owner;
+pub mod storage;

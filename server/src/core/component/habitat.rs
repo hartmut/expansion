@@ -10,6 +10,7 @@ pub struct ChemMix {
 }
 
 // when a module has an athmospere this component is used
+/// is part of a module, volume must be smaller than the whole module
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Habitat {
     // in m^3

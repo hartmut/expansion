@@ -8,26 +8,24 @@
 
 // use serde_json;
 use self::StorageType::*;
-use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 enum StorageType {
     Energy, // in kwh
-    Food,   // in kg
     Liquid, // in l
     Gas,    // in l
     Solid,  // in kg
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Store {
     storagetype: StorageType, // what type of is stored in this Store
-    amount: u64,              // in kwh
+    amount: u64,              // in kwh or l
     mass: u64,                // in kg
 }
 
-impl Store {
-    pub fn new_empty() -> Store {
+impl Default for Store {
+    fn default() -> Store {
         Store {
             storagetype: Energy,
             amount: 0,

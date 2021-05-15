@@ -1,4 +1,4 @@
-use amethyst::prelude::*;
+use amethyst::{core::transform::Parent, prelude::*};
 use core::component::desc::Desc;
 
 pub struct Module;
@@ -6,6 +6,6 @@ pub struct Module;
 impl Module {
     pub fn new(world: &mut World, name: String, _parent: Entity) -> Entity {
         let desc = Desc::new(name, "".to_string());
-        world.push((desc,))
+        world.push((desc, Parent))
     }
 }

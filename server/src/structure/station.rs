@@ -13,7 +13,6 @@ use utils::myuuid::*;
 
 #[derive(Debug)]
 pub struct AStation {
-    uuid: ExpUuid,      // global uniqe id, describes this
     name: String,       // name of this station
     owner: ExpUuid,     // player who owns this station
     energyuse: u64,     // energy usage per tick, sum over all modules
@@ -40,7 +39,6 @@ impl AStation {
         let module_list_temp: Vec<Module> = Vec::new();
 
         AStation {
-            uuid: get_new_uuid(),
             name: name,
             owner: owner,
             energyuse: 0,
