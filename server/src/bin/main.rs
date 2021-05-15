@@ -6,7 +6,9 @@ extern crate amethyst;
 extern crate expansion;
 
 use amethyst::{
-    core::frame_limiter::FrameRateLimitStrategy, utils::application_root_dir, Application,
+    core::{frame_limiter::FrameRateLimitStrategy, transform::TransformBundle},
+    utils::application_root_dir,
+    Application,
 };
 
 use expansion::core::resource;
@@ -24,7 +26,9 @@ fn main() -> amethyst::Result<()> {
 
     // create Dispatcher
     let mut dispatcher = expansion::core::system::new();
-    dispatcher.add_bundle(resource::ExpResources);
+    dispatcher
+        .add_bundle(resource::ExpResources)
+        .add_bundle(TransformBundle);
 
     // build Application
     let game = Application::build(assets_dir, RunningState)?

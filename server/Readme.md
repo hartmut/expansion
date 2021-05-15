@@ -1,7 +1,8 @@
 # Design Decisions
 
 # To do
-- [ ] migrate to legion
+- [ ] migrate structures to new infrastructure
+- [ ] migrate recipes to new infrastructure
 - [ ] save/load World
 - [ ] hierarchies of objects like station belongs to player
 - [ ] usage of prefabs
