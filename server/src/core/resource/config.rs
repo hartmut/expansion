@@ -4,7 +4,6 @@
 // Old configuration - will be reworked
 
 // implemented with default - will obsolete configuration.rs
-use log::info;
 use serde::Deserialize;
 /// for initalization and configuration
 // TODO mitgrate to resource
@@ -114,7 +113,7 @@ impl FileData {
 impl FileDataWrap {
     fn extract(&self) -> FileData {
         let mut filedata = FileData::default();
-        if let Some(x) = &self.storage_method {
+        if let Some(_x) = &self.storage_method {
             filedata.storage_method = StorageType::File
         };
         if let Some(x) = &self.datafile {

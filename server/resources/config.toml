@@ -4,7 +4,7 @@
 
 # one tick is tick_lenght hours in worldtime per second realtime
 # tick = 2
-tick_length = 6
+tick_length = 1
 # needed O2 in liter per player and 6 hour tick, later value per hour
 # https://www.quora.com/How-much-oxygen-does-the-average-person-burn-in-a-day-What-volume-of-air-is-that
 # using the nasa values, per hour a person will need about 25l, could be higher if exercising => we will improve the model later

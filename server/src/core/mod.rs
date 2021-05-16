@@ -4,7 +4,7 @@
 // use utils::configuration;
 mod common;
 pub mod component;
-mod entity;
+pub mod entity;
 pub mod resource;
 pub mod states;
 pub mod system;

@@ -6,12 +6,15 @@ pub struct RunningState;
 
 impl SimpleState for RunningState {
     fn on_start(&mut self, data: StateData<'_, GameData>) {
+        use crate::init::init;
         let StateData {
-            world: _,
+            world,
             resources: _,
             data: _,
         } = data;
         info!("loading world");
+        // for tests
+        init(world);
     }
 
     fn update(&mut self, _data: &mut StateData<'_, GameData>) -> SimpleTrans {

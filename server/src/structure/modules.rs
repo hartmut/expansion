@@ -31,12 +31,7 @@ pub struct Module {
 
 impl Module {
     //! create a new Module for a structure
-    pub fn new(
-        name: String,
-        station_uuid: ExpUuid,
-        energy: i64,
-        prod_by_receipe: ExpUuid,
-    ) -> Module {
+    pub fn new(name: String, energy: i64, prod_by_receipe: ExpUuid) -> Module {
         Module {
             prod_by_receipe: prod_by_receipe,
             name: name,

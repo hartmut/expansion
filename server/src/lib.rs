@@ -17,6 +17,7 @@ extern crate uuid;
 
 // describe mods to use
 pub mod core;
+pub mod init;
 pub mod recipes;
 pub mod structure;
 pub mod tests;

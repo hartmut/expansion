@@ -2,7 +2,7 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use amethyst::{
-    core::transform::{Children, Parent},
+    core::{transform::Parent, Transform},
     prelude::*,
 };
 use core::component::desc::Desc;
@@ -18,7 +18,8 @@ impl Station {
     pub fn new(world: &mut World, name: String, owner: Entity) -> Entity {
         let desc = Desc::new(name, "".to_string());
         let owner = Parent(owner);
+        let transform = Transform::default();
         // TODO insert this station into the child list of the player
-        world.push((desc, owner, Children))
+        world.push((desc, owner,transform))
     }
 }
