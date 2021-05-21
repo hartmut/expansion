@@ -1,4 +1,4 @@
-use amethyst::{core::{ecs::System, transform::{Children, Parent}}, prelude::*};
+use amethyst::{core::{ecs::System, transform::Children}, prelude::*};
 use log::info;
 
 pub struct DebugSystem;

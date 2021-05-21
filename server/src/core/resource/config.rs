@@ -20,6 +20,7 @@ use toml;
 /// - the implementation of default
 /// - the implementation of the function integrate_loaded_config
 /// - and add or remove a function to get the value
+// change to prefab from ron
 
 #[derive(Debug, Deserialize, Clone)]
 enum StorageType {

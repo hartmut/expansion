@@ -9,3 +9,5 @@ pub mod energy;
 pub mod habitat;
 pub mod location;
 pub mod storage;
+pub mod size;
+pub mod owner;

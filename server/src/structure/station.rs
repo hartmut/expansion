@@ -6,7 +6,6 @@
 // can have thrust
 
 // uses
-use super::modules::Module;
 use core::component::location::Location;
 use std::collections::BTreeMap;
 use utils::myuuid::*;
@@ -22,8 +21,7 @@ pub struct AStation {
     o2use: u64,         // use of O2 for people
     mass: u64,          // mass of the station
     location: Location, // where am I?
-    module_list: Vec<Module>, /* list of modules of this station
-                         *
+                         /*
                          * list of inventar on this station -> stored in storagemodules
                          * list of NPC on station */
 }
@@ -36,7 +34,6 @@ pub type BtreeStations = BTreeMap<ExpUuid, AStation>;
 
 impl AStation {
     pub fn new(name: String, owner: ExpUuid) -> AStation {
-        let module_list_temp: Vec<Module> = Vec::new();
 
         AStation {
             name: name,
@@ -47,8 +44,7 @@ impl AStation {
             o2use: 0,
             o2prod: 0,
             mass: 0,
-            location: Location::new(1.0, 12.0, 3.0, 4),
-            module_list: module_list_temp,
+            location: Location::new(1.0, 12.0, 3.0),
         }
     }
 

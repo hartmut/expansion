@@ -13,18 +13,3 @@ impl Account {
         Account { credits }
     }
 }
-
-#[cfg(test)]
-mod tests {
-    // use super::*;
-    // use specs::prelude::*;
-    // use specs::world::Builder;
-
-    // TODO rewrite test
-    // #[test]
-    // fn create_player_component() {
-    //     let mut world = specs::World::new();
-    //     world.register::<Account>();
-    //     world.create_entity().with(Account::new(100)).build();
-    // }
-}
