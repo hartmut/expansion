@@ -14,7 +14,7 @@ G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is 
 */
 
 #[derive(Clone, Copy, Debug, PartialEq, Default)]
-pub struct Orbital {
+pub struct SmallBody {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */
     jplno: u64, // JPL Numbering
