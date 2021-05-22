@@ -7,7 +7,7 @@ pub mod basics;
 pub mod desc;
 pub mod energy;
 pub mod habitat;
-pub mod location;
+pub mod orbital;
 pub mod storage;
 pub mod size;
 pub mod owner;

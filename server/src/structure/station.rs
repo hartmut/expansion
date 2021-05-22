@@ -6,8 +6,6 @@
 // can have thrust
 
 // uses
-use core::component::location::Location;
-use std::collections::BTreeMap;
 use utils::myuuid::*;
 
 #[derive(Debug)]
@@ -20,14 +18,10 @@ pub struct AStation {
     o2prod: u64,        // production of O2, see above -> people module?
     o2use: u64,         // use of O2 for people
     mass: u64,          // mass of the station
-    location: Location, // where am I?
                          /*
                          * list of inventar on this station -> stored in storagemodules
                          * list of NPC on station */
 }
-
-// general BtreeMap type for stations
-pub type BtreeStations = BTreeMap<ExpUuid, AStation>;
 
 // TODO create matrix of modules
 // not necessesary, but difficult later to display, optimization later :)
@@ -44,7 +38,6 @@ impl AStation {
             o2use: 0,
             o2prod: 0,
             mass: 0,
-            location: Location::new(1.0, 12.0, 3.0),
         }
     }
 
