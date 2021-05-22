@@ -5,11 +5,10 @@ use amethyst::prelude::*;
 
 pub struct SmallBody;
 
-/// a station has the following parts
-/// - a description
-/// - an owner as a parent
-/// - modules as children which are arranged in a matrix
+/// Astronomical Database: https://ssd.jpl.nasa.gov/?sb_elem ascending
+/// and https://www.asterank.com/
 
+// TODO implement new asteroid import etc.
 impl SmallBody {
     pub fn new(world: &mut World) {}
 }

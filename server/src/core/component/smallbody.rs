@@ -4,9 +4,6 @@
 //
 /// basic component for asteroids, comets and small moons
 
-/// Astronomical Database: https://ssd.jpl.nasa.gov/?sb_elem ascending
-/// and https://www.asterank.com/
-
 /*
 H(mag.)	    Absolute magnitude (asteroids only and set to "99.00" when unknown).
 G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is unknown).

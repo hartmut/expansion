@@ -25,9 +25,7 @@ impl SimpleState for RunningState {
         // TODO save World
     }
 
-    fn on_pause(&mut self, _data: StateData<'_, GameData>) {
-        // TODO save World
-    }
+    fn on_pause(&mut self, _data: StateData<'_, GameData>) {}
 
     fn on_resume(&mut self, _data: StateData<'_, GameData>) {}
 

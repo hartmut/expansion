@@ -10,10 +10,6 @@ pub struct SolarCell {
                      // parameters like conditions
 }
 
-impl specs::Component for SolarCell {
-    type Storage = specs::VecStorage<Self>;
-}
-
 impl SolarCell {
     pub fn new() -> SolarCell {
         SolarCell { production: 10.0 }

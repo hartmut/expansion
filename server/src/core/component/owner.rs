@@ -4,6 +4,7 @@
 
 use amethyst::ecs::Entity;
 
+// TODO implement Owner/Parent structure independent of amethyst for stations and player as owner
 // Owner of entities
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Owner {
