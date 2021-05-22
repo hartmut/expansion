@@ -17,6 +17,6 @@ impl Player {
         let account = Account::new(1000);
         let desc = Desc::new(name, "".to_string());
         let transform = Transform::default();
-        world.push((account, desc,transform))
+        world.push((account, desc, transform))
     }
 }

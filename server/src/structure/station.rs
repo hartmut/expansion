@@ -10,17 +10,17 @@ use utils::myuuid::*;
 
 #[derive(Debug)]
 pub struct AStation {
-    name: String,       // name of this station
-    owner: ExpUuid,     // player who owns this station
-    energyuse: u64,     // energy usage per tick, sum over all modules
-    energyprod: u64,    // energy production per tick, sum over all modules
-    personcount: u64,   // how many people are on this station
-    o2prod: u64,        // production of O2, see above -> people module?
-    o2use: u64,         // use of O2 for people
-    mass: u64,          // mass of the station
-                         /*
-                         * list of inventar on this station -> stored in storagemodules
-                         * list of NPC on station */
+    name: String,     // name of this station
+    owner: ExpUuid,   // player who owns this station
+    energyuse: u64,   // energy usage per tick, sum over all modules
+    energyprod: u64,  // energy production per tick, sum over all modules
+    personcount: u64, // how many people are on this station
+    o2prod: u64,      // production of O2, see above -> people module?
+    o2use: u64,       // use of O2 for people
+    mass: u64,        // mass of the station
+                      /*
+                       * list of inventar on this station -> stored in storagemodules
+                       * list of NPC on station */
 }
 
 // TODO create matrix of modules
@@ -28,7 +28,6 @@ pub struct AStation {
 
 impl AStation {
     pub fn new(name: String, owner: ExpUuid) -> AStation {
-
         AStation {
             name: name,
             owner: owner,

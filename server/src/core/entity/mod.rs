@@ -4,4 +4,5 @@
 
 pub mod module;
 pub mod player;
+pub mod smallbody;
 pub mod station;
