@@ -5,10 +5,16 @@ use amethyst::prelude::*;
 
 pub struct SmallBody;
 
-/// Astronomical Database: https://ssd.jpl.nasa.gov/?sb_elem ascending
-/// and https://www.asterank.com/
+/* Astronomical Database:
+* download https://ssd.jpl.nasa.gov/?sb_elem the "numbered Asteroids" list
+* enrich it with physical parameters with selection of size > 0.1km
+    into assets/smallbodies.csv. At first select " object fullname" (number and  Name) to
+    have an anchor.
+* more data could propably be found at https://www.asterank.com/
+    for example minerals and checmical elements
+*/
 
-// TODO implement new asteroid import etc.
+// TODO implement asteroid import etc.
 impl SmallBody {
     pub fn new(world: &mut World) {}
 }
