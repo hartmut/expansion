@@ -8,7 +8,8 @@ time = "*" # https://crates.io/crates/time
 uuid = { version = "*", features = ["serde", "v4"] } # https://crates.io/crates/uuid
 serde = { version = "*", features = ["derive"] } # https://crates.io/crates/serde
 serde_json = "*" # https://crates.io/crates/serde_json
-serde_derive = "*" # https://crates.io/crates/serde_derive
+serde_derive = "*" # https://crates.io/crates/serde_derive'
+csv = "1.1" # https://crates.io/crates/csv
 toml = "*" # https://crates.io/crates/toml
 chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html

@@ -4,6 +4,7 @@
 #![warn(unused_mut)]
 extern crate amethyst;
 extern crate chrono;
+extern crate csv;
 extern crate log;
 extern crate measurements;
 extern crate rand;
