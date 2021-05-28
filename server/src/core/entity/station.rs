@@ -15,7 +15,7 @@ pub struct Station;
 /// - modules as children which are arranged in a matrix
 
 impl Station {
-    pub fn new(world: &mut World, name: String, owner: Entity) -> Entity {
+    pub fn create(world: &mut World, name: String, owner: Entity) -> Entity {
         let desc = Desc::new(name, "".to_string());
         let owner = Parent(owner);
         let transform = Transform::default();

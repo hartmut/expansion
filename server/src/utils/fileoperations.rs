@@ -124,7 +124,7 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
 }
 
 // genericline  writerecord function, returns length of written resources
-pub fn writerecord(f: &mut LineWriter<File>, output: &String) -> u64 {
+pub fn writerecord(f: &mut LineWriter<File>, output: &str) -> u64 {
     f.write(output.as_bytes()).unwrap() as u64;
     f.write('\n'.to_string().as_bytes()).unwrap() as u64
 }
@@ -134,7 +134,7 @@ pub fn closefile(f: &mut LineWriter<File>) {
 }
 
 // write whole file
-pub fn write_string_to_file(filename: String, output: &String) -> u64 {
+pub fn write_string_to_file(filename: String, output: &str) -> u64 {
     let path = Path::new(&filename);
 
     // Open the path in write mode
@@ -146,7 +146,7 @@ pub fn write_string_to_file(filename: String, output: &String) -> u64 {
     };
 
     // Read the file contents into a string, returns `io::Result<usize>`
-    let i = f.write(&mut output.as_bytes()).unwrap() as u64;
+    let i = f.write(&output.as_bytes()).unwrap() as u64;
     f.flush().unwrap();
     i
 }

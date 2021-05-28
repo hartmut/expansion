@@ -60,7 +60,7 @@ pub struct Element {
 
 type ElementListVec = Vec<Element>;
 
-#[derive(Debug)]
+#[derive(Debug, Default)]
 pub struct ElementList {
     elements: ElementListVec,
 }
@@ -126,7 +126,7 @@ fn read_elementlist_file() -> ElementListVec {
         ypos: 0,
     };
 
-    let mut outevec: ElementListVec = ElementListVec::new();
+    let mut outevec: ElementListVec = vec![];
     outevec.push(dark_matter);
     outevec.append(&mut evec);
     outevec
@@ -136,7 +136,7 @@ fn parse_string<'de, D>(d: D) -> Result<String, D::Error>
 where
     D: Deserializer<'de>,
 {
-    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or("".to_string()))
+    Deserialize::deserialize(d).map(|x: Option<_>| x.unwrap_or_else(|| "".to_string()))
 }
 
 fn parse_f64<'de, D>(d: D) -> Result<f64, D::Error>

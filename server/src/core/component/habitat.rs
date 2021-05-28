@@ -61,11 +61,7 @@ impl Habitat {
     // not enough partial pressure with oxygen
     fn hypoxia(&self) -> bool {
         // The minimum safe lower limit for the partial pressures of oxygen in a gas mixture is 0.16 bars
-        if 0.16 > self.o2_part_pressure() {
-            true
-        } else {
-            false
-        }
+        0.16 > self.o2_part_pressure()
     }
 }
 

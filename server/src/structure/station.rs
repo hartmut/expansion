@@ -29,8 +29,8 @@ pub struct AStation {
 impl AStation {
     pub fn new(name: String, owner: ExpUuid) -> AStation {
         AStation {
-            name: name,
-            owner: owner,
+            name,
+            owner,
             energyuse: 0,
             energyprod: 0,
             personcount: 0,

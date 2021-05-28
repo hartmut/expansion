@@ -13,7 +13,7 @@ pub struct Player;
 /// - some stations as as children
 
 impl Player {
-    pub fn new(world: &mut World, name: String) -> Entity {
+    pub fn create(world: &mut World, name: String) -> Entity {
         let account = Account::new(1000);
         let desc = Desc::new(name, "".to_string());
         let transform = Transform::default();
