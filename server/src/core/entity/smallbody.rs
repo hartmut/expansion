@@ -20,14 +20,6 @@ enrich it with physical parameters with selection of size > 0.1km, limit to aste
 replace all column titles in both files to lowercase ascci only
 */
 
-fn default_string() -> String {
-    "".to_string()
-}
-
-fn default_f32() -> f32 {
-    0.0
-}
-
 #[derive(Debug, Deserialize)]
 struct Bodies {
     full_name: String,
