@@ -15,13 +15,14 @@ pub mod worldtime;
 use self::config::Config;
 use self::elements::ElementList;
 use self::worldtime::Worldtime;
+use core::entity::smallbody::SmallBody;
 
 pub struct ExpResources;
 
 impl SystemBundle for ExpResources {
     fn load(
         &mut self,
-        _world: &mut World,
+        world: &mut World,
         resources: &mut Resources,
         _builder: &mut DispatcherBuilder,
     ) -> Result<(), Error> {
@@ -39,6 +40,9 @@ impl SystemBundle for ExpResources {
 
         // insert resource config
         resources.insert(config);
+
+        // TODO implement as resource
+        SmallBody::create(world);
 
         Ok(())
     }

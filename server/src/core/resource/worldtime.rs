@@ -6,6 +6,8 @@
 use chrono;
 use std::time::{Duration, SystemTime};
 
+// TODO epoche calculation f64
+
 // Descriptions
 #[derive(Debug)]
 pub struct Worldtime {
