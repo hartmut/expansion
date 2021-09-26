@@ -10,6 +10,8 @@ G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is 
  Ref 	    Orbit solution reference.
 */
 
+// enum - https://en.wikipedia.org/wiki/Asteroid_spectral_types
+
 #[derive(Clone, Copy, Debug, PartialEq, Default)]
 pub struct SmallBody {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
@@ -18,4 +20,14 @@ pub struct SmallBody {
     h: f64,     // (mag.) Absolute magnitude (asteroids only and set to "99.00" when unknown).
     g: f64,     // Magnitude slope parameter (asteroids only and set to "0.00" when H is unknown).
     osref: f64, // Orbit solution reference.
+    diameter: f32, //in km
+    extent: u32, //TODO represent in vector- in km tri(or bi)-axial body
+    albedo: f32, // geometric albedo
+    rotation: f32, //in h - body rotation period (synodic)
+    gm: f32, // in km^3/s^2, standard gravitational parameter: product of the mass (M) and gravitational constant (G)
+    bv: f32, // color index B-V magnitude difference
+    ub: f32, // color index U-B magnitude difference
+    ir: u32, //TODO represent in ir representation
+    specb: u32, //TODO represent in enum type - SMASSII spectral taxonomic classification
+    spect: u32, //TODO represent in enum type - Tholen spectral taxonomic classification
 }
