@@ -6,7 +6,7 @@ use csv::{Reader, ReaderBuilder, Trim};
 use serde::Deserialize;
 use std::collections::BTreeMap;
 use log::info;
-use core::component::smallbody; 
+use core::component::asteroidprop::*; 
 
 pub struct SmallBody;
 
