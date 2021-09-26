@@ -83,7 +83,7 @@ mod tests {
         let o2_part_pressure = habitat.o2_part_pressure();
         assert_eq!(o2_part_pressure, 0.22628);
         let hypoxia = habitat.hypoxia();
-        assert_eq!(false, hypoxia);
+        assert!(!hypoxia);
     }
 
     #[test]
@@ -98,6 +98,6 @@ mod tests {
             person_count: 0,
         };
         let hypoxia = habitat.hypoxia();
-        assert_eq!(true, hypoxia);
+        assert!(hypoxia);
     }
 }

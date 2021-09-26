@@ -125,8 +125,10 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
 
 // genericline  writerecord function, returns length of written resources
 pub fn writerecord(f: &mut LineWriter<File>, output: &str) -> u64 {
-    f.write(output.as_bytes()).unwrap() as u64;
-    f.write('\n'.to_string().as_bytes()).unwrap() as u64
+    let mut out = f.write(output.as_bytes()).unwrap() as u64;
+    out += f.write('\n'.to_string().as_bytes()).unwrap() as u64;
+    f.flush().unwrap();
+    out
 }
 
 pub fn closefile(f: &mut LineWriter<File>) {
@@ -146,7 +148,7 @@ pub fn write_string_to_file(filename: String, output: &str) -> u64 {
     };
 
     // Read the file contents into a string, returns `io::Result<usize>`
-    let i = f.write(&output.as_bytes()).unwrap() as u64;
+    let i = f.write(output.as_bytes()).unwrap() as u64;
     f.flush().unwrap();
     i
 }

@@ -8,7 +8,7 @@
 use uuid::Uuid;
 
 pub type ExpUuid = Uuid;
-pub const EN_UUID: &'static str = "00000000-0000-0000-0000-000000000001";
+pub const EN_UUID: &str = "00000000-0000-0000-0000-000000000001";
 
 pub fn energy_uuid() -> ExpUuid {
     Uuid::parse_str(EN_UUID).unwrap()

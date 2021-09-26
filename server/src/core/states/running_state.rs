@@ -35,7 +35,7 @@ impl SimpleState for RunningState {
         event: amethyst::StateEvent,
     ) -> amethyst::SimpleTrans {
         if let amethyst::StateEvent::Window(event) = &event {
-            if amethyst::input::is_close_requested(&event) {
+            if amethyst::input::is_close_requested(event) {
                 info!("saving world");
                 amethyst::Trans::Quit
                 // TODO save World
