@@ -14,7 +14,7 @@ use amethyst::core::math::Vector3;
 
 // enum - https://en.wikipedia.org/wiki/Asteroid_spectral_types
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Default)]
 pub struct AsteroidProp {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */
