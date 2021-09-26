@@ -4,6 +4,8 @@
 use amethyst::prelude::*;
 use csv::{Reader, ReaderBuilder, Trim};
 use serde::Deserialize;
+use std::collections::BTreeMap;
+use log::info;
 
 pub struct SmallBody;
 
@@ -37,7 +39,7 @@ struct Bodies {
 
 #[derive(Debug, Deserialize)]
 struct Orbits {
-    num: u32,
+    num: u64,
     name: String,
     epoch: u32,
     a: f32,
@@ -54,24 +56,26 @@ struct Orbits {
 // TODO implement asteroid import
 impl SmallBody {
     pub fn create(_world: &mut World) {
-        // read bodies data
-        let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
-        for result in rdr.deserialize() {
-            let record: Bodies = result.unwrap();
-            println!("{:?}", record);
-        }
-
+        
         // read orbits
+        info!("Reading orbitdata of asteroids");
+        let mut orbitmap = BTreeMap::new();
         let mut rdr = ReaderBuilder::new()
             .delimiter(b',')
             .trim(Trim::All)
             .from_path("assets/bodiesorbit.csv".to_string())
             .unwrap();
         for result in rdr.deserialize() {
-            let _record: Orbits = result.unwrap();
+            let record: Orbits = result.unwrap();
+            orbitmap.insert(record.num, record);
         }
 
-
-        // mix this files and create the asteroid entities
+        // read bodies data
+        info!("Reading physical data of asteroids");
+        let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
+        for result in rdr.deserialize() {
+            let _record: Bodies = result.unwrap();
+            // mix the files and create the asteroid entities
+        }
     }
 }

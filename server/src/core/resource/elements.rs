@@ -126,8 +126,7 @@ fn read_elementlist_file() -> ElementListVec {
         ypos: 0,
     };
 
-    let mut outevec: ElementListVec = vec![];
-    outevec.push(dark_matter);
+    let mut outevec: ElementListVec = vec![dark_matter];
     outevec.append(&mut evec);
     outevec
 }

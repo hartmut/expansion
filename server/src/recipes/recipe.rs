@@ -71,7 +71,7 @@ pub fn read_recipe_file(filename: String) -> RecipeHashMap {
 
 impl Recipe {
     pub fn get_uuid(&self) -> ExpUuid {
-        self.uuid.clone()
+        self.uuid
     }
 
     fn get_duration(&self) -> u32 {
@@ -91,23 +91,14 @@ impl Recipe {
     }
 
     fn is_module(&self) -> bool {
-        match self.recipe_type {
-            RecipeType::Module => true,
-            _ => false,
-        }
+        matches!(self.recipe_type, RecipeType::Module)
     }
 
     fn is_component(&self) -> bool {
-        match self.recipe_type {
-            RecipeType::Component => true,
-            _ => false,
-        }
+        matches!(self.recipe_type, RecipeType::Component)
     }
 
     fn is_research(&self) -> bool {
-        match self.recipe_type {
-            RecipeType::Research => true,
-            _ => false,
-        }
+        matches!(self.recipe_type, RecipeType::Research)
     }
 }

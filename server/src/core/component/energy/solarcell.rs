@@ -11,7 +11,7 @@ pub struct SolarCell {
 }
 
 impl SolarCell {
-    pub fn new() -> SolarCell {
+    pub fn default() -> SolarCell {
         SolarCell { production: 10.0 }
     }
 }

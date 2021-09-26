@@ -12,7 +12,7 @@ pub struct Battery {
 }
 
 impl Battery {
-    pub fn new() -> Battery {
+    pub fn default() -> Battery {
         Battery {
             act_storage: 0.0,
             max_storage: 0.0,
