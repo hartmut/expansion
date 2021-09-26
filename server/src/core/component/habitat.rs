@@ -14,7 +14,7 @@ pub struct ChemMix {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Habitat {
     // in m^3
-    volume: u64, // NOTE create module basics
+    volume: u64, // TODO create module basics
 
     // Athmosphere
     // TODO redesign and split this component

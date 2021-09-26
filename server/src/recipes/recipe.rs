@@ -7,7 +7,7 @@
 
 // TODO integrated into new structure
 
-// NOTE change to legion
+// TODO change to legion
 
 // uses
 use super::components::*;

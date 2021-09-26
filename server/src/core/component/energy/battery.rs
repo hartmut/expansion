@@ -4,7 +4,7 @@
 
 // energy store and production
 // first step solar cells, needs to be generalized for other production methods
-// NOTE assumption how much volt?
+// TODO assumption how much volt?
 #[derive(Clone, Debug, PartialEq)]
 pub struct Battery {
     act_storage: f64, //Ah https://en.wikipedia.org/wiki/Ampere_hour
