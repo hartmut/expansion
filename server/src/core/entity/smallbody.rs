@@ -6,6 +6,7 @@ use csv::{Reader, ReaderBuilder, Trim};
 use serde::Deserialize;
 use std::collections::BTreeMap;
 use log::info;
+use core::component::smallbody; 
 
 pub struct SmallBody;
 
@@ -76,6 +77,13 @@ impl SmallBody {
         for result in rdr.deserialize() {
             let _record: Bodies = result.unwrap();
             // mix the files and create the asteroid entities
+
+            // find record from orbitmap
+
+            // create basic, desc, smallbody and orbit records
+            // TODO insert extend into basic, and adapt the smallbody component
+
+            // push them to the world
         }
     }
 }

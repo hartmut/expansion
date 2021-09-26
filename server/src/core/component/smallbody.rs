@@ -11,6 +11,7 @@ G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is 
 */
 
 // enum - https://en.wikipedia.org/wiki/Asteroid_spectral_types
+// TODO change name of this component to something more generic
 
 #[derive(Clone, Copy, Debug, PartialEq, Default)]
 pub struct SmallBody {
