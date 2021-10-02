@@ -2,12 +2,13 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use amethyst::prelude::*;
+use core::component::desc::Desc;
 use csv::{Reader, ReaderBuilder, Trim};
+use log::info;
 use serde::Deserialize;
 use std::collections::BTreeMap;
-use log::info;
 
-// use core::component::asteroidprop::*; 
+// use core::component::asteroidprop::*;
 
 pub struct SmallBody;
 
@@ -39,9 +40,9 @@ struct Bodies {
     spec_t: Option<String>,
 }
 
-#[derive(Debug, Deserialize)]
-struct Orbits {
-    num: u64,
+#[derive(Debug, Deserialize, Clone)]
+struct Orbit {
+    num: usize,
     name: String,
     epoch: u32,
     a: f32,
@@ -55,10 +56,33 @@ struct Orbits {
     reference: String,
 }
 
+impl Default for Orbit {
+    fn default() -> Self {
+        Orbit {
+            num: 0,
+            name: "".to_string(),
+            epoch: 0,
+            a: 0.0,
+            e: 0.0,
+            i: 0.0,
+            w: 0.0,
+            node: 0.0,
+            m: 0.0,
+            h: 0.0,
+            g: 0.0,
+            reference: "".to_string(),
+        }
+
+    }
+
+}
+
 // TODO implement asteroid import
 impl SmallBody {
-    pub fn create(_world: &mut World) {
-        
+    pub fn init(_world: &mut World) {
+        // init
+        let mut orbit = Orbit::default();
+
         // read orbits
         info!("Reading orbitdata of asteroids");
         let mut orbitmap = BTreeMap::new();
@@ -68,7 +92,7 @@ impl SmallBody {
             .from_path("assets/bodiesorbit.csv".to_string())
             .unwrap();
         for result in rdr.deserialize() {
-            let record: Orbits = result.unwrap();
+            let record: Orbit = result.unwrap();
             orbitmap.insert(record.num, record);
         }
 
@@ -76,12 +100,20 @@ impl SmallBody {
         info!("Reading physical data of asteroids");
         let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
         for result in rdr.deserialize() {
-            let _record: Bodies = result.unwrap();
+            let record: Bodies = result.unwrap();
+            let (number, _name) = record.full_name.split_at(7);
+            let orbitsearch = orbitmap.get(&number.trim().parse::<usize>().unwrap());
+            match orbitsearch {
+                Some(x) => orbit = x.clone(),
+                None => break,
+            }
+            // COMEBACK
             // mix the files and create the asteroid entities
 
             // find record from orbitmap
 
-            // create basic, desc, smallbody and orbit records
+            // create basic, desc, smallbody and orbit components
+            let _desc = Desc::new(orbit.name.to_string(), "".to_string());
             // TODO insert extend into basic, and adapt the smallbody component
 
             // push them to the world

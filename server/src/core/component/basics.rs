@@ -11,7 +11,7 @@ use amethyst::core::math::Vector3;
 #[derive(Clone, Copy, Debug, PartialEq, Default)]
 pub struct BasicParameter {
     pub mass: f64,   //in kg
-    pub usablevolume: f64, //in m^3
-    pub outervolume: f64, //in m^3
+    pub usablevol: f64, //in m^3
+    pub outervol: f64, //in m^3
     pub extend: Vector3<f32>, //in m
 }

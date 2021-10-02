@@ -35,14 +35,14 @@ impl SystemBundle for ExpResources {
 
         // insert resource elementlist
         // COMBAK use data source for elementlist from configfile
-        let elements = ElementList::new();
+        let elements = ElementList::init();
         resources.insert(elements);
 
         // insert resource config
         resources.insert(config);
 
         // TODO implement as resource
-        SmallBody::create(world);
+        SmallBody::init(world);
 
         Ok(())
     }

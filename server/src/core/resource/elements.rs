@@ -66,8 +66,8 @@ pub struct ElementList {
 }
 
 impl ElementList {
-    pub fn new() -> Self {
-        info!("Reading ElementList");
+    pub fn init() -> Self {
+        info!("Reading List of chemical Elements");
         ElementList {
             elements: read_elementlist_file(),
         }
