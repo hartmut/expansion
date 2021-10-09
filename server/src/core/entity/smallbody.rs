@@ -80,24 +80,23 @@ impl Default for Orbit {
 // TODO implement asteroid import
 impl SmallBody {
     pub fn init(_world: &mut World) {
-        // init
-        let mut orbit = Orbit::default();
-
+        
         // read orbits
         info!("Reading orbitdata of asteroids");
         let mut orbitmap = BTreeMap::new();
         let mut rdr = ReaderBuilder::new()
-            .delimiter(b',')
-            .trim(Trim::All)
-            .from_path("assets/bodiesorbit.csv".to_string())
-            .unwrap();
+        .delimiter(b',')
+        .trim(Trim::All)
+        .from_path("assets/bodiesorbit.csv".to_string())
+        .unwrap();
         for result in rdr.deserialize() {
             let record: Orbit = result.unwrap();
             orbitmap.insert(record.num, record);
         }
-
+        
         // read bodies data
         info!("Reading physical data of asteroids");
+        let mut orbit = Orbit::default();
         let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
         for result in rdr.deserialize() {
             let record: Bodies = result.unwrap();

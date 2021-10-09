@@ -3,6 +3,7 @@
 // See doc/LICENSE for licensing information
 
 extern crate amethyst;
+extern crate bevy;
 extern crate expansion;
 
 use amethyst::{
@@ -10,6 +11,7 @@ use amethyst::{
     utils::application_root_dir,
     Application,
 };
+use bevy::prelude::*;
 
 use expansion::core::resource;
 use expansion::core::states::running_state::*;
