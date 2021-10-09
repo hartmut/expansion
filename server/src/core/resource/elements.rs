@@ -8,7 +8,7 @@
 //! includes all the elements. And later when needed the isotops, like HE3 and Uxxx
 
 // uses
-use log::info;
+use bevy::log::prelude::*;
 use serde::de::Deserializer;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -60,13 +60,22 @@ pub struct Element {
 
 type ElementListVec = Vec<Element>;
 
-#[derive(Debug, Default)]
+#[derive(Debug)]
 pub struct ElementList {
     elements: ElementListVec,
 }
 
+impl Default for ElementList {
+    fn default () -> ElementList {
+        info!("Reading List of chemical Elements");
+        ElementList {
+            elements: read_elementlist_file(),
+        }
+    }
+}
+
 impl ElementList {
-    pub fn init() -> Self {
+    pub fn init () -> Self {
         info!("Reading List of chemical Elements");
         ElementList {
             elements: read_elementlist_file(),

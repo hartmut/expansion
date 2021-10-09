@@ -26,7 +26,7 @@ impl SystemBundle for ExpResources {
         resources: &mut Resources,
         _builder: &mut DispatcherBuilder,
     ) -> Result<(), Error> {
-        // read config and insert resource``
+        // read config and insert resource
         let config = Config::load_config("resources/config.toml");
 
         // insert resource worldtime

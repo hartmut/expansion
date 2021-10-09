@@ -13,6 +13,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use toml;
+use bevy::log::prelude::*;
 
 /// When you add or remove a parameter you need to change
 /// - the config.toml file
@@ -78,8 +79,8 @@ struct FileDataWrap {
 // after changing this you also need to change structure ConfigWrap and the
 // function Config.integrate_loaded_config
 impl Default for Config {
-    fn default() -> Self {
-        Config {
+    fn default() -> Config {
+        let mut config = Config {
             // default tick length in world time is 6 hours
             tick_length: 6,
             // default 02 need per person and 6 hours is 150 liters
@@ -93,7 +94,33 @@ impl Default for Config {
             module: FileData::new_file("resources/module.json"),
             elements: FileData::new_file("resources/PeriodicTableJSON-cleaned.json"),
             components: FileData::new_file("resources/components.json"),
+        };
+
+        // configuration is here server/src/resources/config.toml
+        let file = "resources/config.toml";
+        let path = Path::new(file);
+        let display = path.display();
+        let mut input = String::new();
+
+        // Open the path in read-only mode, returns `io::Result<File>`
+        let mut file = match File::open(&path) {
+            // The `description` method of `io::Error` returns a string that
+            // describes the error
+            Err(why) => panic!("couldn't open {}: {}", display, why.to_string()),
+            Ok(file) => file,
+        };
+
+        // Read the file contents into a string, returns `io::Result<usize>`
+        match file.read_to_string(&mut input) {
+            Err(why) => panic!("couldn't read {}: {}", display, why.to_string()),
+            // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
+            Ok(_) => print!(""),
         }
+
+        let decoded: ConfigWrap = toml::de::from_str(&input).unwrap();
+        config.integrate_loaded_config(decoded);
+        info!(target: "init", "Config initialized");
+        config
     }
 }
 

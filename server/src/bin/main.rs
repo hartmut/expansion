@@ -11,16 +11,26 @@ use amethyst::{
     utils::application_root_dir,
     Application,
 };
-use bevy::prelude::*;
+use bevy::{prelude::*,log::LogPlugin};
+
 
 use expansion::core::resource;
+use expansion::core::resource::config::Config;
+use expansion::core::resource::elements::ElementList;
 use expansion::core::states::running_state::*;
 
 // my mods to use
 // use expansion::core::Core;
 
 fn main() -> amethyst::Result<()> {
-    amethyst::start_logger(Default::default());
+    // Bevy section
+    App::build()
+    .add_plugin(LogPlugin::default())
+    .init_resource::<Config>()
+    .init_resource::<ElementList>()
+    .run();
+
+    // Amethyst section
 
     // set up assets directory
     let app_root = application_root_dir()?;

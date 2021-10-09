@@ -2,7 +2,7 @@ use amethyst::{
     core::{ecs::System, transform::Children},
     prelude::*,
 };
-use log::info;
+use bevy::log::prelude::*;
 
 pub struct DebugSystem;
 

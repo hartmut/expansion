@@ -4,7 +4,7 @@
 use amethyst::prelude::*;
 use core::component::desc::Desc;
 use csv::{Reader, ReaderBuilder, Trim};
-use log::info;
+use bevy::log::prelude::*;
 use serde::Deserialize;
 use std::collections::BTreeMap;
 

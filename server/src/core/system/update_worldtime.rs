@@ -2,7 +2,7 @@ use amethyst::{core::ecs::System, prelude::*};
 use std::time::SystemTime;
 
 use super::super::resource::worldtime::*;
-use log::info;
+use bevy::log::prelude::*;
 
 pub struct UpdateWorldtime;
 

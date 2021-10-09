@@ -5,7 +5,6 @@
 extern crate amethyst;
 extern crate chrono;
 extern crate csv;
-extern crate log;
 extern crate measurements;
 extern crate rand;
 extern crate serde;

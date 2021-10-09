@@ -1,6 +1,6 @@
 // Standard State
 use amethyst::{prelude::*, SimpleState, SimpleTrans};
-use log::info;
+use bevy::log::prelude::*;
 
 pub struct RunningState;
 
