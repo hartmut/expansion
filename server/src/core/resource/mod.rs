@@ -46,14 +46,11 @@ impl SystemBundle for ExpResources {
 
 impl Plugin for ExpResources {
     fn build(&self, app: &mut AppBuilder) {
-        // initialize
-        let config = Config::load_config("resources/config.toml");
-        let worldtime = Worldtime::new(config.get_tick_length());
         // TODO use data source for elementlist from configfile
 
         // insert resources
-        app.insert_resource(config)
-            .insert_resource(worldtime)
+        app.init_resource::<Config>()
+            .init_resource::<Worldtime>()
             .init_resource::<ElementList>();
     }
 }

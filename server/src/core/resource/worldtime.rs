@@ -5,6 +5,8 @@
 // descriptions for entities
 use chrono;
 use std::time::{Duration, SystemTime};
+use self::super::config::Config;
+use bevy::prelude::*;
 
 // TODO epoche calculation f64
 
@@ -28,5 +30,12 @@ impl Worldtime {
             worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
             step_leng: Duration::new(0, 0),
         }
+    }
+}
+
+impl FromWorld for Worldtime {
+    fn from_world(world: &mut World) -> Self {
+        let config = world.get_resource::<Config>().unwrap();
+        Worldtime::new(config.get_tick_length())
     }
 }
