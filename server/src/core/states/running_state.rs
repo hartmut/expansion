@@ -22,7 +22,6 @@ impl SimpleState for RunningState {
     }
 
     fn on_stop(&mut self, _data: StateData<'_, GameData>) {
-        // TODO save World
     }
 
     fn on_pause(&mut self, _data: StateData<'_, GameData>) {}
@@ -38,7 +37,6 @@ impl SimpleState for RunningState {
             if amethyst::input::is_close_requested(event) {
                 info!("saving world");
                 amethyst::Trans::Quit
-                // TODO save World
             } else {
                 amethyst::Trans::None
             }

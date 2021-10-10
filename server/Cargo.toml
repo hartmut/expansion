@@ -14,7 +14,6 @@ toml = "*" # https://crates.io/crates/toml
 chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 measurements = "*" # https://crates.io/crates/measurements
-legion-prefab = { git = "https://github.com/amethyst/prefab", rev = "7c30249f106e6177549e223ca2823eec8ab6c70b" }
 
 [dependencies.amethyst]
 path = "../../game/amethyst"

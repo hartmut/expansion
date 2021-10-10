@@ -15,14 +15,14 @@ pub mod worldtime;
 use self::config::Config;
 use self::elements::ElementList;
 use self::worldtime::Worldtime;
-use core::entity::smallbody::SmallBody;
+use bevy::prelude::*;
 
 pub struct ExpResources;
 
 impl SystemBundle for ExpResources {
     fn load(
         &mut self,
-        world: &mut World,
+        _world: &mut World,
         resources: &mut Resources,
         _builder: &mut DispatcherBuilder,
     ) -> Result<(), Error> {
@@ -34,16 +34,26 @@ impl SystemBundle for ExpResources {
         resources.insert(worldtime);
 
         // insert resource elementlist
-        // COMBAK use data source for elementlist from configfile
         let elements = ElementList::init();
         resources.insert(elements);
 
         // insert resource config
         resources.insert(config);
 
-        // TODO implement as resource
-        SmallBody::init(world);
-
         Ok(())
+    }
+}
+
+impl Plugin for ExpResources {
+    fn build(&self, app: &mut AppBuilder) {
+        // initialize
+        let config = Config::load_config("resources/config.toml");
+        let worldtime = Worldtime::new(config.get_tick_length());
+        // TODO use data source for elementlist from configfile
+
+        // insert resources
+        app.insert_resource(config)
+            .insert_resource(worldtime)
+            .init_resource::<ElementList>();
     }
 }

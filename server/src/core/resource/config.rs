@@ -6,7 +6,6 @@
 // implemented with default - will obsolete configuration.rs
 use serde::Deserialize;
 /// for initalization and configuration
-// TODO mitgrate to resource
 
 /// used mods
 use std::fs::File;

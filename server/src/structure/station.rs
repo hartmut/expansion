@@ -23,7 +23,7 @@ pub struct AStation {
                        * list of NPC on station */
 }
 
-// TODO create matrix of modules
+// IDEA create matrix of modules
 // not necessesary, but difficult later to display, optimization later :)
 
 impl AStation {

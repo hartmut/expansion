@@ -4,5 +4,7 @@
 //
 //
 
+// TODO migrate to bevy and ecs system
+
 pub mod components;
 pub mod recipe;

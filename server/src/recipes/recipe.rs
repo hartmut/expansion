@@ -5,10 +5,6 @@
 // definitino of recipes, generalized for all types of recipes like research and production
 // first step: write it for normal production
 
-// TODO integrated into new structure
-
-// TODO change to legion
-
 // uses
 use super::components::*;
 use serde::{Deserialize, Serialize};

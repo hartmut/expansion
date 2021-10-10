@@ -106,7 +106,6 @@ impl SmallBody {
                 Some(x) => orbit = x.clone(),
                 None => break,
             }
-            // COMEBACK
             // mix the files and create the asteroid entities
 
             // find record from orbitmap

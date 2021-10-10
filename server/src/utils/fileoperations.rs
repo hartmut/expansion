@@ -86,13 +86,13 @@ pub fn readline(f: &mut BufReader<File>) -> Option<String> {
     }
 }
 
-pub fn read_record(mut f: &mut BufReader<File>) -> String {
+pub fn read_record(f: &mut BufReader<File>) -> String {
     let mut line = String::new();
 
     // read lines until you have a json record
     // https://lukesteensen.com/2016/12/getting-started-with-tokio/
     loop {
-        let result = readline(&mut f);
+        let result = readline(f);
 
         match result {
             // all bad

@@ -19,7 +19,6 @@ impl Station {
         let desc = Desc::new(name, "".to_string());
         let owner = Parent(owner);
         let transform = Transform::default();
-        // TODO insert this station into the child list of the player
         world.push((desc, owner, transform))
     }
 }
