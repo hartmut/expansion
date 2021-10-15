@@ -11,8 +11,8 @@ use serde::Deserialize;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use toml;
 use bevy::log::prelude::*;
+use toml;
 
 /// When you add or remove a parameter you need to change
 /// - the config.toml file
@@ -118,7 +118,7 @@ impl Default for Config {
 
         let decoded: ConfigWrap = toml::de::from_str(&input).unwrap();
         config.integrate_loaded_config(decoded);
-        info!(target: "init", "Config initialized");
+        info!("Config initialized");
         config
     }
 }

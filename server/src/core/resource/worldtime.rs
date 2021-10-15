@@ -7,6 +7,7 @@ use chrono;
 use std::time::{Duration, SystemTime};
 use self::super::config::Config;
 use bevy::prelude::*;
+use bevy::log::prelude::*;
 
 // TODO epoche calculation f64
 
@@ -36,6 +37,7 @@ impl Worldtime {
 impl FromWorld for Worldtime {
     fn from_world(world: &mut World) -> Self {
         let config = world.get_resource::<Config>().unwrap();
+        info!("init worldtime");
         Worldtime::new(config.get_tick_length())
     }
 }
