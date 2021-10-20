@@ -7,7 +7,6 @@ use chrono;
 use std::time::{Duration, SystemTime};
 use self::super::config::Config;
 use bevy::prelude::*;
-use bevy::log::prelude::*;
 
 // TODO epoche calculation f64
 

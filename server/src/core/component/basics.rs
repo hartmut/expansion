@@ -2,7 +2,7 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
-use amethyst::core::math::Vector3;
+use bevy::prelude::*;
 
 /*  in most cases inner and outer volume are the same. But if you have a container with a thick wall
 /   or something similar the usabel volume will differ from the outer volume
@@ -13,5 +13,5 @@ pub struct BasicParameter {
     pub mass: f64,   //in kg
     pub usablevol: f64, //in m^3
     pub outervol: f64, //in m^3
-    pub extend: Vector3<f32>, //in m
+    pub extend: Vec3, //in m
 }
