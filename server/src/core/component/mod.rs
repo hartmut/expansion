@@ -8,7 +8,6 @@ pub mod desc;
 pub mod energy;
 pub mod habitat;
 pub mod orbit;
-pub mod owner;
 pub mod size;
 pub mod asteroidprop;
 pub mod storage;

@@ -2,6 +2,7 @@
 name = "expansion"
 version = "0.0.1"
 authors = ["Hartmut"]
+#edition = "2018"
 
 [dependencies]
 time = "*" # https://crates.io/crates/time
