@@ -3,9 +3,11 @@
 // See doc/LICENSE for licensing information
 
 mod debug_system;
-mod update_worldtime;
+pub mod update_worldtime;
 
 use amethyst::prelude::*;
+
+// TODO implement into bevy and create a plugin
 
 pub fn new() -> DispatcherBuilder {
     // build Dispatcher

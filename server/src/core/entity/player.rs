@@ -15,7 +15,7 @@ pub struct Player;
 impl Player {
     pub fn create(world: &mut World, name: String) -> Entity {
         let account = Account::new(1000);
-        let desc = Desc::new(name, "".to_string());
+        let desc = Desc::new(name, "");
         let transform = Transform::default();
         world.push((account, desc, transform))
     }

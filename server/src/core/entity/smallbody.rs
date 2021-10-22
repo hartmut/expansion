@@ -111,7 +111,7 @@ impl SmallBody {
             // find record from orbitmap
 
             // create basic, desc, smallbody and orbit components
-            let _desc = Desc::new(orbit.name.to_string(), "".to_string());
+            let _desc = Desc::new(orbit.name, "");
             // TODO insert extend into basic, and adapt the smallbody component
 
             // push them to the world

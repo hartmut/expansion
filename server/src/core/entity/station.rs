@@ -16,7 +16,7 @@ pub struct Station;
 
 impl Station {
     pub fn create(world: &mut World, name: String, owner: Entity) -> Entity {
-        let desc = Desc::new(name, "".to_string());
+        let desc = Desc::new(name, "");
         let owner = Parent(owner);
         let transform = Transform::default();
         world.push((desc, owner, transform))

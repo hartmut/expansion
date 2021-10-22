@@ -6,16 +6,9 @@ extern crate amethyst;
 extern crate bevy;
 extern crate expansion;
 
-use amethyst::{
-    core::{frame_limiter::FrameRateLimitStrategy, transform::TransformBundle},
-    utils::application_root_dir,
-    Application,
-};
 use bevy::{log::LogPlugin, prelude::*};
 
-use expansion::core::resource;
 use expansion::core::resource::ExpResources;
-use expansion::core::states::running_state::*;
 
 // my mods to use
 // use expansion::core::Core;
@@ -24,21 +17,10 @@ fn main() -> amethyst::Result<()> {
     // Bevy section
     let mut app = App::build();
     app.add_plugin(LogPlugin::default())
-        .add_plugin(ExpResources);
+        .add_plugin(ExpResources)
+        .add_system(expansion::core::system::update_worldtime::update_worldtime.system()); //BUG runs only once, add to running stage
 
     app.run();
-
-    // Amethyst section
-    // let app_root = application_root_dir()?;
-    // let assets_dir = app_root.join("assets");
-    // let mut dispatcher = expansion::core::system::new();
-    // dispatcher
-    //     .add_bundle(resource::ExpResources)
-    //     .add_bundle(TransformBundle);
-    // let game = Application::build(assets_dir, RunningState)?
-    //     .with_frame_limit(FrameRateLimitStrategy::Sleep, 1)
-    //     .build(dispatcher)?;
-    // game.run();
 
     Ok(())
 }

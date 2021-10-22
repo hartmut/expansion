@@ -10,7 +10,9 @@ pub struct Desc {
 }
 
 impl Desc {
-    pub fn new(name: String, longtext: String) -> Self {
+    pub fn new(name: impl Into<String>, longtext: impl Into <String>) -> Self {
+        let name = name.into();
+        let longtext = longtext.into();
         Desc { name, longtext }
     }
 }
