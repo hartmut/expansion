@@ -1,5 +1,5 @@
 use amethyst::{core::transform::Parent, prelude::*};
-use core::component::desc::Desc;
+use crate::core::component::desc::Desc;
 
 pub struct Module;
 

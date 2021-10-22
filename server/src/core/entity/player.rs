@@ -2,8 +2,8 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 use amethyst::{core::Transform, prelude::*};
-use core::component::account::Account;
-use core::component::desc::Desc;
+use crate::core::component::account::Account;
+use crate::core::component::desc::Desc;
 
 pub struct Player;
 

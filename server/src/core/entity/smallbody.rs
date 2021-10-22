@@ -2,7 +2,7 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use amethyst::prelude::*;
-use core::component::desc::Desc;
+use crate::core::component::desc::Desc;
 use csv::{Reader, ReaderBuilder, Trim};
 use bevy::log::prelude::*;
 use serde::Deserialize;

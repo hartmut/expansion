@@ -6,7 +6,7 @@
 // can have thrust
 
 // uses
-use utils::myuuid::*;
+use crate::utils::myuuid::*;
 
 #[derive(Debug)]
 pub struct AStation {

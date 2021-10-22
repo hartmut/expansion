@@ -8,10 +8,10 @@
 #![allow(unused_variables)]
 #[cfg(test)]
 mod tests {
-    use recipes::components::*;
-    use recipes::recipe::*;
+    use crate::recipes::components::*;
+    use crate::recipes::recipe::*;
     use serde_json;
-    use utils::{fileoperations::*, myuuid::*};
+    use crate::utils::{fileoperations::*, myuuid::*};
 
     fn create_one_recipe() -> Recipe {
         let output_component = Component {

@@ -11,8 +11,8 @@ use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::Error;
 use std::collections::HashMap;
-use utils::fileoperations::*;
-use utils::myuuid::*;
+use crate::utils::fileoperations::*;
+use crate::utils::myuuid::*;
 
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]

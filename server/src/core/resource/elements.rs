@@ -13,7 +13,7 @@ use serde::de::Deserializer;
 use serde::{Deserialize, Serialize};
 use serde_json;
 use serde_json::Error;
-use utils::fileoperations::*;
+use crate::utils::fileoperations::*;
 
 // all the elemenets
 // updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json

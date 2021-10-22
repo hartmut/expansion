@@ -5,7 +5,7 @@ use amethyst::{
     core::{transform::Parent, Transform},
     prelude::*,
 };
-use core::component::desc::Desc;
+use crate::core::component::desc::Desc;
 
 pub struct Station;
 

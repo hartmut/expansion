@@ -6,7 +6,7 @@
 // uses
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
-use utils::myuuid::*;
+use crate::utils::myuuid::*;
 
 // one Component
 #[derive(Serialize, Deserialize, Debug)]
