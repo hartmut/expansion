@@ -3,7 +3,7 @@
 // See doc/LICENSE for licensing information
 //
 /// basic component for asteroids, comets and small moons
-use amethyst::core::math::Vector3;
+use bevy::prelude::*;
 
 // spectral enums - https://en.wikipedia.org/wiki/Asteroid_spectral_types
 
@@ -82,7 +82,7 @@ pub struct AsteroidProp {
     g: f64,     // Magnitude slope parameter (asteroids only and set to "0.00" when H is unknown).
     osref: f64, // Orbit solution reference.
     diameter: f32, //in km
-    extent: Vector3<f32>, //in km tri(or bi)-axial body
+    extent: Vec3, //in km tri(or bi)-axial body
     albedo: f32, // geometric albedo
     rotation: f32, //in h - body rotation period (synodic)
     gm: f32, // in km^3/s^2, standard gravitational parameter: product of the mass (M) and gravitational constant (G)

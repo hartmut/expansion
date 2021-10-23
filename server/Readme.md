@@ -2,6 +2,7 @@
 Notes
 
 # To do
+- [ ] migrate to bevy
 - [ ] migrate structures to new infrastructure
 - [ ] design energy infrastructure for a station
 - [ ] storage and production mechanics
@@ -12,7 +13,7 @@ Notes
 - [ ] find open database where production chains are defined
 - [ ] orbital mechanics
 - [ ] save/load World
-- [ ] usage of prefabs?
+- [ ] usage of prefabs
 - [ ] Network communication of object updates
 - [ ] Client or web interface
 - [ ] integrate asteroid database with mining information and potential to use up a object because of mining

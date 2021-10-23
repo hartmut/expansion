@@ -2,7 +2,6 @@
 #![allow(dead_code)]
 #![warn(unused_variables)]
 #![warn(unused_mut)]
-extern crate amethyst;
 extern crate chrono;
 extern crate csv;
 extern crate measurements;

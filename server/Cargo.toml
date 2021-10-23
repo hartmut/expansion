@@ -1,7 +1,7 @@
 [package]
 name = "expansion"
 version = "0.0.1"
-authors = ["Hartmut"]
+authors = ["Hartmut Prochaska"]
 edition = "2021"
 
 [dependencies]
@@ -16,13 +16,9 @@ chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 measurements = "*" # https://crates.io/crates/measurements
 
-[dependencies.amethyst]
-path = "../../game/amethyst"
-features = ["empty"]
-
 [dependencies.bevy]
 version = "0.5" # https://crates.io/crates/bevy
-features = ["dynamic"]
+features = ["bevy_dynamic_plugin", "png", "dynamic"]
 
 ### from Bevy for fast compiles ###
 # For maximum performance, build using a nightly compiler

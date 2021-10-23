@@ -6,5 +6,5 @@ mod common;
 pub mod component;
 pub mod entity;
 pub mod resource;
-pub mod states;
+pub mod stages;
 pub mod system;

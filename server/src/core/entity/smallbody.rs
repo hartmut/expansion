@@ -1,12 +1,12 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
-use amethyst::prelude::*;
 use crate::core::component::desc::Desc;
 use csv::{Reader, ReaderBuilder, Trim};
 use bevy::log::prelude::*;
 use serde::Deserialize;
 use std::collections::BTreeMap;
+use bevy::prelude::*;
 
 // use core::component::asteroidprop::*;
 
