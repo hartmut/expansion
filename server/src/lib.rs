@@ -12,7 +12,6 @@ extern crate serde_json;
 extern crate time;
 extern crate toml;
 extern crate uuid;
-// COMEBACK migrate to bevy
 extern crate bevy;
 
 // describe mods to use

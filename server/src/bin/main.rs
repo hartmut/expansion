@@ -6,17 +6,16 @@ extern crate bevy;
 extern crate expansion;
 
 use bevy::{log::LogPlugin, prelude::*};
+use bevy_inspector_egui::WorldInspectorPlugin;
 
 use expansion::core::resource::ExpResources;
+use expansion::core::system::ExpSystems;
 
 fn main() {
     let mut app = App::build();
-    app.add_plugins(MinimalPlugins)
-        .add_plugin(LogPlugin)
+    app.add_plugins(DefaultPlugins)
+        .add_plugin(WorldInspectorPlugin::new())
         .add_plugin(ExpResources)
-        .add_system_to_stage(
-            CoreStage::Update,
-            expansion::core::system::update_worldtime::update_worldtime.system(),
-        ); // TODO configure delay between steps
-    app.run();
+        .add_plugin(ExpSystems);
+    app.run(); //TODO limiter on frames/sec 
 }

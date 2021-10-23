@@ -15,10 +15,12 @@ toml = "*" # https://crates.io/crates/toml
 chrono = "*" # https://crates.io/crates/chrono
 rand = "*" # https://doc.rust-lang.org/rand/rand/index.html
 measurements = "*" # https://crates.io/crates/measurements
+bevy-inspector-egui = "0.6"
 
 [dependencies.bevy]
 version = "0.5" # https://crates.io/crates/bevy
-features = ["bevy_dynamic_plugin", "png", "dynamic"]
+#default-features = false
+features = ["dynamic", "serialize"]
 
 ### from Bevy for fast compiles ###
 # For maximum performance, build using a nightly compiler

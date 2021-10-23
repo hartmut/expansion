@@ -21,5 +21,5 @@ pub fn update_worldtime(mut time: ResMut<Worldtime>) {
     // save time of this step
     time.time_last = time_now;
 
-    info!("step into worldtime {}", time.worldtime);
+    // info!("step into worldtime {}", time.worldtime);
 }

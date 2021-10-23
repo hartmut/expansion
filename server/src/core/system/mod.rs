@@ -4,5 +4,17 @@
 
 // mod debug_system;
 pub mod update_worldtime;
+use bevy::prelude::*;
 
-// TODO implement into bevy and create a plugin
+pub struct ExpSystems;
+
+impl Plugin for ExpSystems {
+    fn build(&self, app: &mut AppBuilder) {
+
+        // insert systems for step updates
+        app.add_system_to_stage(
+            CoreStage::Update,
+            update_worldtime::update_worldtime.system(),
+        ); // TODO configure delay between steps
+    }
+}
