@@ -1,10 +1,14 @@
 // Experimental Simulator of a cooperative solar system economy.
-// Copyright (C) 2016  Hartmut Prochaska
-// See doc/LICENSE for licensing information
-// use crate::core::component::account::Account;
-// use crate::core::component::desc::Desc;
+use crate::core::component::account::Account;
+use crate::core::component::desc::Desc;
+use bevy::prelude::*;
+use bevy_inspector_egui::Inspectable;
 
-pub struct Player;
+#[derive(Bundle, Inspectable)]
+pub struct Player {
+    desc: Desc,
+    account: Account,
+}
 
 /// a player has the following parts
 /// - a description,
@@ -12,11 +16,16 @@ pub struct Player;
 /// - some stations as as children
 
 impl Player {
-    // pub fn create(world: &mut World, name: String) -> Entity {
-    pub fn create()  {
-//         let account = Account::new(1000);
-//         let desc = Desc::new(name, "");
-//         let transform = Transform::default();
-//         world.push((account, desc, transform))
+    pub fn create(
+        mut commands: Commands,
+        name: impl Into<String>,
+        longtext: impl Into<String>,
+    ) -> Entity {
+        let account = Account::new(1000);
+        let desc = Desc::new(name, longtext);
+        commands
+            .spawn()
+            .insert_bundle(Player { desc, account })
+            .id()
     }
 }

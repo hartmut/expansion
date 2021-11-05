@@ -1,9 +1,8 @@
 // Experimental Simulator of a cooperative solar system economy.
-// Copyright (C) 2016  Hartmut Prochaska
-// See doc/LICENSE for licensing information
+use bevy_inspector_egui::Inspectable;
 
 // Money
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Inspectable)]
 pub struct Account {
     credits: u64,
 }

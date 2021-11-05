@@ -1,16 +1,17 @@
 // Experimental Simulator of a cooperative solar system economy.
-// Copyright (C) 2016  Hartmut Prochaska
-// See doc/LICENSE for licensing information
+use bevy::prelude::*;
+use bevy_inspector_egui::Inspectable;
 
+// COMEBAK inspection doesn't work
 // Descriptions
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, Reflect, Default, Inspectable)]
 pub struct Desc {
     pub name: String,
     pub longtext: String,
 }
 
 impl Desc {
-    pub fn new(name: impl Into<String>, longtext: impl Into <String>) -> Self {
+    pub fn new(name: impl Into<String>, longtext: impl Into<String>) -> Self {
         let name = name.into();
         let longtext = longtext.into();
         Desc { name, longtext }

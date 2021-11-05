@@ -2,11 +2,11 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use crate::core::component::desc::Desc;
-use csv::{Reader, ReaderBuilder, Trim};
 use bevy::log::prelude::*;
+use bevy::prelude::*;
+use csv::{Reader, ReaderBuilder, Trim};
 use serde::Deserialize;
 use std::collections::BTreeMap;
-use bevy::prelude::*;
 
 // use core::component::asteroidprop::*;
 
@@ -72,32 +72,28 @@ impl Default for Orbit {
             g: 0.0,
             reference: "".to_string(),
         }
-
     }
-
 }
 
 // TODO implement asteroid import
 impl SmallBody {
     pub fn init(_world: &mut World) {
-        
         // read orbits
         info!("Reading orbitdata of asteroids");
         let mut orbitmap = BTreeMap::new();
         let mut rdr = ReaderBuilder::new()
-        .delimiter(b',')
-        .trim(Trim::All)
-        .from_path("assets/bodiesorbit.csv".to_string())
-        .unwrap();
+            .delimiter(b',')
+            .trim(Trim::All)
+            .from_path("assets/bodiesorbit.csv".to_string())
+            .unwrap();
         for result in rdr.deserialize() {
             let record: Orbit = result.unwrap();
             orbitmap.insert(record.num, record);
         }
-        
         // read bodies data
         info!("Reading physical data of asteroids");
-        let mut orbit = Orbit::default();
         let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
+        let mut orbit = Orbit::default();
         for result in rdr.deserialize() {
             let record: Bodies = result.unwrap();
             let (number, _name) = record.full_name.split_at(7);
