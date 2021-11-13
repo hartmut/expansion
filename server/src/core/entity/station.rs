@@ -1,9 +1,12 @@
-// Copyright (C) 2016  Hartmut Prochaska
-// Experimental Simulator of a cooperative solar system economy.
-// See doc/LICENSE for licensing information
-// use crate::core::component::desc::Desc;
+/// Station entity related functions
+use crate::core::component::desc::Desc;
+use bevy::ecs::system::EntityCommands;
+use bevy::prelude::*;
 
-pub struct Station;
+#[derive(Bundle, Reflect)]
+pub struct Station {
+    desc: Desc,
+}
 
 /// a station has the following parts
 /// - a description
@@ -11,11 +14,8 @@ pub struct Station;
 /// - modules as children which are arranged in a matrix
 
 impl Station {
-    pub fn create() {
-//     pub fn create(world: &mut World, name: String, owner: Entity) -> Entity {
-//         let desc = Desc::new(name, "");
-//         let owner = Parent(owner);
-//         let transform = Transform::default();
-//         world.push((desc, owner, transform))
+    pub fn create(mut commands: EntityCommands, name: impl Into<String>) -> Entity {
+        let desc = Desc::new(name, "");
+        commands.insert_bundle(Station { desc}).id()
     }
 }

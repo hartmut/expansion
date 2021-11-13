@@ -3,12 +3,13 @@
 // See doc/LICENSE for licensing information
 
 use bevy::prelude::*;
+use bevy_inspector_egui::Inspectable;
 
 /*  in most cases inner and outer volume are the same. But if you have a container with a thick wall
 /   or something similar the usabel volume will differ from the outer volume
 */
 
-#[derive(Clone, Copy, Debug, PartialEq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable)]
 pub struct BasicParameter {
     pub mass: f64,   //in kg
     pub usablevol: f64, //in m^3

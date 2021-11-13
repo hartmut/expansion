@@ -2,9 +2,8 @@
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
-// COMEBAK inspection doesn't work
 // Descriptions
-#[derive(Clone, Debug, PartialEq, Reflect, Default, Inspectable)]
+#[derive(Inspectable, Clone, Debug, PartialEq, Reflect, Default)]
 pub struct Desc {
     pub name: String,
     pub longtext: String,
