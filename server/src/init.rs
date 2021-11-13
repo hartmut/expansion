@@ -2,11 +2,9 @@
 use crate::core::component::*;
 use crate::core::entity::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::InspectableRegistry;
 use bevy::transform::prelude::Parent;
+use bevy_inspector_egui::InspectableRegistry;
 
-
-// TODO create initial components
 pub fn init(mut commands: Commands) {
     info!("Starting initialization");
     // Testdata
@@ -15,6 +13,7 @@ pub fn init(mut commands: Commands) {
     commands.entity(player_id).push_children(&[station_id]);
     let first_module = module::Module::create(commands.spawn(), "Central Hub");
     commands.entity(station_id).push_children(&[first_module]);
+    // COMEBACK import entities
 }
 
 pub struct InitSystem;
