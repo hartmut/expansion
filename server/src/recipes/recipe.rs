@@ -8,11 +8,6 @@
 // uses
 use super::components::*;
 use serde::{Deserialize, Serialize};
-use serde_json;
-use serde_json::Error;
-use std::collections::HashMap;
-use crate::utils::fileoperations::*;
-use crate::utils::myuuid::*;
 
 // one Bundle, material or element and quantity
 #[derive(Serialize, Deserialize, Debug)]
@@ -34,8 +29,6 @@ pub enum RecipeType {
 // my recipes
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Recipe {
-    pub uuid: ExpUuid,           // uuid for this recipe
-    pub uuid_origin: ExpUuid, // Origin of this recipe, if this is an original recipe it has the value "0"
     pub recipe_type: RecipeType, // what type will be produced?
     pub name: String,         // name of this recipe
     pub duration: u32,        // hours until the recipe produces one set of outputs
@@ -44,31 +37,26 @@ pub struct Recipe {
     pub prefab: String, // json format for creation of a new module, empty if it is not a module
 }
 
-pub type RecipeHashMap = HashMap<ExpUuid, Recipe>;
-
-pub fn read_recipe_file(filename: String) -> RecipeHashMap {
+pub fn read_recipe_file(_filename: String) -> String {
     // read the json file and convert it to a hashmap of recipes
-    let result = read_file_to_string(filename);
-    let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
+    // let result = read_file_to_string(filename);
+    // let recipes: Result<RecipeHashMap, Error> = serde_json::from_str(&result);
 
-    // check if the conversion of the elementlist from the json file worked as predicted
-    let recipehash: RecipeHashMap = match recipes {
-        Ok(recipes) => recipes,
-        Err(error) => {
-            panic!(
-                "somethings is wrong with the deserialization of the recipehashfile: {:?}",
-                error
-            );
-        }
-    };
+    // // check if the conversion of the elementlist from the json file worked as predicted
+    // let recipehash: RecipeHashMap = match recipes {
+    //     Ok(recipes) => recipes,
+    //     Err(error) => {
+    //         panic!(
+    //             "somethings is wrong with the deserialization of the recipehashfile: {:?}",
+    //             error
+    //         );
+    //     }
+    // };
 
-    recipehash
+    "".to_string()
 }
 
 impl Recipe {
-    pub fn get_uuid(&self) -> ExpUuid {
-        self.uuid
-    }
 
     fn get_duration(&self) -> u32 {
         self.duration

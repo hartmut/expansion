@@ -1,24 +1,27 @@
-# Intro
-Notes
+# Notes
 
-# To do
-- [ ] migrate to bevy
+Version up until 0.5 will be developed in client mode and then split into server/client system in Version 1.
+
+## To do
+
+- [ ] modify config to be based on ron file - in progress
 - [ ] migrate structures to new infrastructure
-- [ ] design energy infrastructure for a station
+- [ ] usage of scenes for save/load of world
+- [ ] usage of prefabs
+- [ ] orbital mechanics
+- [ ] design energy infrastructure
 - [ ] storage and production mechanics
 - [ ] create consumables - from NPCs and in production
 - [ ] component can_be_produced - link to recipe
 - [ ] migrate recipes to new infrastructure and design recipes
 - [ ] recipe design and usage
 - [ ] find open database where production chains are defined
-- [ ] orbital mechanics
-- [ ] save/load World
-- [ ] usage of prefabs
 - [ ] Network communication of object updates
 - [ ] Client or web interface
 - [ ] integrate asteroid database with mining information and potential to use up a object because of mining
 
-# Design Decisions
+## Design Decisions
+
 Player 1=>n Station 1=>n modules 1=>n plugins
 
 - objects in space - have position in space

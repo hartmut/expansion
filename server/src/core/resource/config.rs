@@ -4,6 +4,7 @@
 // Old configuration - will be reworked
 
 // implemented with default - will obsolete configuration.rs
+use bevy::log::prelude::*;
 use serde::Deserialize;
 /// for initalization and configuration
 
@@ -11,7 +12,6 @@ use serde::Deserialize;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use bevy::log::prelude::*;
 use toml;
 
 /// When you add or remove a parameter you need to change
@@ -20,7 +20,7 @@ use toml;
 /// - the implementation of default
 /// - the implementation of the function integrate_loaded_config
 /// - and add or remove a function to get the value
-// change to prefab from ron
+// TODO change to prefab from ron, ron config file created
 
 #[derive(Debug, Deserialize, Clone)]
 enum StorageType {

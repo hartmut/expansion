@@ -6,12 +6,11 @@
 // can have thrust
 
 // uses
-use crate::utils::myuuid::*;
 
 #[derive(Debug)]
 pub struct AStation {
     name: String,     // name of this station
-    owner: ExpUuid,   // player who owns this station
+    owner: u64,   // player who owns this station
     energyuse: u64,   // energy usage per tick, sum over all modules
     energyprod: u64,  // energy production per tick, sum over all modules
     personcount: u64, // how many people are on this station
@@ -27,7 +26,7 @@ pub struct AStation {
 // not necessesary, but difficult later to display, optimization later :)
 
 impl AStation {
-    pub fn new(name: String, owner: ExpUuid) -> AStation {
+    pub fn new(name: String, owner: u64) -> AStation {
         AStation {
             name,
             owner,

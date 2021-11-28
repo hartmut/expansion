@@ -15,8 +15,8 @@ fn main() {
     let mut app = App::build();
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
-    app.add_plugins(DefaultPlugins) // VERSION1 needs to change for servermode to necessary plugins without window mode
-        .add_plugin(WorldInspectorPlugin::new()) // VERSION1 not needed in servermode
+    app.add_plugins(DefaultPlugins)
+        .add_plugin(WorldInspectorPlugin::new()) 
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
         .add_plugin(InitSystem); // Initialization
