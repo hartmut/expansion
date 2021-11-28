@@ -11,8 +11,9 @@ pub struct ChemMix {
     kg: f64,
 }
 
-// when a module has an athmospere this component is used
+/// when a module has an athmosphere this component is used
 /// is part of a module, volume must be smaller than the whole module
+/// people in the habitat will be managed in the component people
 #[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable)]
 pub struct Habitat {
     // in m^3
@@ -31,9 +32,6 @@ pub struct Habitat {
 
     // futher environment variables
     temperature: f64,
-
-    // how many people are currently in the habitat
-    person_count: u32,
 }
 
 impl Habitat {
@@ -50,7 +48,6 @@ impl Habitat {
             // source https://spaceflight.nasa.gov/shuttle/reference/shutref/orbiter/eclss/cabinpress.html - one atm or this kPa
             k_pa: 101.325,
             temperature: 20.0,
-            person_count: 0,
         }
     }
 
@@ -80,7 +77,6 @@ mod tests {
             co2: 0.0,
             k_pa: 101.325,
             temperature: 20.0,
-            person_count: 0,
         };
         let o2_part_pressure = habitat.o2_part_pressure();
         assert_eq!(o2_part_pressure, 0.22628);
@@ -97,7 +93,6 @@ mod tests {
             co2: 0.0,
             k_pa: 101.325,
             temperature: 20.0,
-            person_count: 0,
         };
         let hypoxia = habitat.hypoxia();
         assert!(hypoxia);

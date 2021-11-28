@@ -1,10 +1,11 @@
 /// Station entity related functions
-use crate::core::component::desc::Desc;
+use crate::core::component::*;
 use bevy::prelude::*;
 
 #[derive(Bundle, Reflect)]
 pub struct Station {
-    desc: Desc,
+    desc: desc::Desc,
+    energy: energy::Energy,
 }
 
 /// a station has the following parts
@@ -14,13 +15,8 @@ pub struct Station {
 
 impl Station {
     pub fn create(name: impl Into<String>) -> Station {
-        let desc = Desc::new(name, "");
-        Station { desc }
+        let desc = desc::Desc::new(name, "");
+        let energy = energy::Energy::default();
+        Station { desc, energy }
     }
-    
-    // pub fn create1(&mut commands: Commands, name: impl Into<String>) -> Station {
-    //     let desc = Desc::new(name, "");
-    //     let station = Station { desc };
-    //     commands.spawn().insert_bundle(station).id();
-    // }
 }

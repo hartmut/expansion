@@ -36,5 +36,8 @@ impl Plugin for InitSystem {
         registry.register::<desc::Desc>();
         registry.register::<account::Account>();
         registry.register::<basics::BasicParameter>();
+        registry.register::<energy::Energy>();
+        registry.register::<habitat::Habitat>();
+        registry.register::<resources::Resource>();
     }
 }

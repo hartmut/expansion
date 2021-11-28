@@ -2,6 +2,10 @@
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
+/* 
+when used in a station the vector will be empty and only a total count will be managed
+*/
+
 // Descriptions
 #[derive(Inspectable, Clone, Debug, PartialEq, Reflect, Default)]
 pub struct People {
