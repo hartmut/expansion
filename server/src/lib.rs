@@ -8,7 +8,6 @@ extern crate measurements;
 extern crate rand;
 extern crate serde;
 extern crate serde_derive;
-// TODO get rid of serde_json
 extern crate serde_json;
 extern crate time;
 extern crate toml;

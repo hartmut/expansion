@@ -40,7 +40,7 @@ pub fn newreader(filename: String) -> BufReader<File> {
     let f = match File::open(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", path.display(), why.to_string()),
+        Err(why) => panic!("couldn't open {}: {}", path.display(), why),
         Ok(file) => file,
     };
 
@@ -57,13 +57,13 @@ pub fn read_file_to_string(filename: String) -> String {
     let mut file = match File::open(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", display, why.to_string()),
+        Err(why) => panic!("couldn't open {}: {}", display, why),
         Ok(file) => file,
     };
 
     // Read the file contents into a string, returns `io::Result<usize>`
     match file.read_to_string(&mut input) {
-        Err(why) => panic!("couldn't read {}: {}", display, why.to_string()),
+        Err(why) => panic!("couldn't read {}: {}", display, why),
         // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
         Ok(_) => input,
     }
@@ -116,7 +116,7 @@ pub fn newlinewriter(filename: String) -> LineWriter<File> {
     let f = match File::create(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", path.display(), why.to_string()),
+        Err(why) => panic!("couldn't open {}: {}", path.display(), why),
         Ok(file) => file,
     };
 
@@ -143,7 +143,7 @@ pub fn write_string_to_file(filename: String, output: &str) -> u64 {
     let mut f = match File::create(&path) {
         // The `description` method of `io::Error` returns a string that
         // describes the error
-        Err(why) => panic!("couldn't open {}: {}", path.display(), why.to_string()),
+        Err(why) => panic!("couldn't open {}: {}", path.display(), why),
         Ok(file) => file,
     };
 
