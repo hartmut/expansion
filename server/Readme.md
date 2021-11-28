@@ -5,16 +5,17 @@ Version up until 0.5 will be developed in client mode and then split into server
 ## To do
 
 - [ ] modify config to be based on ron file - in progress
-- [ ] migrate structures to new infrastructure
+- [ ] create userinterface to create new modules etc.
+- [ ] visualize stations and modules, transform
+- [ ] migrate structures to new infrastructure - in progress
 - [ ] usage of scenes for save/load of world
-- [ ] usage of prefabs
+- [ ] usage of prefabs - in progress (bundles)
 - [ ] orbital mechanics
-- [ ] design energy infrastructure
+- [ ] design energy infrastructure - in progress
 - [ ] storage and production mechanics
-- [ ] create consumables - from NPCs and in production
-- [ ] component can_be_produced - link to recipe
+- [ ] recipe design and usage, directory with one file per recipe, recipe database
 - [ ] migrate recipes to new infrastructure and design recipes
-- [ ] recipe design and usage
+- [ ] create consumables - from NPCs and in production
 - [ ] find open database where production chains are defined
 - [ ] Network communication of object updates
 - [ ] Client or web interface

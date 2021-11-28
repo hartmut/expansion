@@ -10,4 +10,4 @@ pub mod energy;
 pub mod habitat;
 pub mod orbit;
 pub mod people;
-pub mod storage;
+pub mod resources;

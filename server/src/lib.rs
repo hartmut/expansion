@@ -19,6 +19,5 @@ extern crate ron;
 pub mod core;
 pub mod init;
 pub mod recipes;
-pub mod structure;
 pub mod tests;
 pub mod utils;
