@@ -1,6 +1,5 @@
 use crate::core::component::desc::Desc;
 use crate::core::component::basics::BasicParameter;
-use bevy::ecs::system::EntityCommands;
 use bevy_inspector_egui::Inspectable;
 use bevy::prelude::*;
 
@@ -10,17 +9,10 @@ pub struct Module{
     basics: BasicParameter,
 }
 
-// impl Module {
-//     pub fn create(world: &mut World, name: String, _parent: Entity) -> Entity {
-//         let desc = Desc::new(name, "");
-//         world.push((desc, Parent))
-//     }
-// }
 impl Module {
     pub fn create(
-        mut commands: EntityCommands,
         name: impl Into<String>,
-    ) -> Entity {
+    ) -> Module {
         let desc = Desc::new(name, "");
         let extend = Vec3::new(5.0,3.0,3.0);
         let basics = BasicParameter{
@@ -29,6 +21,6 @@ impl Module {
              outervol: 6.0,
              extend,
         };
-        commands.insert_bundle(Module { desc, basics }).id()
+        Module { desc, basics }
     }
 }

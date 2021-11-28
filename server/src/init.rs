@@ -2,16 +2,22 @@
 use crate::core::component::*;
 use crate::core::entity::*;
 use bevy::prelude::*;
-// use bevy::transform::prelude::Parent;
 use bevy_inspector_egui::InspectableRegistry;
 
 pub fn init(mut commands: Commands) {
     info!("Starting initialization");
     // Testdata
-    let player_id = player::Player::create(commands.spawn(), "Riker", "First Officer");
-    let station_id = station::Station::create(commands.spawn(), "ISS");
+    // create player
+    let player = player::Player::create("Riker", "First Officer");
+    let player_id = commands.spawn_bundle(player).id();
+    // create station record
+    let station = station::Station::create("ISS");
+    let station_id = commands.spawn_bundle(station).id();
+    // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
-    let first_module = module::Module::create(commands.spawn(), "Central Hub");
+    // create module and insert into last station in test
+    let module = module::Module::create("Central Hub");
+    let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
     // TODO import entities
 }

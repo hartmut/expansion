@@ -3,11 +3,11 @@
 // See doc/LICENSE for licensing information
 
 pub mod account;
+pub mod asteroidprop;
 pub mod basics;
 pub mod desc;
 pub mod energy;
 pub mod habitat;
 pub mod orbit;
-pub mod size;
-pub mod asteroidprop;
+pub mod people;
 pub mod storage;

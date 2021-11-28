@@ -1,6 +1,5 @@
 /// Station entity related functions
 use crate::core::component::desc::Desc;
-use bevy::ecs::system::EntityCommands;
 use bevy::prelude::*;
 
 #[derive(Bundle, Reflect)]
@@ -14,8 +13,14 @@ pub struct Station {
 /// - modules as children which are arranged in a matrix
 
 impl Station {
-    pub fn create(mut commands: EntityCommands, name: impl Into<String>) -> Entity {
+    pub fn create(name: impl Into<String>) -> Station {
         let desc = Desc::new(name, "");
-        commands.insert_bundle(Station { desc}).id()
+        Station { desc }
     }
+    
+    // pub fn create1(&mut commands: Commands, name: impl Into<String>) -> Station {
+    //     let desc = Desc::new(name, "");
+    //     let station = Station { desc };
+    //     commands.spawn().insert_bundle(station).id();
+    // }
 }

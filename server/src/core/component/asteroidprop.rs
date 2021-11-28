@@ -4,10 +4,11 @@
 //
 /// basic component for asteroids, comets and small moons
 use bevy::prelude::*;
+use bevy_inspector_egui::Inspectable;
 
 // spectral enums - https://en.wikipedia.org/wiki/Asteroid_spectral_types
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable)]
 pub enum SpecT {
     None,
     A, // https://en.wikipedia.org/wiki/A-type_asteroid
@@ -32,7 +33,7 @@ impl Default for SpecT {
 }
 
 
-#[derive(Clone, Copy, PartialEq, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable)]
 pub enum SpecB {
     None,
     A,
@@ -73,7 +74,7 @@ G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is 
  Ref 	    Orbit solution reference.
 */
 
-#[derive(Clone, Copy, Debug, PartialEq, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Default)]
 pub struct AsteroidProp {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */

@@ -13,6 +13,7 @@ extern crate time;
 extern crate toml;
 extern crate uuid;
 extern crate bevy;
+extern crate ron;
 
 // describe mods to use
 pub mod core;

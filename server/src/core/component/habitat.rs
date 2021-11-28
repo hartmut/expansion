@@ -2,6 +2,8 @@
 // Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 
+use bevy::prelude::*;
+use bevy_inspector_egui::Inspectable;
 use measurements::pressure::*;
 
 pub struct ChemMix {
@@ -11,7 +13,7 @@ pub struct ChemMix {
 
 // when a module has an athmospere this component is used
 /// is part of a module, volume must be smaller than the whole module
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable)]
 pub struct Habitat {
     // in m^3
     volume: u64, // TODO create module basics
