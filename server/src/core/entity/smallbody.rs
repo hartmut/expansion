@@ -93,6 +93,7 @@ impl SmallBody {
         // read bodies data
         info!("Reading physical data of asteroids");
         let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
+        #[allow(unused_assignments)]
         let mut orbit = Orbit::default();
         for result in rdr.deserialize() {
             let record: Bodies = result.unwrap();
@@ -103,9 +104,7 @@ impl SmallBody {
                 None => break,
             }
             // mix the files and create the asteroid entities
-
             // find record from orbitmap
-
             // create basic, desc, smallbody and orbit components
             let _desc = Desc::new(orbit.name, "");
             // TODO insert extend into basic, and adapt the smallbody component
