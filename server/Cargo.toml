@@ -11,11 +11,11 @@ csv = "1.1" # https://crates.io/crates/csv
 toml = "*" # https://crates.io/crates/toml
 chrono = "*" # https://crates.io/crates/chrono
 measurements = "*" # https://crates.io/crates/measurements
-bevy-inspector-egui = "0.6" # https://crates.io/crates/bevy-inspector-egui
+bevy-inspector-egui = "0.7" # https://crates.io/crates/bevy-inspector-egui
 ron = "0.7" # https://crates.io/crates/ron
 
 [dependencies.bevy]
-version = "0.5" # https://crates.io/crates/bevy
+version = "0.6" # https://crates.io/crates/bevy
 features = ["dynamic", "serialize"]
 
 ### from Bevy for fast compiles ###

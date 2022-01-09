@@ -12,7 +12,7 @@ use bevy_inspector_egui::Inspectable;
 /   between the habitat and the outer shell
 */
 
-#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
 pub struct BasicParameter {
     pub mass: f64,   //in kg
     pub volume: f64, //in m^3

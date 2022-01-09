@@ -25,12 +25,12 @@ pub fn init(mut commands: Commands) {
 pub struct InitSystem;
 
 impl Plugin for InitSystem {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
         app.add_startup_system(init.system());
 
         let mut registry = app
-            .world_mut()
+            .world
             .get_resource_mut::<InspectableRegistry>()
             .unwrap();
         registry.register::<desc::Desc>();

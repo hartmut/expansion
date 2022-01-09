@@ -14,7 +14,7 @@ use bevy::prelude::*;
 pub struct ExpResources;
 
 impl Plugin for ExpResources {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         // TODO use data source for elementlist from configfile
 
         // insert resources

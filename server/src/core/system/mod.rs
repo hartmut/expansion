@@ -4,7 +4,7 @@ use bevy::{core::FixedTimestep, prelude::*};
 pub struct ExpSystems;
 
 impl Plugin for ExpSystems {
-    fn build(&self, app: &mut AppBuilder) {
+    fn build(&self, app: &mut App) {
         // insert systems for step updates
         
         // updates 30 times a second, for physics and graphics

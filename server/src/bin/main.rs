@@ -12,7 +12,7 @@ use expansion::core::system::ExpSystems;
 use expansion::init::InitSystem;
 
 fn main() {
-    let mut app = App::build();
+    let mut app = App::new();
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
     app.add_plugins(DefaultPlugins)
