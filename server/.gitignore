@@ -1,6 +1,7 @@
 target
 Cargo.lock
 .assets_db
+.vscode
 *.log
 *.toc
 *.backup
