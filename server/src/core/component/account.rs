@@ -3,7 +3,8 @@ use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
 // Money
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Component)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Component, Default)]
+#[reflect(Component)]
 pub struct Account {
     credits: u64,
 }

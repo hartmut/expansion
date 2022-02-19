@@ -21,7 +21,6 @@ pub struct Worldtime {
 }
 
 impl Worldtime {
-    // pub fn new(tick_dur: u64, tick_length: u64) -> Self {
     pub fn new(tick_length: u64) -> Self {
         Worldtime {
             tick_counter: 1,

@@ -16,4 +16,3 @@ pub mod core;
 pub mod init;
 pub mod recipes;
 pub mod tests;
-pub mod utils;

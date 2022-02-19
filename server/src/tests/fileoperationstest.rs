@@ -4,7 +4,7 @@
 
 #[cfg(test)]
 mod tests {
-    use crate::utils::fileoperations::*;
+    use crate::core::common::fileoperations::*;
 
     #[test]
     fn readfile() {

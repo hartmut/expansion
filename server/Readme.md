@@ -4,11 +4,11 @@ Version up until 0.5 will be developed in client mode and then split into server
 
 ## To do
 
+- [ ] usage of scenes for save/load of world
 - [ ] modify config to be based on ron file - in progress
 - [ ] create userinterface to create new modules etc.
 - [ ] visualize stations and modules, transform
 - [ ] migrate structures to new infrastructure - in progress
-- [ ] usage of scenes for save/load of world
 - [ ] usage of prefabs - in progress (bundles)
 - [ ] orbital mechanics
 - [ ] design energy infrastructure - in progress

@@ -84,7 +84,7 @@ impl SmallBody {
         let mut rdr = ReaderBuilder::new()
             .delimiter(b',')
             .trim(Trim::All)
-            .from_path("assets/bodiesorbit.csv".to_string())
+            .from_path("assets/bodiesorbit.csv")
             .unwrap();
         for result in rdr.deserialize() {
             let record: Orbit = result.unwrap();
@@ -92,7 +92,7 @@ impl SmallBody {
         }
         // read bodies data
         info!("Reading physical data of asteroids");
-        let mut rdr = Reader::from_path("assets/bodiesdata.csv".to_string()).unwrap();
+        let mut rdr = Reader::from_path("assets/bodiesdata.csv").unwrap();
         #[allow(unused_assignments)]
         let mut orbit = Orbit::default();
         for result in rdr.deserialize() {

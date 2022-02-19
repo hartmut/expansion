@@ -16,7 +16,7 @@ ron = "0.7" # https://crates.io/crates/ron
 
 [dependencies.bevy]
 version = "0.6" # https://crates.io/crates/bevy
-features = ["dynamic", "serialize"]
+features = ["dynamic", "serialize", "wayland"]
 
 ### from Bevy for fast compiles ###
 # For maximum performance, build using a nightly compiler

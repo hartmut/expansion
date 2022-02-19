@@ -12,7 +12,6 @@ pub struct Player {
 /// a player has the following parts
 /// - a description,
 /// - an account
-/// - some stations as as children
 
 impl Player {
     pub fn create(name: impl Into<String>, longtext: impl Into<String>) -> Player {

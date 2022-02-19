@@ -2,7 +2,7 @@
 use crate::core::component::*;
 use crate::core::entity::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::InspectableRegistry;
+// use bevy_inspector_egui::InspectableRegistry;
 
 pub fn init(mut commands: Commands) {
     info!("Starting initialization");
@@ -19,7 +19,7 @@ pub fn init(mut commands: Commands) {
     let module = module::Module::create("Central Hub");
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
-    // TODO import entities
+    // TODO implement automatic load of the last quicksave or other scene saves
 }
 
 pub struct InitSystem;
@@ -29,15 +29,13 @@ impl Plugin for InitSystem {
         // insert systems for initialization in dev
         app.add_startup_system(init.system());
 
-        let mut registry = app
-            .world
-            .get_resource_mut::<InspectableRegistry>()
-            .unwrap();
-        registry.register::<desc::Desc>();
-        registry.register::<account::Account>();
-        registry.register::<basics::BasicParameter>();
-        registry.register::<energy::Energy>();
-        registry.register::<habitat::Habitat>();
-        registry.register::<resources::Resource>();
+        // register components for automatic save
+        // TODO howto save state of relevant resources like worldtime
+        app.register_type::<desc::Desc>();
+        app.register_type::<account::Account>();
+        app.register_type::<basics::BasicParameter>();
+        app.register_type::<energy::Energy>();
+        app.register_type::<habitat::Habitat>();
+        app.register_type::<resources::Resource>();
     }
 }
