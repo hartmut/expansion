@@ -1,5 +1,4 @@
 // Experimental Simulator of a cooperative solar system economy.
-// Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 //
 // definitino of recipes, generalized for all types of recipes like research and production

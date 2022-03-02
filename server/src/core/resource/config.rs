@@ -1,18 +1,19 @@
 // Experimental Simulator of a cooperative solar system economy.
-// Copyright (C) 2016  Hartmut Prochaska
 // See doc/LICENSE for licensing information
 // Old configuration - will be reworked
 
 // implemented with default - will obsolete configuration.rs
+/// for initalization and configuration
 use bevy::log::prelude::*;
 use serde::Deserialize;
-/// for initalization and configuration
+use ron::ser::{to_string_pretty, PrettyConfig};
 
 /// used mods
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use toml;
+use crate::core::common::fileoperations::*;
 
 /// When you add or remove a parameter you need to change
 /// - the config.toml file
@@ -236,5 +237,13 @@ impl Config {
 
     pub fn get_components_config(&self) -> FileData {
         self.components.clone()
+    }
+
+    pub fn save_config() {
+    
+        // let output = self
+        //         .serialize_ron()
+        //         .unwrap();
+        // let _f = write_string_to_file("assets/saves/resoucrces/config.ron".to_string(), &output);
     }
 }

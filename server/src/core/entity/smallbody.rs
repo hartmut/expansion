@@ -1,4 +1,3 @@
-// Copyright (C) 2016  Hartmut Prochaska
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 use crate::core::component::desc::Desc;
