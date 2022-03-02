@@ -1,0 +1,11 @@
+(
+    tick_length: 1,
+    o2_per_person: 150,
+    food_per_person: 1,
+    water_per_person: 5,
+    elements: (
+        storage_method: File,
+        datafile: "resources/PeriodicTableJSON-cleaned.json",
+        source: "https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json",
+    ),
+)

@@ -5,9 +5,7 @@
 
 /// used mods
 use std::fs::File;
-use std::io::prelude::*;
-use std::io::BufReader;
-use std::io::LineWriter;
+use std::io::{LineWriter, BufReader, BufWriter, Read, prelude::*};
 use std::path::Path;
 
 // General file functions
@@ -150,4 +148,13 @@ pub fn write_string_to_file(filename: String, output: &str) -> u64 {
     let i = f.write(output.as_bytes()).unwrap() as u64;
     f.flush().unwrap();
     i
+}
+
+// create writer from for the ron output file
+pub fn create_file_writer(filename: &str) -> Result<BufWriter<File>, String> {
+    let ron_file = File::create(&filename);
+    if ron_file.is_err() {
+        return Err(format!("Failed to create the ron file {filename}"));
+    }
+    Ok(BufWriter::new(ron_file.unwrap()))
 }

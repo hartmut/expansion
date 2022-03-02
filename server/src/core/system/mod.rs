@@ -15,10 +15,10 @@ impl Plugin for ExpSystems {
                 .with_system(update_worldtime::update_worldtime.system())
         );
 
-        // autosave every 60 seconds
+        // autosave every x seconds
         app.add_system_set(
             SystemSet::new()
-                .with_run_criteria(FixedTimestep::step(30.0))
+                .with_run_criteria(FixedTimestep::step(5.0))
                 .with_system(continous_save::continous_save.exclusive_system()),
         );
     }

@@ -2,18 +2,17 @@
 // See doc/LICENSE for licensing information
 // Old configuration - will be reworked
 
-// implemented with default - will obsolete configuration.rs
 /// for initalization and configuration
 use bevy::log::prelude::*;
-use serde::Deserialize;
-use ron::ser::{to_string_pretty, PrettyConfig};
+use ron::ser::{to_writer_pretty, PrettyConfig};
+use serde::{Deserialize, Serialize};
 
 /// used mods
+use crate::core::common::fileoperations::*;
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
 use toml;
-use crate::core::common::fileoperations::*;
 
 /// When you add or remove a parameter you need to change
 /// - the config.toml file
@@ -21,9 +20,9 @@ use crate::core::common::fileoperations::*;
 /// - the implementation of default
 /// - the implementation of the function integrate_loaded_config
 /// - and add or remove a function to get the value
-// TODO change to prefab from ron, ron config file created
+// TODO change to load from ron file
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 enum StorageType {
     File,
 }
@@ -35,17 +34,24 @@ impl Default for StorageType {
 }
 
 /// Configuration
-#[derive(Debug, Deserialize, Clone)]
+// TODO integrate into config
+// gas equivalents http://www.airproducts.com/Products/Gases/gas-facts/conversion-formulas/weight-and-volume-equivalents/oxygen.aspx
+// airmix_o2 = 0.2
+// airmix_n2 = 0.8
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Config {
+    // one tick is tick_lenght hours in worldtime per second realtime
     tick_length: u64,
+    //  needed O2 in liter per player and 6 hour tick, later value per hour
+    //  https://www.quora.com/How-much-oxygen-does-the-average-person-burn-in-a-day-What-volume-of-air-is-that
+    //  using the nasa values, per hour a person will need about 25l, could be higher if exercising => we will improve the model later
     o2_per_person: u64,
+    // per day in kg
     food_per_person: f32,
+    // per day in kg
     water_per_person: f32,
-    structure: FileData,
-    player: FileData,
-    module: FileData,
     elements: FileData,
-    components: FileData,
 }
 
 /// configuration
@@ -55,17 +61,13 @@ struct ConfigWrap {
     o2_per_person: Option<u64>,
     food_per_person: Option<f32>,
     water_per_person: Option<f32>,
-    structure: Option<FileDataWrap>,
-    player: Option<FileDataWrap>,
-    module: Option<FileDataWrap>,
     elements: Option<FileDataWrap>,
-    components: Option<FileDataWrap>,
 }
 
-#[derive(Debug, Deserialize, Clone, Default)]
+#[derive(Debug, Serialize, Deserialize, Clone, Default)]
 pub struct FileData {
     storage_method: StorageType,
-    datafile: String,
+    datafile:String,
     source: String,
 }
 
@@ -89,11 +91,7 @@ impl Default for Config {
             food_per_person: 0.5,
             // 5 l / day and person
             water_per_person: 5.,
-            structure: FileData::new_file("resources/station.json"),
-            player: FileData::new_file("resources/player.json"),
-            module: FileData::new_file("resources/module.json"),
             elements: FileData::new_file("resources/PeriodicTableJSON-cleaned.json"),
-            components: FileData::new_file("resources/components.json"),
         };
 
         // configuration is here server/src/resources/config.toml
@@ -129,8 +127,7 @@ impl FileData {
         FileData {
             storage_method: StorageType::File,
             datafile: file.to_string(),
-            source: "".to_string(),
-        }
+            source: "".to_string(),}
     }
 
     pub fn get_datafile(&self) -> String {
@@ -146,7 +143,7 @@ impl FileDataWrap {
         };
         if let Some(x) = &self.datafile {
             filedata.datafile = x.clone()
-        };
+    };
         if let Some(x) = &self.source {
             filedata.source = x.clone()
         };
@@ -200,7 +197,6 @@ impl Config {
         if let Some(x) = input.elements {
             self.elements = x.extract();
         };
-        // TODO more files need to be intergrated
     }
 
     pub fn get_tick_length(&self) -> u64 {
@@ -219,31 +215,15 @@ impl Config {
         self.water_per_person
     }
 
-    pub fn get_structure_config(&self) -> FileData {
-        self.structure.clone()
-    }
-
-    pub fn get_player_config(&self) -> FileData {
-        self.player.clone()
-    }
-
-    pub fn get_module_config(&self) -> FileData {
-        self.module.clone()
-    }
-
     pub fn get_elements_config(&self) -> FileData {
         self.elements.clone()
     }
 
-    pub fn get_components_config(&self) -> FileData {
-        self.components.clone()
-    }
-
-    pub fn save_config() {
-    
-        // let output = self
-        //         .serialize_ron()
-        //         .unwrap();
-        // let _f = write_string_to_file("assets/saves/resoucrces/config.ron".to_string(), &output);
+    pub fn save_config(&self, pretty: PrettyConfig) {
+        let ron_buffer = create_file_writer("assets/saves/resources/config.ron").unwrap();
+        let r = to_writer_pretty(ron_buffer, &self, pretty);
+        if r.is_err() {
+            println!("Serialization failed for configuration");
+        }
     }
 }

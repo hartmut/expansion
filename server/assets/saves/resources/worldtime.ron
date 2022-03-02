@@ -1,0 +1,13 @@
+(
+    tick_counter: 5,
+    warp: 3600,
+    time_last: (
+        secs_since_epoch: 1646215580,
+        nanos_since_epoch: 679649545,
+    ),
+    worldtime: "2030-01-01T04:00:30.262712400+00:00",
+    step_leng: (
+        secs: 1,
+        nanos: 437098,
+    ),
+)
