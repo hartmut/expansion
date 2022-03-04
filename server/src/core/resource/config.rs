@@ -16,7 +16,6 @@ use crate::core::common::fileoperations::*;
 /// - the implementation of default
 /// - the implementation of the function integrate_loaded_config
 /// - and add or remove a function to get the value
-// TODO change to load from ron file
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 enum StorageType {

@@ -15,7 +15,6 @@ pub struct ExpResources;
 impl Plugin for ExpResources {
     fn build(&self, app: &mut App) {
         // TODO use data source for elementlist from configfile
-        // TODO auotmatic load of resources from last state
 
         // insert resources
         app.init_resource::<Config>()

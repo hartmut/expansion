@@ -30,7 +30,6 @@ impl Plugin for InitSystem {
         app.add_startup_system(init.system());
 
         // register components for automatic save
-        // TODO howto save state of relevant resources like worldtime
         app.register_type::<desc::Desc>();
         app.register_type::<account::Account>();
         app.register_type::<basics::BasicParameter>();

@@ -10,15 +10,13 @@ use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
-// TODO change to load from ron file
-
 // Descriptions
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Worldtime {
     pub tick_counter: u64,                                // counter of current step
     pub warp: u64,                                        // speedup of world- vs. real-time
-    pub time_last: SystemTime,                            // last time a step has been taken
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
+    pub time_last: SystemTime,                            // last time a step has been taken
     pub step_leng: Duration, // duration between two steps in worldtime in secs
 }
 
@@ -28,8 +26,8 @@ impl Worldtime {
         Worldtime {
             tick_counter: 1,
             warp: 3600,
-            time_last: SystemTime::now(),
             worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
+            time_last: SystemTime::now(),
             step_leng: Duration::new(0, 0),
         }
     }
