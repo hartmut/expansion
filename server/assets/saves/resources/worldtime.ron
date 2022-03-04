@@ -2,12 +2,12 @@
     tick_counter: 5,
     warp: 3600,
     time_last: (
-        secs_since_epoch: 1646215580,
-        nanos_since_epoch: 679649545,
+        secs_since_epoch: 1646391630,
+        nanos_since_epoch: 453646431,
     ),
-    worldtime: "2030-01-01T04:00:30.262712400+00:00",
+    worldtime: "2030-01-01T04:00:31.711111200+00:00",
     step_leng: (
         secs: 1,
-        nanos: 437098,
+        nanos: 2333022,
     ),
 )

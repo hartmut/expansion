@@ -9,10 +9,6 @@ use serde::{Deserialize, Serialize};
 
 /// used mods
 use crate::core::common::fileoperations::*;
-use std::fs::File;
-use std::io::prelude::*;
-use std::path::Path;
-use toml;
 
 /// When you add or remove a parameter you need to change
 /// - the config.toml file
@@ -54,70 +50,22 @@ pub struct Config {
     elements: FileData,
 }
 
-/// configuration
-#[derive(Debug, Deserialize, Clone)]
-struct ConfigWrap {
-    tick_length: Option<u64>,
-    o2_per_person: Option<u64>,
-    food_per_person: Option<f32>,
-    water_per_person: Option<f32>,
-    elements: Option<FileDataWrap>,
-}
-
 #[derive(Debug, Serialize, Deserialize, Clone, Default)]
 pub struct FileData {
     storage_method: StorageType,
-    datafile:String,
+    datafile: String,
     source: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
-struct FileDataWrap {
-    pub storage_method: Option<String>,
-    pub datafile: Option<String>,
-    pub source: Option<String>,
-}
-
-// after changing this you also need to change structure ConfigWrap and the
-// function Config.integrate_loaded_config
 impl Default for Config {
     fn default() -> Config {
-        let mut config = Config {
-            // default tick length in world time is 6 hours
-            tick_length: 6,
-            // default 02 need per person and 6 hours is 150 liters
-            o2_per_person: 150,
-            // 1/2 kg / day and person hydrated
-            food_per_person: 0.5,
-            // 5 l / day and person
-            water_per_person: 5.,
-            elements: FileData::new_file("resources/PeriodicTableJSON-cleaned.json"),
-        };
-
-        // configuration is here server/src/resources/config.toml
-        let file = "resources/config.toml";
-        let path = Path::new(file);
-        let display = path.display();
-        let mut input = String::new();
-
-        // Open the path in read-only mode, returns `io::Result<File>`
-        let mut file = match File::open(&path) {
-            // The `description` method of `io::Error` returns a string that
-            // describes the error
-            Err(why) => panic!("couldn't open {}: {}", display, why),
-            Ok(file) => file,
-        };
-
-        // Read the file contents into a string, returns `io::Result<usize>`
-        match file.read_to_string(&mut input) {
-            Err(why) => panic!("couldn't read {}: {}", display, why),
-            // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
-            Ok(_) => print!(""),
+        let mut config = Config::new();
+        let ronconfig = read_file_to_string("assets/saves/resources/config.ron".to_string());
+        if !ronconfig.is_empty() {
+            config = ron::de::from_str(&ronconfig).unwrap();
+            info!("Config RONinitialized from file");
         }
 
-        let decoded: ConfigWrap = toml::de::from_str(&input).unwrap();
-        config.integrate_loaded_config(decoded);
-        info!("Config initialized");
         config
     }
 }
@@ -127,7 +75,8 @@ impl FileData {
         FileData {
             storage_method: StorageType::File,
             datafile: file.to_string(),
-            source: "".to_string(),}
+            source: "".to_string(),
+        }
     }
 
     pub fn get_datafile(&self) -> String {
@@ -135,68 +84,19 @@ impl FileData {
     }
 }
 
-impl FileDataWrap {
-    fn extract(&self) -> FileData {
-        let mut filedata = FileData::default();
-        if let Some(_x) = &self.storage_method {
-            filedata.storage_method = StorageType::File
-        };
-        if let Some(x) = &self.datafile {
-            filedata.datafile = x.clone()
-    };
-        if let Some(x) = &self.source {
-            filedata.source = x.clone()
-        };
-
-        filedata
-    }
-}
-
 impl Config {
-    pub fn load_config(file: &str) -> Config {
-        // configuration is here server/src/resources/config.toml
-        let path = Path::new(file);
-        let display = path.display();
-        let mut input = String::new();
-
-        // Open the path in read-only mode, returns `io::Result<File>`
-        let mut file = match File::open(&path) {
-            // The `description` method of `io::Error` returns a string that
-            // describes the error
-            Err(why) => panic!("couldn't open {}: {}", display, why),
-            Ok(file) => file,
-        };
-
-        // Read the file contents into a string, returns `io::Result<usize>`
-        match file.read_to_string(&mut input) {
-            Err(why) => panic!("couldn't read {}: {}", display, why),
-            // Ok(_) => print!("{} contains:\n{}\n\n", display, input),
-            Ok(_) => print!(""),
+    pub fn new() -> Config {
+        Config {
+            // default tick length in world time is 6 hours
+            tick_length: 5,
+            // default 02 need per person and 6 hours is 150 liters
+            o2_per_person: 150,
+            // 1/2 kg / day and person hydrated
+            food_per_person: 0.5,
+            // 5 l / day and person
+            water_per_person: 5.,
+            elements: FileData::new_file("resources/PeriodicTableJSON-cleaned.json"),
         }
-
-        let decoded: ConfigWrap = toml::de::from_str(&input).unwrap();
-        let mut config: Config = Default::default();
-        config.integrate_loaded_config(decoded);
-
-        config
-    }
-
-    fn integrate_loaded_config(&mut self, input: ConfigWrap) {
-        if let Some(x) = input.tick_length {
-            self.tick_length = x
-        };
-        if let Some(x) = input.o2_per_person {
-            self.o2_per_person = x
-        };
-        if let Some(x) = input.food_per_person {
-            self.food_per_person = x
-        };
-        if let Some(x) = input.water_per_person {
-            self.water_per_person = x
-        };
-        if let Some(x) = input.elements {
-            self.elements = x.extract();
-        };
     }
 
     pub fn get_tick_length(&self) -> u64 {

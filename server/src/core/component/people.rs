@@ -6,11 +6,12 @@ use bevy_inspector_egui::Inspectable;
 when used in a station the vector will be empty and only a total count will be managed
 */
 
+// TODO adapt NPC design, simulate people 
+
 // Descriptions
 #[derive(Inspectable, Clone, Debug, PartialEq, Reflect, Default)]
 pub struct People {
     pub people_count: u32,
-    // TODO Vector of NPCs, create NPCs first
 }
 
 impl People {

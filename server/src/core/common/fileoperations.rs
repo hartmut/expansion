@@ -45,6 +45,7 @@ pub fn newreader(filename: String) -> BufReader<File> {
 }
 
 // read whole file
+// TODO give back error to calling function if file is not found
 pub fn read_file_to_string(filename: String) -> String {
     let path = Path::new(&filename);
     let display = path.display();

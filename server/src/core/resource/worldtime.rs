@@ -22,11 +22,12 @@ pub struct Worldtime {
     pub step_leng: Duration, // duration between two steps in worldtime in secs
 }
 
+// TODO how to implement default without hampering bevy?
 impl Worldtime {
-    pub fn new(tick_length: u64) -> Self {
+    pub fn new() -> Worldtime {
         Worldtime {
             tick_counter: 1,
-            warp: (tick_length as u64) * 3600,
+            warp: 3600,
             time_last: SystemTime::now(),
             worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
             step_leng: Duration::new(0, 0),
@@ -40,12 +41,29 @@ impl Worldtime {
             println!("Serialization failed for worldtime");
         }
     }
+
+    pub fn load_config(file: String, tick_lenght: u64) -> Worldtime {
+        let ronconfig = read_file_to_string(file);
+        let mut worldtime = Worldtime::new();
+        if !ronconfig.is_empty() {
+            worldtime = ron::de::from_str(&ronconfig).unwrap();
+        }
+        worldtime.warp = tick_lenght * 3600;
+        worldtime
+    }
 }
 
 impl FromWorld for Worldtime {
     fn from_world(world: &mut World) -> Self {
         let config = world.get_resource::<Config>().unwrap();
         info!("init worldtime");
-        Worldtime::new(config.get_tick_length())
+        let mut worldtime = Worldtime::load_config(
+            "assets/saves/resources/worldtime.ron".to_string(),
+            config.get_tick_length(),
+        );
+        // reset timer
+        worldtime.time_last = SystemTime::now();
+        worldtime.step_leng = Duration::new(0, 0);
+        worldtime
     }
 }
