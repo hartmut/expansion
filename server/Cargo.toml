@@ -8,7 +8,6 @@ edition = "2021"
 serde = { version = "*", features = ["derive"] } # https://crates.io/crates/serde
 serde_json = "*" # https://crates.io/crates/serde_json
 csv = "1.1" # https://crates.io/crates/csv
-toml = "*" # https://crates.io/crates/toml
 chrono = {version = "0.4",  features = ["serde"]} # https://crates.io/crates/chrono
 measurements = "*" # https://crates.io/crates/measurements
 bevy-inspector-egui = "0.7" # https://crates.io/crates/bevy-inspector-egui

@@ -3,8 +3,6 @@ use bevy::log::prelude::*;
 use bevy::prelude::*;
 use std::time::SystemTime;
 
-pub struct UpdateWorldtime;
-
 pub fn update_worldtime(mut time: ResMut<Worldtime>) {
     //sleep and one more step
     time.tick_counter += 1;
