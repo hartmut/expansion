@@ -27,7 +27,7 @@ pub struct InitSystem;
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        app.add_startup_system(init.system());
+        app.add_startup_system(init);
 
         // register components for automatic save
         app.register_type::<desc::Desc>();
