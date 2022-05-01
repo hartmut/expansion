@@ -19,7 +19,7 @@ pub struct Habitat {
     // in m^3
     volume: u64, // TODO create module basics
 
-    // Athmosphere
+    // Atmosphere
     // TODO redesign and split this component
     // in kg, from this values and the volume you get the partial pressure
     // TODO array of gases, could also be used for other purposes probably

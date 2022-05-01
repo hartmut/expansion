@@ -25,7 +25,7 @@
         },
       },
       {
-        "type": "bevy_transform::components::children::Children",
+        "type": "bevy_hierarchy::components::children::Children",
         "tuple_struct": [
           {
             "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
@@ -78,7 +78,7 @@
         },
       },
       {
-        "type": "bevy_transform::components::parent::Parent",
+        "type": "bevy_hierarchy::components::parent::Parent",
         "tuple_struct": [
           {
             "type": "bevy_ecs::entity::Entity",
@@ -87,7 +87,7 @@
         ],
       },
       {
-        "type": "bevy_transform::components::parent::PreviousParent",
+        "type": "bevy_hierarchy::components::parent::PreviousParent",
         "tuple_struct": [
           {
             "type": "bevy_ecs::entity::Entity",
@@ -152,7 +152,7 @@
         },
       },
       {
-        "type": "bevy_transform::components::parent::Parent",
+        "type": "bevy_hierarchy::components::parent::Parent",
         "tuple_struct": [
           {
             "type": "bevy_ecs::entity::Entity",
@@ -161,7 +161,7 @@
         ],
       },
       {
-        "type": "bevy_transform::components::parent::PreviousParent",
+        "type": "bevy_hierarchy::components::parent::PreviousParent",
         "tuple_struct": [
           {
             "type": "bevy_ecs::entity::Entity",
@@ -170,7 +170,7 @@
         ],
       },
       {
-        "type": "bevy_transform::components::children::Children",
+        "type": "bevy_hierarchy::components::children::Children",
         "tuple_struct": [
           {
             "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
