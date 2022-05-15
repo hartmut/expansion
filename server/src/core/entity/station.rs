@@ -6,6 +6,7 @@ use bevy::prelude::*;
 pub struct Station {
     desc: desc::Desc,
     energy: energy::Energy,
+    shadow: shadow::Shadow,
 }
 
 /// a station has the following parts
@@ -17,6 +18,7 @@ impl Station {
     pub fn create(name: impl Into<String>) -> Station {
         let desc = desc::Desc::new(name, "");
         let energy = energy::Energy::default();
-        Station { desc, energy }
+        let shadow = shadow::Shadow::default();
+        Station { desc, energy, shadow }
     }
 }

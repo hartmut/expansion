@@ -7,6 +7,7 @@ pub struct Module {
     desc: desc::Desc,
     basics: basics::BasicParameter,
     energy: energy::Energy,
+    shadow: shadow::Shadow,
 }
 
 impl Module {
@@ -24,10 +25,12 @@ impl Module {
             production: 10.0,
             consumption: 10.0,
         };
+        let shadow: shadow::Shadow = Default::default();
         Module {
             desc,
             basics,
             energy,
+            shadow,
         }
     }
 }

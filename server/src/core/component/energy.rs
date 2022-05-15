@@ -9,7 +9,7 @@ use bevy_inspector_egui::Inspectable;
 pub struct Energy {
     pub act_storage: f64, //Wh currently in this entity, https://en.wikipedia.org/wiki/Grid_energy_storage#Batteries
     pub max_storage: f64, //Wh maximal available in this entity, https://en.wikipedia.org/wiki/Grid_energy_storage#Batteries
-    pub production: f64,  // in Watt
+    pub production: f64,  // in Watt    
     pub consumption: f64, // in Watt
 }
 

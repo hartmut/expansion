@@ -11,24 +11,26 @@ use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
 // Descriptions
+// TODO express time without crate "chrono"
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Worldtime {
     pub tick_counter: u64,                                // counter of current step
     pub warp: u64,                                        // speedup of world- vs. real-time
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
-    pub time_last: SystemTime,                            // last time a step has been taken
-    pub step_leng: Duration, // duration between two steps in worldtime in secs
+    pub time_last: SystemTime, // last time in realtime a step has been taken
+    pub step_leng: Duration,   // duration between two steps in realtime
+    pub step_leng_warp: Duration, // duration between two steps in worldtime
 }
 
-// TODO how to implement default without hampering bevy?
 impl Worldtime {
-    pub fn new() -> Worldtime {
+    pub fn default() -> Worldtime {
         Worldtime {
             tick_counter: 1,
             warp: 3600,
             worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
             time_last: SystemTime::now(),
             step_leng: Duration::new(0, 0),
+            step_leng_warp: Duration::new(0, 0),
         }
     }
 
@@ -40,13 +42,13 @@ impl Worldtime {
         }
     }
 
-    pub fn load_config(file: String, tick_lenght: u64) -> Worldtime {
+    pub fn load_config(file: String, tick_length: u64) -> Worldtime {
         let ronconfig = read_file_to_string(file);
-        let mut worldtime = Worldtime::new();
+        let mut worldtime = Worldtime::default();
         if !ronconfig.is_empty() {
             worldtime = ron::de::from_str(&ronconfig).unwrap();
         }
-        worldtime.warp = tick_lenght * 3600;
+        worldtime.warp = tick_length * 3600;
         worldtime
     }
 }

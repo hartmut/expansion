@@ -12,6 +12,7 @@ impl Plugin for ExpSystems {
         // one world step every second
         app.add_system_set(
             SystemSet::new()
+                .label("OneSecond")
                 .with_run_criteria(FixedTimestep::steps_per_second(1.0))
                 .with_system(update_worldtime::update_worldtime)
         );

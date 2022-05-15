@@ -78,6 +78,32 @@
         },
       },
       {
+        "type": "expansion::core::component::shadow::Shadow",
+        "struct": {
+          "energy": {
+            "type": "expansion::core::component::energy::Energy",
+            "struct": {
+              "act_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "max_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "production": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "consumption": {
+                "type": "f64",
+                "value": 0.0,
+              },
+            },
+          },
+        },
+      },
+      {
         "type": "bevy_hierarchy::components::parent::Parent",
         "tuple_struct": [
           {
@@ -148,6 +174,32 @@
           "consumption": {
             "type": "f64",
             "value": 0.0,
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::shadow::Shadow",
+        "struct": {
+          "energy": {
+            "type": "expansion::core::component::energy::Energy",
+            "struct": {
+              "act_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "max_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "production": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "consumption": {
+                "type": "f64",
+                "value": 0.0,
+              },
+            },
           },
         },
       },
