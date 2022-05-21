@@ -7,7 +7,7 @@
         "struct": {
           "name": {
             "type": "alloc::string::String",
-            "value": "Riker",
+            "value": "Will Riker",
           },
           "longtext": {
             "type": "alloc::string::String",

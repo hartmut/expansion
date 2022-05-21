@@ -11,7 +11,6 @@ use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
 // Descriptions
-// TODO express time without crate "chrono"
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Worldtime {
     pub tick_counter: u64,                                // counter of current step
@@ -43,6 +42,7 @@ impl Worldtime {
     }
 
     pub fn load_config(file: String, tick_length: u64) -> Worldtime {
+        // TODO replace with bevy asset loader
         let ronconfig = read_file_to_string(file);
         let mut worldtime = Worldtime::default();
         if !ronconfig.is_empty() {
@@ -64,6 +64,7 @@ impl FromWorld for Worldtime {
         // reset timer
         worldtime.time_last = SystemTime::now();
         worldtime.step_leng = Duration::new(0, 0);
+        worldtime.step_leng_warp = Duration::new(0, 0);
         worldtime
     }
 }

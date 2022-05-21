@@ -12,7 +12,7 @@ pub fn continous_save(world: &mut World) {
 
     // save elements and components
     let output = scene.serialize_ron(type_registry).unwrap();
-    let _f = write_string_to_file("assets/saves/quicksave_objects.ron".to_string(), &output);
+    let _f = write_string_to_file("assets/saves/quicksave_objects.scn.ron".to_string(), &output);
 
     // save relevant resources
     let pretty = PrettyConfig::new()

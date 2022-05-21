@@ -20,6 +20,5 @@ pub fn update_worldtime(mut time: ResMut<Worldtime>) {
     time.time_last = time_now;
 
     let secs = time.step_leng_warp.as_secs(); 
-
     info!("current time in worldtime {} and step_leng in worldtime is {secs}", time.worldtime);
 }

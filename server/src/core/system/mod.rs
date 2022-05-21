@@ -8,7 +8,7 @@ pub struct ExpSystems;
 impl Plugin for ExpSystems {
     fn build(&self, app: &mut App) {
         // insert systems for step updates
-        
+
         // one world step every second
         app.add_system_set(
             SystemSet::new()

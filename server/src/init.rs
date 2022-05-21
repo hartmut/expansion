@@ -1,6 +1,7 @@
 // experimental initializations
 use crate::core::component::*;
 use crate::core::entity::*;
+use crate::core::system::*;
 use bevy::prelude::*;
 // use bevy_inspector_egui::InspectableRegistry;
 
@@ -8,10 +9,10 @@ pub fn init(mut commands: Commands) {
     info!("Starting initialization");
     // Testdata
     // create player
-    let player = player::Player::create("Riker", "First Officer");
+    let player = player::Player::create("Picard", "Capitain");
     let player_id = commands.spawn_bundle(player).id();
     // create station record
-    let station = station::Station::create("ISS");
+    let station = station::Station::create("Enterprise");
     let station_id = commands.spawn_bundle(station).id();
     // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
@@ -27,7 +28,8 @@ pub struct InitSystem;
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        app.add_startup_system(init);
+        // app.add_startup_system(init);
+        app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
         app.register_type::<desc::Desc>();
