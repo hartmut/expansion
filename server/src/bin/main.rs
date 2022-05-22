@@ -16,10 +16,12 @@ fn main() {
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
     app.add_plugins(DefaultPlugins)
-        .add_plugin(WorldInspectorPlugin::new()) 
+        .add_plugin(WorldInspectorPlugin::new())
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
         .add_plugin(InitSystem); // Initialization
+
+    // TODO add GUI
 
     app.run();
 }

@@ -3,24 +3,31 @@ use crate::core::component::*;
 use crate::core::entity::*;
 use crate::core::system::*;
 use bevy::prelude::*;
-// use bevy_inspector_egui::InspectableRegistry;
 
 pub fn init(mut commands: Commands) {
-    info!("Starting initialization");
+    info!("Starting initialization of further test data");
     // Testdata
+   
     // create player
     let player = player::Player::create("Picard", "Capitain");
     let player_id = commands.spawn_bundle(player).id();
+   
     // create station record
     let station = station::Station::create("Enterprise");
     let station_id = commands.spawn_bundle(station).id();
+   
     // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
+   
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
-    // TODO implement automatic load of the last quicksave or other scene saves
+    
+    // add component to entity
+    let habitat = module::add_habitat(4);
+    commands.entity(first_module).insert(habitat);
+    
 }
 
 pub struct InitSystem;
@@ -28,7 +35,7 @@ pub struct InitSystem;
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        // app.add_startup_system(init);
+        app.add_startup_system(init);
         app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save

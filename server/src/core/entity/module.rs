@@ -34,3 +34,7 @@ impl Module {
         }
     }
 }
+
+pub fn add_habitat(volume: u64) -> habitat::Habitat {
+    habitat::Habitat::new(volume)
+}

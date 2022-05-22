@@ -3,6 +3,20 @@
     entity: 0,
     components: [
       {
+        "type": "bevy_hierarchy::components::children::Children",
+        "tuple_struct": [
+          {
+            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
+            "list": [
+              {
+                "type": "bevy_ecs::entity::Entity",
+                "value": 2,
+              },
+            ],
+          },
+        ],
+      },
+      {
         "type": "expansion::core::component::desc::Desc",
         "struct": {
           "name": {
@@ -24,25 +38,29 @@
           },
         },
       },
-      {
-        "type": "bevy_hierarchy::components::children::Children",
-        "tuple_struct": [
-          {
-            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
-            "list": [
-              {
-                "type": "bevy_ecs::entity::Entity",
-                "value": 1,
-              },
-            ],
-          },
-        ],
-      },
     ],
   ),
   (
-    entity: 2,
+    entity: 1,
     components: [
+      {
+        "type": "bevy_hierarchy::components::parent::Parent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 2,
+          },
+        ],
+      },
+      {
+        "type": "bevy_hierarchy::components::parent::PreviousParent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 2,
+          },
+        ],
+      },
       {
         "type": "expansion::core::component::desc::Desc",
         "struct": {
@@ -104,24 +122,6 @@
         },
       },
       {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 1,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::PreviousParent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 1,
-          },
-        ],
-      },
-      {
         "type": "expansion::core::component::basics::BasicParameter",
         "struct": {
           "mass": {
@@ -141,8 +141,40 @@
     ],
   ),
   (
-    entity: 1,
+    entity: 2,
     components: [
+      {
+        "type": "bevy_hierarchy::components::children::Children",
+        "tuple_struct": [
+          {
+            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
+            "list": [
+              {
+                "type": "bevy_ecs::entity::Entity",
+                "value": 1,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        "type": "bevy_hierarchy::components::parent::Parent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 0,
+          },
+        ],
+      },
+      {
+        "type": "bevy_hierarchy::components::parent::PreviousParent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 0,
+          },
+        ],
+      },
       {
         "type": "expansion::core::component::desc::Desc",
         "struct": {
@@ -202,38 +234,6 @@
             },
           },
         },
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 0,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::PreviousParent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 0,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::children::Children",
-        "tuple_struct": [
-          {
-            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
-            "list": [
-              {
-                "type": "bevy_ecs::entity::Entity",
-                "value": 2,
-              },
-            ],
-          },
-        ],
       },
     ],
   ),

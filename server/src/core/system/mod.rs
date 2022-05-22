@@ -1,6 +1,6 @@
-pub mod update_worldtime;
 pub mod continous_save;
 pub mod load_scene;
+pub mod update_worldtime;
 use bevy::{core::FixedTimestep, prelude::*};
 
 pub struct ExpSystems;
@@ -14,14 +14,14 @@ impl Plugin for ExpSystems {
             SystemSet::new()
                 .label("OneSecond")
                 .with_run_criteria(FixedTimestep::steps_per_second(1.0))
-                .with_system(update_worldtime::update_worldtime)
+                .with_system(update_worldtime::update_worldtime),
         );
 
         // autosave every x seconds
-        app.add_system_set(
-            SystemSet::new()
-                .with_run_criteria(FixedTimestep::step(5.0))
-                .with_system(continous_save::continous_save.exclusive_system()),
-        );
+        // app.add_system_set(
+        //     SystemSet::new()
+        //         .with_run_criteria(FixedTimestep::step(5.0))
+        //         .with_system(continous_save::continous_save.exclusive_system()),
+        // );
     }
 }
