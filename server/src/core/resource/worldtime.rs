@@ -42,7 +42,7 @@ impl Worldtime {
     }
 
     pub fn load_config(file: String, tick_length: u64) -> Worldtime {
-        // TODO replace with bevy asset loader
+        // TODO replace with better loader and error handling
         let ronconfig = read_file_to_string(file);
         let mut worldtime = Worldtime::default();
         if !ronconfig.is_empty() {

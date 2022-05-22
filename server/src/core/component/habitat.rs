@@ -5,25 +5,21 @@ use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 use measurements::pressure::*;
 
-pub struct ChemMix {
-    molecule: String,
-    kg: f64,
-}
-
 /// when a module has an athmosphere this component is used
 /// is part of a module, volume must be smaller than the whole module
 /// people in the habitat will be managed in the component people
-#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable,Component)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
 #[reflect(Component)]
 pub struct Habitat {
     // in m^3
-    volume: u64, // TODO create module basics
+    volume: f64,
 
     // Atmosphere
     // in kg, from this values and the volume you get the partial pressure
     o2: f64,
     n2: f64,
     co2: f64,
+
     // pressure in atm, falls if you don't have enough consumables
     // calculate pressure from volume, temperature and kg of gases
     k_pa: f64, // calculated
@@ -34,7 +30,7 @@ pub struct Habitat {
 
 impl Habitat {
     // start with a human habitable athmosphere
-    pub fn new(volume: u64) -> Self {
+    pub fn new(volume: f64) -> Self {
         Habitat {
             volume,
             // based on calculator https://www.engineeringtoolbox.com/oxygen-O2-density-specific-weight-temperature-pressure-d_2082.html
@@ -60,6 +56,15 @@ impl Habitat {
         // The minimum safe lower limit for the partial pressures of oxygen in a gas mixture is 0.16 bars
         0.16 > self.o2_part_pressure()
     }
+
+    // COMEBACK error handling for return value
+    pub fn add_habitat(volume: f64, outer_volume: f64) -> Result<Habitat, String>  {
+        if outer_volume > volume {
+            Ok(Habitat::new(volume))
+        } else {
+            Err("the habitat volume had been greater than the volumen of the module".to_string())
+        }
+    }
 }
 
 #[cfg(test)]
@@ -69,7 +74,7 @@ mod tests {
     #[test]
     fn test_hypoxia_false() {
         let habitat = Habitat {
-            volume: 1,
+            volume: 1.,
             o2: 1.1314 * 1.0 * 0.2,
             n2: 1.16 * 1.0 * 0.8,
             co2: 0.0,
@@ -85,7 +90,7 @@ mod tests {
     #[test]
     fn test_hypoxia_true() {
         let habitat = Habitat {
-            volume: 1,
+            volume: 1.,
             o2: 1.1314 * 1.0 * 0.10,
             n2: 1.16 * 1.0 * 0.8,
             co2: 0.0,

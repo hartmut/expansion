@@ -7,27 +7,27 @@ use bevy::prelude::*;
 pub fn init(mut commands: Commands) {
     info!("Starting initialization of further test data");
     // Testdata
-   
     // create player
     let player = player::Player::create("Picard", "Capitain");
     let player_id = commands.spawn_bundle(player).id();
-   
     // create station record
     let station = station::Station::create("Enterprise");
     let station_id = commands.spawn_bundle(station).id();
-   
     // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
-   
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
+    let outer_volume = module.get_outer_volume();
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
-    
     // add component to entity
-    let habitat = module::add_habitat(4);
-    commands.entity(first_module).insert(habitat);
-    
+    match habitat::Habitat::add_habitat(4., outer_volume) {
+        Ok(habitat) => {
+            commands.entity(first_module).insert(habitat);
+            debug!("adding of habitat successfull")
+        }
+        Err(err) => info!("{}", err),
+    };
 }
 
 pub struct InitSystem;

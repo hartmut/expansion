@@ -33,8 +33,10 @@ impl Module {
             shadow,
         }
     }
+
+    pub fn get_outer_volume(&self) -> f64 {
+        self.basics.volume
+    }
 }
 
-pub fn add_habitat(volume: u64) -> habitat::Habitat {
-    habitat::Habitat::new(volume)
-}
+

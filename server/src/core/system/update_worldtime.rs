@@ -1,5 +1,4 @@
 use super::super::resource::worldtime::*;
-use bevy::log::prelude::*;
 use bevy::prelude::*;
 use std::time::SystemTime;
 
@@ -19,6 +18,7 @@ pub fn update_worldtime(mut time: ResMut<Worldtime>) {
     // save time of this step
     time.time_last = time_now;
 
-    let secs = time.step_leng_warp.as_secs(); 
-    info!("current time in worldtime {} and step_leng in worldtime is {secs}", time.worldtime);
+    // debugging of worldtime
+    // let secs = time.step_leng_warp.as_secs(); 
+    // info!("current time in worldtime {} and step_leng in worldtime is {secs}", time.worldtime);
 }

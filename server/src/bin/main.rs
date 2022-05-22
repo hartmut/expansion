@@ -21,7 +21,5 @@ fn main() {
         .add_plugin(ExpSystems) // add Systems
         .add_plugin(InitSystem); // Initialization
 
-    // TODO add GUI
-
     app.run();
 }
