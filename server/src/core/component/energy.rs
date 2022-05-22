@@ -6,6 +6,8 @@ use bevy_inspector_egui::Inspectable;
 
 #[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Default, Component)]
 #[reflect(Component)]
+
+// TODO change energy variables to f32
 pub struct Energy {
     pub act_storage: f64, //Wh currently in this entity, https://en.wikipedia.org/wiki/Grid_energy_storage#Batteries
     pub max_storage: f64, //Wh maximal available in this entity, https://en.wikipedia.org/wiki/Grid_energy_storage#Batteries
