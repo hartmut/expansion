@@ -125,11 +125,11 @@
         "type": "expansion::core::component::basics::BasicParameter",
         "struct": {
           "mass": {
-            "type": "f64",
+            "type": "f32",
             "value": 2000.0,
           },
           "volume": {
-            "type": "f64",
+            "type": "f32",
             "value": 5.0,
           },
           "extend": {

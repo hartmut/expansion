@@ -14,7 +14,18 @@ use bevy_inspector_egui::Inspectable;
 #[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
 #[reflect(Component)]
 pub struct BasicParameter {
-    pub mass: f64,   //in kg
-    pub volume: f64, //in m^3
+    pub mass: f32,   //in kg
+    pub volume: f32, //in m^3
     pub extend: Vec3, //in m
+}
+
+impl BasicParameter {
+    pub fn new(x: f32, y: f32, z: f32, mass: f32) -> BasicParameter {
+        let extend = Vec3::new(x, y, z);
+        BasicParameter {
+            mass,
+            volume: x*y*z,
+            extend,
+        }
+    }
 }

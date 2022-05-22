@@ -21,7 +21,7 @@ pub fn init(mut commands: Commands) {
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
     // add component to entity
-    match habitat::Habitat::add_habitat(4., outer_volume) {
+    match habitat::Habitat::add_habitat(40., outer_volume) {
         Ok(habitat) => {
             commands.entity(first_module).insert(habitat);
             debug!("adding of habitat successfull")

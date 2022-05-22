@@ -12,7 +12,7 @@ use measurements::pressure::*;
 #[reflect(Component)]
 pub struct Habitat {
     // in m^3
-    volume: f64,
+    volume: f32,
 
     // Atmosphere
     // in kg, from this values and the volume you get the partial pressure
@@ -30,7 +30,7 @@ pub struct Habitat {
 
 impl Habitat {
     // start with a human habitable athmosphere
-    pub fn new(volume: f64) -> Self {
+    pub fn new(volume: f32) -> Self {
         Habitat {
             volume,
             // based on calculator https://www.engineeringtoolbox.com/oxygen-O2-density-specific-weight-temperature-pressure-d_2082.html
@@ -58,7 +58,7 @@ impl Habitat {
     }
 
     // COMEBACK error handling for return value
-    pub fn add_habitat(volume: f64, outer_volume: f64) -> Result<Habitat, String>  {
+    pub fn add_habitat(volume: f32, outer_volume: f32) -> Result<Habitat, String>  {
         if outer_volume > volume {
             Ok(Habitat::new(volume))
         } else {
