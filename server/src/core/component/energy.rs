@@ -15,3 +15,11 @@ pub struct Energy {
     pub consumption: f64, // in Watt
 }
 
+impl Energy {
+    pub fn set (&mut self, e: Energy) {
+        self.act_storage = e.act_storage;
+        self.max_storage = e.max_storage;
+        self.production = e.production;
+        self.consumption = e.consumption;
+    }
+}

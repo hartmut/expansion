@@ -15,3 +15,12 @@ use crate::core::component::*;
 pub struct Shadow {
     pub energy: energy::Energy,
 }
+
+impl Shadow {
+    pub fn add_energy (&mut self, e: &energy::Energy)  {
+        self.energy.act_storage += e.act_storage;
+        self.energy.max_storage += e.max_storage;
+        self.energy.production += e.production;
+        self.energy.consumption += e.consumption;
+    }
+}

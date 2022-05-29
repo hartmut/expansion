@@ -16,17 +16,11 @@ pub fn shadow_update_module(
         for child in children.iter() {
             let energy = energy_query.get(*child);
             if let Ok(e) = energy {
-                shadow.energy.act_storage += e.act_storage;
-                shadow.energy.max_storage += e.max_storage;
-                shadow.energy.production += e.production;
-                shadow.energy.consumption += e.consumption;
+                shadow.add_energy(e);
             }
         }
         let mut entity_energy = energy_query.get_mut(entity).unwrap();
-        entity_energy.act_storage = shadow.energy.act_storage;
-        entity_energy.max_storage = shadow.energy.max_storage;
-        entity_energy.production = shadow.energy.production;
-        entity_energy.consumption = shadow.energy.consumption;
+        entity_energy.set(shadow.energy);
     }
 }
 
@@ -38,16 +32,10 @@ pub fn shadow_update_station(
         for child in children.iter() {
             let energy = energy_query.get(*child);
             if let Ok(e) = energy {
-                shadow.energy.act_storage += e.act_storage;
-                shadow.energy.max_storage += e.max_storage;
-                shadow.energy.production += e.production;
-                shadow.energy.consumption += e.consumption;
+                shadow.add_energy(e);
             }
         }
         let mut entity_energy = energy_query.get_mut(entity).unwrap();
-        entity_energy.act_storage = shadow.energy.act_storage;
-        entity_energy.max_storage = shadow.energy.max_storage;
-        entity_energy.production = shadow.energy.production;
-        entity_energy.consumption = shadow.energy.consumption;
+        entity_energy.set(shadow.energy);
     }
 }

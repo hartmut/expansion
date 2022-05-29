@@ -91,7 +91,7 @@
               },
               "production": {
                 "type": "f64",
-                "value": 200.0,
+                "value": 200.022,
               },
               "consumption": {
                 "type": "f64",
@@ -114,7 +114,7 @@
           },
           "production": {
             "type": "f64",
-            "value": 200.0,
+            "value": 200.022,
           },
           "consumption": {
             "type": "f64",
@@ -201,7 +201,7 @@
           },
           "production": {
             "type": "f64",
-            "value": 200.0,
+            "value": 200.022,
           },
           "consumption": {
             "type": "f64",
