@@ -10,7 +10,7 @@
             "list": [
               {
                 "type": "bevy_ecs::entity::Entity",
-                "value": 2,
+                "value": 1,
               },
             ],
           },
@@ -21,11 +21,11 @@
         "struct": {
           "name": {
             "type": "alloc::string::String",
-            "value": "Will Riker",
+            "value": "Joan Piper",
           },
           "longtext": {
             "type": "alloc::string::String",
-            "value": "First Officer",
+            "value": "Capitain of the first station formerly known as \'this should just work\'",
           },
         },
       },
@@ -44,106 +44,6 @@
     entity: 1,
     components: [
       {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 2,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::PreviousParent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 2,
-          },
-        ],
-      },
-      {
-        "type": "expansion::core::component::desc::Desc",
-        "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "Central Hub",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "",
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::energy::Energy",
-        "struct": {
-          "act_storage": {
-            "type": "f64",
-            "value": 10000.0,
-          },
-          "max_storage": {
-            "type": "f64",
-            "value": 100000.0,
-          },
-          "production": {
-            "type": "f64",
-            "value": 10.0,
-          },
-          "consumption": {
-            "type": "f64",
-            "value": 10.0,
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::shadow::Shadow",
-        "struct": {
-          "energy": {
-            "type": "expansion::core::component::energy::Energy",
-            "struct": {
-              "act_storage": {
-                "type": "f64",
-                "value": 0.0,
-              },
-              "max_storage": {
-                "type": "f64",
-                "value": 0.0,
-              },
-              "production": {
-                "type": "f64",
-                "value": 0.0,
-              },
-              "consumption": {
-                "type": "f64",
-                "value": 0.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::basics::BasicParameter",
-        "struct": {
-          "mass": {
-            "type": "f32",
-            "value": 2000.0,
-          },
-          "volume": {
-            "type": "f32",
-            "value": 5.0,
-          },
-          "extend": {
-            "type": "glam::vec3::Vec3",
-            "value": (5.0, 3.0, 3.0),
-          },
-        },
-      },
-    ],
-  ),
-  (
-    entity: 2,
-    components: [
-      {
         "type": "bevy_hierarchy::components::children::Children",
         "tuple_struct": [
           {
@@ -151,7 +51,7 @@
             "list": [
               {
                 "type": "bevy_ecs::entity::Entity",
-                "value": 1,
+                "value": 2,
               },
             ],
           },
@@ -176,15 +76,28 @@
         ],
       },
       {
-        "type": "expansion::core::component::desc::Desc",
+        "type": "expansion::core::component::shadow::Shadow",
         "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "ISS",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "",
+          "energy": {
+            "type": "expansion::core::component::energy::Energy",
+            "struct": {
+              "act_storage": {
+                "type": "f64",
+                "value": 10000.0,
+              },
+              "max_storage": {
+                "type": "f64",
+                "value": 100000.0,
+              },
+              "production": {
+                "type": "f64",
+                "value": 200.0,
+              },
+              "consumption": {
+                "type": "f64",
+                "value": 10.0,
+              },
+            },
           },
         },
       },
@@ -193,21 +106,61 @@
         "struct": {
           "act_storage": {
             "type": "f64",
-            "value": 0.0,
+            "value": 10000.0,
           },
           "max_storage": {
             "type": "f64",
-            "value": 0.0,
+            "value": 100000.0,
           },
           "production": {
             "type": "f64",
-            "value": 0.0,
+            "value": 200.0,
           },
           "consumption": {
             "type": "f64",
-            "value": 0.0,
+            "value": 10.0,
           },
         },
+      },
+      {
+        "type": "expansion::core::component::tags::StationTag",
+        "struct": {},
+      },
+      {
+        "type": "expansion::core::component::desc::Desc",
+        "struct": {
+          "name": {
+            "type": "alloc::string::String",
+            "value": "Alpha",
+          },
+          "longtext": {
+            "type": "alloc::string::String",
+            "value": "",
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 2,
+    components: [
+      {
+        "type": "bevy_hierarchy::components::parent::Parent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 1,
+          },
+        ],
+      },
+      {
+        "type": "bevy_hierarchy::components::parent::PreviousParent",
+        "tuple_struct": [
+          {
+            "type": "bevy_ecs::entity::Entity",
+            "value": 1,
+          },
+        ],
       },
       {
         "type": "expansion::core::component::shadow::Shadow",
@@ -232,6 +185,90 @@
                 "value": 0.0,
               },
             },
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::energy::Energy",
+        "struct": {
+          "act_storage": {
+            "type": "f64",
+            "value": 10000.0,
+          },
+          "max_storage": {
+            "type": "f64",
+            "value": 100000.0,
+          },
+          "production": {
+            "type": "f64",
+            "value": 200.0,
+          },
+          "consumption": {
+            "type": "f64",
+            "value": 10.0,
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::tags::ModuleTag",
+        "struct": {},
+      },
+      {
+        "type": "expansion::core::component::desc::Desc",
+        "struct": {
+          "name": {
+            "type": "alloc::string::String",
+            "value": "Central Hub",
+          },
+          "longtext": {
+            "type": "alloc::string::String",
+            "value": "",
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::basics::BasicParameter",
+        "struct": {
+          "mass": {
+            "type": "f32",
+            "value": 2000.0,
+          },
+          "volume": {
+            "type": "f32",
+            "value": 45.0,
+          },
+          "extend": {
+            "type": "glam::vec3::Vec3",
+            "value": (5.0, 3.0, 3.0),
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::habitat::Habitat",
+        "struct": {
+          "volume": {
+            "type": "f32",
+            "value": 40.0,
+          },
+          "o2": {
+            "type": "f64",
+            "value": 10.512,
+          },
+          "n2": {
+            "type": "f64",
+            "value": 37.12,
+          },
+          "co2": {
+            "type": "f64",
+            "value": 0.0,
+          },
+          "k_pa": {
+            "type": "f64",
+            "value": 101.325,
+          },
+          "temperature": {
+            "type": "f64",
+            "value": 20.0,
           },
         },
       },

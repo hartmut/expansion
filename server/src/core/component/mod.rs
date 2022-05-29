@@ -11,3 +11,4 @@ pub mod orbit;
 pub mod people;
 pub mod resources;
 pub mod shadow;
+pub mod tags;

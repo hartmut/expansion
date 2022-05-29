@@ -8,10 +8,10 @@ pub fn init(mut commands: Commands) {
     info!("Starting initialization of further test data");
     // Testdata
     // create player
-    let player = player::Player::create("Picard", "Capitain");
+    let player = player::Player::create("Joan Piper", "Capitain of the first station formerly known as 'this should just work'");
     let player_id = commands.spawn_bundle(player).id();
     // create station record
-    let station = station::Station::create("Enterprise");
+    let station = station::Station::create("Alpha");
     let station_id = commands.spawn_bundle(station).id();
     // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
@@ -35,7 +35,7 @@ pub struct InitSystem;
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        app.add_startup_system(init);
+        // app.add_startup_system(init);
         app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
@@ -46,5 +46,7 @@ impl Plugin for InitSystem {
         app.register_type::<habitat::Habitat>();
         app.register_type::<resources::Resource>();
         app.register_type::<shadow::Shadow>();
+        app.register_type::<tags::ModuleTag>();
+        app.register_type::<tags::StationTag>();
     }
 }

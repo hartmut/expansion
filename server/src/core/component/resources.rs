@@ -4,7 +4,7 @@
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect, Inspectable)]
 enum ResourceType {
     Liquid, // in l
     Gas,    // in l

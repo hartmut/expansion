@@ -7,7 +7,7 @@ use bevy_inspector_egui::Inspectable;
 
 // spectral enums - https://en.wikipedia.org/wiki/Asteroid_spectral_types
 
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect, Inspectable)]
 pub enum SpecT {
     None,
     A, // https://en.wikipedia.org/wiki/A-type_asteroid
@@ -32,7 +32,7 @@ impl Default for SpecT {
 }
 
 
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect, Inspectable)]
 pub enum SpecB {
     None,
     A,

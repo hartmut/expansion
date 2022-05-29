@@ -3,7 +3,7 @@ use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
 // Descriptions
-#[derive(Inspectable, Clone, Debug, PartialEq, Reflect, Default, Component)]
+#[derive(Inspectable, Clone, Debug, PartialEq, Eq, Reflect, Default, Component)]
 #[reflect(Component)]
 pub struct Desc {
     pub name: String,

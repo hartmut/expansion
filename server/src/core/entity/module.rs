@@ -8,6 +8,7 @@ pub struct Module {
     basics: basics::BasicParameter,
     energy: energy::Energy,
     shadow: shadow::Shadow,
+    moduletag: tags::ModuleTag,
 }
 
 impl Module {
@@ -21,11 +22,13 @@ impl Module {
             consumption: 10.0,
         };
         let shadow: shadow::Shadow = Default::default();
+        let moduletag = tags::ModuleTag;
         Module {
             desc,
             basics,
             energy,
             shadow,
+            moduletag,
         }
     }
 

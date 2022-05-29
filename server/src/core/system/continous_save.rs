@@ -4,8 +4,6 @@ use bevy::prelude::*;
 use bevy::reflect::TypeRegistry;
 use ron::ser::PrettyConfig;
 
-pub struct ContinousSave;
-
 pub fn continous_save(world: &mut World) {
     let type_registry = world.get_resource::<TypeRegistry>().unwrap();
     let scene = DynamicScene::from_world(world, type_registry);

@@ -9,7 +9,7 @@ when used in a station the vector will be empty and only a total count will be m
 // TODO adapt NPC design, simulate people 
 
 // Descriptions
-#[derive(Inspectable, Clone, Debug, PartialEq, Reflect, Default)]
+#[derive(Inspectable, Clone, Debug, PartialEq, Eq, Reflect, Default)]
 pub struct People {
     pub people_count: u32,
 }

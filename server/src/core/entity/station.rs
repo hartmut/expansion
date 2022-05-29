@@ -7,6 +7,7 @@ pub struct Station {
     desc: desc::Desc,
     energy: energy::Energy,
     shadow: shadow::Shadow,
+    stationtag: tags::StationTag,
 }
 
 /// a station has the following parts
@@ -19,6 +20,12 @@ impl Station {
         let desc = desc::Desc::new(name, "");
         let energy = energy::Energy::default();
         let shadow = shadow::Shadow::default();
-        Station { desc, energy, shadow }
+        let stationtag = tags::StationTag;
+        Station {
+            desc,
+            energy,
+            shadow,
+            stationtag,
+        }
     }
 }
