@@ -8,6 +8,7 @@ pub fn init(mut commands: Commands) {
     info!("Starting initialization of further test data");
     // Testdata
     // create player
+    // TODO create subfunctions with commands as in- and output Testit
     let player = player::Player::create("Joan Piper", "Capitain of the first station formerly known as 'this should just work'");
     let player_id = commands.spawn_bundle(player).id();
     // create station record
@@ -21,6 +22,7 @@ pub fn init(mut commands: Commands) {
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
     // add component to entity
+    // TODO change habitat to a part (component in a module)
     match habitat::Habitat::add_habitat(40., outer_volume) {
         Ok(habitat) => {
             commands.entity(first_module).insert(habitat);

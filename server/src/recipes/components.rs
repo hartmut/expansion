@@ -6,7 +6,7 @@
 // uses
 use serde::{Deserialize, Serialize};
 
-// one Component
+// one Part
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Component {
     pub name: String,                  // Name of the component

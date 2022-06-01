@@ -23,7 +23,7 @@ pub fn continous_save(world: &mut World) {
     world
         .get_resource::<Worldtime>()
         .unwrap()
-        .save_config(pretty.clone());
+        .save_config(pretty);
 
     // log
     let time = world.get_resource::<Worldtime>().unwrap().worldtime;
