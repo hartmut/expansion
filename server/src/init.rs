@@ -9,7 +9,10 @@ pub fn init(mut commands: Commands) {
     // Testdata
     // create player
     // TODO create subfunctions with commands as in- and output Testit
-    let player = player::Player::create("Joan Piper", "Capitain of the first station formerly known as 'this should just work'");
+    let player = player::Player::create(
+        "Joan Piper",
+        "Capitain of the first station formerly known as 'this should just work'",
+    );
     let player_id = commands.spawn_bundle(player).id();
     // create station record
     let station = station::Station::create("Alpha");
