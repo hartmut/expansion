@@ -1,7 +1,8 @@
 // experimental initializations
 use crate::core::component::*;
 use crate::core::entity::*;
-use crate::core::system::*;
+use crate::core::common::formulars::*;
+// use crate::core::system::*;
 use bevy::prelude::*;
 
 pub fn init(mut commands: Commands) {
@@ -24,15 +25,21 @@ pub fn init(mut commands: Commands) {
     let outer_volume = module.get_outer_volume();
     let first_module = commands.spawn_bundle(module).id();
     commands.entity(station_id).push_children(&[first_module]);
-    // add component to entity
-    // TODO change habitat to a part (component in a module)
-    match habitat::Habitat::add_habitat(40., outer_volume) {
-        Ok(habitat) => {
-            commands.entity(first_module).insert(habitat);
-            debug!("adding of habitat successfull")
-        }
-        Err(err) => info!("{}", err),
-    };
+
+    // add part to module
+    let hab_vec = Vec3::new(3.0, 2.0, 2.0);
+    if outer_volume > volume(hab_vec) {
+        commands = habitat::Habitat::add_part_habitat(commands, first_module, hab_vec, 0.0);
+    }
+}
+
+pub fn testinit(mut commands: Commands) {
+    info!("Starting initialization of further test data");
+    // Testdata
+    // create player
+    // create station record
+    let module = module::Module::create("Central Hub");
+    let _first_module = commands.spawn_bundle(module).id();
 }
 
 pub struct InitSystem;
@@ -40,8 +47,9 @@ pub struct InitSystem;
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        // app.add_startup_system(init);
-        app.add_startup_system(load_scene::load_scene_system);
+        app.add_startup_system(init);
+        // app.add_startup_system(testinit);
+        // app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
         app.register_type::<desc::Desc>();

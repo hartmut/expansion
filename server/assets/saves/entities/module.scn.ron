@@ -1,0 +1,122 @@
+[
+  (
+    entity: 0,
+    components: [
+      {
+        "type": "expansion::core::component::desc::Desc",
+        "struct": {
+          "name": {
+            "type": "alloc::string::String",
+            "value": "Central Hub",
+          },
+          "longtext": {
+            "type": "alloc::string::String",
+            "value": "",
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::basics::BasicParameter",
+        "struct": {
+          "mass": {
+            "type": "f32",
+            "value": 2000.0,
+          },
+          "volume": {
+            "type": "f32",
+            "value": 45.0,
+          },
+          "extend": {
+            "type": "glam::vec3::Vec3",
+            "value": (5.0, 3.0, 3.0),
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::energy::Energy",
+        "struct": {
+          "act_storage": {
+            "type": "f64",
+            "value": 10000.0,
+          },
+          "max_storage": {
+            "type": "f64",
+            "value": 100000.0,
+          },
+          "production": {
+            "type": "f64",
+            "value": 10.0,
+          },
+          "consumption": {
+            "type": "f64",
+            "value": 10.0,
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::shadow::Shadow",
+        "struct": {
+          "energy": {
+            "type": "expansion::core::component::energy::Energy",
+            "struct": {
+              "act_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "max_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "production": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "consumption": {
+                "type": "f64",
+                "value": 0.0,
+              },
+            },
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::tags::ModuleTag",
+        "struct": {},
+      },
+      {
+        "type": "bevy_transform::components::transform::Transform",
+        "struct": {
+          "translation": {
+            "type": "glam::vec3::Vec3",
+            "value": (0.0, 0.0, 0.0),
+          },
+          "rotation": {
+            "type": "glam::quat::Quat",
+            "value": (0.0, 0.0, 0.0, 1.0),
+          },
+          "scale": {
+            "type": "glam::vec3::Vec3",
+            "value": (1.0, 1.0, 1.0),
+          },
+        },
+      },
+      {
+        "type": "bevy_transform::components::global_transform::GlobalTransform",
+        "struct": {
+          "translation": {
+            "type": "glam::vec3::Vec3",
+            "value": (0.0, 0.0, 0.0),
+          },
+          "rotation": {
+            "type": "glam::quat::Quat",
+            "value": (0.0, 0.0, 0.0, 1.0),
+          },
+          "scale": {
+            "type": "glam::vec3::Vec3",
+            "value": (1.0, 1.0, 1.0),
+          },
+        },
+      },
+    ],
+  ),
+]

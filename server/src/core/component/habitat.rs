@@ -1,6 +1,8 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 
+use crate::core::common::formulars::*;
+use crate::core::entity::*;
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 use measurements::pressure::*;
@@ -12,6 +14,7 @@ use measurements::pressure::*;
 #[reflect(Component)]
 pub struct Habitat {
     // in m^3
+    // TODO rewrite so that volume is used from basic component by using a system for update of athomsphere
     volume: f32,
 
     // Atmosphere
@@ -47,6 +50,7 @@ impl Habitat {
 
     // source https://en.wikipedia.org/wiki/Partial_pressure#In_diving_breathing_gases
     // TODO find pressure and calc library and correct the formula
+    // TODO rewrite as part of the component
     fn o2_part_pressure(&self) -> f64 {
         (self.o2 / self.volume as f64) * Pressure::from_kilopascals(self.k_pa).as_atmospheres()
     }
@@ -57,13 +61,26 @@ impl Habitat {
         0.16 > self.o2_part_pressure()
     }
 
-    // COMEBACK error handling for return value
-    pub fn add_habitat(volume: f32, outer_volume: f32) -> Result<Habitat, String>  {
-        if outer_volume > volume {
-            Ok(Habitat::new(volume))
-        } else {
-            Err("the habitat volume had been greater than the volumen of the module".to_string())
+    /// before adding the habitat you need to check whether it will fit into the module
+    /// if mass is 0.0 then we assume that the pressurized part needs 50kg/sqm of material
+    pub fn add_part_habitat<'w, 's>(
+        mut commands: Commands<'w, 's>,
+        parent: Entity,
+        ext: Vec3,
+        mass: f32,
+    ) -> Commands<'w, 's> {
+        let mut mass = mass;
+        if mass == 0.0 {
+            // 50kg/sqm, assumtption this is a quader
+            mass = mass_sqm(ext, 50.0);
         }
+        let habitat_part = commands
+            .spawn_bundle(part::Part::create("Habitat", ext, mass))
+            .id();
+        let habitat = Habitat::new(6.0);
+        commands.entity(habitat_part).insert(habitat);
+        commands.entity(parent).push_children(&[habitat_part]);
+        commands
     }
 }
 

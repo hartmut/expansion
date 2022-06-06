@@ -1,0 +1,105 @@
+[
+  (
+    entity: 0,
+    components: [
+      {
+        "type": "expansion::core::component::desc::Desc",
+        "struct": {
+          "name": {
+            "type": "alloc::string::String",
+            "value": "Alpha",
+          },
+          "longtext": {
+            "type": "alloc::string::String",
+            "value": "",
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::energy::Energy",
+        "struct": {
+          "act_storage": {
+            "type": "f64",
+            "value": 0.0,
+          },
+          "max_storage": {
+            "type": "f64",
+            "value": 0.0,
+          },
+          "production": {
+            "type": "f64",
+            "value": 0.0,
+          },
+          "consumption": {
+            "type": "f64",
+            "value": 0.0,
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::shadow::Shadow",
+        "struct": {
+          "energy": {
+            "type": "expansion::core::component::energy::Energy",
+            "struct": {
+              "act_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "max_storage": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "production": {
+                "type": "f64",
+                "value": 0.0,
+              },
+              "consumption": {
+                "type": "f64",
+                "value": 0.0,
+              },
+            },
+          },
+        },
+      },
+      {
+        "type": "expansion::core::component::tags::StationTag",
+        "struct": {},
+      },
+      {
+        "type": "bevy_transform::components::transform::Transform",
+        "struct": {
+          "translation": {
+            "type": "glam::vec3::Vec3",
+            "value": (0.0, 0.0, 0.0),
+          },
+          "rotation": {
+            "type": "glam::quat::Quat",
+            "value": (0.0, 0.0, 0.0, 1.0),
+          },
+          "scale": {
+            "type": "glam::vec3::Vec3",
+            "value": (1.0, 1.0, 1.0),
+          },
+        },
+      },
+      {
+        "type": "bevy_transform::components::global_transform::GlobalTransform",
+        "struct": {
+          "translation": {
+            "type": "glam::vec3::Vec3",
+            "value": (0.0, 0.0, 0.0),
+          },
+          "rotation": {
+            "type": "glam::quat::Quat",
+            "value": (0.0, 0.0, 0.0, 1.0),
+          },
+          "scale": {
+            "type": "glam::vec3::Vec3",
+            "value": (1.0, 1.0, 1.0),
+          },
+        },
+      },
+    ],
+  ),
+]

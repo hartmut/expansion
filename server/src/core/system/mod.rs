@@ -26,8 +26,8 @@ impl Plugin for ExpSystems {
         app.add_system_set(
             SystemSet::new()
                 .with_run_criteria(FixedTimestep::step(5.0))
+                // .with_system(entity_save::entity_save.exclusive_system())
                 .with_system(continous_save::continous_save.exclusive_system())
-                .with_system(entity_save::entity_save.exclusive_system()),
         );
     }
 }

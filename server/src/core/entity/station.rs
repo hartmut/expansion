@@ -8,6 +8,8 @@ pub struct Station {
     energy: energy::Energy,
     shadow: shadow::Shadow,
     stationtag: tags::StationTag,
+    transform: Transform,
+    global: GlobalTransform,
 }
 
 /// a station has the following parts
@@ -21,11 +23,16 @@ impl Station {
         let energy = energy::Energy::default();
         let shadow = shadow::Shadow::default();
         let stationtag = tags::StationTag;
+        // TODO create from from position in space (fn from_xyz) 
+        let transform = Transform::default();
+        let global = GlobalTransform::default();
         Station {
             desc,
             energy,
             shadow,
             stationtag,
+            transform,
+            global,
         }
     }
 }
