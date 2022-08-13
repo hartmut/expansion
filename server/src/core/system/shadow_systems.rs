@@ -2,6 +2,8 @@ use crate::core::component::shadow::*;
 use crate::core::component::*;
 use bevy::prelude::*;
 
+// TODO implement massupdates 
+
 pub fn shadow_clear(mut shadow_query: Query<&mut Shadow>) {
     for mut shadow in shadow_query.iter_mut() {
         shadow.energy = energy::Energy::default();
