@@ -16,5 +16,4 @@ pub mod core;
 pub mod init;
 pub mod client;
 pub mod debug;
-pub mod recipes;
 pub mod tests;

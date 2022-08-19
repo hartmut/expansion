@@ -5,5 +5,5 @@
 
 // TODO migrate to bevy and ecs system
 
-pub mod components;
+pub mod parts;
 pub mod recipe;

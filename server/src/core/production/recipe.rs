@@ -5,7 +5,7 @@
 // first step: write it for normal production
 
 // uses
-use super::components::*;
+use super::parts::*;
 use serde::{Deserialize, Serialize};
 
 // one Bundle, material or element and quantity
