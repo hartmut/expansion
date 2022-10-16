@@ -6,18 +6,9 @@
 
 // uses
 use super::parts::*;
-use serde::{Deserialize, Serialize};
-
-// one Bundle, material or element and quantity
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Bundle {
-    pub quantity: u64,        // how much
-    pub component: Component, // either a component or
-    pub element_no: u32,      // a Element
-}
 
 // types of recipes
-#[derive(Serialize, Deserialize, Debug, Copy, Clone)]
+#[derive( Debug, Copy, Clone)]
 pub enum RecipeType {
     Module,
     Component,
@@ -26,13 +17,13 @@ pub enum RecipeType {
 }
 
 // my recipes
-#[derive(Serialize, Deserialize, Debug)]
+#[derive (Debug)]
 pub struct Recipe {
     pub recipe_type: RecipeType, // what type will be produced?
     pub name: String,         // name of this recipe
     pub duration: u32,        // hours until the recipe produces one set of outputs
-    pub input: Vec<Bundle>, // vector of UUIDs of materials and quantity needed to produce the result
-    pub output: Vec<Bundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
+    pub input: Vec<PartBundle>, // vector of UUIDs of materials and quantity needed to produce the result
+    pub output: Vec<PartBundle>, // vector of UUIDs of materials and quantity produced, empty if it is a module
     pub prefab: String, // json format for creation of a new module, empty if it is not a module
 }
 

@@ -9,6 +9,6 @@ pub mod energy;
 pub mod habitat;
 pub mod orbit;
 pub mod people;
-pub mod resources;
+pub mod storage;
 pub mod shadow;
 pub mod tags;

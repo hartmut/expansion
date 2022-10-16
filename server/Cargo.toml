@@ -12,6 +12,7 @@ chrono = {version = "0.4",  features = ["serde"]} # https://crates.io/crates/chr
 measurements = "*" # https://crates.io/crates/measurements
 bevy-inspector-egui = "0.12" # https://crates.io/crates/bevy-inspector-egui
 ron = "0.7" # https://crates.io/crates/ron
+bevy-editor-pls = { git = "https://github.com/jakobhellermann/bevy_editor_pls", package = "bevy_editor_pls" }
 
 [dependencies.bevy]
 version = "0.8" # https://crates.io/crates/bevy

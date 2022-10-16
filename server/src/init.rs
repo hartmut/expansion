@@ -57,7 +57,7 @@ impl Plugin for InitSystem {
         app.register_type::<basics::BasicParameter>();
         app.register_type::<energy::Energy>();
         app.register_type::<habitat::Habitat>();
-        app.register_type::<resources::Resource>();
+        // app.register_type::<storage::Resource>();
         app.register_type::<shadow::Shadow>();
         app.register_type::<tags::ModuleTag>();
         app.register_type::<tags::StationTag>();

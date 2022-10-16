@@ -11,5 +11,6 @@ impl Plugin for Client {
             resizable: true,
             ..Default::default()
         });
+
     }
 }
