@@ -1,616 +1,351 @@
-[
-  (
-    entity: 0,
-    components: [
-      {
-        "type": "expansion::core::component::desc::Desc",
-        "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "Joan Piper",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "Capitain of the first station formerly known as \'this should just work\'",
-          },
-        },
+(
+  entities: {
+    0: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 2.0,
+            z: 5.0,
+          ),
+        )),
+        "bevy_render::camera::camera::Camera": (
+          viewport: None,
+          priority: 100,
+          is_active: false,
+          hdr: false,
+        ),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 2.0,
+            z: 5.0,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_render::camera::camera::CameraRenderGraph": ("core_3d"),
+        "bevy_render::camera::projection::Projection": Perspective((
+          fov: 0.7853982,
+          aspect_ratio: 1.7771429,
+          near: 0.1,
+          far: 1000.0,
+        )),
+        "bevy_render::view::visibility::VisibleEntities": (),
+        "bevy_render::primitives::Frustum": (),
+        "bevy_core_pipeline::core_3d::camera_3d::Camera3d": (
+          clear_color: Default,
+          depth_load_op: Clear(0.0),
+        ),
+        "bevy_core_pipeline::tonemapping::Tonemapping": Enabled(
+          deband_dither: true,
+        ),
+        "bevy_core::name::Name": (
+          hash: 4682585574924084910,
+          name: "Editor Camera 3D Free",
+        ),
+        "bevy_pbr::light::ClusterConfig": FixedZ(
+          total: 4096,
+          z_slices: 24,
+          z_config: (
+            first_slice_depth: 5.0,
+            far_z_mode: MaxLightRange,
+          ),
+          dynamic_resizing: true,
+        ),
       },
-      {
-        "type": "expansion::core::component::account::Account",
-        "struct": {
-          "credits": {
-            "type": "u64",
-            "value": 1000,
-          },
-        },
+    ),
+    1: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 2.0,
+            z: 5.0,
+          ),
+        )),
+        "bevy_render::camera::camera::Camera": (
+          viewport: None,
+          priority: 100,
+          is_active: false,
+          hdr: false,
+        ),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 2.0,
+            z: 5.0,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_render::camera::camera::CameraRenderGraph": ("core_3d"),
+        "bevy_render::camera::projection::Projection": Perspective((
+          fov: 0.7853982,
+          aspect_ratio: 1.7771429,
+          near: 0.1,
+          far: 1000.0,
+        )),
+        "bevy_render::view::visibility::VisibleEntities": (),
+        "bevy_render::primitives::Frustum": (),
+        "bevy_core_pipeline::core_3d::camera_3d::Camera3d": (
+          clear_color: Default,
+          depth_load_op: Clear(0.0),
+        ),
+        "bevy_core_pipeline::tonemapping::Tonemapping": Enabled(
+          deband_dither: true,
+        ),
+        "bevy_core::name::Name": (
+          hash: 11552797507457324740,
+          name: "Editor Camera 3D Pan/Orbit",
+        ),
+        "bevy_pbr::light::ClusterConfig": FixedZ(
+          total: 4096,
+          z_slices: 24,
+          z_config: (
+            first_slice_depth: 5.0,
+            far_z_mode: MaxLightRange,
+          ),
+          dynamic_resizing: true,
+        ),
       },
-      {
-        "type": "bevy_hierarchy::components::children::Children",
-        "tuple_struct": [
-          {
-            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
-            "list": [
-              {
-                "type": "bevy_ecs::entity::Entity",
-                "value": 1,
-              },
-            ],
-          },
-        ],
+    ),
+    2: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 999.9,
+          ),
+        )),
+        "bevy_render::camera::camera::Camera": (
+          viewport: None,
+          priority: 100,
+          is_active: false,
+          hdr: false,
+        ),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 999.9,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_render::camera::camera::CameraRenderGraph": ("core_2d"),
+        "bevy_render::view::visibility::VisibleEntities": (),
+        "bevy_render::primitives::Frustum": (),
+        "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
+        "bevy_core::name::Name": (
+          hash: 1367269939962999961,
+          name: "Editor Camera 2D Pan/Zoom",
+        ),
+        "bevy_render::camera::projection::OrthographicProjection": (
+          left: -622.0,
+          right: 622.0,
+          bottom: -350.0,
+          top: 350.0,
+          near: 0.0,
+          far: 1000.0,
+          window_origin: Center,
+          scaling_mode: WindowSize,
+          scale: 1.0,
+        ),
+        "bevy_core_pipeline::core_2d::camera_2d::Camera2d": (
+          clear_color: Default,
+        ),
+        "bevy_pbr::light::ClusterConfig": FixedZ(
+          total: 4096,
+          z_slices: 24,
+          z_config: (
+            first_slice_depth: 5.0,
+            far_z_mode: MaxLightRange,
+          ),
+          dynamic_resizing: true,
+        ),
       },
-    ],
-  ),
-  (
-    entity: 1,
-    components: [
-      {
-        "type": "expansion::core::component::desc::Desc",
-        "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "Alpha",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "",
-          },
-        },
+    ),
+    3: (
+      components: {
+        "expansion::core::component::desc::Desc": (
+          name: "Joan Piper",
+          longtext: "Capitain of the first station formerly known as \'this should just work\'",
+        ),
+        "expansion::core::component::account::Account": (
+          credits: 1000,
+        ),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 4,
+          ),
+        ]),
       },
-      {
-        "type": "expansion::core::component::energy::Energy",
-        "struct": {
-          "act_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "max_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "production": {
-            "type": "f64",
-            "value": 0.0,
-          },
-          "consumption": {
-            "type": "f64",
-            "value": 10.0,
-          },
-        },
+    ),
+    4: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+        )),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "expansion::core::component::desc::Desc": (
+          name: "Alpha",
+          longtext: "",
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 0.0,
+          max_storage: 0.0,
+          production: 0.0,
+          consumption: 0.0,
+        ),
+        "expansion::core::component::shadow::Shadow": (
+          energy: (
+            act_storage: 0.0,
+            max_storage: 0.0,
+            production: 0.0,
+            consumption: 0.0,
+          ),
+        ),
+        "expansion::core::component::tags::StationTag": (),
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 3,
+        )),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 5,
+          ),
+        ]),
       },
-      {
-        "type": "expansion::core::component::shadow::Shadow",
-        "struct": {
-          "energy": {
-            "type": "expansion::core::component::energy::Energy",
-            "struct": {
-              "act_storage": {
-                "type": "f64",
-                "value": 100.0,
-              },
-              "max_storage": {
-                "type": "f64",
-                "value": 100.0,
-              },
-              "production": {
-                "type": "f64",
-                "value": 0.0,
-              },
-              "consumption": {
-                "type": "f64",
-                "value": 10.0,
-              },
-            },
-          },
-        },
+    ),
+    5: (
+      components: {
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 4,
+        )),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 6,
+          ),
+        ]),
       },
-      {
-        "type": "expansion::core::component::tags::StationTag",
-        "struct": {},
+    ),
+    6: (
+      components: {
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 5,
+        )),
+        "expansion::core::component::habitat::Habitat": (
+          volume: 6.0,
+          o2: 1.5768000000000002,
+          n2: 5.568,
+          co2: 0.0,
+          k_pa: 101.325,
+          temperature: 20.0,
+        ),
       },
-      {
-        "type": "bevy_transform::components::transform::Transform",
-        "struct": {
-          "translation": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 0.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 0.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 0.0,
-              },
-            },
-          },
-          "rotation": {
-            "type": "glam::f32::sse2::quat::Quat",
-            "value": (0.0, 0.0, 0.0, 1.0),
-          },
-          "scale": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 1.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 1.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 1.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "bevy_transform::components::global_transform::GlobalTransform",
-        "tuple_struct": [
-          {
-            "type": "glam::f32::affine3a::Affine3A",
-            "struct": {
-              "matrix3": {
-                "type": "glam::f32::sse2::mat3a::Mat3A",
-                "struct": {
-                  "x_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                    },
-                  },
-                  "y_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                    },
-                  },
-                  "z_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                    },
-                  },
-                },
-              },
-              "translation": {
-                "type": "glam::f32::sse2::vec3a::Vec3A",
-                "struct": {
-                  "x": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                  "y": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                  "z": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 0,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::children::Children",
-        "tuple_struct": [
-          {
-            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
-            "list": [
-              {
-                "type": "bevy_ecs::entity::Entity",
-                "value": 2,
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  ),
-  (
-    entity: 3,
-    components: [
-      {
-        "type": "expansion::core::component::desc::Desc",
-        "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "Habitat",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "",
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::energy::Energy",
-        "struct": {
-          "act_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "max_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "production": {
-            "type": "f64",
-            "value": 0.0,
-          },
-          "consumption": {
-            "type": "f64",
-            "value": 10.0,
-          },
-        },
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 2,
-          },
-        ],
-      },
-      {
-        "type": "expansion::core::component::basics::BasicParameter",
-        "struct": {
-          "mass": {
-            "type": "f32",
-            "value": 1600.0,
-          },
-          "volume": {
-            "type": "f32",
-            "value": 12.0,
-          },
-          "extend": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 3.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 2.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 2.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::habitat::Habitat",
-        "struct": {
-          "volume": {
-            "type": "f32",
-            "value": 6.0,
-          },
-          "o2": {
-            "type": "f64",
-            "value": 1.5768000000000002,
-          },
-          "n2": {
-            "type": "f64",
-            "value": 5.568,
-          },
-          "co2": {
-            "type": "f64",
-            "value": 0.0,
-          },
-          "k_pa": {
-            "type": "f64",
-            "value": 101.325,
-          },
-          "temperature": {
-            "type": "f64",
-            "value": 20.0,
-          },
-        },
-      },
-    ],
-  ),
-  (
-    entity: 2,
-    components: [
-      {
-        "type": "expansion::core::component::desc::Desc",
-        "struct": {
-          "name": {
-            "type": "alloc::string::String",
-            "value": "Central Hub",
-          },
-          "longtext": {
-            "type": "alloc::string::String",
-            "value": "",
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::energy::Energy",
-        "struct": {
-          "act_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "max_storage": {
-            "type": "f64",
-            "value": 100.0,
-          },
-          "production": {
-            "type": "f64",
-            "value": 0.0,
-          },
-          "consumption": {
-            "type": "f64",
-            "value": 10.0,
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::shadow::Shadow",
-        "struct": {
-          "energy": {
-            "type": "expansion::core::component::energy::Energy",
-            "struct": {
-              "act_storage": {
-                "type": "f64",
-                "value": 100.0,
-              },
-              "max_storage": {
-                "type": "f64",
-                "value": 100.0,
-              },
-              "production": {
-                "type": "f64",
-                "value": 0.0,
-              },
-              "consumption": {
-                "type": "f64",
-                "value": 10.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "bevy_transform::components::transform::Transform",
-        "struct": {
-          "translation": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 0.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 0.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 0.0,
-              },
-            },
-          },
-          "rotation": {
-            "type": "glam::f32::sse2::quat::Quat",
-            "value": (0.0, 0.0, 0.0, 1.0),
-          },
-          "scale": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 1.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 1.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 1.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "bevy_transform::components::global_transform::GlobalTransform",
-        "tuple_struct": [
-          {
-            "type": "glam::f32::affine3a::Affine3A",
-            "struct": {
-              "matrix3": {
-                "type": "glam::f32::sse2::mat3a::Mat3A",
-                "struct": {
-                  "x_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                    },
-                  },
-                  "y_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                    },
-                  },
-                  "z_axis": {
-                    "type": "glam::f32::sse2::vec3a::Vec3A",
-                    "struct": {
-                      "x": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "y": {
-                        "type": "f32",
-                        "value": 0.0,
-                      },
-                      "z": {
-                        "type": "f32",
-                        "value": 1.0,
-                      },
-                    },
-                  },
-                },
-              },
-              "translation": {
-                "type": "glam::f32::sse2::vec3a::Vec3A",
-                "struct": {
-                  "x": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                  "y": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                  "z": {
-                    "type": "f32",
-                    "value": 0.0,
-                  },
-                },
-              },
-            },
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::parent::Parent",
-        "tuple_struct": [
-          {
-            "type": "bevy_ecs::entity::Entity",
-            "value": 1,
-          },
-        ],
-      },
-      {
-        "type": "bevy_hierarchy::components::children::Children",
-        "tuple_struct": [
-          {
-            "type": "smallvec::SmallVec<[bevy_ecs::entity::Entity; 8]>",
-            "list": [
-              {
-                "type": "bevy_ecs::entity::Entity",
-                "value": 3,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        "type": "expansion::core::component::basics::BasicParameter",
-        "struct": {
-          "mass": {
-            "type": "f32",
-            "value": 390.0,
-          },
-          "volume": {
-            "type": "f32",
-            "value": 45.0,
-          },
-          "extend": {
-            "type": "glam::f32::vec3::Vec3",
-            "struct": {
-              "x": {
-                "type": "f32",
-                "value": 5.0,
-              },
-              "y": {
-                "type": "f32",
-                "value": 3.0,
-              },
-              "z": {
-                "type": "f32",
-                "value": 3.0,
-              },
-            },
-          },
-        },
-      },
-      {
-        "type": "expansion::core::component::tags::ModuleTag",
-        "struct": {},
-      },
-    ],
-  ),
-]
+    ),
+  },
+)

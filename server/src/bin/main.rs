@@ -15,7 +15,6 @@ fn main() {
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
     app.add_plugin(defaultsettings::Defaultsettings) // client config
-        // .add_plugins(DefaultPlugins) // already inserted in Client Plugin
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
         .add_plugin(init::InitSystem) // Initialization

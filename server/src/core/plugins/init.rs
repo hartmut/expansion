@@ -49,6 +49,7 @@ impl Plugin for InitSystem {
         // insert systems for initialization in dev
         app.add_startup_system(init);
         // app.add_startup_system(testinit);
+        // TODO implement loading of world 
         // app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
@@ -57,7 +58,7 @@ impl Plugin for InitSystem {
         app.register_type::<basics::BasicParameter>();
         app.register_type::<energy::Energy>();
         app.register_type::<habitat::Habitat>();
-        // app.register_type::<storage::Resource>();
+        app.register_type::<storage::Resource>();
         app.register_type::<shadow::Shadow>();
         app.register_type::<tags::ModuleTag>();
         app.register_type::<tags::StationTag>();
