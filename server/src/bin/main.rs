@@ -8,20 +8,18 @@ use bevy::prelude::*;
 
 use expansion::core::resource::ExpResources;
 use expansion::core::system::ExpSystems;
-use expansion::init::InitSystem;
-use expansion::client::Client;
-use expansion::debug::MyDebug;
+use expansion::core::plugins::*;
 
 fn main() {
     let mut app = App::new();
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
-    app.add_plugin(Client) // client config
-        .add_plugins(DefaultPlugins)
+    app.add_plugin(defaultsettings::Defaultsettings) // client config
+        // .add_plugins(DefaultPlugins) // already inserted in Client Plugin
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
-        .add_plugin(InitSystem) // Initialization
-        .add_plugin(MyDebug);
+        .add_plugin(init::InitSystem) // Initialization
+        .add_plugin(debug::MyDebug);
 
     app.run();
 }

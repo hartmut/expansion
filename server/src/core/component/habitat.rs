@@ -75,7 +75,7 @@ impl Habitat {
             mass = mass_sqm(ext, 50.0);
         }
         let habitat_part = commands
-            .spawn_bundle(part::Part::create("Habitat", ext, mass))
+            .spawn(part::Part::create("Habitat", ext, mass))
             .id();
         let habitat = Habitat::new(6.0);
         commands.entity(habitat_part).insert(habitat);

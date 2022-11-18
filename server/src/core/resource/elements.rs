@@ -8,6 +8,7 @@
 
 // uses
 use bevy::log::prelude::*;
+use bevy::prelude::*;
 use serde::de::Deserializer;
 use serde::{Deserialize, Serialize};
 use serde_json;
@@ -59,7 +60,7 @@ pub struct Element {
 
 type ElementListVec = Vec<Element>;
 
-#[derive(Debug)]
+#[derive(Resource, Debug)]
 pub struct ElementList {
     elements: ElementListVec,
 }

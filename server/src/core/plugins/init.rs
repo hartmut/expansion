@@ -14,16 +14,16 @@ pub fn init(mut commands: Commands) {
         "Joan Piper",
         "Capitain of the first station formerly known as 'this should just work'",
     );
-    let player_id = commands.spawn_bundle(player).id();
+    let player_id = commands.spawn(player).id();
     // create station record
     let station = station::Station::create("Alpha");
-    let station_id = commands.spawn_bundle(station).id();
+    let station_id = commands.spawn(station).id();
     // push children station to parent player
     commands.entity(player_id).push_children(&[station_id]);
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
     let outer_volume = module.get_outer_volume();
-    let first_module = commands.spawn_bundle(module).id();
+    let first_module = commands.spawn(module).id();
     commands.entity(station_id).push_children(&[first_module]);
 
     // add part to module
@@ -39,7 +39,7 @@ pub fn testinit(mut commands: Commands) {
     // create player
     // create station record
     let module = module::Module::create("Central Hub");
-    let _first_module = commands.spawn_bundle(module).id();
+    let _first_module = commands.spawn(module).id();
 }
 
 pub struct InitSystem;

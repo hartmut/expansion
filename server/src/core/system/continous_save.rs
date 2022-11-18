@@ -4,28 +4,30 @@ use bevy::prelude::*;
 use bevy::reflect::TypeRegistry;
 use ron::ser::PrettyConfig;
 
-pub fn continous_save(world: &mut World) {
-    let type_registry = world.get_resource::<TypeRegistry>().unwrap();
-    let scene = DynamicScene::from_world(world, type_registry);
+// TODO rewrite continous save 
 
-    // save elements and components
-    let output = scene.serialize_ron(type_registry).unwrap();
-    let _f = write_string_to_file("assets/saves/quicksave_objects.scn.ron".to_string(), &output);
+// pub fn continous_save(world: &mut World) {
+//     let type_registry = world.get_resource::<TypeRegistry>().unwrap();
+//     let scene = DynamicScene::from_world(world, type_registry);
 
-    // save relevant resources
-    let pretty = PrettyConfig::new()
-        .separate_tuple_members(true)
-        .enumerate_arrays(true);
-    world
-        .get_resource::<Config>()
-        .unwrap()
-        .save_config(pretty.clone());
-    world
-        .get_resource::<Worldtime>()
-        .unwrap()
-        .save_config(pretty);
+//     // save elements and components
+//     let output = scene.serialize_ron(type_registry).unwrap();
+//     let _f = write_string_to_file("assets/saves/quicksave_objects.scn.ron".to_string(), &output);
 
-    // log
-    let time = world.get_resource::<Worldtime>().unwrap().worldtime;
-    info!("world save completed at world time {time}")
-}
+//     // save relevant resources
+//     let pretty = PrettyConfig::new()
+//         .separate_tuple_members(true)
+//         .enumerate_arrays(true);
+//     world
+//         .get_resource::<Config>()
+//         .unwrap()
+//         .save_config(pretty.clone());
+//     world
+//         .get_resource::<Worldtime>()
+//         .unwrap()
+//         .save_config(pretty);
+
+//     // log
+//     let time = world.get_resource::<Worldtime>().unwrap().worldtime;
+//     info!("world save completed at world time {time}")
+// }

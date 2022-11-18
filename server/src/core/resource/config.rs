@@ -4,6 +4,7 @@
 
 /// for initalization and configuration
 use bevy::log::prelude::*;
+use bevy::prelude::*;
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 
@@ -34,7 +35,7 @@ impl Default for StorageType {
 // airmix_o2 = 0.2
 // airmix_n2 = 0.8
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Resource, Debug, Serialize, Deserialize, Clone)]
 pub struct Config {
     // one tick is tick_lenght hours in worldtime per second realtime
     tick_length: u64,

@@ -6,3 +6,4 @@ pub mod entity;
 pub mod resource;
 pub mod system;
 pub mod production;
+pub mod plugins;

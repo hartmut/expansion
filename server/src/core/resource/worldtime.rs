@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
 // Descriptions
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Resource, Debug, Serialize, Deserialize)]
 pub struct Worldtime {
     pub tick_counter: u64,                                // counter of current step
     pub warp: u64,                                        // speedup of world- vs. real-time
