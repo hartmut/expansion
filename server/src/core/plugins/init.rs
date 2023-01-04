@@ -14,7 +14,7 @@ pub fn init(mut commands: Commands) {
         "Joan Piper",
         "Capitain of the first station formerly known as 'this should just work'",
     );
-    let player_id = commands.spawn(player).id();
+    let _player_id = commands.spawn(player).id();
 
     // create station record
     let station = station::Station::create("Alpha");
@@ -34,7 +34,7 @@ pub fn init(mut commands: Commands) {
     // add part to module
     let hab_vec = Vec3::new(3.0, 2.0, 2.0);
     if outer_volume > volume(hab_vec) {
-        commands = habitat::Habitat::add_part_habitat(commands, first_module, hab_vec, 0.0);
+        habitat::Habitat::add_part_habitat(commands, first_module, hab_vec, 0.0);
     }
 }
 
@@ -60,7 +60,7 @@ impl Plugin for InitSystem {
 
         // register components for automatic save
         app.register_type::<desc::Desc>();
-        app.register_type::<account::Account>();
+        app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();
         app.register_type::<energy::Energy>();
         app.register_type::<habitat::Habitat>();

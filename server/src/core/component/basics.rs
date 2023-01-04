@@ -17,9 +17,9 @@ use bevy_inspector_egui::Inspectable;
 #[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
 #[reflect(Component)]
 pub struct BasicParameter {
-    pub mass: f32,    //in kg
-    pub volume: f32,  //in m^3
-    pub extend: Vec3, //in m
+    mass: f32,    //in kg
+    volume: f32,  //in m^3
+    extend: Vec3, //in m
 }
 
 impl BasicParameter {
@@ -29,5 +29,9 @@ impl BasicParameter {
             volume: volume(ext),
             extend: ext,
         }
+    }
+
+    pub fn get_volume(&self) -> f32 {
+        self.volume
     }
 }

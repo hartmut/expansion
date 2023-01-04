@@ -47,7 +47,7 @@ impl Module {
 
     // TODO implment available volume, insert a part by using a system? 
     pub fn get_outer_volume(&self) -> f32 {
-        self.basics.volume
+        self.basics.get_volume()
     }
 
     pub fn check_part_volume(volume: f32, outer_volume: f32) -> bool {

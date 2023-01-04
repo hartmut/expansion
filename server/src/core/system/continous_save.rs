@@ -1,7 +1,6 @@
 use crate::core::common::fileoperations::*;
 use crate::core::resource::{config::*, worldtime::*};
 use bevy::prelude::*;
-use bevy::reflect::TypeRegistry;
 use ron::ser::PrettyConfig;
 
 pub fn continous_save(world: &mut World) {

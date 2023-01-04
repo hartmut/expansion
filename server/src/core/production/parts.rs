@@ -3,7 +3,6 @@
 
 // uses
 use bevy::prelude::*;
-use bevy::reflect::*;
 use bevy_inspector_egui::Inspectable;
 
 // one Part

@@ -2,284 +2,18 @@
   entities: {
     0: (
       components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 2.0,
-            z: 5.0,
-          ),
-        )),
-        "bevy_render::camera::camera::Camera": (
-          viewport: None,
-          priority: 100,
-          is_active: false,
-          hdr: false,
+        "expansion::core::component::desc::Desc": (
+          name: "Joan Piper",
+          longtext: "Capitain of the first station formerly known as \'this should just work\'",
         ),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 2.0,
-            z: 5.0,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_render::camera::camera::CameraRenderGraph": ("core_3d"),
-        "bevy_render::camera::projection::Projection": Perspective((
-          fov: 0.7853982,
-          aspect_ratio: 1.7771429,
-          near: 0.1,
-          far: 1000.0,
-        )),
-        "bevy_render::view::visibility::VisibleEntities": (),
-        "bevy_render::primitives::Frustum": (),
-        "bevy_core_pipeline::core_3d::camera_3d::Camera3d": (
-          clear_color: Default,
-          depth_load_op: Clear(0.0),
-        ),
-        "bevy_core_pipeline::tonemapping::Tonemapping": Enabled(
-          deband_dither: true,
-        ),
-        "bevy_core::name::Name": (
-          hash: 14853347841938952346,
-          name: "Editor Camera 3D Free",
-        ),
-        "bevy_pbr::light::ClusterConfig": FixedZ(
-          total: 4096,
-          z_slices: 24,
-          z_config: (
-            first_slice_depth: 5.0,
-            far_z_mode: MaxLightRange,
-          ),
-          dynamic_resizing: true,
+        "expansion::core::component::character::Character": (
+          credits: 1000,
+          owns: [],
         ),
       },
     ),
     1: (
       components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 2.0,
-            z: 5.0,
-          ),
-        )),
-        "bevy_render::camera::camera::Camera": (
-          viewport: None,
-          priority: 100,
-          is_active: false,
-          hdr: false,
-        ),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 2.0,
-            z: 5.0,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_render::camera::camera::CameraRenderGraph": ("core_3d"),
-        "bevy_render::camera::projection::Projection": Perspective((
-          fov: 0.7853982,
-          aspect_ratio: 1.7771429,
-          near: 0.1,
-          far: 1000.0,
-        )),
-        "bevy_render::view::visibility::VisibleEntities": (),
-        "bevy_render::primitives::Frustum": (),
-        "bevy_core_pipeline::core_3d::camera_3d::Camera3d": (
-          clear_color: Default,
-          depth_load_op: Clear(0.0),
-        ),
-        "bevy_core_pipeline::tonemapping::Tonemapping": Enabled(
-          deband_dither: true,
-        ),
-        "bevy_core::name::Name": (
-          hash: 5551206594987683459,
-          name: "Editor Camera 3D Pan/Orbit",
-        ),
-        "bevy_pbr::light::ClusterConfig": FixedZ(
-          total: 4096,
-          z_slices: 24,
-          z_config: (
-            first_slice_depth: 5.0,
-            far_z_mode: MaxLightRange,
-          ),
-          dynamic_resizing: true,
-        ),
-      },
-    ),
-    2: (
-      components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 999.9,
-          ),
-        )),
-        "bevy_render::camera::camera::Camera": (
-          viewport: None,
-          priority: 100,
-          is_active: false,
-          hdr: false,
-        ),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 999.9,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_render::camera::camera::CameraRenderGraph": ("core_2d"),
-        "bevy_render::view::visibility::VisibleEntities": (),
-        "bevy_render::primitives::Frustum": (),
-        "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
-        "bevy_core::name::Name": (
-          hash: 11839707377229660723,
-          name: "Editor Camera 2D Pan/Zoom",
-        ),
-        "bevy_render::camera::projection::OrthographicProjection": (
-          left: -622.0,
-          right: 622.0,
-          bottom: -350.0,
-          top: 350.0,
-          near: 0.0,
-          far: 1000.0,
-          window_origin: Center,
-          scaling_mode: WindowSize,
-          scale: 1.0,
-        ),
-        "bevy_core_pipeline::core_2d::camera_2d::Camera2d": (
-          clear_color: Default,
-        ),
-        "bevy_pbr::light::ClusterConfig": FixedZ(
-          total: 4096,
-          z_slices: 24,
-          z_config: (
-            first_slice_depth: 5.0,
-            far_z_mode: MaxLightRange,
-          ),
-          dynamic_resizing: true,
-        ),
-      },
-    ),
-    3: (
-      components: {
-        "expansion::core::component::desc::Desc": (
-          name: "Joan Piper",
-          longtext: "Capitain of the first station formerly known as \'this should just work\'",
-        ),
-        "expansion::core::component::account::Account": (
-          credits: 1000,
-        ),
-      },
-    ),
-    4: (
-      components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-        )),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
         "expansion::core::component::desc::Desc": (
           name: "Alpha",
           longtext: "",
@@ -299,33 +33,70 @@
           ),
         ),
         "expansion::core::component::tags::StationTag": (),
-        "bevy_hierarchy::components::children::Children": ([
-          (
-            generation: 0,
-            index: 5,
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
           ),
-        ]),
-      },
-    ),
-    5: (
-      components: {
-        "bevy_hierarchy::components::parent::Parent": ((
-          generation: 0,
-          index: 4,
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
         )),
         "bevy_hierarchy::components::children::Children": ([
           (
             generation: 0,
-            index: 6,
+            index: 2,
           ),
         ]),
       },
     ),
-    6: (
+    2: (
       components: {
         "bevy_hierarchy::components::parent::Parent": ((
           generation: 0,
-          index: 5,
+          index: 1,
+        )),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 3,
+          ),
+        ]),
+      },
+    ),
+    3: (
+      components: {
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 2,
         )),
         "expansion::core::component::habitat::Habitat": (
           volume: 6.0,

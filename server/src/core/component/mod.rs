@@ -1,7 +1,7 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
 
-pub mod account;
+pub mod character;
 pub mod asteroidprop;
 pub mod basics;
 pub mod desc;

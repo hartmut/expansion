@@ -1,12 +1,12 @@
 // Experimental Simulator of a cooperative solar system economy.
-use crate::core::component::account::Account;
-use crate::core::component::desc::Desc;
+use crate::core::component::*;
 use bevy::prelude::*;
 
 #[derive(Bundle, Reflect)]
 pub struct Player {
-    desc: Desc,
-    account: Account,
+    desc: desc::Desc,
+    account: character::Character,
+    playertag: tags::PlayerTag,
 }
 
 /// a player has the following parts
@@ -15,8 +15,9 @@ pub struct Player {
 
 impl Player {
     pub fn create(name: impl Into<String>, longtext: impl Into<String>) -> Player {
-        let account = Account::new(1000);
-        let desc = Desc::new(name, longtext);
-        Player { desc, account }
+        let account = character::Character::new(1000);
+        let desc = desc::Desc::new(name, longtext);
+        let playertag = tags::PlayerTag;
+        Player { desc, account, playertag }
     }
 }
