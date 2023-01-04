@@ -5,16 +5,16 @@ use bevy_inspector_egui::Inspectable;
 // Descriptions
 #[derive(Inspectable, Clone, Debug, PartialEq, Eq, Reflect, Default, Component)]
 #[reflect(Component)]
-pub struct Name {
+pub struct Desc {
     pub short: String,
     pub long: String,
 }
 
-impl Name {
+impl Desc {
     pub fn new(name: impl Into<String>, longtext: impl Into<String>) -> Self {
         let name = name.into();
         let longtext = longtext.into();
-        Name { short: name, long: longtext }
+        Desc { short: name, long: longtext }
     }
 
 }

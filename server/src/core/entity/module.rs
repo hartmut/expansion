@@ -1,11 +1,13 @@
-use crate::core::component::*;
 use crate::core::common::formulars::*;
+use crate::core::component::*;
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
+use std::fmt::Display;
 
 #[derive(Bundle, Reflect, Inspectable)]
 pub struct Module {
-    desc: desc::Name,
+    desc: desc::Desc,
+    name: Name,
     basics: basics::BasicParameter,
     energy: energy::Energy,
     shadow: shadow::Shadow,
@@ -15,14 +17,16 @@ pub struct Module {
 }
 
 impl Module {
-    pub fn create(name: impl Into<String>) -> Module {
-        let desc = desc::Name::new(name, "");
+    pub fn create(name_module: impl Into<String> + Clone + Display) -> Module {
+        let name_entity = name_module.clone().to_string();
+        let desc = desc::Desc::new(name_module, "");
+        let name = Name::new(name_entity);
         let ext = Vec3::new(5.0, 3.0, 3.0);
 
         // we will need 5.0kg/sqm mass to hold this together, later on this will be
         // checked on creation and if mass==0 then 5.0 kg/sqm will be assumed
         let mass = mass_sqm(ext, 5.0);
-        
+
         let basics = basics::BasicParameter::new(ext, mass);
         let energy = energy::Energy {
             act_storage: 10000.0,
@@ -36,6 +40,7 @@ impl Module {
         let global = GlobalTransform::default();
         Module {
             desc,
+            name,
             basics,
             energy,
             shadow,
@@ -45,7 +50,7 @@ impl Module {
         }
     }
 
-    // TODO implment available volume, insert a part by using a system? 
+    // TODO implment available volume, insert a part by using a system?
     pub fn get_outer_volume(&self) -> f32 {
         self.basics.get_volume()
     }

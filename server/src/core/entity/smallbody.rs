@@ -1,6 +1,6 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
-use crate::core::component::desc::Name;
+use crate::core::component::desc::Desc;
 use bevy::log::prelude::*;
 use bevy::prelude::*;
 use csv::{Reader, ReaderBuilder, Trim};
@@ -105,7 +105,7 @@ impl SmallBody {
             // mix the files and create the asteroid entities
             // find record from orbitmap
             // create basic, desc, smallbody and orbit components
-            let _desc = Name::new(orbit.name, "");
+            let _desc = Desc::new(orbit.name, "");
             // TODO insert extend into basic, and adapt the smallbody component
 
             // push them to the world

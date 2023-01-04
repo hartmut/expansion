@@ -62,7 +62,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 12648387006326236094,
+          hash: 5720526596429003987,
           name: "Editor Camera 3D Free",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -138,7 +138,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 17329918060441654163,
+          hash: 17408511029365269279,
           name: "Editor Camera 3D Pan/Orbit",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -202,7 +202,7 @@
         "bevy_render::primitives::Frustum": (),
         "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
         "bevy_core::name::Name": (
-          hash: 15425750897303536451,
+          hash: 7162640399787023956,
           name: "Editor Camera 2D Pan/Zoom",
         ),
         "bevy_render::camera::projection::OrthographicProjection": (
@@ -214,7 +214,7 @@
           far: 1000.0,
           window_origin: Center,
           scaling_mode: WindowSize,
-          scale: 1.1,
+          scale: 1.0,
         ),
         "bevy_core_pipeline::core_2d::camera_2d::Camera2d": (
           clear_color: Default,
@@ -232,9 +232,13 @@
     ),
     3: (
       components: {
-        "expansion::core::component::name::Name": (
+        "bevy_core::name::Name": (
+          hash: 16962236712860061922,
           name: "Joan Piper",
-          longtext: "Capitain of the first station formerly known as \'this should just work\'",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Joan Piper",
+          long: "Capitain of the first station formerly known as \'this should just work\'",
         ),
         "expansion::core::component::character::Character": (
           credits: 1000,
@@ -282,9 +286,13 @@
             z: 1.0,
           ),
         ),
-        "expansion::core::component::name::Name": (
+        "bevy_core::name::Name": (
+          hash: 13659050214946721773,
           name: "Alpha",
-          longtext: "",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Alpha",
+          long: "",
         ),
         "expansion::core::component::energy::Energy": (
           act_storage: 100.0,
@@ -348,9 +356,13 @@
             z: 1.0,
           ),
         ),
-        "expansion::core::component::name::Name": (
+        "bevy_core::name::Name": (
+          hash: 12637180157521683776,
           name: "Central Hub",
-          longtext: "",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Central Hub",
+          long: "",
         ),
         "expansion::core::component::energy::Energy": (
           act_storage: 100.0,
@@ -390,9 +402,13 @@
     ),
     6: (
       components: {
-        "expansion::core::component::name::Name": (
+        "bevy_core::name::Name": (
+          hash: 12733211743956026936,
           name: "Habitat",
-          longtext: "",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Habitat",
+          long: "",
         ),
         "expansion::core::component::energy::Energy": (
           act_storage: 100.0,

@@ -61,7 +61,7 @@ impl Plugin for InitSystem {
         // app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
-        app.register_type::<desc::Name>();
+        app.register_type::<desc::Desc>();
         app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();
         app.register_type::<energy::Energy>();
