@@ -15,7 +15,7 @@ pub fn init(mut commands: Commands) {
         "Capitain of the first station formerly known as 'this should just work'",
     );
     let player_id = commands.spawn(player).id();
-    let player = commands.get_entity(player_id).unwrap();
+    let _player = commands.get_entity(player_id).unwrap();
     // COMEBACK owner structure for player and NPCs, can't use bevy children as transforms would fail
 
     // create station record

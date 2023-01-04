@@ -32,7 +32,7 @@ pub fn shadow_update_module(
         }
         let mut entity_energy = energy_query.get_mut(entity).unwrap();
         entity_energy.set(shadow.energy);
-        let mut entity_mass = mass_query.get_mut(entity).unwrap();
+        let _entity_mass = mass_query.get_mut(entity).unwrap();
         // COMEBAK implement mass update
     }
 }
