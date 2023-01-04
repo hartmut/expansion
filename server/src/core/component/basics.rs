@@ -12,6 +12,8 @@ use bevy_inspector_egui::Inspectable;
 /   between the habitat and the outer shell
 */
 
+
+// TODO how to define the extend of the station? needs 3d grid first to define this box
 #[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
 #[reflect(Component)]
 pub struct BasicParameter {

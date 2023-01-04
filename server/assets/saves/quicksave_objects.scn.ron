@@ -62,7 +62,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 4682585574924084910,
+          hash: 14853347841938952346,
           name: "Editor Camera 3D Free",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -138,7 +138,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 11552797507457324740,
+          hash: 5551206594987683459,
           name: "Editor Camera 3D Pan/Orbit",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -202,7 +202,7 @@
         "bevy_render::primitives::Frustum": (),
         "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
         "bevy_core::name::Name": (
-          hash: 1367269939962999961,
+          hash: 11839707377229660723,
           name: "Editor Camera 2D Pan/Zoom",
         ),
         "bevy_render::camera::projection::OrthographicProjection": (
@@ -239,12 +239,6 @@
         "expansion::core::component::account::Account": (
           credits: 1000,
         ),
-        "bevy_hierarchy::components::children::Children": ([
-          (
-            generation: 0,
-            index: 4,
-          ),
-        ]),
       },
     ),
     4: (
@@ -305,10 +299,6 @@
           ),
         ),
         "expansion::core::component::tags::StationTag": (),
-        "bevy_hierarchy::components::parent::Parent": ((
-          generation: 0,
-          index: 3,
-        )),
         "bevy_hierarchy::components::children::Children": ([
           (
             generation: 0,

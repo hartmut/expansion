@@ -1,7 +1,7 @@
 // experimental initializations
+use crate::core::common::formulars::*;
 use crate::core::component::*;
 use crate::core::entity::*;
-use crate::core::common::formulars::*;
 // use crate::core::system::*;
 use bevy::prelude::*;
 
@@ -15,11 +15,16 @@ pub fn init(mut commands: Commands) {
         "Capitain of the first station formerly known as 'this should just work'",
     );
     let player_id = commands.spawn(player).id();
+
     // create station record
     let station = station::Station::create("Alpha");
     let station_id = commands.spawn(station).id();
+
     // push children station to parent player
-    commands.entity(player_id).push_children(&[station_id]);
+    // TODO use a user identity and not children/parent
+    // from bevy as I don't want to project the user into the world / as resource?
+    // commands.entity(player_id).push_children(&[station_id]);
+
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
     let outer_volume = module.get_outer_volume();
@@ -48,8 +53,9 @@ impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
         app.add_startup_system(init);
+
         // app.add_startup_system(testinit);
-        // TODO implement loading of world 
+        // TODO implement loading of world
         // app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save

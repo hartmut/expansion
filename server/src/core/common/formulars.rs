@@ -3,8 +3,7 @@ use bevy::prelude::*;
 /// gets an extension (size of object) and a mass per sqm
 /// outputs the complete mass of the object
 
-// TODO implement formulas as macros
-
+// use it for the mass of hulls - mass depends on material, thickness is not necessary
 pub fn mass_sqm(ext: Vec3, mass: f32) -> f32 {
     (ext.x * ext.y * 2.0 + ext.x * ext.z * 2.0 + ext.y * ext.z * 2.0) * mass
 }
