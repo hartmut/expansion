@@ -62,7 +62,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 5720526596429003987,
+          hash: 718224280497491994,
           name: "Editor Camera 3D Free",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -138,7 +138,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 17408511029365269279,
+          hash: 8109444314524645103,
           name: "Editor Camera 3D Pan/Orbit",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -202,7 +202,7 @@
         "bevy_render::primitives::Frustum": (),
         "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
         "bevy_core::name::Name": (
-          hash: 7162640399787023956,
+          hash: 13381096164407349696,
           name: "Editor Camera 2D Pan/Zoom",
         ),
         "bevy_render::camera::projection::OrthographicProjection": (
@@ -233,7 +233,7 @@
     3: (
       components: {
         "bevy_core::name::Name": (
-          hash: 16962236712860061922,
+          hash: 2585434413899432709,
           name: "Joan Piper",
         ),
         "expansion::core::component::desc::Desc": (
@@ -287,12 +287,21 @@
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 13659050214946721773,
+          hash: 12146133039728128127,
           name: "Alpha",
         ),
         "expansion::core::component::desc::Desc": (
           short: "Alpha",
           long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 390.0,
+          volume: 45.0,
+          extend: (
+            x: 5.0,
+            y: 3.0,
+            z: 3.0,
+          ),
         ),
         "expansion::core::component::energy::Energy": (
           act_storage: 100.0,
@@ -357,12 +366,21 @@
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 12637180157521683776,
+          hash: 5759946261694160218,
           name: "Central Hub",
         ),
         "expansion::core::component::desc::Desc": (
           short: "Central Hub",
           long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 390.0,
+          volume: 45.0,
+          extend: (
+            x: 5.0,
+            y: 3.0,
+            z: 3.0,
+          ),
         ),
         "expansion::core::component::energy::Energy": (
           act_storage: 100.0,
@@ -376,15 +394,6 @@
             max_storage: 100.0,
             production: 0.0,
             consumption: 10.0,
-          ),
-        ),
-        "expansion::core::component::basics::BasicParameter": (
-          mass: 390.0,
-          volume: 45.0,
-          extend: (
-            x: 5.0,
-            y: 3.0,
-            z: 3.0,
           ),
         ),
         "expansion::core::component::tags::ModuleTag": (),
@@ -403,18 +412,12 @@
     6: (
       components: {
         "bevy_core::name::Name": (
-          hash: 12733211743956026936,
+          hash: 18415171071916065992,
           name: "Habitat",
         ),
         "expansion::core::component::desc::Desc": (
           short: "Habitat",
           long: "",
-        ),
-        "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
-          production: 0.0,
-          consumption: 10.0,
         ),
         "expansion::core::component::basics::BasicParameter": (
           mass: 1600.0,
@@ -424,6 +427,12 @@
             y: 2.0,
             z: 2.0,
           ),
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 100.0,
+          max_storage: 100.0,
+          production: 0.0,
+          consumption: 10.0,
         ),
         "bevy_hierarchy::components::parent::Parent": ((
           generation: 0,

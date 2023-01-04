@@ -9,6 +9,8 @@ use bevy::prelude::*;
 /// - query for new component
 /// - in second for loop update the new component in shadow
 /// - at the end update the entity with data from shadow
+/// 
+/// NOTE implement recursive update with visited marker
 
 pub fn shadow_clear(mut shadow_query: Query<&mut Shadow>) {
     for mut shadow in shadow_query.iter_mut() {
