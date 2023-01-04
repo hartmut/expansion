@@ -3,7 +3,7 @@ use crate::core::common::formulars::*;
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
-#[derive(Reflect, Inspectable, Component)]
+#[derive(Bundle, Reflect, Inspectable)]
 pub struct Module {
     desc: name::Name,
     basics: basics::BasicParameter,

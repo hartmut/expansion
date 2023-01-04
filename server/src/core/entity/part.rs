@@ -2,7 +2,7 @@ use crate::core::component::*;
 use bevy::prelude::*;
 use bevy_inspector_egui::Inspectable;
 
-#[derive(Reflect, Inspectable, Component)]
+#[derive(Reflect, Inspectable, Bundle)]
 pub struct Part {
     desc: name::Name,
     basics: basics::BasicParameter,

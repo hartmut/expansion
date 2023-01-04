@@ -6,7 +6,7 @@ use crate::core::entity::*;
 use bevy::prelude::*;
 
 pub fn init(mut commands: Commands) {
-    info!("Starting initialization of further test data");
+    info!("Starting initialization of test data");
     // Testdata
     // create player
     // TODO create subfunctions with commands as in- and output Testit
@@ -16,7 +16,7 @@ pub fn init(mut commands: Commands) {
     );
     let player_id = commands.spawn(player).id();
     let player = commands.get_entity(player_id).unwrap();
-    // COMEBACK owner structure for player and NPCs 
+    // COMEBACK owner structure for player and NPCs, can't use bevy children as transforms would fail
 
     // create station record
     let station = station::Station::create("Alpha");
@@ -25,7 +25,7 @@ pub fn init(mut commands: Commands) {
     // push children station to parent player
     // TODO use a user identity and not children/parent
     // from bevy as I don't want to project the user into the world / as resource?
-    commands.entity(player_id).push_children(&[station_id]);
+    // commands.entity(player_id).push_children(&[station_id]);
 
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
@@ -70,5 +70,6 @@ impl Plugin for InitSystem {
         app.register_type::<shadow::Shadow>();
         app.register_type::<tags::ModuleTag>();
         app.register_type::<tags::StationTag>();
+        app.register_type::<tags::PlayerTag>();
     }
 }
