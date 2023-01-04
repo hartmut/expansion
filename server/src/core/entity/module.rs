@@ -5,7 +5,7 @@ use bevy_inspector_egui::Inspectable;
 
 #[derive(Bundle, Reflect, Inspectable)]
 pub struct Module {
-    desc: name::Name,
+    desc: desc::Name,
     basics: basics::BasicParameter,
     energy: energy::Energy,
     shadow: shadow::Shadow,
@@ -16,7 +16,7 @@ pub struct Module {
 
 impl Module {
     pub fn create(name: impl Into<String>) -> Module {
-        let desc = name::Name::new(name, "");
+        let desc = desc::Name::new(name, "");
         let ext = Vec3::new(5.0, 3.0, 3.0);
 
         // we will need 5.0kg/sqm mass to hold this together, later on this will be

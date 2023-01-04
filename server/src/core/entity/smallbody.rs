@@ -1,6 +1,6 @@
 // Experimental Simulator of a cooperative solar system economy.
 // See doc/LICENSE for licensing information
-use crate::core::component::name::Name;
+use crate::core::component::desc::Name;
 use bevy::log::prelude::*;
 use bevy::prelude::*;
 use csv::{Reader, ReaderBuilder, Trim};
