@@ -13,7 +13,6 @@ measurements = "*" # https://crates.io/crates/measurements
 bevy-inspector-egui = "0.15" # https://crates.io/crates/bevy-inspector-egui
 ron = "0.7" # https://crates.io/crates/ron
 bevy_editor_pls = "0.2.0" # https://crates.io/crates/bevy_editor_pls
-#bevy-editor-pls = { git = "https://github.com/jakobhellermann/bevy_editor_pls", package = "bevy_editor_pls" }
 
 [dependencies.bevy]
 version = "0.9" # https://crates.io/crates/bevy
