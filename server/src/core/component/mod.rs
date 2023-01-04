@@ -4,7 +4,7 @@
 pub mod character;
 pub mod asteroidprop;
 pub mod basics;
-pub mod desc;
+pub mod name;
 pub mod energy;
 pub mod habitat;
 pub mod orbit;

@@ -14,7 +14,9 @@ pub fn init(mut commands: Commands) {
         "Joan Piper",
         "Capitain of the first station formerly known as 'this should just work'",
     );
-    let _player_id = commands.spawn(player).id();
+    let player_id = commands.spawn(player).id();
+    let player = commands.get_entity(player_id).unwrap();
+    // COMEBACK owner structure for player and NPCs 
 
     // create station record
     let station = station::Station::create("Alpha");
@@ -23,7 +25,7 @@ pub fn init(mut commands: Commands) {
     // push children station to parent player
     // TODO use a user identity and not children/parent
     // from bevy as I don't want to project the user into the world / as resource?
-    // commands.entity(player_id).push_children(&[station_id]);
+    commands.entity(player_id).push_children(&[station_id]);
 
     // create module and insert into last station in test
     let module = module::Module::create("Central Hub");
@@ -59,7 +61,7 @@ impl Plugin for InitSystem {
         // app.add_startup_system(load_scene::load_scene_system);
 
         // register components for automatic save
-        app.register_type::<desc::Desc>();
+        app.register_type::<name::Name>();
         app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();
         app.register_type::<energy::Energy>();

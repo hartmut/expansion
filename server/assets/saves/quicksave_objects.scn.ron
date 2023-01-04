@@ -2,7 +2,7 @@
   entities: {
     0: (
       components: {
-        "expansion::core::component::desc::Desc": (
+        "expansion::core::component::name::Name": (
           name: "Joan Piper",
           longtext: "Capitain of the first station formerly known as \'this should just work\'",
         ),
@@ -14,7 +14,7 @@
     ),
     1: (
       components: {
-        "expansion::core::component::desc::Desc": (
+        "expansion::core::component::name::Name": (
           name: "Alpha",
           longtext: "",
         ),

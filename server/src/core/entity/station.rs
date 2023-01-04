@@ -4,7 +4,7 @@ use bevy::prelude::*;
 
 #[derive(Bundle, Reflect)]
 pub struct Station {
-    desc: desc::Desc,
+    desc: name::Name,
     energy: energy::Energy,
     shadow: shadow::Shadow,
     stationtag: tags::StationTag,
@@ -19,7 +19,7 @@ pub struct Station {
 
 impl Station {
     pub fn create(name: impl Into<String>) -> Station {
-        let desc = desc::Desc::new(name, "");
+        let desc = name::Name::new(name, "");
         let energy = energy::Energy::default();
         let shadow = shadow::Shadow::default();
         let stationtag = tags::StationTag;

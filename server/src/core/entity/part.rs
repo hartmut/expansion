@@ -4,14 +4,14 @@ use bevy_inspector_egui::Inspectable;
 
 #[derive(Reflect, Inspectable, Component)]
 pub struct Part {
-    desc: desc::Desc,
+    desc: name::Name,
     basics: basics::BasicParameter,
     energy: energy::Energy,
 }
 
 impl Part {
     pub fn create(name: impl Into<String>,ext: Vec3, mass: f32) -> Part {
-        let desc = desc::Desc::new(name, "");
+        let desc = name::Name::new(name, "");
         let basics = basics::BasicParameter::new(ext, mass);
         let energy = energy::Energy {
             act_storage: 100.0,

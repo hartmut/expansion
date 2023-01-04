@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use bevy_editor_pls::prelude::*;
 use bevy_inspector_egui::WorldInspectorPlugin;
 
 pub struct MyDebug;
