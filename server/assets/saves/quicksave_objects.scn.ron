@@ -62,7 +62,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 718224280497491994,
+          hash: 4753721602990207086,
           name: "Editor Camera 3D Free",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -138,7 +138,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 8109444314524645103,
+          hash: 13508512623930601381,
           name: "Editor Camera 3D Pan/Orbit",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -202,7 +202,7 @@
         "bevy_render::primitives::Frustum": (),
         "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
         "bevy_core::name::Name": (
-          hash: 13381096164407349696,
+          hash: 889474219274418392,
           name: "Editor Camera 2D Pan/Zoom",
         ),
         "bevy_render::camera::projection::OrthographicProjection": (
@@ -214,7 +214,7 @@
           far: 1000.0,
           window_origin: Center,
           scaling_mode: WindowSize,
-          scale: 1.0,
+          scale: 1.1,
         ),
         "bevy_core_pipeline::core_2d::camera_2d::Camera2d": (
           clear_color: Default,
@@ -233,7 +233,7 @@
     3: (
       components: {
         "bevy_core::name::Name": (
-          hash: 2585434413899432709,
+          hash: 10118315820697513767,
           name: "Joan Piper",
         ),
         "expansion::core::component::desc::Desc": (
@@ -287,7 +287,7 @@
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 12146133039728128127,
+          hash: 15482989250372756017,
           name: "Alpha",
         ),
         "expansion::core::component::desc::Desc": (
@@ -366,7 +366,7 @@
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 5759946261694160218,
+          hash: 17008371998591462793,
           name: "Central Hub",
         ),
         "expansion::core::component::desc::Desc": (
@@ -412,7 +412,7 @@
     6: (
       components: {
         "bevy_core::name::Name": (
-          hash: 18415171071916065992,
+          hash: 16049679026270969595,
           name: "Habitat",
         ),
         "expansion::core::component::desc::Desc": (

@@ -13,8 +13,8 @@ use std::time::{Duration, SystemTime};
 // Descriptions
 #[derive(Resource, Debug, Serialize, Deserialize)]
 pub struct Worldtime {
-    pub tick_counter: u64,                                // counter of current step
-    pub warp: u64,                                        // speedup of world- vs. real-time
+    pub tick_counter: u64, // counter of current step
+    pub warp: u64,         // speedup of world- vs. real-time
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
     pub time_last: SystemTime, // last time in realtime a step has been taken
     pub step_leng: Duration,   // duration between two steps in realtime

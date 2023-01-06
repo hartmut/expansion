@@ -18,7 +18,10 @@ impl Plugin for ExpResources {
 
         // insert resources
         app.init_resource::<Config>()
+            .register_type::<Config>()
             .init_resource::<Worldtime>()
+            // .register_type::<Worldtime>()
             .init_resource::<ElementList>();
+            // .register_type::<ElementList>();
     }
 }

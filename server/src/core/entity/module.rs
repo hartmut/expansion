@@ -1,10 +1,9 @@
 use crate::core::common::formulars::*;
 use crate::core::component::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 use std::fmt::Display;
 
-#[derive(Bundle, Reflect, Inspectable)]
+#[derive(Bundle, Reflect)]
 pub struct Module {
     desc: desc::Desc,
     name: Name,

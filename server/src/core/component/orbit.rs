@@ -2,7 +2,6 @@
 /// pos based on Ecliptic_coordinate_system (wikipedia)
 /// Orbital elements https://en.wikipedia.org/wiki/Orbital_elements
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
 /*
 Epoch(MJD)  Epoch of the elements represented as the Modified Julian Date (MJD),
@@ -19,7 +18,7 @@ Tp 	  	    Time of perihelion passage (comets only), formatted as a calendar dat
 and "DD.DDD" is the day and day fraction.
 */
 // COMBAK work on orbital informations
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Default)]
 pub struct Orbital {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */

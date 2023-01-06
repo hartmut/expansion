@@ -3,7 +3,6 @@
 
 use crate::core::common::formulars::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
 /*  in most cases inner and outer volume are the same. But if you have a container with a thick wall
 /   or something similar the usabel volume will differ from the outer volume. This is only the case
@@ -12,9 +11,8 @@ use bevy_inspector_egui::Inspectable;
 /   between the habitat and the outer shell
 */
 
-
 // TODO how to define the extend of the station? needs 3d grid first to define this box
-#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Component)]
 #[reflect(Component)]
 pub struct BasicParameter {
     mass: f32,    //in kg

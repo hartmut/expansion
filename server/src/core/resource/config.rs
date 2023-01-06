@@ -3,7 +3,6 @@
 // Old configuration - will be reworked
 
 /// for initalization and configuration
-use bevy::log::prelude::*;
 use bevy::prelude::*;
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
@@ -18,7 +17,7 @@ use crate::core::common::fileoperations::*;
 /// - the implementation of the function integrate_loaded_config
 /// - and add or remove a function to get the value
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Reflect)]
 enum StorageType {
     File,
 }
@@ -35,7 +34,8 @@ impl Default for StorageType {
 // airmix_o2 = 0.2
 // airmix_n2 = 0.8
 
-#[derive(Resource, Debug, Serialize, Deserialize, Clone)]
+#[derive(Resource, Debug, Serialize, Deserialize, Clone,Reflect)]
+#[reflect(Resource)]
 pub struct Config {
     // one tick is tick_lenght hours in worldtime per second realtime
     tick_length: u64,
@@ -50,7 +50,7 @@ pub struct Config {
     elements: FileData,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Default)]
+#[derive(Debug, Serialize, Deserialize, Clone, Default, Reflect)]
 pub struct FileData {
     storage_method: StorageType,
     datafile: String,

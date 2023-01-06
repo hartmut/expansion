@@ -4,13 +4,12 @@
 use crate::core::common::formulars::*;
 use crate::core::entity::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 use measurements::pressure::*;
 
 /// when a module has an athmosphere this component is used
 /// is part of a module, volume must be smaller than the whole module
 /// people in the habitat will be managed in the component people
-#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Inspectable, Component)]
+#[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Component)]
 #[reflect(Component)]
 pub struct Habitat {
     // in m^3

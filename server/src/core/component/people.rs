@@ -1,15 +1,14 @@
 // Experimental Simulator of a cooperative solar system economy.
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
-/* 
+/*
 when used in a station the vector will be empty and only a total count will be managed
 */
 
-// TODO adapt NPC design, simulate people 
+// TODO adapt NPC design, simulate people
 
 // Descriptions
-#[derive(Inspectable, Clone, Debug, PartialEq, Eq, Reflect, Default)]
+#[derive(Clone, Debug, PartialEq, Eq, Reflect, Default)]
 pub struct People {
     pub people_count: u32,
 }

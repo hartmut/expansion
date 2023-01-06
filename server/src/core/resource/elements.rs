@@ -17,7 +17,7 @@ use crate::core::common::fileoperations::*;
 
 // all the elemenets
 // updates from https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, Reflect)]
 pub struct Element {
     #[serde(deserialize_with = "parse_string")]
     pub name: String,

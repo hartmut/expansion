@@ -1,9 +1,8 @@
 use crate::core::component::*;
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 use std::fmt::Display;
 
-#[derive(Reflect, Inspectable, Bundle)]
+#[derive(Reflect, Bundle)]
 pub struct Part {
     desc: desc::Desc,
     name: Name,

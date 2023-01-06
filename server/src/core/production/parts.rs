@@ -3,21 +3,20 @@
 
 // uses
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
 // one Part
-#[derive(Clone, Debug, PartialEq, FromReflect, Reflect, Inspectable)]
+#[derive(Clone, Debug, PartialEq, FromReflect, Reflect)]
 pub struct Part {
     pub id: u64,      /* id of this part and also of receip with which
-                  Componentd had been produced, usefull for dismantling */
+                      Componentd had been produced, usefull for dismantling */
     pub name: String, // Name of the part
     pub weight: f32,  // in kg of one item
     pub volume: f32, /* in m^3 of one item, at first we ignore the case that the volume could be 1 m^3 but
-                 it is realy long and doesn't fit into the bay */
+                     it is realy long and doesn't fit into the bay */
 }
 
 // a Bundle of parts
-#[derive(Clone, Debug, PartialEq, FromReflect, Reflect, Inspectable)]
+#[derive(Clone, Debug, PartialEq, FromReflect, Reflect)]
 pub struct PartBundle {
     amount: u64, // how much
     part: Part,  // parts

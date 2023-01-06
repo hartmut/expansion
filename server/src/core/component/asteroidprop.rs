@@ -3,11 +3,10 @@
 //
 /// basic component for asteroids, comets and small moons
 use bevy::prelude::*;
-use bevy_inspector_egui::Inspectable;
 
 // spectral enums - https://en.wikipedia.org/wiki/Asteroid_spectral_types
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect)]
 pub enum SpecT {
     None,
     A, // https://en.wikipedia.org/wiki/A-type_asteroid
@@ -28,11 +27,12 @@ pub enum SpecT {
 }
 
 impl Default for SpecT {
-    fn default() -> Self {SpecT::None}
+    fn default() -> Self {
+        SpecT::None
+    }
 }
 
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect, Inspectable)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Reflect)]
 pub enum SpecB {
     None,
     A,
@@ -64,7 +64,9 @@ pub enum SpecB {
 }
 
 impl Default for SpecB {
-    fn default() -> Self {SpecB::None}
+    fn default() -> Self {
+        SpecB::None
+    }
 }
 
 /*
@@ -73,13 +75,13 @@ G 	  	    Magnitude slope parameter (asteroids only and set to "0.00" when H is 
  Ref 	    Orbit solution reference.
 */
 
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Inspectable, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Default)]
 pub struct AsteroidProp {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */
-    jplno: u64,           // JPL Numbering
-    h: f64,     // (mag.) Absolute magnitude (asteroids only and set to "99.00" when unknown).
-    g: f64,     // Magnitude slope parameter (asteroids only and set to "0.00" when H is unknown).
+    jplno: u64,    // JPL Numbering
+    h: f64,        // (mag.) Absolute magnitude (asteroids only and set to "99.00" when unknown).
+    g: f64, // Magnitude slope parameter (asteroids only and set to "0.00" when H is unknown).
     osref: f64, // Orbit solution reference.
     diameter: f32, //in km
     extent: Vec3, //in km tri(or bi)-axial body
