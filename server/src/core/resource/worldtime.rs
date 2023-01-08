@@ -11,6 +11,7 @@ use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
 // Descriptions
+// TODO use stopwatch from bevy
 #[derive(Resource, Debug, Serialize, Deserialize)]
 pub struct Worldtime {
     pub tick_counter: u64, // counter of current step

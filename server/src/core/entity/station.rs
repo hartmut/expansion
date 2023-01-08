@@ -21,6 +21,8 @@ pub struct Station {
 /// - an owner as a parent
 /// - modules as children which are arranged in a matrix
 
+// TODO use https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html for transforms etc.
+// or better https://docs.rs/bevy/0.9.1/bevy/scene/struct.SceneBundle.html?
 impl Station {
     pub fn create(name_station: impl Into<String> + Clone + Display) -> Station {
         // basics

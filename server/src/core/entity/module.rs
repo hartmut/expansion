@@ -3,6 +3,7 @@ use crate::core::component::*;
 use bevy::prelude::*;
 use std::fmt::Display;
 
+// TODO use https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html for transforms etc.
 #[derive(Bundle, Reflect)]
 pub struct Module {
     desc: desc::Desc,
