@@ -51,6 +51,37 @@ pub fn testinit(mut commands: Commands) {
 
 pub struct InitSystem;
 
+fn test_3dassets(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+) {
+    // note that we have to include the `Scene0` label
+    let basic: Handle<Scene> = asset_server.load("modules/basic.gltf#Scene0");
+
+    // spawn basic module
+    commands.spawn(SceneBundle {
+        scene: basic,
+        // transform: Transform::from_xyz(0.0, 0.0, 0.0),
+        ..Default::default()
+    });
+
+    // light
+    commands.spawn(PointLightBundle {
+        point_light: PointLight {
+            intensity: 1500.0,
+            shadows_enabled: true,
+            ..default()
+        },
+        transform: Transform::from_xyz(4.0, 8.0, 4.0),
+        ..default()
+    });
+    // camera
+    commands.spawn(Camera3dBundle {
+        transform: Transform::from_xyz(0.7, 0.7, 1.0).looking_at(Vec3::new(0.0, 0.3, 0.0), Vec3::Y),
+        ..default()
+    });
+}
+
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
@@ -60,7 +91,10 @@ impl Plugin for InitSystem {
         // TODO implement loading of world
         // app.add_startup_system(load_scene::load_scene_system);
 
-        // register components for automatic save
+        // load assets
+        app.add_startup_system(test_3dassets);
+
+        // register components for automatic save and inspection
         app.register_type::<desc::Desc>();
         app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();

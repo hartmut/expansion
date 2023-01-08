@@ -1,0 +1,1 @@
+TODO insert documentation what to do when implementing a new component
