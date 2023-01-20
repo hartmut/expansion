@@ -55,13 +55,14 @@ fn test_3dassets(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
 ) {
+    // COMEBACK integrate 3d
     // note that we have to include the `Scene0` label
-    let basic: Handle<Scene> = asset_server.load("modules/basic.gltf#Scene0");
+    let basic: Handle<Scene> = asset_server.load("gltf/ISS_stationary.glb#Scene0");
 
     // spawn basic module
     commands.spawn(SceneBundle {
         scene: basic,
-        // transform: Transform::from_xyz(0.0, 0.0, 0.0),
+        transform: Transform::from_xyz(0.0, 0.0, 0.0),
         ..Default::default()
     });
 
@@ -77,7 +78,7 @@ fn test_3dassets(
     });
     // camera
     commands.spawn(Camera3dBundle {
-        transform: Transform::from_xyz(0.7, 0.7, 1.0).looking_at(Vec3::new(0.0, 0.3, 0.0), Vec3::Y),
+        transform: Transform::from_xyz(10.7, 10.7, 10.0).looking_at(Vec3::new(0.0, 0.0, 0.0), Vec3::Y),
         ..default()
     });
 }
