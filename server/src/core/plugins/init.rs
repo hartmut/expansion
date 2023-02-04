@@ -5,6 +5,8 @@ use crate::core::entity::*;
 // use crate::core::system::*;
 use bevy::prelude::*;
 
+pub struct InitSystem;
+
 pub fn init(mut commands: Commands) {
     info!("Starting initialization of test data");
     // Testdata
@@ -49,15 +51,13 @@ pub fn testinit(mut commands: Commands) {
     let _first_module = commands.spawn(module).id();
 }
 
-pub struct InitSystem;
-
 fn test_3dassets(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
 ) {
     // COMEBACK integrate 3d
     // note that we have to include the `Scene0` label
-    let basic: Handle<Scene> = asset_server.load("gltf/ISS_stationary.glb#Scene0");
+    let basic: Handle<Scene> = asset_server.load("modules/basic2.gltf#Scene0");
 
     // spawn basic module
     commands.spawn(SceneBundle {

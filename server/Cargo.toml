@@ -16,7 +16,7 @@ bevy_editor_pls = "0.2.0" # https://crates.io/crates/bevy_editor_pls
 
 [dependencies.bevy]
 version = "0.9" # https://crates.io/crates/bevy
-features = ["dynamic", "serialize", "wayland"]
+features = ["dynamic", "serialize", "wayland","jpeg"]
 
 ### from Bevy for fast compiles ###
 # For maximum performance, build using a nightly compiler
