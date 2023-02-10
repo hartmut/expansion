@@ -14,7 +14,7 @@ fn main() {
     let mut app = App::new();
     // developing in client mode because data inspection is easier
     info!("Initializing the world");
-    app.add_plugin(defaultsettings::Defaultsettings) // client config
+    app.add_plugin(ui::Ui) // client config
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
         .add_plugin(init::InitSystem) // Initialization

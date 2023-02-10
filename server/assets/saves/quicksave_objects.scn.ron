@@ -62,7 +62,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 6556684836622968033,
+          hash: 1499595455525882949,
           name: "Editor Camera 3D Free",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -81,25 +81,25 @@
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
             x_axis: (
-              x: 0.9949998,
-              y: 0.000000230968,
-              z: 0.099876724,
+              x: 0.72231984,
+              y: 0.0000007227063,
+              z: -0.6915627,
             ),
             y_axis: (
-              x: 0.047954947,
-              y: 0.87718976,
-              z: -0.47774357,
+              x: -0.07616853,
+              y: 0.99391615,
+              z: -0.07955607,
             ),
             z_axis: (
-              x: -0.08761098,
-              y: 0.48014432,
-              z: 0.8728037,
+              x: 0.68735534,
+              y: 0.11013997,
+              z: 0.7179254,
             ),
           ),
           translation: (
-            x: -0.5513049,
-            y: 3.021378,
-            z: 5.4922442,
+            x: 2.2102792,
+            y: 0.3541692,
+            z: 2.308581,
           ),
         )),
         "bevy_render::camera::camera::Camera": (
@@ -110,11 +110,11 @@
         ),
         "bevy_transform::components::transform::Transform": (
           translation: (
-            x: -0.5513049,
-            y: 3.021378,
-            z: 5.4922442,
+            x: 2.2102792,
+            y: 0.3541692,
+            z: 2.308581,
           ),
-          rotation: (-0.2474906, -0.048441414, -0.012390115, 0.9676003),
+          rotation: (-0.051181808, 0.3720453, 0.020551194, 0.9265794),
           scale: (
             x: 1.0,
             y: 1.0,
@@ -138,7 +138,7 @@
           deband_dither: true,
         ),
         "bevy_core::name::Name": (
-          hash: 11046016959717990679,
+          hash: 6060250013384081655,
           name: "Editor Camera 3D Pan/Orbit",
         ),
         "bevy_pbr::light::ClusterConfig": FixedZ(
@@ -202,7 +202,7 @@
         "bevy_render::primitives::Frustum": (),
         "bevy_core_pipeline::tonemapping::Tonemapping": Disabled,
         "bevy_core::name::Name": (
-          hash: 16994279378579215030,
+          hash: 4033307913435906557,
           name: "Editor Camera 2D Pan/Zoom",
         ),
         "bevy_render::camera::projection::OrthographicProjection": (
@@ -214,7 +214,7 @@
           far: 1000.0,
           window_origin: Center,
           scaling_mode: WindowSize,
-          scale: 0.69664705,
+          scale: 0.25421518,
         ),
         "bevy_core_pipeline::core_2d::camera_2d::Camera2d": (
           clear_color: Default,
@@ -231,185 +231,6 @@
       },
     ),
     3: (
-      components: {
-        "bevy_core::name::Name": (
-          hash: 17888153447371213328,
-          name: "Joan Piper",
-        ),
-        "expansion::core::component::desc::Desc": (
-          short: "Joan Piper",
-          long: "Capitain of the first station formerly known as \'this should just work\'",
-        ),
-        "expansion::core::component::character::Character": (
-          credits: 1000,
-          owns: [],
-        ),
-        "expansion::core::component::tags::PlayerTag": (),
-      },
-    ),
-    4: (
-      components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-        )),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_core::name::Name": (
-          hash: 2192949766665152398,
-          name: "Alpha",
-        ),
-        "expansion::core::component::desc::Desc": (
-          short: "Alpha",
-          long: "",
-        ),
-        "expansion::core::component::basics::BasicParameter": (
-          mass: 390.0,
-          volume: 45.0,
-          extend: (
-            x: 5.0,
-            y: 3.0,
-            z: 3.0,
-          ),
-        ),
-        "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
-          production: 0.0,
-          consumption: 10.0,
-        ),
-        "expansion::core::component::shadow::Shadow": (
-          energy: (
-            act_storage: 100.0,
-            max_storage: 100.0,
-            production: 0.0,
-            consumption: 10.0,
-          ),
-        ),
-        "expansion::core::component::tags::StationTag": (),
-        "bevy_hierarchy::components::children::Children": ([
-          (
-            generation: 0,
-            index: 5,
-          ),
-        ]),
-      },
-    ),
-    5: (
-      components: {
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-        )),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-          rotation: (0.0, 0.0, 0.0, 1.0),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_core::name::Name": (
-          hash: 11175075905284670035,
-          name: "Central Hub",
-        ),
-        "expansion::core::component::desc::Desc": (
-          short: "Central Hub",
-          long: "",
-        ),
-        "expansion::core::component::basics::BasicParameter": (
-          mass: 390.0,
-          volume: 45.0,
-          extend: (
-            x: 5.0,
-            y: 3.0,
-            z: 3.0,
-          ),
-        ),
-        "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
-          production: 0.0,
-          consumption: 10.0,
-        ),
-        "expansion::core::component::shadow::Shadow": (
-          energy: (
-            act_storage: 100.0,
-            max_storage: 100.0,
-            production: 0.0,
-            consumption: 10.0,
-          ),
-        ),
-        "expansion::core::component::tags::ModuleTag": (),
-        "bevy_hierarchy::components::parent::Parent": ((
-          generation: 0,
-          index: 4,
-        )),
-        "bevy_hierarchy::components::children::Children": ([
-          (
-            generation: 0,
-            index: 7,
-          ),
-        ]),
-      },
-    ),
-    6: (
       components: {
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
@@ -466,46 +287,7 @@
         ),
       },
     ),
-    7: (
-      components: {
-        "bevy_core::name::Name": (
-          hash: 6113445310000165038,
-          name: "Habitat",
-        ),
-        "expansion::core::component::desc::Desc": (
-          short: "Habitat",
-          long: "",
-        ),
-        "expansion::core::component::basics::BasicParameter": (
-          mass: 1600.0,
-          volume: 12.0,
-          extend: (
-            x: 3.0,
-            y: 2.0,
-            z: 2.0,
-          ),
-        ),
-        "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
-          production: 0.0,
-          consumption: 10.0,
-        ),
-        "bevy_hierarchy::components::parent::Parent": ((
-          generation: 0,
-          index: 5,
-        )),
-        "expansion::core::component::habitat::Habitat": (
-          volume: 6.0,
-          o2: 1.5768000000000002,
-          n2: 5.568,
-          co2: 0.0,
-          k_pa: 101.325,
-          temperature: 20.0,
-        ),
-      },
-    ),
-    8: (
+    4: (
       components: {
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
@@ -569,7 +351,7 @@
         "bevy_render::primitives::CubemapFrusta": (),
       },
     ),
-    9: (
+    5: (
       components: {
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
@@ -641,6 +423,224 @@
         ),
       },
     ),
+    6: (
+      components: {
+        "bevy_core::name::Name": (
+          hash: 5222659069338950617,
+          name: "Joan Piper",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Joan Piper",
+          long: "Capitain of the first station formerly known as \'this should just work\'",
+        ),
+        "expansion::core::component::character::Character": (
+          credits: 1000,
+          owns: [],
+        ),
+        "expansion::core::component::tags::PlayerTag": (),
+      },
+    ),
+    7: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+        )),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_core::name::Name": (
+          hash: 10746375107554051617,
+          name: "Alpha",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Alpha",
+          long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 390.0,
+          volume: 45.0,
+          extend: (
+            x: 5.0,
+            y: 3.0,
+            z: 3.0,
+          ),
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 100.0,
+          max_storage: 100.0,
+          production: 0.0,
+          consumption: 10.0,
+        ),
+        "expansion::core::component::shadow::Shadow": (
+          energy: (
+            act_storage: 100.0,
+            max_storage: 100.0,
+            production: 0.0,
+            consumption: 10.0,
+          ),
+        ),
+        "expansion::core::component::tags::StationTag": (),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 8,
+          ),
+        ]),
+      },
+    ),
+    8: (
+      components: {
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+        )),
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+          rotation: (0.0, 0.0, 0.0, 1.0),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_core::name::Name": (
+          hash: 4934470507781245359,
+          name: "Central Hub",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Central Hub",
+          long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 390.0,
+          volume: 45.0,
+          extend: (
+            x: 5.0,
+            y: 3.0,
+            z: 3.0,
+          ),
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 100.0,
+          max_storage: 100.0,
+          production: 0.0,
+          consumption: 10.0,
+        ),
+        "expansion::core::component::shadow::Shadow": (
+          energy: (
+            act_storage: 100.0,
+            max_storage: 100.0,
+            production: 0.0,
+            consumption: 10.0,
+          ),
+        ),
+        "expansion::core::component::tags::ModuleTag": (),
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 7,
+        )),
+        "bevy_hierarchy::components::children::Children": ([
+          (
+            generation: 0,
+            index: 9,
+          ),
+        ]),
+      },
+    ),
+    9: (
+      components: {
+        "bevy_core::name::Name": (
+          hash: 11964357665870235173,
+          name: "Habitat",
+        ),
+        "expansion::core::component::desc::Desc": (
+          short: "Habitat",
+          long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 1600.0,
+          volume: 12.0,
+          extend: (
+            x: 3.0,
+            y: 2.0,
+            z: 2.0,
+          ),
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 100.0,
+          max_storage: 100.0,
+          production: 0.0,
+          consumption: 10.0,
+        ),
+        "bevy_hierarchy::components::parent::Parent": ((
+          generation: 0,
+          index: 8,
+        )),
+        "expansion::core::component::habitat::Habitat": (
+          volume: 6.0,
+          o2: 1.5768000000000002,
+          n2: 5.568,
+          co2: 0.0,
+          k_pa: 101.325,
+          temperature: 20.0,
+        ),
+      },
+    ),
     10: (
       components: {
         "bevy_transform::components::global_transform::GlobalTransform": ((
@@ -689,7 +689,7 @@
         ),
         "bevy_hierarchy::components::parent::Parent": ((
           generation: 0,
-          index: 6,
+          index: 3,
         )),
         "bevy_hierarchy::components::children::Children": ([
           (
@@ -704,13 +704,13 @@
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
             x_axis: (
-              x: 0.00000005960464,
-              y: -0.9999998,
+              x: 1.0,
+              y: 0.0,
               z: 0.0,
             ),
             y_axis: (
-              x: 1.9999996,
-              y: 0.00000011920928,
+              x: 0.0,
+              y: 1.0,
               z: 0.0,
             ),
             z_axis: (
@@ -738,15 +738,15 @@
             y: 0.0,
             z: 0.0,
           ),
-          rotation: (0.0, 0.0, 0.70710677, -0.7071067),
+          rotation: (0.0, 0.0, 0.0, 1.0),
           scale: (
-            x: 0.99999994,
-            y: 1.9999999,
+            x: 1.0,
+            y: 1.0,
             z: 1.0,
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 13593927482857890079,
+          hash: 804483631544197103,
           name: "Cylinder",
         ),
         "bevy_hierarchy::components::parent::Parent": ((
@@ -766,13 +766,13 @@
         "bevy_transform::components::global_transform::GlobalTransform": ((
           matrix3: (
             x_axis: (
-              x: 0.00000005960464,
-              y: -0.9999998,
+              x: 1.0,
+              y: 0.0,
               z: 0.0,
             ),
             y_axis: (
-              x: 1.9999996,
-              y: 0.00000011920928,
+              x: 0.0,
+              y: 1.0,
               z: 0.0,
             ),
             z_axis: (
@@ -823,8 +823,8 @@
           ),
         ),
         "bevy_core::name::Name": (
-          hash: 9838651391429405387,
-          name: "Cylinder.001",
+          hash: 8655049632504691686,
+          name: "basicmodule",
         ),
         "bevy_hierarchy::components::parent::Parent": ((
           generation: 0,
