@@ -22,6 +22,8 @@ impl Plugin for ExpSystems {
         // one world step every second
         // COMEBACK complete rewrite of system especially labels
         // TODO rewrite labels with SystemSet https://docs.rs/bevy/latest/bevy/ecs/schedule/trait.FreeSystemSet.html
+        // because of the new scheduler - better use on_fixed_timer? or is there a possibility for time controll
+        // for a whole system set?
         app.add_systems(
             (
                 shadow_systems::shadow_clear
