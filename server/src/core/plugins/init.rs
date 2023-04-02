@@ -93,7 +93,7 @@ impl Plugin for InitSystem {
         // app.add_startup_system(load_scene::load_scene_system);
 
         // load assets
-        app.add_startup_system(test_3dassets);
+        // app.add_startup_system(test_3dassets);
 
         // register components for automatic save and inspection
         app.register_type::<desc::Desc>();
