@@ -39,7 +39,7 @@ impl Plugin for ExpSystems {
         // autosave every x seconds
         app.add_system(
             //     // .with_system(entity_save::entity_save.exclusive_system())
-            // TODO at_end() for contious save necessary? and entitysave needs got get implemtend
+        // TODO at_end() for contious save necessary? and entitysave needs got get implemtend
             continous_save.run_if(on_timer(Duration::from_secs(5))),
         );
     }
