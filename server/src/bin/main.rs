@@ -11,14 +11,12 @@ use expansion::core::resource::ExpResources;
 use expansion::core::system::ExpSystems;
 
 fn main() {
-    let mut app = App::new();
-    // developing in client mode because data inspection is easier
     info!("Initializing the world");
-    app.add_plugin(ui::Ui) // client config
+    App::new()
         .add_plugin(init::InitSystem) // Initialization
         .add_plugin(ExpResources) // add resources
         .add_plugin(ExpSystems) // add Systems
-        .add_plugin(debug::MyDebug);
-
-    app.run();
+        .add_plugin(ui::Ui) // client config
+        .add_plugin(debug::MyDebug)
+        .run();
 }

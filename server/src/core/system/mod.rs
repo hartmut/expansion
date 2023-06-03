@@ -24,25 +24,21 @@ impl Plugin for ExpSystems {
         // TODO rewrite labels with SystemSet https://docs.rs/bevy/latest/bevy/ecs/schedule/trait.FreeSystemSet.html
         // because of the new scheduler - better use on_fixed_timer? or is there a possibility for time controll
         // for a whole system set?
-        app.add_systems(
-            (
-                shadow_systems::shadow_clear
-                    .in_set(OneSecond::ShadowClear)
-                    .run_if(on_timer(Duration::from_secs(1))),
-                shadow_systems::shadow_update_module
-                    .after(OneSecond::ShadowClear)
-                    .run_if(on_timer(Duration::from_secs(1)))
-                    .in_set(OneSecond::ShadowUpdateModule),
-                shadow_systems::shadow_update_station
-                    .after(OneSecond::ShadowUpdateModule)
-                    .run_if(on_timer(Duration::from_secs(1))),
+        app.add_systems((
+            shadow_systems::shadow_clear
+                .in_set(OneSecond::ShadowClear)
+                .run_if(on_timer(Duration::from_secs(1))),
+            shadow_systems::shadow_update_module
+                .after(OneSecond::ShadowClear)
+                .run_if(on_timer(Duration::from_secs(1)))
+                .in_set(OneSecond::ShadowUpdateModule),
+            shadow_systems::shadow_update_station
+                .after(OneSecond::ShadowUpdateModule)
+                .run_if(on_timer(Duration::from_secs(1))),
         ));
 
         // autosave every x seconds
-        app.add_system(
-            //     // .with_system(entity_save::entity_save.exclusive_system())
-        // TODO at_end() for contious save necessary? and entitysave needs got get implemtend
-            continous_save.run_if(on_timer(Duration::from_secs(5))),
-        );
+        // TODO continous save needs complete redesign
+        // app.add_system(continous_save.run_if(on_timer(Duration::from_secs(5))));
     }
 }

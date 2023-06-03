@@ -43,15 +43,6 @@ pub fn init(mut commands: Commands) {
     }
 }
 
-pub fn testinit(mut commands: Commands) {
-    info!("Starting initialization of further test data");
-    // Testdata
-    // create player
-    // create station record
-    let module = module::Module::create("Central Hub");
-    let _first_module = commands.spawn(module).id();
-}
-
 fn test_3dassets(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
@@ -90,7 +81,6 @@ impl Plugin for InitSystem {
         app.add_startup_system(init);
         app.add_state::<AppState>();
 
-        // app.add_startup_system(testinit);
         // TODO implement loading of world
         // app.add_startup_system(load_scene::load_scene_system);
 
