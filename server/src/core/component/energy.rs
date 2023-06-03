@@ -20,4 +20,20 @@ impl Energy {
         self.production = e.production;
         self.consumption = e.consumption;
     }
+
+    pub fn set_act_storage(&mut self, value: f64) {
+        self.act_storage = value;
+    }
+
+    pub fn set_max_storage(&mut self, value: f64) {
+        self.max_storage = value;
+    }
+
+    pub fn set_production(&mut self, value: f64) {
+        self.production = value;
+    }
+
+    pub fn set_consumption(&mut self, value: f64) {
+        self.consumption = value;
+    }
 }

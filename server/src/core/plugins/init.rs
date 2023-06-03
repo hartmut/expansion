@@ -4,6 +4,7 @@ use crate::core::component::*;
 use crate::core::entity::*;
 // use crate::core::system::*;
 use bevy::prelude::*;
+use crate::core::common::appstate::*;
 
 pub struct InitSystem;
 
@@ -87,6 +88,7 @@ impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
         app.add_startup_system(init);
+        app.add_state::<AppState>();
 
         // app.add_startup_system(testinit);
         // TODO implement loading of world

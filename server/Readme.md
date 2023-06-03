@@ -1,9 +1,10 @@
 # Notes
 
-Version up until 0.5 will be developed in client mode and then split into server/client system in Version 1.
+Version up until 1.0 will be developed in client mode and then split into server/client system up to Version 2.0.
 
 ## To do
-
+- [ ] define gamestates
+- [ ] define menue
 - [ ] usage of scenes for save/load of world
 - [ ] modify config to be based on ron file - in progress
 - [ ] create userinterface to create new modules etc.
@@ -18,7 +19,6 @@ Version up until 0.5 will be developed in client mode and then split into server
 - [ ] create consumables - from NPCs and in production
 - [ ] find open database where production chains are defined
 - [ ] Network communication of object updates
-- [ ] Client or web interface
 - [ ] integrate asteroid database with mining information and potential to use up a object because of mining
 
 ## Design Decisions
