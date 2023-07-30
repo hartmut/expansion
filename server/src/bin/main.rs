@@ -13,10 +13,10 @@ use expansion::core::system::ExpSystems;
 fn main() {
     info!("Initializing the world");
     App::new()
-        .add_plugin(init::InitSystem) // Initialization
-        .add_plugin(ExpResources) // add resources
-        .add_plugin(ExpSystems) // add Systems
-        .add_plugin(ui::Ui) // client config
-        .add_plugin(debug::MyDebug)
+        .add_plugins(init::InitSystem) // Initialization
+        .add_plugins(ExpResources) // add resources
+        .add_plugins(ExpSystems) // add Systems
+        .add_plugins(ui::Ui) // client config
+        .add_plugins(debug::MyDebug)
         .run();
 }

@@ -78,7 +78,7 @@ fn test_3dassets(
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        app.add_startup_system(init);
+        app.add_systems(Startup, init);
         app.add_state::<AppState>();
 
         // TODO implement loading of world

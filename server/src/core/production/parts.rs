@@ -5,7 +5,7 @@
 use bevy::prelude::*;
 
 // one Part
-#[derive(Clone, Debug, PartialEq, FromReflect, Reflect)]
+#[derive(Clone, Debug, PartialEq, Reflect)]
 pub struct Part {
     pub id: u64,      /* id of this part and also of receip with which
                       Componentd had been produced, usefull for dismantling */
@@ -16,7 +16,7 @@ pub struct Part {
 }
 
 // a Bundle of parts
-#[derive(Clone, Debug, PartialEq, FromReflect, Reflect)]
+#[derive(Clone, Debug, PartialEq, Reflect)]
 pub struct PartBundle {
     amount: u64, // how much
     part: Part,  // parts
