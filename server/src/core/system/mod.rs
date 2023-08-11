@@ -13,32 +13,42 @@ pub struct ExpSystems;
 enum OneSecond {
     ShadowClear,
     ShadowUpdateModule,
+    General,
 }
 
 impl Plugin for ExpSystems {
     fn build(&self, app: &mut App) {
-        // insert systems for step updates
+        // TODO insert systems for step updates
 
         // one world step every second
         // COMEBACK complete rewrite of system especially labels
-        // TODO rewrite labels with SystemSet https://docs.rs/bevy/latest/bevy/ecs/schedule/trait.FreeSystemSet.html
         // because of the new scheduler - better use on_fixed_timer? or is there a possibility for time controll
         // for a whole system set?
-        app.add_systems(Update, (
-            shadow_systems::shadow_clear
-                .in_set(OneSecond::ShadowClear)
-                .run_if(on_timer(Duration::from_secs(1))),
-            shadow_systems::shadow_update_module
-                .after(OneSecond::ShadowClear)
-                .run_if(on_timer(Duration::from_secs(1)))
-                .in_set(OneSecond::ShadowUpdateModule),
-            shadow_systems::shadow_update_station
-                .after(OneSecond::ShadowUpdateModule)
-                .run_if(on_timer(Duration::from_secs(1))),
-        ));
+        app.add_systems(
+            Update,
+            (
+                shadow_systems::shadow_clear
+                    .in_set(OneSecond::ShadowClear)
+                    .run_if(on_timer(Duration::from_secs(1))),
+                shadow_systems::shadow_update_module
+                    .after(OneSecond::ShadowClear)
+                    .run_if(on_timer(Duration::from_secs(1)))
+                    .in_set(OneSecond::ShadowUpdateModule),
+                shadow_systems::shadow_update_station
+                    .after(OneSecond::ShadowUpdateModule)
+                    .run_if(on_timer(Duration::from_secs(1))),
+                    // update before other systems run
+                update_worldtime::update_worldtime
+                    .in_set(OneSecond::General)
+                    .run_if(on_timer(Duration::from_secs(1))),
+            ),
+        );
 
         // autosave every x seconds
         // TODO continous save needs complete redesign
-        // app.add_systems(Update, continous_save.run_if(on_timer(Duration::from_secs(5))));
+        app.add_systems(
+            Update,
+            continous_save.run_if(on_timer(Duration::from_secs(2))),
+        );
     }
 }
