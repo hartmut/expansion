@@ -19,7 +19,7 @@ pub fn init(mut commands: Commands) {
     );
     let player_id = commands.spawn(player).id();
     let _player = commands.get_entity(player_id).unwrap();
-    // COMEBACK owner structure for player and NPCs, can't use bevy children as transforms would fail
+    // TODO owner structure for player and NPCs, can't use bevy children as transforms would fail
 
     // create station record
     let station = station::Station::create("Alpha");
@@ -47,7 +47,7 @@ fn test_3dassets(
     mut commands: Commands,
     asset_server: Res<AssetServer>,
 ) {
-    // COMEBACK integrate 3d
+    // IDEA integrate 3d
     // note that we have to include the `Scene0` label
     let basic: Handle<Scene> = asset_server.load("modules/basic2.gltf#Scene0");
 

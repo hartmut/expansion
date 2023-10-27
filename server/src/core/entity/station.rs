@@ -6,8 +6,8 @@ use std::fmt::Display;
 
 #[derive(Bundle, Reflect)]
 pub struct Station {
-    desc: desc::Desc,
     name: Name,
+    desc: desc::Desc,
     basics: basics::BasicParameter,
     energy: energy::Energy,
     shadow: shadow::Shadow,

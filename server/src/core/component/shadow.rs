@@ -8,7 +8,7 @@ use bevy::prelude::*;
 / upwards in the station/module/component hirarchy
 */
 
-// COMEBACK write system for updating shadow in the station hirarchy
+// TODO write system for updating shadow in the station hirarchy
 #[derive(Clone, Copy, Debug, PartialEq, Default, Reflect, Component)]
 #[reflect(Component)]
 pub struct Shadow {

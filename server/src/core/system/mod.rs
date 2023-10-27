@@ -21,7 +21,7 @@ impl Plugin for ExpSystems {
         // TODO insert systems for step updates
 
         // one world step every second
-        // COMEBACK complete rewrite of system especially labels
+        // NOTE complete rewrite of system especially labels
         // because of the new scheduler - better use on_fixed_timer? or is there a possibility for time controll
         // for a whole system set?
         app.add_systems(

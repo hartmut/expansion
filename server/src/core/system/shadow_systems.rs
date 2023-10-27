@@ -2,7 +2,6 @@ use crate::core::component::shadow::*;
 use crate::core::component::*;
 use bevy::prelude::*;
 
-// TODO implement massupdates 
 /// implementation you need to do for an update of this system
 /// - insert the structure you want to update in the hierarchy above in shadow.rs
 /// - in the component which will be updated from shadow insert a set function (see energy.set())  
@@ -33,7 +32,7 @@ pub fn shadow_update_module(
         let mut entity_energy = energy_query.get_mut(entity).unwrap();
         entity_energy.set(shadow.energy);
         let _entity_mass = mass_query.get_mut(entity).unwrap();
-        // COMEBAK implement mass update
+        // TODO implement mass update
     }
 }
 

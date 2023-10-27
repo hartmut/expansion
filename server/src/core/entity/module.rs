@@ -6,8 +6,8 @@ use std::fmt::Display;
 // TODO use https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html for transforms etc.
 #[derive(Bundle, Reflect)]
 pub struct Module {
-    desc: desc::Desc,
     name: Name,
+    desc: desc::Desc,
     basics: basics::BasicParameter,
     energy: energy::Energy,
     shadow: shadow::Shadow,

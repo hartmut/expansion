@@ -6,10 +6,10 @@ use bevy::prelude::*;
 
 #[derive(Bundle, Reflect)]
 pub struct Player {
+    name: Name,
     desc: desc::Desc,
     account: character::Character,
     playertag: tags::PlayerTag,
-    name: Name,
 }
 
 /// a player has the following parts

@@ -4,8 +4,8 @@ use std::fmt::Display;
 
 #[derive(Reflect, Bundle)]
 pub struct Part {
-    desc: desc::Desc,
     name: Name,
+    desc: desc::Desc,
     basics: basics::BasicParameter,
     energy: energy::Energy,
 }

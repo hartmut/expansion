@@ -24,9 +24,12 @@ enrich it with physical parameters with selection of size > 0.1km, limit to aste
 replace all column titles in both files to lowercase ascci only
 */
 
+// COMEBACK use nyx for orbits
+
 #[derive(Debug, Deserialize)]
 struct Bodies {
-    full_name: String,
+    // TODO Change to Name and refactor to name
+    name: Name,
     diameter: f32,
     extent: Option<String>,
     albedo: Option<f32>,
@@ -96,7 +99,7 @@ impl SmallBody {
         let mut orbit = Orbit::default();
         for result in rdr.deserialize() {
             let record: Bodies = result.unwrap();
-            let (number, _name) = record.full_name.split_at(7);
+            let (number, _name) = record.name.split_at(7);
             let orbitsearch = orbitmap.get(&number.trim().parse::<usize>().unwrap());
             match orbitsearch {
                 Some(x) => orbit = x.clone(),
