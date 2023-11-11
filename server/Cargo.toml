@@ -10,12 +10,12 @@ serde_json = "*" # https://crates.io/crates/serde_json
 csv = "1.1" # https://crates.io/crates/csv
 chrono = {version = "0.4",  features = ["serde"]} # https://crates.io/crates/chrono
 measurements = "*" # https://crates.io/crates/measurements
-bevy-inspector-egui = "0.19" # https://crates.io/crates/bevy-inspector-egui
-ron = "0.7" # https://crates.io/crates/ron
-# bevy_editor_pls = "0.4.0" # https://crates.io/crates/bevy_editor_pls
+bevy-inspector-egui = "0.21" # https://crates.io/crates/bevy-inspector-egui
+ron = "0.8" # https://crates.io/crates/ron
+# bevy_editor_pls = "0.6.0" # https://crates.io/crates/bevy_editor_pls
 
 [dependencies.bevy]
-version = "0.11.0" # https://crates.io/crates/bevy
+version = "0.12.0" # https://crates.io/crates/bevy
 features = ["dynamic_linking","serialize", "wayland","jpeg"]
 
 ### from Bevy for fast compiles ###
