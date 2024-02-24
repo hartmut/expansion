@@ -79,7 +79,7 @@ impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
         app.add_systems(Startup, init);
-        app.add_state::<AppState>();
+        app.init_state::<AppState>();
 
         // TODO implement loading of world
         // app.add_startup_system(load_scene::load_scene_system);
