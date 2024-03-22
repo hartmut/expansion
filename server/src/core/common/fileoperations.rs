@@ -5,7 +5,7 @@
 
 /// used mods
 use std::fs::File;
-use std::io::{LineWriter, BufReader, BufWriter, Read, prelude::*};
+use std::io::{LineWriter, BufReader, BufWriter, prelude::*};
 use std::path::Path;
 
 // General file functions
