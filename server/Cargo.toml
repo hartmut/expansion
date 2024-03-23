@@ -13,6 +13,7 @@ measurements = "*" # https://crates.io/crates/measurements
 bevy-inspector-egui = "0.23" # https://crates.io/crates/bevy-inspector-egui
 ron = "0.8" # https://crates.io/crates/ron
 bevy_editor_pls = "0.8.0" # https://crates.io/crates/bevy_editor_pls
+hifitime = { version = "3.9.0", features = ["std"] } # https://crates.io/crates/hifitime 
 
 [dependencies.bevy]
 version = "0.13.0" # https://crates.io/crates/bevy

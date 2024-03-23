@@ -1,5 +1,6 @@
 use super::super::resource::worldtime::*;
 use bevy::prelude::*;
+use hifitime::{Duration, Epoch};
 use std::time::SystemTime;
 
 pub fn update_worldtime(mut time: ResMut<Worldtime>) {
@@ -14,11 +15,15 @@ pub fn update_worldtime(mut time: ResMut<Worldtime>) {
     time.step_leng_warp = time.step_leng * (time.warp as u32);
     let chrono_step_leng = chrono::Duration::from_std(time.step_leng_warp).unwrap();
     time.worldtime = time.worldtime + chrono_step_leng;
+    let secs = time.step_leng_warp.as_secs_f64();
+    let delta = Duration::from_seconds(secs);
+    time.epoch += delta;
+    info!("current epoch time in worldtime {}", time.epoch);
 
     // save time of this step
     time.time_last = time_now;
 
     // debugging of worldtime
-    // let secs = time.step_leng_warp.as_secs(); 
+    // let secs = time.step_leng_warp.as_secs();
     // info!("current time in worldtime {} and step_leng in worldtime is {secs}", time.worldtime);
 }

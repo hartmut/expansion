@@ -1,17 +1,24 @@
 (
-    tick_counter: 2100,
+    epoch: (
+        duration_since_j1900_tai: (
+            centuries: 1,
+            nanoseconds: 946701697459852000,
+        ),
+        time_scale: UTC,
+    ),
+    tick_counter: 5,
     warp: 3600,
-    worldtime: "2030-03-29T17:21:05.929858800Z",
+    worldtime: "2030-01-01T04:41:00.459852Z",
     time_last: (
-        secs_since_epoch: 1708770472,
-        nanos_since_epoch: 89009274,
+        secs_since_epoch: 1711202324,
+        nanos_since_epoch: 568452052,
     ),
     step_leng: (
         secs: 0,
-        nanos: 995429080,
+        nanos: 999288787,
     ),
     step_leng_warp: (
-        secs: 3583,
-        nanos: 544688000,
+        secs: 3597,
+        nanos: 439633200,
     ),
 )

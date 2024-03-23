@@ -2,19 +2,22 @@
 // See doc/LICENSE for licensing information
 //
 // descriptions for entities
+// https://bevy-cheatbook.github.io/fundamentals/time.html
 use self::super::config::Config;
 use crate::core::common::fileoperations::*;
+use hifitime::Epoch;
 use bevy::prelude::*;
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 use std::time::{Duration, SystemTime};
 
 // Descriptions
-// TODO use stopwatch from bevy
 #[derive(Resource, Debug, Serialize, Deserialize)]
 pub struct Worldtime {
+    pub epoch: Epoch, // Epoch from hifitime for orbital calculations
     pub tick_counter: u64, // counter of current step
     pub warp: u64,         // speedup of world- vs. real-time
+    // COMEBACK clean up worldtime, isn't needed anymore because of epoch
     pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
     pub time_last: SystemTime, // last time in realtime a step has been taken
     pub step_leng: Duration,   // duration between two steps in realtime
@@ -24,6 +27,7 @@ pub struct Worldtime {
 impl Worldtime {
     pub fn default() -> Worldtime {
         Worldtime {
+            epoch: Epoch::from_gregorian_utc(2030,1,1,0,0,0,0), 
             tick_counter: 1,
             warp: 3600,
             worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
@@ -57,10 +61,16 @@ impl FromWorld for Worldtime {
     fn from_world(world: &mut World) -> Self {
         let config = world.get_resource::<Config>().unwrap();
         info!("init worldtime");
-        let mut worldtime = Worldtime::load_config(
-            "assets/saves/resources/worldtime.ron".to_string(),
-            config.get_tick_length(),
-        );
+        
+        // initialize from file
+        // let mut worldtime = Worldtime::load_config(
+        //     "assets/saves/resources/worldtime.ron".to_string(),
+        //     config.get_tick_length(),
+        // );
+
+        // initialize from default
+        let mut worldtime = Worldtime::default();
+        
         // reset timer
         worldtime.time_last = SystemTime::now();
         worldtime.step_leng = Duration::new(0, 0);
