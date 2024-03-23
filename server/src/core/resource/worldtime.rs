@@ -17,8 +17,6 @@ pub struct Worldtime {
     pub epoch: Epoch, // Epoch from hifitime for orbital calculations
     pub tick_counter: u64, // counter of current step
     pub warp: u64,         // speedup of world- vs. real-time
-    // COMEBACK clean up worldtime, isn't needed anymore because of epoch
-    pub worldtime: chrono::DateTime<chrono::FixedOffset>, // worldtime in date format
     pub time_last: SystemTime, // last time in realtime a step has been taken
     pub step_leng: Duration,   // duration between two steps in realtime
     pub step_leng_warp: Duration, // duration between two steps in worldtime
@@ -30,7 +28,6 @@ impl Worldtime {
             epoch: Epoch::from_gregorian_utc(2030,1,1,0,0,0,0), 
             tick_counter: 1,
             warp: 3600,
-            worldtime: chrono::DateTime::parse_from_rfc2822("1 Jan 2030 00:00:00 +0000").unwrap(),
             time_last: SystemTime::now(),
             step_leng: Duration::new(0, 0),
             step_leng_warp: Duration::new(0, 0),
@@ -63,13 +60,13 @@ impl FromWorld for Worldtime {
         info!("init worldtime");
         
         // initialize from file
-        // let mut worldtime = Worldtime::load_config(
-        //     "assets/saves/resources/worldtime.ron".to_string(),
-        //     config.get_tick_length(),
-        // );
+        let mut worldtime = Worldtime::load_config(
+            "assets/saves/resources/worldtime.ron".to_string(),
+            config.get_tick_length(),
+        );
 
         // initialize from default
-        let mut worldtime = Worldtime::default();
+        // let mut worldtime = Worldtime::default();
         
         // reset timer
         worldtime.time_last = SystemTime::now();

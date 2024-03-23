@@ -18,6 +18,6 @@ pub fn entity_save (world: &mut World) {
     // let _f = write_string_to_file("assets/saves/entities/entity.scn.ron".to_string(), &output);
 
     // log
-    let time = world.get_resource::<Worldtime>().unwrap().worldtime;
+    let time = world.get_resource::<Worldtime>().unwrap().epoch;
     info!("entity save {time}")
 }

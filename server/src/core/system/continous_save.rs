@@ -27,6 +27,6 @@ pub fn continous_save(world: &mut World) {
         .save_config(pretty);
 
     // log
-    let time = world.get_resource::<Worldtime>().unwrap().worldtime;
+    let time = world.get_resource::<Worldtime>().unwrap().epoch;
     info!("world save completed at world time {time}")
 }
