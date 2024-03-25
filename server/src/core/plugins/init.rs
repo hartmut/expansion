@@ -3,8 +3,8 @@ use crate::core::common::formulars::*;
 use crate::core::component::*;
 use crate::core::entity::*;
 // use crate::core::system::*;
-use bevy::prelude::*;
 use crate::core::common::appstate::*;
+use bevy::prelude::*;
 
 pub struct InitSystem;
 
@@ -43,10 +43,7 @@ pub fn init(mut commands: Commands) {
     }
 }
 
-fn test_3dassets(
-    mut commands: Commands,
-    asset_server: Res<AssetServer>,
-) {
+fn test_3dassets(mut commands: Commands, asset_server: Res<AssetServer>) {
     // IDEA integrate 3d
     // note that we have to include the `Scene0` label
     let basic: Handle<Scene> = asset_server.load("modules/basic2.gltf#Scene0");
@@ -70,7 +67,8 @@ fn test_3dassets(
     });
     // camera
     commands.spawn(Camera3dBundle {
-        transform: Transform::from_xyz(10.7, 10.7, 10.0).looking_at(Vec3::new(0.0, 0.0, 0.0), Vec3::Y),
+        transform: Transform::from_xyz(10.7, 10.7, 10.0)
+            .looking_at(Vec3::new(0.0, 0.0, 0.0), Vec3::Y),
         ..default()
     });
 }

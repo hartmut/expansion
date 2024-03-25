@@ -1,35 +1,33 @@
+use crate::core::resource::worldtime;
+
 use super::super::resource::worldtime::*;
 use bevy::prelude::*;
 use hifitime::Duration;
-use std::time::SystemTime;
 
-pub fn update_worldtime(mut time: ResMut<Worldtime>) {
+// COMEBACK Timeing isn't working anymore because of bevy timer usage
+pub fn update_worldtime(mut worldtime: ResMut<Worldtime>, time: Res<Time<Real>>) {
     //step up the tick_counter
-    time.tick_counter += 1;
-
-    // get current Systemtime
-    let time_now = SystemTime::now();
+    worldtime.tick_counter += 1;
 
     // get length of time step since last update of Worldtime Struct
-    time.step_leng = time_now
-        .duration_since(time.time_last)
-        .expect("SystemTime::duration_since failed");
+    let step_leng = time.elapsed() - worldtime.lasttime;
+    info!("delta {:?}", step_leng);
 
     // multiply with warp time
-    time.step_leng_warp = time.step_leng * (time.warp as u32);
+    worldtime.step_leng_warp = step_leng * worldtime.warp;
 
     // convert warped step leng to seconds
-    let secs = time.step_leng_warp.as_secs_f64();
+    let secs = worldtime.step_leng_warp.as_secs_f64();
 
     // create Duraction Struct for addition to epoch
     let delta = Duration::from_seconds(secs);
 
     // add delta time to the epoch variable - current time in simulation is now in epoch
-    time.epoch += delta;
+    worldtime.epoch += delta;
 
     // debug information
-    // info!("current epoch time in worldtime {}", time.epoch);
+    info!("current epoch time in worldtime {}", worldtime.epoch);
 
-    // save time of this step in time_last for next iteration
-    time.time_last = time_now;
+    // update lasttime
+    worldtime.lasttime = time.elapsed();
 }

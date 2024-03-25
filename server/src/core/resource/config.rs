@@ -38,7 +38,7 @@ impl Default for StorageType {
 #[reflect(Resource)]
 pub struct Config {
     // one tick is tick_lenght hours in worldtime per second realtime
-    tick_length: u64,
+    tick_length: u32,
     //  needed O2 in liter per player and 6 hour tick, later value per hour
     //  https://www.quora.com/How-much-oxygen-does-the-average-person-burn-in-a-day-What-volume-of-air-is-that
     //  using the nasa values, per hour a person will need about 25l, could be higher if exercising => we will improve the model later
@@ -99,7 +99,7 @@ impl Config {
         }
     }
 
-    pub fn get_tick_length(&self) -> u64 {
+    pub fn get_tick_length(&self) -> u32 {
         self.tick_length
     }
 

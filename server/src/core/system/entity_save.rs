@@ -7,12 +7,8 @@ use bevy::prelude::*;
 
 // export all entities as respectively into theire own files
 pub fn entity_save (world: &mut World) {
-    // let type_registry = world.get_resource::<TypeRegistry>().unwrap();
-    // let mut helperworld: World = FromWorld::from_world(world);
-    // let station = station::Station::create("Alpha");
-    // helperworld.spawn_bundle(station);
-    
     // TODO 
+    // let type_registry = world.get_resource::<TypeRegistry>().unwrap();
     // let scene = DynamicScene::from_world(world, type_registry);
     // let output = scene.serialize_ron(type_registry).unwrap();
     // let _f = write_string_to_file("assets/saves/entities/entity.scn.ron".to_string(), &output);
