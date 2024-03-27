@@ -50,7 +50,7 @@ impl Plugin for ExpSystems {
             Update, (
             continous_save_resources.run_if(on_timer(Duration::from_secs(2))),
             save_default()
-            // TODO rewrite to include some resources in save of world
+            // TODO rewrite to include relevant resources in save of world
                 .include_resource::<Worldtime>()
                 .into_file("assets/saves/world.ron")
                 .run_if(on_timer(Duration::from_secs(2))),

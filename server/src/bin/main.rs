@@ -9,6 +9,7 @@ use bevy::prelude::*;
 use expansion::core::plugins::*;
 use expansion::core::resource::ExpResources;
 use expansion::core::system::ExpSystems;
+use bevy_editor_pls::prelude::*;
 
 fn main() {
     info!("Initializing the world");
@@ -18,5 +19,6 @@ fn main() {
         .add_plugins(ExpSystems) // add Systems
         .add_plugins(ui::Ui) // client config
         .add_plugins(debug::MyDebug)
+        .add_plugins(EditorPlugin::default())
         .run();
 }

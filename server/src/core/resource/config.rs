@@ -28,6 +28,8 @@ impl Default for StorageType {
     }
 }
 
+// TODO rewrite to use assets for writing and loading of config 
+
 /// Configuration
 // TODO integrate into config
 // gas equivalents http://www.airproducts.com/Products/Gases/gas-facts/conversion-formulas/weight-and-volume-equivalents/oxygen.aspx

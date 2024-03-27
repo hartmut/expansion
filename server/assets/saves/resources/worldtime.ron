@@ -2,18 +2,18 @@
     epoch: (
         duration_since_j1900_tai: (
             centuries: 1,
-            nanoseconds: 946828951290992800,
+            nanoseconds: 947689400110078000,
         ),
         time_scale: UTC,
     ),
-    tick_counter: 41,
+    tick_counter: 280,
     lasttime: (
-        secs: 10,
-        nanos: 5563285,
+        secs: 98,
+        nanos: 4320606,
     ),
     warp: 3600,
     step_leng_warp: (
-        secs: 3598,
-        nanos: 242573600,
+        secs: 3587,
+        nanos: 14962000,
     ),
 )

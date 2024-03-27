@@ -1,7 +1,7 @@
 (
   resources: {},
   entities: {
-    4294967297: (
+    4294967300: (
       components: {
         "bevy_core::name::Name": "Joan Piper",
         "expansion::core::component::desc::Desc": (
@@ -15,37 +15,8 @@
         "expansion::core::component::tags::PlayerTag": (),
       },
     ),
-    4294967298: (
+    4294967301: (
       components: {
-        "bevy_core::name::Name": "Alpha",
-        "expansion::core::component::desc::Desc": (
-          short: "Alpha",
-          long: "",
-        ),
-        "expansion::core::component::basics::BasicParameter": (
-          mass: 4000.0,
-          volume: 45.0,
-          extend: (
-            x: 5.0,
-            y: 3.0,
-            z: 3.0,
-          ),
-        ),
-        "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
-          production: 0.0,
-          consumption: 10.0,
-        ),
-        "expansion::core::component::shadow::Shadow": (
-          energy: (
-            act_storage: 100.0,
-            max_storage: 100.0,
-            production: 0.0,
-            consumption: 10.0,
-          ),
-        ),
-        "expansion::core::component::tags::StationTag": (),
         "bevy_transform::components::transform::Transform": (
           translation: (
             x: 0.0,
@@ -88,13 +59,84 @@
             z: 0.0,
           ),
         )),
+        "bevy_core::name::Name": "Alpha",
+        "expansion::core::component::desc::Desc": (
+          short: "Alpha",
+          long: "",
+        ),
+        "expansion::core::component::basics::BasicParameter": (
+          mass: 390.0,
+          volume: 45.0,
+          extend: (
+            x: 5.0,
+            y: 3.0,
+            z: 3.0,
+          ),
+        ),
+        "expansion::core::component::energy::Energy": (
+          act_storage: 300.0,
+          max_storage: 300.0,
+          production: 0.0,
+          consumption: 30.0,
+        ),
+        "expansion::core::component::shadow::Shadow": (
+          energy: (
+            act_storage: 0.0,
+            max_storage: 0.0,
+            production: 0.0,
+            consumption: 0.0,
+          ),
+        ),
+        "expansion::core::component::tags::StationTag": (),
         "bevy_hierarchy::components::children::Children": ([
-          4294967299,
+          4294967302,
         ]),
       },
     ),
-    4294967299: (
+    4294967302: (
       components: {
+        "bevy_transform::components::transform::Transform": (
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+          rotation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+            w: 1.0,
+          ),
+          scale: (
+            x: 1.0,
+            y: 1.0,
+            z: 1.0,
+          ),
+        ),
+        "bevy_transform::components::global_transform::GlobalTransform": ((
+          matrix3: (
+            x_axis: (
+              x: 1.0,
+              y: 0.0,
+              z: 0.0,
+            ),
+            y_axis: (
+              x: 0.0,
+              y: 1.0,
+              z: 0.0,
+            ),
+            z_axis: (
+              x: 0.0,
+              y: 0.0,
+              z: 1.0,
+            ),
+          ),
+          translation: (
+            x: 0.0,
+            y: 0.0,
+            z: 0.0,
+          ),
+        )),
         "bevy_core::name::Name": "Central Hub",
         "expansion::core::component::desc::Desc": (
           short: "Central Hub",
@@ -110,69 +152,29 @@
           ),
         ),
         "expansion::core::component::energy::Energy": (
-          act_storage: 100.0,
-          max_storage: 100.0,
+          act_storage: 300.0,
+          max_storage: 300.0,
           production: 0.0,
-          consumption: 10.0,
+          consumption: 30.0,
         ),
         "expansion::core::component::shadow::Shadow": (
           energy: (
-            act_storage: 100.0,
-            max_storage: 100.0,
+            act_storage: 0.0,
+            max_storage: 0.0,
             production: 0.0,
-            consumption: 10.0,
+            consumption: 0.0,
           ),
         ),
-        "bevy_transform::components::transform::Transform": (
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-          rotation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-            w: 1.0,
-          ),
-          scale: (
-            x: 1.0,
-            y: 1.0,
-            z: 1.0,
-          ),
-        ),
-        "bevy_transform::components::global_transform::GlobalTransform": ((
-          matrix3: (
-            x_axis: (
-              x: 1.0,
-              y: 0.0,
-              z: 0.0,
-            ),
-            y_axis: (
-              x: 0.0,
-              y: 1.0,
-              z: 0.0,
-            ),
-            z_axis: (
-              x: 0.0,
-              y: 0.0,
-              z: 1.0,
-            ),
-          ),
-          translation: (
-            x: 0.0,
-            y: 0.0,
-            z: 0.0,
-          ),
-        )),
         "expansion::core::component::tags::ModuleTag": (),
-        "bevy_hierarchy::components::parent::Parent": (4294967298),
+        "bevy_hierarchy::components::parent::Parent": (4294967301),
         "bevy_hierarchy::components::children::Children": ([
-          4294967300,
+          4294967303,
+          4294967303,
+          4294967303,
         ]),
       },
     ),
-    4294967300: (
+    4294967303: (
       components: {
         "bevy_core::name::Name": "Habitat",
         "expansion::core::component::desc::Desc": (
@@ -194,7 +196,7 @@
           production: 0.0,
           consumption: 10.0,
         ),
-        "bevy_hierarchy::components::parent::Parent": (4294967299),
+        "bevy_hierarchy::components::parent::Parent": (4294967302),
         "expansion::core::component::habitat::Habitat": (
           volume: 6.0,
           o2: 1.5768000000000002,

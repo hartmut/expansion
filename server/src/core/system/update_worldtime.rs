@@ -2,14 +2,12 @@ use super::super::resource::worldtime::*;
 use bevy::prelude::*;
 use hifitime::Duration;
 
-// COMEBACK Timeing isn't working anymore because of bevy timer usage
 pub fn update_worldtime(mut worldtime: ResMut<Worldtime>, time: Res<Time<Real>>) {
     //step up the tick_counter
     worldtime.tick_counter += 1;
 
     // get length of time step since last update of Worldtime Struct
     let step_leng = time.elapsed() - worldtime.lasttime;
-    info!("delta {:?}", step_leng);
 
     // multiply with warp time
     worldtime.step_leng_warp = step_leng * worldtime.warp;
@@ -24,7 +22,7 @@ pub fn update_worldtime(mut worldtime: ResMut<Worldtime>, time: Res<Time<Real>>)
     worldtime.epoch += delta;
 
     // debug information
-    info!("current epoch time in worldtime {}", worldtime.epoch);
+    // info!("current epoch time in worldtime {}", worldtime.epoch);
 
     // update lasttime
     worldtime.lasttime = time.elapsed();

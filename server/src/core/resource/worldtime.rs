@@ -10,6 +10,7 @@ use hifitime::Epoch;
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 
+// TODO rewrite to use assets for writing and loading
 
 // Descriptions
 #[derive(Resource, Debug, Serialize, Deserialize, Reflect)]

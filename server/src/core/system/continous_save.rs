@@ -2,7 +2,6 @@ use crate::core::resource::{config::*, worldtime::*};
 use bevy::prelude::*;
 use ron::ser::PrettyConfig;
 
-// TODO panic becaus of bevy_math::rect::Rect when saving in line 12 - bug in Bevy?
 pub fn continous_save_resources(world: &mut World) {
     // save relevant resources
     let pretty = PrettyConfig::new()
