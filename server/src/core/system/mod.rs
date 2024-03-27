@@ -3,9 +3,10 @@ pub mod entity_save;
 pub mod load_scene;
 pub mod shadow_systems;
 pub mod update_worldtime;
+use self::continous_save::continous_save_resources;
+use crate::core::resource::worldtime::*;
 use bevy::{prelude::*, time::common_conditions::*, utils::Duration};
-
-use self::continous_save::continous_save;
+use moonshine_save::prelude::*;
 
 pub struct ExpSystems;
 
@@ -37,18 +38,24 @@ impl Plugin for ExpSystems {
                 shadow_systems::shadow_update_station
                     .after(OneSecond::ShadowUpdateModule)
                     .run_if(on_timer(Duration::from_secs(1))),
-                    // update before other systems run
+                // update before other systems run
                 update_worldtime::update_worldtime
                     .in_set(OneSecond::General)
                     .run_if(on_timer(Duration::from_secs(1))),
             ),
         );
 
-        // autosave every x seconds
-        // TODO continous save needs complete redesign
+        // autosave every 2 seconds for resources and entities
         app.add_systems(
-            Update,
-            continous_save.run_if(on_timer(Duration::from_secs(2))),
+            Update, (
+            continous_save_resources.run_if(on_timer(Duration::from_secs(2))),
+            save_default()
+            // TODO rewrite to include some resources in save of world
+                .include_resource::<Worldtime>()
+                .into_file("assets/saves/world.ron")
+                .run_if(on_timer(Duration::from_secs(2))),
+            )
         );
+
     }
 }
