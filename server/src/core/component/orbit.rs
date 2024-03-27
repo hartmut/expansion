@@ -18,7 +18,8 @@ Tp 	  	    Time of perihelion passage (comets only), formatted as a calendar dat
 and "DD.DDD" is the day and day fraction.
 */
 // COMBAK work on orbital informations
-#[derive(Clone, Copy, Debug, PartialEq, Reflect, Default)]
+#[derive(Clone, Copy, Debug, PartialEq, Reflect, Default, Component)]
+#[reflect(Component)]
 pub struct Orbital {
     // SOI - Orbital center (Earth, Sun, Jupiter, etc.) as enum
     /* center of world is sun, jupiter, earth ? default should be sun */

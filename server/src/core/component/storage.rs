@@ -14,8 +14,8 @@ enum ResourceType {
     None,      // default
 }
 
-#[derive(Clone, Debug, PartialEq, Reflect)]
-
+#[derive(Clone, Debug, PartialEq, Reflect, Component)]
+#[reflect(Component)]
 pub struct Resource {
     resource_type: ResourceType, // what type of is stored in this Store
     amount: u32,                 // in kg, l - if this is a container the value is 0

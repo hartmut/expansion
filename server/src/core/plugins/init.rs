@@ -1,10 +1,11 @@
 // experimental initializations
 use crate::core::common::formulars::*;
 use crate::core::component::*;
-use crate::core::entity::*;
+use crate::core::{entity::*,resource::worldtime::*};
 // use crate::core::system::*;
 use crate::core::common::appstate::*;
-use bevy::prelude::*;
+use bevy::{prelude::*,time::common_conditions::*, utils::Duration};
+use moonshine_save::prelude::*;
 
 pub struct InitSystem;
 
@@ -86,6 +87,7 @@ impl Plugin for InitSystem {
         // app.add_startup_system(test_3dassets);
 
         // register components for automatic save and inspection
+        app.add_plugins((SavePlugin,LoadPlugin));
         app.register_type::<desc::Desc>();
         app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();
@@ -96,5 +98,11 @@ impl Plugin for InitSystem {
         app.register_type::<tags::ModuleTag>();
         app.register_type::<tags::StationTag>();
         app.register_type::<tags::PlayerTag>();
+
+        app.add_systems(
+            Update,
+            save_default().include_resource::<Worldtime>().into_file("assets/saves/world.ron").run_if(on_timer(Duration::from_secs(2))),
+        );
+
     }
 }

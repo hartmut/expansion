@@ -3,8 +3,9 @@ use crate::core::component::*;
 use crate::core::common::formulars::*;
 use bevy::prelude::*;
 use std::fmt::Display;
+use moonshine_save::prelude::*;
 
-#[derive(Bundle, Reflect)]
+#[derive(Bundle)]
 pub struct Station {
     name: Name,
     desc: desc::Desc,
@@ -14,6 +15,7 @@ pub struct Station {
     stationtag: tags::StationTag,
     transform: Transform,
     global: GlobalTransform,
+    save: Save, // for automatic saving by moonshine_save
 }
 
 /// a station has the following parts
@@ -40,6 +42,7 @@ impl Station {
         // TODO create from from position in space (fn from_xyz)
         let transform = Transform::default();
         let global = GlobalTransform::default();
+        let save = Save::default();
         Station {
             desc,
             name,
@@ -49,6 +52,7 @@ impl Station {
             stationtag,
             transform,
             global,
+            save,
         }
     }
 }

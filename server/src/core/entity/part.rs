@@ -1,13 +1,15 @@
 use crate::core::component::*;
 use bevy::prelude::*;
 use std::fmt::Display;
+use moonshine_save::prelude::*;
 
-#[derive(Reflect, Bundle)]
+#[derive(Bundle)]
 pub struct Part {
     name: Name,
     desc: desc::Desc,
     basics: basics::BasicParameter,
     energy: energy::Energy,
+    save: Save, // for automatic saving
 }
 
 impl Part {
@@ -22,11 +24,13 @@ impl Part {
             production: 0.0,
             consumption: 10.0,
         };
+        let save = Save::default();
         Part {
             desc,
             name,
             basics,
             energy,
+            save,
         }
     }
 }

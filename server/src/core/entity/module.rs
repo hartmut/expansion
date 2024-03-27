@@ -2,9 +2,10 @@ use crate::core::common::formulars::*;
 use crate::core::component::*;
 use bevy::prelude::*;
 use std::fmt::Display;
+use moonshine_save::prelude::*;
 
 // TODO use https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html for transforms etc.
-#[derive(Bundle, Reflect)]
+#[derive(Bundle)]
 pub struct Module {
     name: Name,
     desc: desc::Desc,
@@ -14,6 +15,7 @@ pub struct Module {
     moduletag: tags::ModuleTag,
     transform: Transform,
     global: GlobalTransform,
+    save: Save,
 }
 
 impl Module {
@@ -38,6 +40,7 @@ impl Module {
         let moduletag = tags::ModuleTag;
         let transform = Transform::default();
         let global = GlobalTransform::default();
+        let save = Save::default();
         Module {
             desc,
             name,
@@ -47,6 +50,7 @@ impl Module {
             moduletag,
             transform,
             global,
+            save,
         }
     }
 
