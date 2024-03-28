@@ -19,41 +19,36 @@ enum OneSecond {
 
 impl Plugin for ExpSystems {
     fn build(&self, app: &mut App) {
-        // TODO insert systems for step updates
-
         // one world step every second
-        // NOTE complete rewrite of system especially labels
-        // because of the new scheduler - better use on_fixed_timer? or is there a possibility for time controll
-        // for a whole system set?
+        let stepper = 1;
         app.add_systems(
             Update,
             (
-                shadow_systems::shadow_clear
-                    .in_set(OneSecond::ShadowClear)
-                    .run_if(on_timer(Duration::from_secs(1))),
-                shadow_systems::shadow_update_module
-                    .after(OneSecond::ShadowClear)
-                    .run_if(on_timer(Duration::from_secs(1)))
-                    .in_set(OneSecond::ShadowUpdateModule),
-                shadow_systems::shadow_update_station
-                    .after(OneSecond::ShadowUpdateModule)
-                    .run_if(on_timer(Duration::from_secs(1))),
                 // update before other systems run
                 update_worldtime::update_worldtime
-                    .in_set(OneSecond::General)
-                    .run_if(on_timer(Duration::from_secs(1))),
-            ),
+                    .in_set(OneSecond::General),
+                shadow_systems::shadow_clear
+                    .in_set(OneSecond::ShadowClear)
+                    .after(OneSecond::General),
+                shadow_systems::shadow_update_module
+                    .after(OneSecond::ShadowClear)
+                    .in_set(OneSecond::ShadowUpdateModule),
+                shadow_systems::shadow_update_station
+                    .after(OneSecond::ShadowUpdateModule),
+            )
+            .run_if(on_timer(Duration::from_secs(stepper))),
         );
 
         // autosave every 2 seconds for resources and entities
+        let savetimer = 2;
         app.add_systems(
             Update, (
-            continous_save_resources.run_if(on_timer(Duration::from_secs(2))),
+            continous_save_resources.run_if(on_timer(Duration::from_secs(savetimer))),
             save_default()
             // TODO rewrite to include relevant resources in save of world
                 .include_resource::<Worldtime>()
                 .into_file("assets/saves/world.ron")
-                .run_if(on_timer(Duration::from_secs(2))),
+                .run_if(on_timer(Duration::from_secs(savetimer))),
             )
         );
 
