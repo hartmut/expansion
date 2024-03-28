@@ -11,7 +11,7 @@ use moonshine_save::prelude::*;
 pub struct ExpSystems;
 
 #[derive(SystemSet, Hash, Eq, Debug, Clone, PartialEq)]
-enum OneSecond {
+enum UpdateStepper {
     ShadowClear,
     ShadowUpdateModule,
     General,
@@ -26,15 +26,15 @@ impl Plugin for ExpSystems {
             (
                 // update before other systems run
                 update_worldtime::update_worldtime
-                    .in_set(OneSecond::General),
+                    .in_set(UpdateStepper::General),
                 shadow_systems::shadow_clear
-                    .in_set(OneSecond::ShadowClear)
-                    .after(OneSecond::General),
+                    .in_set(UpdateStepper::ShadowClear)
+                    .after(UpdateStepper::General),
                 shadow_systems::shadow_update_module
-                    .after(OneSecond::ShadowClear)
-                    .in_set(OneSecond::ShadowUpdateModule),
+                    .after(UpdateStepper::ShadowClear)
+                    .in_set(UpdateStepper::ShadowUpdateModule),
                 shadow_systems::shadow_update_station
-                    .after(OneSecond::ShadowUpdateModule),
+                    .after(UpdateStepper::ShadowUpdateModule),
             )
             .run_if(on_timer(Duration::from_secs(stepper))),
         );
