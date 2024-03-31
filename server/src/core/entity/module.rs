@@ -40,7 +40,6 @@ impl Module {
         let moduletag = tags::ModuleTag;
         let transform = Transform::default();
         let global = GlobalTransform::default();
-        let save = Save::default();
         Module {
             desc,
             name,
@@ -50,7 +49,7 @@ impl Module {
             moduletag,
             transform,
             global,
-            save,
+            save: Save,
         }
     }
 

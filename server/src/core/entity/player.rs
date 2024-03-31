@@ -28,13 +28,12 @@ impl Player {
         let name = Name::new(name_entity);
         let desc = desc::Desc::new(name_player, longtext);
         let playertag = tags::PlayerTag;
-        let save = Save::default();
         Player {
             desc,
             account,
             playertag,
             name,
-            save,
+            save: Save,
         }
     }
 }

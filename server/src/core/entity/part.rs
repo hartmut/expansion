@@ -24,13 +24,12 @@ impl Part {
             production: 0.0,
             consumption: 10.0,
         };
-        let save = Save::default();
         Part {
             desc,
             name,
             basics,
             energy,
-            save,
+            save: Save,
         }
     }
 }

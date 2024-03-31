@@ -42,7 +42,6 @@ impl Station {
         // TODO create from from position in space (fn from_xyz)
         let transform = Transform::default();
         let global = GlobalTransform::default();
-        let save = Save::default();
         Station {
             desc,
             name,
@@ -52,7 +51,7 @@ impl Station {
             stationtag,
             transform,
             global,
-            save,
+            save: Save,
         }
     }
 }
