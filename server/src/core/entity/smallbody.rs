@@ -24,7 +24,7 @@ enrich it with physical parameters with selection of size > 0.1km, limit to aste
 replace all column titles in both files to lowercase ascci only
 */
 
-// COMEBACK use nyx for orbits
+// TODO use nyx for orbits
 
 #[derive(Debug, Deserialize)]
 struct Bodies {

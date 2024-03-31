@@ -77,7 +77,8 @@ fn test_3dassets(mut commands: Commands, asset_server: Res<AssetServer>) {
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        app.add_systems(Startup, init);
+        // app.add_systems(Startup, init);
+        app.add_systems(Startup,  load_from_file("assets/saves/world.ron"));
         app.init_state::<AppState>();
 
         // TODO implement loading of world

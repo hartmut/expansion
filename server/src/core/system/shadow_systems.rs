@@ -2,14 +2,16 @@ use crate::core::component::shadow::*;
 use crate::core::component::*;
 use bevy::prelude::*;
 
-/// implementation you need to do for an update of this system
-/// - insert the structure you want to update in the hierarchy above in shadow.rs
-/// - in the component which will be updated from shadow insert a set function (see energy.set())  
-/// - query for new component
-/// - in second for loop update the new component in shadow
-/// - at the end update the entity with data from shadow
-/// 
-/// NOTE implement recursive update with visited marker
+/**
+implementation you need to do for an update of this system
+- insert the structure you want to update in the hierarchy above in shadow.rs
+- in the component which will be updated from shadow insert a set function (see energy.set())  
+- query for new component
+- in second for loop update the new component in shadow
+- at the end update the entity with data from shadow
+
+TODO implement recursive update with visited marker
+*/
 
 pub fn shadow_clear(mut shadow_query: Query<&mut Shadow>) {
     for mut shadow in shadow_query.iter_mut() {

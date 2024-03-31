@@ -9,6 +9,6 @@ impl Plugin for MyDebug {
         app.add_plugins(WorldInspectorPlugin::new());
 
         // or this
-        // app.add_plugin(EditorPlugin);
+        // app.add_plugins(EditorPlugin::new());
     }
 }

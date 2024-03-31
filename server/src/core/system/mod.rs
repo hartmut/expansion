@@ -25,32 +25,30 @@ impl Plugin for ExpSystems {
             Update,
             (
                 // update before other systems run
-                update_worldtime::update_worldtime
-                    .in_set(UpdateStepper::General),
+                update_worldtime::update_worldtime.in_set(UpdateStepper::General),
                 shadow_systems::shadow_clear
                     .in_set(UpdateStepper::ShadowClear)
                     .after(UpdateStepper::General),
                 shadow_systems::shadow_update_module
                     .after(UpdateStepper::ShadowClear)
                     .in_set(UpdateStepper::ShadowUpdateModule),
-                shadow_systems::shadow_update_station
-                    .after(UpdateStepper::ShadowUpdateModule),
+                shadow_systems::shadow_update_station.after(UpdateStepper::ShadowUpdateModule),
             )
-            .run_if(on_timer(Duration::from_secs(stepper))),
+                .run_if(on_timer(Duration::from_secs(stepper))),
         );
 
         // autosave every 2 seconds for resources and entities
         let savetimer = 2;
         app.add_systems(
-            Update, (
-            continous_save_resources.run_if(on_timer(Duration::from_secs(savetimer))),
-            save_default()
-            // TODO rewrite to include relevant resources in save of world
-                .include_resource::<Worldtime>()
-                .into_file("assets/saves/world.ron")
-                .run_if(on_timer(Duration::from_secs(savetimer))),
-            )
+            Update,
+            (
+                continous_save_resources.run_if(on_timer(Duration::from_secs(savetimer))),
+                save_default()
+                    // TODO inclusion of relevant resources in save of world isn't working 
+                    .include_resource::<Worldtime>()
+                    .into_file("assets/saves/world.ron")
+                    .run_if(on_timer(Duration::from_secs(savetimer))),
+            ),
         );
-
     }
 }
