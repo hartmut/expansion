@@ -77,8 +77,13 @@ fn test_3dassets(mut commands: Commands, asset_server: Res<AssetServer>) {
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        // app.add_systems(Startup, init);
-        app.add_systems(Startup,  load_from_file("assets/saves/world.ron"));
+        // COMEBACK load_save true doesn't work anymore - because of resource worldtime? why is it saved and not the other resources?
+        let load_save = false;
+        if load_save {
+            app.add_systems(Startup, load_from_file("assets/saves/world.ron"));
+        } else {
+            app.add_systems(Startup, init);
+        }
         app.init_state::<AppState>();
 
         // TODO implement loading of world
@@ -88,7 +93,7 @@ impl Plugin for InitSystem {
         // app.add_startup_system(test_3dassets);
 
         // register components for automatic save and inspection
-        app.add_plugins((SavePlugin,LoadPlugin));
+        app.add_plugins((SavePlugin, LoadPlugin));
         app.register_type::<desc::Desc>();
         app.register_type::<character::Character>();
         app.register_type::<basics::BasicParameter>();
@@ -99,7 +104,5 @@ impl Plugin for InitSystem {
         app.register_type::<tags::ModuleTag>();
         app.register_type::<tags::StationTag>();
         app.register_type::<tags::PlayerTag>();
-
-
     }
 }

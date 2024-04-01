@@ -7,13 +7,14 @@ use self::super::config::Config;
 use crate::core::common::fileoperations::*;
 use bevy::{prelude::*, utils::*};
 use hifitime::Epoch;
+
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 
 // TODO rewrite to use assets for writing and loading
 
 // Descriptions
-#[derive(Resource, Debug, Serialize, Deserialize, Reflect)]
+#[derive(Resource, Debug, Serialize, Deserialize, Clone, Reflect)]
 #[reflect(Resource)]
 pub struct Worldtime {
     #[reflect(ignore)]
@@ -54,6 +55,11 @@ impl Worldtime {
         worldtime.lasttime = Duration::new(0, 0);
         worldtime
     }
+
+    // pub fn get_greg_str(&self) -> String {
+    //     use hifitime::TimeScale::TAI;
+    //     self.epoch.to_gregorian_str(TAI)
+    // }
 }
 
 impl FromWorld for Worldtime {

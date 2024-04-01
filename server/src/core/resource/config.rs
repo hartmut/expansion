@@ -28,7 +28,7 @@ impl Default for StorageType {
     }
 }
 
-// TODO rewrite to use assets for writing and loading of config 
+// TODO rewrite to use assets for writing and loading of config
 
 /// Configuration
 // TODO integrate into config
@@ -36,7 +36,7 @@ impl Default for StorageType {
 // airmix_o2 = 0.2
 // airmix_n2 = 0.8
 
-#[derive(Resource, Debug, Serialize, Deserialize, Clone,Reflect)]
+#[derive(Resource, Debug, Serialize, Deserialize, Clone, Reflect)]
 #[reflect(Resource)]
 pub struct Config {
     // one tick is tick_lenght hours in worldtime per second realtime

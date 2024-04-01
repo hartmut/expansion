@@ -22,7 +22,7 @@ pub fn update_worldtime(mut worldtime: ResMut<Worldtime>, time: Res<Time<Real>>)
     worldtime.epoch += delta;
 
     // debug information
-    info!("current epoch time in worldtime {}", worldtime.epoch);
+    // info!("current epoch time in worldtime {}", worldtime.epoch);
 
     // update lasttime
     worldtime.lasttime = time.elapsed();

@@ -1,5 +1,18 @@
 (
-  resources: {},
+  resources: {
+    "expansion::core::resource::worldtime::Worldtime": (
+      tick_counter: 15,
+      lasttime: (
+        secs: 8,
+        nanos: 3878904,
+      ),
+      warp: 3600,
+      step_leng_warp: (
+        secs: 3592,
+        nanos: 101290400,
+      ),
+    ),
+  },
   entities: {
     4294967300: (
       components: {
@@ -9,7 +22,7 @@
           long: "Capitain of the first station formerly known as \'this should just work\'",
         ),
         "expansion::core::component::character::Character": (
-          credits: 2000,
+          credits: 1000,
           owns: [],
         ),
         "expansion::core::component::tags::PlayerTag": (),
@@ -81,10 +94,10 @@
         ),
         "expansion::core::component::shadow::Shadow": (
           energy: (
-            act_storage: 0.0,
-            max_storage: 0.0,
+            act_storage: 100.0,
+            max_storage: 100.0,
             production: 0.0,
-            consumption: 0.0,
+            consumption: 10.0,
           ),
         ),
         "expansion::core::component::tags::StationTag": (),
@@ -165,11 +178,11 @@
             consumption: 10.0,
           ),
         ),
+        "expansion::core::component::tags::ModuleTag": (),
+        "bevy_hierarchy::components::parent::Parent": (4294967301),
         "bevy_hierarchy::components::children::Children": ([
           4294967303,
         ]),
-        "expansion::core::component::tags::ModuleTag": (),
-        "bevy_hierarchy::components::parent::Parent": (4294967301),
       },
     ),
     4294967303: (
