@@ -7,7 +7,6 @@ use self::super::config::Config;
 use crate::core::common::fileoperations::*;
 use bevy::{prelude::*, utils::*};
 use hifitime::Epoch;
-
 use ron::ser::{to_writer_pretty, PrettyConfig};
 use serde::{Deserialize, Serialize};
 

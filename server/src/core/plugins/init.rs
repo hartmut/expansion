@@ -77,8 +77,7 @@ fn test_3dassets(mut commands: Commands, asset_server: Res<AssetServer>) {
 impl Plugin for InitSystem {
     fn build(&self, app: &mut App) {
         // insert systems for initialization in dev
-        // COMEBACK load_save true doesn't work anymore - because of resource worldtime? why is it saved and not the other resources?
-        let load_save = false;
+        let load_save = true;
         if load_save {
             app.add_systems(Startup, load_from_file("assets/saves/world.ron"));
         } else {
