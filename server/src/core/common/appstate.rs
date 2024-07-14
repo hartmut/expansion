@@ -1,9 +1,9 @@
 use bevy::prelude::*;
 
-#[derive(Debug, Clone, Copy, Default, Eq, PartialEq, Hash, States)]
-pub enum AppState {
+#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug, Default, States)]
+pub enum GameState {
     #[default]
-    Main,
+    Menu,
     Sim,
     Pause,
     Edit,

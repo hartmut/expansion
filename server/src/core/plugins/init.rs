@@ -83,7 +83,8 @@ impl Plugin for InitSystem {
         } else {
             app.add_systems(Startup, init);
         }
-        app.init_state::<AppState>();
+        app.init_state::<GameState>()
+            .enable_state_scoped_entities::<GameState>();
 
         // TODO implement loading of world
         // app.add_startup_system(load_scene::load_scene_system);
