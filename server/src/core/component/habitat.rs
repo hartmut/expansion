@@ -77,8 +77,9 @@ impl Habitat {
             .spawn(part::Part::create("Habitat", ext, mass))
             .id();
         let habitat = Habitat::new(6.0);
-        commands.entity(habitat_part).insert(habitat);
-        commands.entity(parent).push_children(&[habitat_part]);
+        // #TODO only Bundle can be connected with child/parent connections
+        // commands.entity(habitat_part).insert(habitat);
+        // commands.entity(parent).with_child(&[habitat_part]);
         commands
     }
 }

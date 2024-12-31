@@ -35,7 +35,8 @@ pub fn init(mut commands: Commands) {
     let module = module::Module::create("Central Hub");
     let outer_volume = module.get_outer_volume();
     let first_module = commands.spawn(module).id();
-    commands.entity(station_id).push_children(&[first_module]);
+    // #TODO rewrite habitat as bundle
+    // commands.entity(station_id).with_child(&[first_module]);
 
     // add part to module
     let hab_vec = Vec3::new(3.0, 2.0, 2.0);
@@ -44,34 +45,20 @@ pub fn init(mut commands: Commands) {
     }
 }
 
+// #TODO rewrite 3dassets
 fn test_3dassets(mut commands: Commands, asset_server: Res<AssetServer>) {
     // IDEA integrate 3d
     // note that we have to include the `Scene0` label
     let basic: Handle<Scene> = asset_server.load("modules/basic2.gltf#Scene0");
 
     // spawn basic module
-    commands.spawn(SceneBundle {
-        scene: basic,
-        transform: Transform::from_xyz(0.0, 0.0, 0.0),
+    commands.spawn(SceneRoot {
         ..Default::default()
     });
 
     // light
-    commands.spawn(PointLightBundle {
-        point_light: PointLight {
-            intensity: 1500.0,
-            shadows_enabled: true,
-            ..default()
-        },
-        transform: Transform::from_xyz(4.0, 8.0, 4.0),
-        ..default()
-    });
-    // camera
-    commands.spawn(Camera3dBundle {
-        transform: Transform::from_xyz(10.7, 10.7, 10.0)
-            .looking_at(Vec3::new(0.0, 0.0, 0.0), Vec3::Y),
-        ..default()
-    });
+
+    // camera 
 }
 
 impl Plugin for InitSystem {
@@ -79,7 +66,7 @@ impl Plugin for InitSystem {
         // insert systems for initialization in dev
         let load_save = true;
         if load_save {
-            app.add_systems(Startup, load_from_file("assets/saves/world.ron"));
+            app.add_systems(Startup, load(static_file("assets/saves/world.ron")));
         } else {
             app.add_systems(Startup, init);
         }

@@ -10,13 +10,13 @@ serde_json = "*" # https://crates.io/crates/serde_json
 csv = "1.3" # https://crates.io/crates/csv
 chrono = {version = "0.4",  features = ["serde"]} # https://crates.io/crates/chrono
 measurements = "*" # https://crates.io/crates/measurements
-bevy-inspector-egui = "0.25" # https://crates.io/crates/bevy-inspector-egui
+bevy-inspector-egui = "0.28" # https://crates.io/crates/bevy-inspector-egui
+bevy_editor_pls = "0.10" # https://crates.io/crates/bevy_editor_pls
 ron = "0.8" # https://crates.io/crates/ron
-bevy_editor_pls = "0.8.1" # https://crates.io/crates/bevy_editor_pls
-hifitime = { version = "3.9.0", features = ["std"] } # https://crates.io/crates/hifitime 
-moonshine-save = "0.3.8"
+hifitime = { version = "4.0.2", features = ["std"] } # https://crates.io/crates/hifitime 
+moonshine-save = "0.3.10" # https://github.com/Zeenobit/moonshine_save
 
 [dependencies.bevy]
-version = "0.14" # https://crates.io/crates/bevy
+version = "0.15" # https://crates.io/crates/bevy
 features = ["dynamic_linking","serialize", "wayland"]
 #"dynamic_linking","jpeg"

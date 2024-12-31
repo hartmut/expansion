@@ -10,7 +10,7 @@ implementation you need to do for an update of this system
 - in second for loop update the new component in shadow
 - at the end update the entity with data from shadow
 
-TODO implement recursive update with visited marker
+TODO change algorithm to change detection, shadow would be used as last status
 */
 
 pub fn shadow_clear(mut shadow_query: Query<&mut Shadow>) {

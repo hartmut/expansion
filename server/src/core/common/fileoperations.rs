@@ -8,6 +8,8 @@ use std::fs::File;
 use std::io::{LineWriter, BufReader, BufWriter, prelude::*};
 use std::path::Path;
 
+// TODO replace whole module with bevy functions 
+
 // General file functions
 
 /**

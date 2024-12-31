@@ -48,7 +48,7 @@ impl Plugin for ExpSystems {
                     // TODO save of Worldtime resources isn't working 
                     // .include_resource::<Worldtime>()
                     .include_resource::<Config>()
-                    .into_file("assets/saves/world.ron")
+                    .into(static_file("assets/saves/world.ron"))
                     .run_if(on_timer(Duration::from_secs(savetimer))),
             ),
         );
