@@ -1,19 +1,13 @@
 (
-    epoch: (
-        duration_since_j1900_tai: (
-            centuries: 1,
-            nanoseconds: 947138043024164800,
-        ),
-        time_scale: UTC,
-    ),
-    tick_counter: 126,
+    epoch: "2030-01-05T22:01:26.453560800 UTC",
+    tick_counter: 119,
     lasttime: (
-        secs: 4,
-        nanos: 5272613,
+        secs: 42,
+        nanos: 68,
     ),
     warp: 3600,
     step_leng_warp: (
-        secs: 3607,
-        nanos: 336166400,
+        secs: 3567,
+        nanos: 173871600,
     ),
 )

@@ -18,5 +18,5 @@ moonshine-save = "0.3.10" # https://github.com/Zeenobit/moonshine_save
 
 [dependencies.bevy]
 version = "0.15" # https://crates.io/crates/bevy
-features = ["dynamic_linking","serialize", "wayland"]
+features = ["dynamic_linking","serialize", "wayland","bevy_remote"]
 #"dynamic_linking","jpeg"
